@@ -6,765 +6,514 @@
     <title>House Flip Closing Coordinator</title>
     <style>
         :root {
-            --bg: #0f1117;
-            --card-bg: #1a1d27;
-            --card-border: #2a2d3a;
-            --accent: #4f8cff;
-            --accent-light: #6fa3ff;
-            --green: #34d399;
-            --green-dim: rgba(52, 211, 153, 0.15);
-            --yellow: #fbbf24;
-            --yellow-dim: rgba(251, 191, 36, 0.15);
-            --red: #f87171;
-            --red-dim: rgba(248, 113, 113, 0.15);
-            --text: #e2e8f0;
-            --text-dim: #8892a8;
-            --text-muted: #5a6478;
+            --bg: #0b0d13; --surface: #131620; --card-bg: #181c28; --card-border: #242838;
+            --accent: #4f8cff; --accent-light: #6fa3ff;
+            --green: #34d399; --green-dim: rgba(52,211,153,0.12);
+            --yellow: #fbbf24; --yellow-dim: rgba(251,191,36,0.12);
+            --red: #f87171; --red-dim: rgba(248,113,113,0.12);
+            --orange: #fb923c; --orange-dim: rgba(251,146,60,0.12);
+            --purple: #a78bfa; --purple-dim: rgba(167,139,250,0.12);
+            --text: #e2e8f0; --text-dim: #8892a8; --text-muted: #4e5668;
         }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            padding: 0;
-        }
-
-        .dashboard-header {
-            background: linear-gradient(135deg, #1a1d27 0%, #252836 100%);
-            border-bottom: 1px solid var(--card-border);
-            padding: 2rem 2rem 1.5rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .dashboard-header h1 {
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: var(--text);
-            margin-bottom: 0.25rem;
-        }
-
-        .header-subtitle {
-            color: var(--text-dim);
-            font-size: 0.9rem;
-        }
-
-        .header-stats {
-            display: flex;
-            gap: 2rem;
-            margin-top: 1rem;
-        }
-
-        .stat-item {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .stat-value {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--accent);
-        }
-
-        .stat-label {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .dashboard-body {
-            padding: 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .property-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 16px;
-            margin-bottom: 2rem;
-            overflow: hidden;
-        }
-
-        .card-header {
-            padding: 1.5rem 2rem 1rem;
-            border-bottom: 1px solid var(--card-border);
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .property-address {
-            font-size: 1.35rem;
-            font-weight: 700;
-            color: #fff;
-            flex: 1;
-        }
-
-        .header-meta {
-            display: flex;
-            gap: 0.5rem;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .current-phase {
-            background: var(--accent);
-            color: #fff;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .source-badge {
-            background: rgba(79, 140, 255, 0.15);
-            color: var(--accent-light);
-            padding: 0.2rem 0.6rem;
-            border-radius: 12px;
-            font-size: 0.7rem;
-            font-weight: 500;
-        }
-
-        .countdown {
-            background: var(--yellow-dim);
-            border: 1px solid rgba(251, 191, 36, 0.3);
-            border-radius: 12px;
-            padding: 0.5rem 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .countdown-num {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--yellow);
-        }
-
-        .countdown-label {
-            font-size: 0.75rem;
-            color: var(--yellow);
-            text-transform: uppercase;
-            letter-spacing: 0.03em;
-        }
-
-        .closed-tag {
-            background: var(--green-dim);
-            border-color: rgba(52, 211, 153, 0.3);
-        }
-
-        .closed-tag .countdown-label {
-            color: var(--green);
-        }
-
-        /* Timeline */
-        .timeline {
-            display: flex;
-            padding: 1.25rem 2rem;
-            gap: 0;
-            overflow-x: auto;
-            border-bottom: 1px solid var(--card-border);
-        }
-
-        .milestone {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            flex: 1;
-            min-width: 80px;
-            position: relative;
-        }
-
-        .milestone::after {
-            content: '';
-            position: absolute;
-            top: 8px;
-            left: 50%;
-            width: 100%;
-            height: 2px;
-            background: var(--card-border);
-        }
-
-        .milestone:last-child::after { display: none; }
-
-        .milestone .dot {
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            background: var(--card-border);
-            border: 2px solid var(--card-border);
-            position: relative;
-            z-index: 1;
-            margin-bottom: 0.5rem;
-        }
-
-        .milestone.completed .dot {
-            background: var(--green);
-            border-color: var(--green);
-        }
-
-        .milestone.completed::after {
-            background: var(--green);
-        }
-
-        .milestone.active .dot {
-            background: var(--accent);
-            border-color: var(--accent);
-            box-shadow: 0 0 0 4px rgba(79, 140, 255, 0.25);
-        }
-
-        .milestone.active::after {
-            background: linear-gradient(90deg, var(--accent) 0%, var(--card-border) 100%);
-        }
-
-        .milestone span {
-            font-size: 0.65rem;
-            color: var(--text-muted);
-            text-align: center;
-            white-space: nowrap;
-        }
-
-        .milestone.completed span { color: var(--green); }
-        .milestone.active span { color: var(--accent); font-weight: 600; }
-
-        /* Card body grid */
-        .card-body {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 0;
-        }
-
-        .card-section {
-            padding: 1.25rem 1.5rem;
-            border-right: 1px solid var(--card-border);
-            border-bottom: 1px solid var(--card-border);
-        }
-
-        .card-section:last-child { border-right: none; }
-
-        .card-section h3 {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--text-muted);
-            margin-bottom: 0.75rem;
-        }
-
-        .empty-state {
-            color: var(--text-muted);
-            font-size: 0.8rem;
-            font-style: italic;
-        }
-
-        /* Financials */
-        .fin-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 0.3rem 0;
-            font-size: 0.85rem;
-        }
-
-        .fin-label { color: var(--text-dim); }
-        .fin-value { color: var(--text); font-weight: 600; }
-        .fin-item.projected { border-top: 1px solid var(--card-border); margin-top: 0.3rem; padding-top: 0.5rem; }
-        .profit-positive { color: var(--green); }
-        .profit-negative { color: var(--red); }
-
-        /* Contacts */
-        .contact-item {
-            display: flex;
-            gap: 0.5rem;
-            padding: 0.25rem 0;
-            font-size: 0.85rem;
-        }
-
-        .contact-role {
-            background: rgba(79, 140, 255, 0.1);
-            color: var(--accent-light);
-            padding: 0.1rem 0.5rem;
-            border-radius: 8px;
-            font-size: 0.7rem;
-            white-space: nowrap;
-        }
-
-        .contact-name { color: var(--text); }
-
-        /* Dates */
-        .date-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 0.25rem 0;
-            font-size: 0.85rem;
-        }
-
-        .date-label { color: var(--text-dim); }
-        .date-value { color: var(--yellow); font-weight: 500; }
-
-        /* Action items */
-        .action-item {
-            padding: 0.3rem 0;
-            font-size: 0.8rem;
-            color: var(--text-dim);
-        }
-
-        .action-bullet {
-            display: inline-block;
-            background: var(--red-dim);
-            color: var(--red);
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 18px;
-            font-size: 0.65rem;
-            font-weight: 700;
-            margin-right: 0.5rem;
-        }
-
-        /* Updates */
-        .update-item {
-            display: flex;
-            gap: 0.5rem;
-            align-items: center;
-            padding: 0.3rem 0;
-            font-size: 0.8rem;
-            flex-wrap: wrap;
-        }
-
-        .update-date {
-            color: var(--text-muted);
-            font-size: 0.7rem;
-            min-width: 70px;
-        }
-
-        .src-badge {
-            background: rgba(79, 140, 255, 0.1);
-            color: var(--accent-light);
-            padding: 0.1rem 0.4rem;
-            border-radius: 6px;
-            font-size: 0.6rem;
-        }
-
-        .update-subject {
-            color: var(--text-dim);
-        }
-
-        /* Empty dashboard */
-        .empty-dashboard {
-            text-align: center;
-            padding: 4rem 2rem;
-            color: var(--text-muted);
-        }
-
-        .empty-dashboard h2 {
-            color: var(--text-dim);
-            margin-bottom: 0.5rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .dashboard-header { padding: 1.5rem 1rem 1rem; }
-            .dashboard-body { padding: 1rem; }
-            .card-header { padding: 1rem 1.25rem; }
-            .timeline { padding: 1rem; }
-            .card-body { grid-template-columns: 1fr; }
-            .card-section { border-right: none; }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Inter',sans-serif; background:var(--bg); color:var(--text); line-height:1.5; }
+        .dashboard-header { background:linear-gradient(135deg,#151825,#1e2235); border-bottom:1px solid var(--card-border); padding:1.5rem 2rem 1.25rem; position:sticky; top:0; z-index:100; }00%; height:2px; background:var(--card-border); }
+        .milestone:last-child::after { display:none; }
+        .milestone .dot { width:16px; height:16px; border-radius:50%; background:var(--card-border); border:2px solid var(--card-border); position:relative; z-index:1; margin-bottom:0.35rem; }
+        .milestone.completed .dot { background:var(--green); border-color:var(--green); }
+        .milestone.completed::after { background:var(--green); }
+        .milestone.active .dot { background:var(--accent); border-color:var(--accent); box-shadow:0 0 0 3px rgba(79,140,255,0.25); }
+        .milestone.active::after { background:linear-gradient(90deg,var(--accent),var(--card-border)); }
+        .milestone span { font-size:0.58rem; color:var(--text-muted); text-align:center; white-space:nowrap; }
+        .milestone.completed span { color:var(--green); } .milestone.active span { color:var(--accent); font-weight:600; }
+        .card-body-2col { display:grid; grid-template-columns:1fr 1fr; }
+        .col-left { border-right:1px solid var(--card-border); }
+        .two-col-inner { display:grid; grid-template-columns:1fr 1fr; }
+        .two-col-inner .card-section { border-bottom:1px solid var(--card-border); }
+        .two-col-inner .card-section:first-child { border-right:1px solid var(--card-border); }
+        .card-section { padding:1rem 1.25rem; }
+        .card-section h3 { font-size:0.65rem; text-transform:uppercase; letter-spacing:0.07em; color:var(--text-muted); margin-bottom:0.6rem; font-weight:600; }
+        .empty-state { color:var(--text-muted); font-size:0.78rem; font-style:italic; }
+        .dates-section { border-bottom:1px solid var(--card-border); }
+        .date-item { display:flex; align-items:center; gap:0.5rem; padding:0.2rem 0; font-size:0.8rem; }
+        .date-icon { font-size:0.7rem; width:18px; text-align:center; }
+        .date-label { color:var(--text-dim); min-width:110px; }
+        .date-value { color:var(--text); font-weight:500; }
+        .date-closing { background:var(--yellow-dim); border-radius:6px; padding:0.35rem 0.6rem !important; margin-bottom:0.3rem; }
+        .date-closing .date-label { color:var(--yellow); font-weight:600; }
+        .closing-val { color:var(--yellow) !important; font-weight:700 !important; }
+        .repair-progress { display:flex; align-items:center; gap:0.6rem; margin-bottom:0.6rem; }
+        .repair-bar { flex:1; height:6px; background:var(--card-border); border-radius:3px; overflow:hidden; }
+        .repair-fill { height:100%; background:var(--green); border-radius:3px; }
+        .repair-pct { font-size:0.7rem; color:var(--text-dim); white-space:nowrap; }
+        .repair-item { display:flex; align-items:flex-start; gap:0.4rem; padding:0.2rem 0; font-size:0.78rem; flex-wrap:wrap; }
+        .repair-icon { width:18px; text-align:center; font-size:0.75rem; flex-shrink:0; margin-top:1px; }
+        .repair-done .repair-icon { color:var(--green); }
+        .repair-wip .repair-icon { color:var(--yellow); }
+        .repair-todo .repair-icon { color:var(--text-muted); }
+        .repair-na .repair-icon { color:var(--text-muted); }
+        .repair-text { color:var(--text-dim); flex:1; }
+        .repair-done .repair-text { color:var(--green); text-decoration:line-through; opacity:0.7; }
+        .repair-who { font-size:0.65rem; color:var(--accent-light); background:rgba(79,140,255,0.1); padding:0.1rem 0.4rem; border-radius:6px; }
+        .repair-cost { font-size:0.65rem; color:var(--text-muted); }
+        .fin-item { display:flex; justify-content:space-between; padding:0.2rem 0; font-size:0.82rem; }
+        .fin-label { color:var(--text-dim); } .fin-value { color:var(--text); font-weight:600; }
+        .fin-item.projected { border-top:1px solid var(--card-border); margin-top:0.2rem; padding-top:0.4rem; }
+        .profit-positive { color:var(--green); } .profit-negative { color:var(--red); }
+        .contact-item { display:flex; gap:0.4rem; padding:0.18rem 0; font-size:0.8rem; align-items:center; }
+        .contact-role { background:rgba(79,140,255,0.08); color:var(--accent-light); padding:0.08rem 0.4rem; border-radius:6px; font-size:0.62rem; white-space:nowrap; }
+        .contact-name { color:var(--text); }
+        .contact-more { font-size:0.7rem; color:var(--text-muted); padding-top:0.15rem; }
+        .actions-section { border-bottom:1px solid var(--card-border); }
+        .action-item { padding:0.2rem 0; font-size:0.78rem; color:var(--text-dim); }
+        .action-bullet { display:inline-flex; align-items:center; justify-content:center; background:var(--red-dim); color:var(--red); width:16px; height:16px; border-radius:50%; font-size:0.6rem; font-weight:700; margin-right:0.4rem; }
+        .update-item { display:flex; gap:0.4rem; align-items:center; padding:0.2rem 0; font-size:0.75rem; flex-wrap:wrap; }
+        .update-date { color:var(--text-muted); font-size:0.65rem; min-width:68px; }
+        .src-badge { background:rgba(79,140,255,0.08); color:var(--accent-light); padding:0.08rem 0.35rem; border-radius:5px; font-size:0.55rem; }
+        .update-subject { color:var(--text-dim); }
+        .card-notes { padding:0.5rem 1.25rem; background:rgba(0,0,0,0.12); border-top:1px solid var(--card-border); display:flex; gap:0.4rem; flex-wrap:wrap; }
+        .note-tag { font-size:0.62rem; color:var(--text-muted); background:rgba(78,86,104,0.15); padding:0.15rem 0.5rem; border-radius:6px; }
+        .empty-dashboard { text-align:center; padding:4rem 2rem; color:var(--text-muted); }
+        .empty-dashboard h2 { color:var(--text-dim); margin-bottom:0.5rem; }
+        footer { text-align:center; padding:1.5rem; color:var(--text-muted); font-size:0.7rem; }
+        @media (max-width:900px) {
+            .card-body-2col { grid-template-columns:1fr; }
+            .col-left { border-right:none; border-bottom:1px solid var(--card-border); }
+            .two-col-inner { grid-template-columns:1fr; }
+            .two-col-inner .card-section:first-child { border-right:none; }
+            .dashboard-header { padding:1rem; }
+            .dashboard-body { padding:1rem; }
+            .upcoming-strip { padding:0.5rem 1rem; }
         }
     </style>
 </head>
 <body>
     <div class="dashboard-header">
-        <h1>House Flip Closing Coordinator</h1>
-        <p class="header-subtitle">Last updated: April 10, 2026 at 09:06 PM</p>
-        <div class="header-stats">
-            <div class="stat-item">
-                <span class="stat-value">7</span>
-                <span class="stat-label">Active Properties</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-value">2</span>
-                <span class="stat-label">At Closing</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-value">3</span>
-                <span class="stat-label">In Rehab</span>
-            </div>
+        <div class="header-top">
+            <h1>House Flip Closing Coordinator</h1>
+            <span class="updated">Updated Apr 10, 2026 &middot; 10:03 PM</span>
+        </div>
+        <div class="stats-bar">
+            <div class="stat-chip"><span class="sv sv-blue">8</span><span class="sl">Properties</span></div>
+            <div class="stat-chip"><span class="sv sv-green">2</span><span class="sl">Closing</span></div>
+            <div class="stat-chip"><span class="sv sv-orange">4</span><span class="sl">In Rehab</span></div>
+            <div class="stat-chip"><span class="sv sv-yellow">2</span><span class="sl">In Pipeline</span></div>
+            <div class="stat-chip"><span class="sv sv-red">13</span><span class="sl">Repairs Pending</span></div>
         </div>
     </div>
+    <div class='upcoming-strip'><span class='upcoming-strip-label'>Upcoming Closings</span><div class="upcoming-item urgency-urgent"><span class="upcoming-days">0d</span><span class="upcoming-detail"><strong>29 Chestnut Dr</strong> &mdash; Closing 4/11/2026</span></div><div class="upcoming-item urgency-soon"><span class="upcoming-days">5d</span><span class="upcoming-detail"><strong>4 School St</strong> &mdash; Closing 4/16/2026</span></div></div>
     <div class="dashboard-body">
         
-        <div class="property-card">
-            <div class="card-header">
-                <h2 class="property-address">297 Breckwood Blvd, Springfield, MA 01109</h2>
-                <div class="header-meta">
-                    <span class="current-phase">Closing</span>
-                    <span class="source-badge">dotloop</span> <span class="source-badge">Email</span>
-                </div>
-                
-            </div>
-            <div class="timeline"><div class="milestone completed"><div class="dot"></div><span>Offer Made</span></div><div class="milestone completed"><div class="dot"></div><span>Under Contract</span></div><div class="milestone completed"><div class="dot"></div><span>Title & Escrow</span></div><div class="milestone completed"><div class="dot"></div><span>Inspections</span></div><div class="milestone completed"><div class="dot"></div><span>Appraisal</span></div><div class="milestone completed"><div class="dot"></div><span>Financing</span></div><div class="milestone completed"><div class="dot"></div><span>Repairs / Rehab</span></div><div class="milestone completed"><div class="dot"></div><span>Final Walkthrough</span></div><div class="milestone active"><div class="dot"></div><span>Closing</span></div><div class="milestone pending"><div class="dot"></div><span>Closed</span></div></div>
-            <div class="card-body">
-                <div class="card-section financials">
-                    <h3>Financials</h3>
-                    <p class="empty-state">No financial data yet</p>
-                </div>
-                <div class="card-section contacts-section">
-                    <h3>Key Contacts</h3>
-                    <div class="contact-item"><span class="contact-role">Agent</span><span class="contact-name">Alice Kempf</span></div><div class="contact-item"><span class="contact-role">Attorney</span><span class="contact-name">David Burstein</span></div><div class="contact-item"><span class="contact-role">Project Manager</span><span class="contact-name">Jessica Sicard</span></div><div class="contact-item"><span class="contact-role">Contractor</span><span class="contact-name">Elier Rosado</span></div><div class="contact-item"><span class="contact-role">Agent</span><span class="contact-name">Alexandra Fazzi</span></div><div class="contact-item"><span class="contact-role">Contractor</span><span class="contact-name">Randy</span></div>
-                </div>
-                <div class="card-section dates-section">
-                    <h3>Important Dates</h3>
-                    <p class="empty-state">No dates detected yet</p>
-                </div>
-                <div class="card-section actions-section">
-                    <h3>Action Items</h3>
-                    <div class="action-item"><span class="action-bullet">!</span>Complete all repair punch list items for sale</div><div class="action-item"><span class="action-bullet">!</span>Water meter reading obtained (022695)</div><div class="action-item"><span class="action-bullet">!</span>Smoke detectors from building permit closeout</div><div class="action-item"><span class="action-bullet">!</span>Tree limb removal invoice submitted</div><div class="action-item"><span class="action-bullet">!</span>Electrical invoice submitted</div>
-                </div>
-                <div class="card-section updates-section">
-                    <h3>Recent Updates</h3>
-                    <div class="update-item">
-                <span class="update-date">2026-03-30</span>
-                <span class="src-badge">Email</span>
-                <span class="update-subject">Repairs priority</span>
-            </div><div class="update-item">
-                <span class="update-date">2026-04-01</span>
-                <span class="src-badge">Email</span>
-                <span class="update-subject">Electrical invoice</span>
-            </div><div class="update-item">
-                <span class="update-date">2026-04-01</span>
-                <span class="src-badge">dotloop</span>
-                <span class="update-subject">FHA Amendatory & Extension signed</span>
-            </div><div class="update-item">
-                <span class="update-date">2026-04-07</span>
-                <span class="src-badge">Email</span>
-                <span class="update-subject">297 Breckwood - tree limb invoice</span>
-            </div><div class="update-item">
-                <span class="update-date">2026-04-08</span>
-                <span class="src-badge">Email</span>
-                <span class="update-subject">297 Breckwood P&S - water meter & smokes</span>
-            </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="property-card">
-            <div class="card-header">
+    <div class="property-card">
+        <div class="card-header">
+            <div class="card-header-left">
                 <h2 class="property-address">29 Chestnut Dr, Belchertown, MA 01007</h2>
-                <div class="header-meta">
-                    <span class="current-phase">Closing</span>
+                <div class="header-tags">
+                    <span class="current-phase phase-closing">Closing</span>
                     <span class="source-badge">dotloop</span> <span class="source-badge">Email</span>
                 </div>
-                <div class="countdown"><span class="countdown-num">0</span><span class="countdown-label">days to closing</span></div>
             </div>
-            <div class="timeline"><div class="milestone completed"><div class="dot"></div><span>Offer Made</span></div><div class="milestone completed"><div class="dot"></div><span>Under Contract</span></div><div class="milestone completed"><div class="dot"></div><span>Title & Escrow</span></div><div class="milestone completed"><div class="dot"></div><span>Inspections</span></div><div class="milestone completed"><div class="dot"></div><span>Appraisal</span></div><div class="milestone completed"><div class="dot"></div><span>Financing</span></div><div class="milestone completed"><div class="dot"></div><span>Repairs / Rehab</span></div><div class="milestone completed"><div class="dot"></div><span>Final Walkthrough</span></div><div class="milestone active"><div class="dot"></div><span>Closing</span></div><div class="milestone pending"><div class="dot"></div><span>Closed</span></div></div>
-            <div class="card-body">
-                <div class="card-section financials">
-                    <h3>Financials</h3>
-                    <p class="empty-state">No financial data yet</p>
-                </div>
-                <div class="card-section contacts-section">
-                    <h3>Key Contacts</h3>
-                    <div class="contact-item"><span class="contact-role">Agent</span><span class="contact-name">Alice Kempf</span></div><div class="contact-item"><span class="contact-role">Attorney</span><span class="contact-name">David Burstein</span></div><div class="contact-item"><span class="contact-role">Project Manager</span><span class="contact-name">Jessica Sicard</span></div><div class="contact-item"><span class="contact-role">Accounting</span><span class="contact-name">Chris Keniley</span></div><div class="contact-item"><span class="contact-role">Agent</span><span class="contact-name">Alexandra Fazzi</span></div><div class="contact-item"><span class="contact-role">Agent</span><span class="contact-name">Riley Brennan</span></div>
-                </div>
+            <div class="card-header-right"><div class="countdown urgent"><span class="countdown-num">0</span><span class="countdown-label">days to closing</span></div></div>
+        </div>
+        <div class="timeline"><div class="milestone completed"><div class="dot"></div><span>Offer Made</span></div><div class="milestone completed"><div class="dot"></div><span>Contract</span></div><div class="milestone completed"><div class="dot"></div><span>Title</span></div><div class="milestone completed"><div class="dot"></div><span>Inspections</span></div><div class="milestone completed"><div class="dot"></div><span>Appraisal</span></div><div class="milestone completed"><div class="dot"></div><span>Financing</span></div><div class="milestone completed"><div class="dot"></div><span>Rehab</span></div><div class="milestone completed"><div class="dot"></div><span>Walk</span></div><div class="milestone active"><div class="dot"></div><span>Closing</span></div><div class="milestone pending"><div class="dot"></div><span>Closed</span></div></div>
+        <div class="card-body-2col">
+            <div class="col-left">
                 <div class="card-section dates-section">
-                    <h3>Important Dates</h3>
-                    <div class="date-item"><span class="date-label">Closing Date</span><span class="date-value">4/11/2026</span></div>
+                    <h3>&#128197; Important Dates</h3>
+                    <div class="date-item date-closing"><span class="date-icon">&#128197;</span><span class="date-label">Closing Date</span><span class="date-value closing-val">4/11/2026</span></div><div class="date-item"><span class="date-icon">&#128336;</span><span class="date-label">PSA Signed</span><span class="date-value">4/7/2026</span></div><div class="date-item"><span class="date-icon">&#128336;</span><span class="date-label">Gen. Addendum</span><span class="date-value">4/10/2026</span></div><div class="date-item"><span class="date-icon">&#128336;</span><span class="date-label">Extension Signed</span><span class="date-value">4/10/2026</span></div><div class="date-item"><span class="date-icon">&#128336;</span><span class="date-label">Well Test Cleared</span><span class="date-value">4/10/2026</span></div>
+                </div>
+                <div class="card-section repair-section">
+                    <h3>&#128295; Repair / Punch List Items</h3>
+                    <div class="repair-progress"><div class="repair-bar"><div class="repair-fill" style="width:100%"></div></div><span class="repair-pct">3/3 done</span></div><div class="repair-item repair-done"><span class="repair-icon">&#10003;</span><span class="repair-text">Well water bacteria test</span><span class="repair-who">Jessica Sicard</span><span class="repair-cost">Passed - No bacteria</span></div><div class="repair-item repair-done"><span class="repair-icon">&#10003;</span><span class="repair-text">Oil tank reading (1/2 full, 275 gal)</span><span class="repair-who">Alice Kempf</span></div><div class="repair-item repair-done"><span class="repair-icon">&#10003;</span><span class="repair-text">Well pump service estimate</span><span class="repair-who">Quabbin Well and Pump</span></div>
+                </div>
+            </div>
+            <div class="col-right">
+                <div class="two-col-inner">
+                    <div class="card-section financials">
+                        <h3>&#128176; Financials</h3>
+                        <p class="empty-state">No financial data yet</p>
+                    </div>
+                    <div class="card-section contacts-section">
+                        <h3>&#128101; Contacts</h3>
+                        <div class="contact-item"><span class="contact-role">Agent</span><span class="contact-name">Alice Kempf</span></div><div class="contact-item"><span class="contact-role">Attorney</span><span class="contact-name">David Burstein</span></div><div class="contact-item"><span class="contact-role">Project Manager</span><span class="contact-name">Jessica Sicard</span></div><div class="contact-item"><span class="contact-role">Accounting</span><span class="contact-name">Chris Keniley</span></div><div class="contact-item"><span class="contact-role">Agent</span class="contact-name">Alexandra Fazzi</span></div><div class="contact-item"><span class="contact-role">Agent</span><span class="contact-name">Riley Brennan</span></div>
+                    </div>
                 </div>
                 <div class="card-section actions-section">
-                    <h3>Action Items</h3>
+                    <h3>&#9888;&#65039; Action Items</h3>
                     <div class="action-item"><span class="action-bullet">!</span>Send most recent Pioneer Valley Oil invoice to Dave Burstein for closing</div><div class="action-item"><span class="action-bullet">!</span>Oil reading obtained: 1/2 full, 275 gallon tank</div><div class="action-item"><span class="action-bullet">!</span>Well water bacteria test results: NO bacteria - cleared!</div><div class="action-item"><span class="action-bullet">!</span>General Addendum signed via dotloop</div><div class="action-item"><span class="action-bullet">!</span>Extension of Time signed via dotloop</div>
                 </div>
                 <div class="card-section updates-section">
-                    <h3>Recent Updates</h3>
-                    <div class="update-item">
-                <span class="update-date">2026-04-07</span>
-                <span class="src-badge">dotloop</span>
-                <span class="update-subject">PSA signed via dotloop</span>
-            </div><div class="update-item">
-                <span class="update-date">2026-04-08</span>
-                <span class="src-badge">Email</span>
-                <span class="update-subject">Well pump estimate forwarded</span>
-            </div><div class="update-item">
-                <span class="update-date">2026-04-08</span>
-                <span class="src-badge">Email</span>
-                <span class="update-subject">Oil reading & P&S updates</span>
-            </div><div class="update-item">
-                <span class="update-date">2026-04-09</span>
-                <span class="src-badge">Email</span>
-                <span class="update-subject">Pioneer Valley Oil invoice for closing</span>
-            </div><div class="update-item">
-                <span class="update-date">2026-04-10</span>
-                <span class="src-badge">dotloop</span>
-                <span class="update-subject">Extension of Time & General Addendum signed</span>
-            </div>
+                    <h3>&#128172; Recent Updates</h3>
+                    <div class="update-item"><span class="update-date">2026-04-07</span><span class="src-badge">dotloop</span><span class="update-subject">PSA signed via dotloop</span></div><div class="update-item"><span class="update-date">2026-04-08</span><span class="src-badge">Email</span><span class="update-subject">Well pump estimate forwarded</span></div><div class="update-item"><span class="update-date">2026-04-08</span><span class="src-badge">Email</span><span class="update-subject">Oil reading & P&S updates</span></div><div class="update-item"><span class="update-date">2026-04-09</span><span class="src-badge">Email</span><span class="update-subject">Pioneer Valley Oil invoice for closing</span></div>
                 </div>
             </div>
         </div>
-        
-        <div class="property-card">
-            <div class="card-header">
-                <h2 class="property-address">21 Holly St, Greenfield, MA</h2>
-                <div class="header-meta">
-                    <span class="current-phase">Under Contract</span>
-                    <span class="source-badge">Email</span> <span class="source-badge">PDF Attachment</span>
+        <div class="card-notes"><span class="note-tag">Entity: Wicked Deals LLC</span><span class="note-tag">Closing scheduled for Friday 4/11/2026</span></div>
+    </div>
+    <div class="property-card">
+        <div class="card-header">
+            <div class="card-header-left">
+                <h2 class="property-address">297 Breckwood Blvd, Springfield, MA 01109</h2>
+                <div class="header-tags">
+                    <span class="current-phase phase-closing">Closing</span>
+                    <span class="source-badge">dotloop</span> <span class="source-badge">Email</span>
                 </div>
-                
             </div>
-            <div class="timeline"><div class="milestone completed"><div class="dot"></div><span>Offer Made</span></div><div class="milestone active"><div class="dot"></div><span>Under Contract</span></div><div class="milestone pending"><div class="dot"></div><span>Title & Escrow</span></div><div class="milestone pending"><div class="dot"></div><span>Inspections</span></div><div class="milestone pending"><div class="dot"></div><span>Appraisal</span></div><div class="milestone pending"><div class="dot"></div><span>Financing</span></div><div class="milestone pending"><div class="dot"></div><span>Repairs / Rehab</span></div><div class="milestone pending"><div class="dot"></div><span>Final Walkthrough</span></div><div class="milestone pending"><div class="dot"></div><span>Closing</span></div><div class="milestone pending"><div class="dot"></div><span>Closed</span></div></div>
-            <div class="card-body">
-                <div class="card-section financials">
-                    <h3>Financials</h3>
-                    <p class="empty-state">No financial data yet</p>
-                </div>
-                <div class="card-section contacts-section">
-                    <h3>Key Contacts</h3>
-                    <div class="contact-item"><span class="contact-role">Attorney</span><span class="contact-name">David Burstein</span></div><div class="contact-item"><span class="contact-role">Buyer Contact</span><span class="contact-name">Jose Teo</span></div><div class="contact-item"><span class="contact-role">Contractor</span><span class="contact-name">Elier Rosado</span></div>
-                </div>
+            <div class="card-header-right"><div class="countdown tbd"><span class="countdown-label">TBD - Imminent</span></div></div>
+        </div>
+        <div class="timeline"><div class="milestone completed"><div class="dot"></div><span>Offer Made</span></div><div class="milestone completed"><div class="dot"></div><span>Contract</span></div><div class="milestone completed"><div class="dot"></div><span>Title</span></div><div class="milestone completed"><div class="dot"></div><span>Inspections</span></div><div class="milestone completed"><div class="dot"></div><span>Appraisal</span></div><div class="milestone completed"><div class="dot"></div><span>Financing</span></div><div class="milestone completed"><div class="dot"></div><span>Rehab</span></div><div class="milestone completed"><div class="dot"></div><span>Walk</span></div><div class="milestone active"><div class="dot"></div><span>Closing</span></div><div class="milestone pending"><div class="dot"></div><span>Closed</span></div></div>
+        <div class="card-body-2col">
+            <div class="col-left">
                 <div class="card-section dates-section">
-                    <h3>Important Dates</h3>
-                    <p class="empty-state">No dates detected yet</p>
+                    <h3>&#128197; Important Dates</h3>
+                    <div class="date-item"><span class="date-icon">&#128336;</span><span class="date-label">P&S Signed</span><span class="date-value">1/23/2026</span></div><div class="date-item"><span class="date-icon">&#128336;</span><span class="date-label">Extension Signed</span><span class="date-value">4/9/2026</span></div><div class="date-item"><span class="date-icon">&#128336;</span><span class="date-label">FHA Amendatory</span><span class="date-value">4/1/2026</span></div><div class="date-item date-closing"><span class="date-icon">&#128197;</span><span class="date-label">Closing Date</span><span class="date-value closing-val">TBD - Imminent</span></div>
+                </div>
+                <div class="card-section repair-section">
+                    <h3>&#128295; Repair / Punch List Items</h3>
+                    <div class="repair-progress"><div class="repair-bar"><div class="repair-fill" style="width:60%"></div></div><span class="repair-pct">3/5 done</span></div><div class="repair-item repair-todo"><span class="repair-icon">&#9675;</span><span class="repair-text">Smoke detector installation (building permit closeout)</span><span class="repair-who">Elier Rosado</span></div><div class="repair-item repair-done"><span class="repair-icon">&#10003;</span><span class="repair-text">Tree limb removal</span><span class="repair-who">Contractor</span><span class="repair-cost">Invoice submitted</span></div><div class="repair-item repair-done"><span class="repair-icon">&#10003;</span><span class="repair-text">Electrical work</span><span class="repair-who">Electrician</span><span class="repair-cost">Invoice submitted</span></div><div class="repair-item repair-done"><span class="repair-icon">&#10003;</span><span class="repair-text">Water meter reading obtained (022695)</span><span class="repair-who">Jessica Sicard</span></div><div class="repair-item repair-wip"><span class="repair-icon">&#9881;</span><span class="repair-text">General repair punch list for sale</span><span class="repair-who">Randy / Elier Rosado</span></div>
+                </div>
+            </div>
+            <div class="col-right">
+                <div class="two-col-inner">
+                    <div class="card-section financials">
+                        <h3>&#128176; Financials</h3>
+                        <p class="empty-state">No financial data yet</p>
+                    </div>
+                    <div class="card-section contacts-section">
+                        <h3>&#128101; Contacts</h3>
+                        <div class="contact-item"><span class="contact-role">Agent</span><span class="contact-name">Alice Kempf</span></div><div class="contact-item"><span class="contact-role">Attorney</span><span class="contact-name">David Burstein</span></div><div class="contact-item"><span class="contact-role">Project Manager</span><span class="contact-name">Jessica Sicard</span></div><div class="contact-item"><span class="contact-role">Contractor</span><span class="contact-name">Elier Rosado</span></div><div class="contact-item"><span class="contact-role">Agent</span><span class="contact-name">Alexandra Fazzi</span></div><div class="contact-item"><span class="contact-role">Contractor</span><span class="contact-name">Randy</span></div>
+                    </div>
                 </div>
                 <div class="card-section actions-section">
-                    <h3>Action Items</h3>
-                    <div class="action-item"><span class="action-bullet">!</span>Buyer using their own lender - need lender info</div><div class="action-item"><span class="action-bullet">!</span>Determine if buyer's lender uses own attorney for closing</div>
+                    <h3>&#9888;&#65039; Action Items</h3>
+                    <div class="action-item"><span class="action-bullet">!</span>Complete all repair punch list items for sale</div><div class="action-item"><span class="action-bullet">!</span>Water meter reading obtained (022695)</div><div class="action-item"><span class="action-bullet">!</span>Smoke detectors from building permit closeout</div><div class="action-item"><span class="action-bullet">!</span>Tree limb removal invoice submitted</div><div class="action-item"><span class="action-bullet">!</span>Electrical invoice submitted</div>
                 </div>
                 <div class="card-section updates-section">
-                    <h3>Recent Updates</h3>
-                    <div class="update-item">
-                <span class="update-date">2026-03-23</span>
-                <span class="src-badge">Email</span>
-                <span class="update-subject">Sale initiated - buyer financing details</span>
-            </div><div class="update-item">
-                <span class="update-date">2026-03-24</span>
-                <span class="src-badge">Email</span> <span class="src-badge">PDF Attachment</span>
-                <span class="update-subject">Draft P&S sent for review</span>
-            </div><div class="update-item">
-                <span class="update-date">2026-03-25</span>
-                <span class="src-badge">Email</span>
-                <span class="update-subject">Draft P&S approved</span>
-            </div><div class="update-item">
-                <span class="update-date">2026-03-28</span>
-                <span class="src-badge">Email</span> <span class="src-badge">PDF Attachment</span>
-                <span class="update-subject">Fully executed P&S with deposit check</span>
-            </div>
+                    <h3>&#128172; Recent Updates</h3>
+                    <div class="update-item"><span class="update-date">2026-03-30</span><span class="src-badge">Email</span><span class="update-subject">Repairs priority</span></div><div class="update-item"><span class="update-date">2026-04-01</span><span class="src-badge">Email</span><span class="update-subject">Electrical invoice</span></div><div class="update-item"><span class="update-date">2026-04-01</span><span class="src-badge">dotloop</span><span class="update-subject">FHA Amendatory & Extension signed</span></div><div class="update-item"><span class="update-date">2026-04-07</span><span class="src-badge">Email</span><span class="update-subject">297 Breckwood - tree limb invoice</span></div>
                 </div>
             </div>
         </div>
-        
-        <div class="property-card">
-            <div class="card-header">
-                <h2 class="property-address">4 School St, Ware, MA</h2>
-                <div class="header-meta">
-                    <span class="current-phase">Financing</span>
-                    <span class="source-badge">Email</span> <span class="source-badge">PDF Attachment</span>
-                </div>
-                <div class="countdown"><span class="countdown-num">5</span><span class="countdown-label">days to closing</span></div>
-            </div>
-            <div class="timeline"><div class="milestone completed"><div class="dot"></div><span>Offer Made</span></div><div class="milestone completed"><div class="dot"></div><span>Under Contract</span></div><div class="milestone completed"><div class="dot"></div><span>Title & Escrow</span></div><div class="milestone completed"><div class="dot"></div><span>Inspections</span></div><div class="milestone completed"><div class="dot"></div><span>Appraisal</span></div><div class="milestone active"><div class="dot"></div><span>Financing</span></div><div class="milestone pending"><div class="dot"></div><span>Repairs / Rehab</span></div><div class="milestone pending"><div class="dot"></div><span>Final Walkthrough</span></div><div class="milestone pending"><div class="dot"></div><span>Closing</span></div><div class="milestone pending"><div class="dot"></div><span>Closed</span></div></div>
-            <div class="card-body">
-                <div class="card-section financials">
-                    <h3>Financials</h3>
-                    <div class="fin-item"><span class="fin-label">Closing Costs</span><span class="fin-value">$34,355</span></div>
-                </div>
-                <div class="card-section contacts-section">
-                    <h3>Key Contacts</h3>
-                    <div class="contact-item"><span class="contact-role">Attorney</span><span class="contact-name">David Burstein</span></div><div class="contact-item"><span class="contact-role">Lender</span><span class="contact-name">David Chase</span></div><div class="contact-item"><span class="contact-role">Lender</span><span class="contact-name">Camille Ali</span></div><div class="contact-item"><span class="contact-role">Project Manager</span><span class="contact-name">Jessica Sicard</span></div><div class="contact-item"><span class="contact-role">Partner</span><span class="contact-name">Kevin Shippee</span></div>
-                </div>
-                <div class="card-section dates-section">
-                    <h3>Important Dates</h3>
-                    <div class="date-item"><span class="date-label">Closing Date</span><span class="date-value">4/16/2026</span></div>
-                </div>
-                <div class="card-section actions-section">
-                    <h3>Action Items</h3>
-                    <div class="action-item"><span class="action-bullet">!</span>Follow up on appraisal status with Freedom Credit Union</div><div class="action-item"><span class="action-bullet">!</span>Confirm Jeff's update on closing timeline</div><div class="action-item"><span class="action-bullet">!</span>Utilities status still pending</div>
-                </div>
-                <div class="card-section updates-section">
-                    <h3>Recent Updates</h3>
-                    <div class="update-item">
-                <span class="update-date">2026-03-19</span>
-                <span class="src-badge">Email</span>
-                <span class="update-subject">Appraisal follow-up</span>
-            </div><div class="update-item">
-                <span class="update-date">2026-03-20</span>
-                <span class="src-badge">Email</span> <span class="src-badge">PDF Attachment</span>
-                <span class="update-subject">Loan documents from Freedom CU</span>
-            </div><div class="update-item">
-                <span class="update-date">2026-03-26</span>
-                <span class="src-badge">Email</span>
-                <span class="update-subject">Checking on closing date & utilities</span>
-            </div><div class="update-item">
-                <span class="update-date">2026-03-28</span>
-                <span class="src-badge">Email</span>
-                <span class="update-subject">4 School - closing date 4/16</span>
-            </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="property-card">
-            <div class="card-header">
+        <div class="card-notes"><span class="note-tag">Entity: Wicked Deals LLC</span><span class="note-tag">Managed by YellowBrick Management</span></div>
+    </div>
+    <div class="property-card">
+        <div class="card-header">
+            <div class="card-header-left">
                 <h2 class="property-address">1874 Home Rd, Sheffield, MA</h2>
-                <div class="header-meta">
-                    <span class="current-phase">Repairs / Rehab</span>
+                <div class="header-tags">
+                    <span class="current-phase phase-rehab">Repairs / Rehab</span>
                     <span class="source-badge">Email</span> <span class="source-badge">PDF Attachment</span>
                 </div>
-                
             </div>
-            <div class="timeline"><div class="milestone completed"><div class="dot"></div><span>Offer Made</span></div><div class="milestone completed"><div class="dot"></div><span>Under Contract</span></div><div class="milestone completed"><div class="dot"></div><span>Title & Escrow</span></div><div class="milestone completed"><div class="dot"></div><span>Inspections</span></div><div class="milestone completed"><div class="dot"></div><span>Appraisal</span></div><div class="milestone completed"><div class="dot"></div><span>Financing</span></div><div class="milestone active"><div class="dot"></div><span>Repairs / Rehab</span></div><div class="milestone pending"><div class="dot"></div><span>Final Walkthrough</span></div><div class="milestone pending"><div class="dot"></div><span>Closing</span></div><div class="milestone pending"><div class="dot"></div><span>Closed</span></div></div>
-            <div class="card-body">
-                <div class="card-section financials">
-                    <h3>Financials</h3>
-                    <p class="empty-state">No financial data yet</p>
-                </div>
-                <div class="card-section contacts-section">
-                    <h3>Key Contacts</h3>
-                    <div class="contact-item"><span class="contact-role">Agent</span><span class="contact-name">Alice Kempf</span></div><div class="contact-item"><span class="contact-role">Attorney</span><span class="contact-name">David Burstein</span></div><div class="contact-item"><span class="contact-role">Accounting</span><span class="contact-name">Chris Keniley</span></div><div class="contact-item"><span class="contact-role">Contractor</span><span class="contact-name">Mahari Miller</span></div><div class="contact-item"><span class="contact-role">Partner</span><span class="contact-name">Kevin Shippee</span></div><div class="contact-item"><span class="contact-role">Agent</span><span class="contact-name">Melissa Vanderburgh</span></div>
-                </div>
+            <div class="card-header-right"><div class="countdown tbd"><span class="countdown-label">TBD</span></div></div>
+        </div>
+        <div class="timeline"><div class="milestone completed"><div class="dot"></div><span>Offer Made</span></div><div class="milestone completed"><div class="dot"></div><span>Contract</span></div><div class="milestone completed"><div class="dot"></div><span>Title</span></div><div class="milestone completed"><div class="dot"></div><span>Inspections</span></div><div class="milestone completed"><div class="dot"></div><span>Appraisal</span></div><div class="milestone completed"><div class="dot"></div><span>Financing</span></div><div class="milestone active"><div class="dot"></div><span>Rehab</span></div><div class="milestone pending"><div class="dot"></div><span>Walk</span></div><div class="milestone pending"><div class="dot"></div><span>Closing</span></div><div class="milestone pending"><div class="dot"></div><span>Closed</span></div></div>
+        <div class="card-body-2col">
+            <div class="col-left">
                 <div class="card-section dates-section">
-                    <h3>Important Dates</h3>
-                    <p class="empty-state">No dates detected yet</p>
+                    <h3>&#128197; Important Dates</h3>
+                    <div class="date-item"><span class="date-icon">&#128336;</span><span class="date-label">Purchased</span><span class="date-value">12/1/2025</span></div><div class="date-item"><span class="date-icon">&#128336;</span><span class="date-label">Rehab Scope Sent</span><span class="date-value">3/26/2026</span></div><div class="date-item"><span class="date-icon">&#128336;</span><span class="date-label">Market Analysis</span><span class="date-value">3/9/2026</span></div><div class="date-item date-closing"><span class="date-icon">&#128197;</span><span class="date-label">Closing Date</span><span class="date-value closing-val">TBD</span></div>
+                </div>
+                <div class="card-section repair-section">
+                    <h3>&#128295; Repair / Punch List Items</h3>
+                    <div class="repair-progress"><div class="repair-bar"><div class="repair-fill" style="width:0%"></div></div><span class="repair-pct">0/4 done</span></div><div class="repair-item repair-todo"><span class="repair-icon">&#9675;</span><span class="repair-text">Full rehab scope (sent to Mahari)</span><span class="repair-who">Mahari Miller</span></div><div class="repair-item repair-todo"><span class="repair-icon">&#9675;</span><span class="repair-text">Ensure heat works</span><span class="repair-who">Contractor</span></div><div class="repair-item repair-todo"><span class="repair-icon">&#9675;</span><span class="repair-text">Clean and stage property</span><span class="repair-who">TBD</span></div><div class="repair-item repair-todo"><span class="repair-icon">&#9675;</span><span class="repair-text">Check for glaring issues</span><span class="repair-who">TBD</span></div>
+                </div>
+            </div>
+            <div class="col-right">
+                <div class="two-col-inner">
+                    <div class="card-section financials">
+                        <h3>&#128176; Financials</h3>
+                        <p class="empty-state">No financial data yet</p>
+                    </div>
+                    <div class="card-section contacts-section">
+                        <h3>&#128101; Contacts</h3>
+                        <div class="contact-item"><span class="contact-role">Agent</span><span class="contact-name">Alice Kempf</span></div><div class="contact-item"><span class="contact-role">Attorney</span><span class="contact-name">David Burstein</span></div><div class="contact-item"><span class="contact-role">Accounting</span><span class="contact-name">Chris Keniley</span></div><div class="contact-item"><span class="contact-role">Contractor</span><span class="contact-name">Mahari Miller</span></div><div class="contact-item"><span class="contact-role">Partner</span><span class="contact-name">Kevin Shippee</span></div><div class="contact-item"><span class="contact-role">Agent</span><span class="contact-name">Melissa Vanderburgh</span></div>
+                    </div>
                 </div>
                 <div class="card-section actions-section">
-                    <h3>Action Items</h3>
+                    <h3>&#9888;&#65039; Action Items</h3>
                     <div class="action-item"><span class="action-bullet">!</span>Rehab scope sent to Mahari - awaiting bid/schedule</div><div class="action-item"><span class="action-bullet">!</span>Alice estimates high-end reno could get high 600s; as-is ~450k</div><div class="action-item"><span class="action-bullet">!</span>Ensure heat works, clean, stage, check for glaring issues</div>
                 </div>
                 <div class="card-section updates-section">
-                    <h3>Recent Updates</h3>
-                    <div class="update-item">
-                <span class="update-date">2026-02-25</span>
-                <span class="src-badge">Email</span> <span class="src-badge">PDF Attachment</span>
-                <span class="update-subject">Refinance HUD-1 - wire $34,355</span>
-            </div><div class="update-item">
-                <span class="update-date">2026-03-09</span>
-                <span class="src-badge">Email</span>
-                <span class="update-subject">1874 Home Rd Sheffield - market analysis</span>
-            </div><div class="update-item">
-                <span class="update-date">2026-03-25</span>
-                <span class="src-badge">Email</span>
-                <span class="update-subject">Rehab discussion - Mahari vs Gabe</span>
-            </div><div class="update-item">
-                <span class="update-date">2026-03-26</span>
-                <span class="src-badge">Email</span>
-                <span class="update-subject">1874 Home Rd scope sent to contractor</span>
-            </div>
+                    <h3>&#128172; Recent Updates</h3>
+                    <div class="update-item"><span class="update-date">2026-02-25</span><span class="src-badge">Email</span> <span class="src-badge">PDF Attachment</span><span class="update-subject">Refinance HUD-1 - wire $34,355</span></div><div class="update-item"><span class="update-date">2026-03-09</span><span class="src-badge">Email</span><span class="update-subject">1874 Home Rd Sheffield - market analysis</span></div><div class="update-item"><span class="update-date">2026-03-25</span><span class="src-badge">Email</span><span class="update-subject">Rehab discussion - Mahari vs Gabe</span></div><div class="update-item"><span class="update-date">2026-03-26</span><span class="src-badge">Email</span><span class="update-subject">1874 Home Rd scope sent to contractor</span></div>
                 </div>
             </div>
         </div>
-        
-        <div class="property-card">
-            <div class="card-header">
+        <div class="card-notes"><span class="note-tag">Entity: Wicked Deals LLC</span><span class="note-tag">Potential ARV: $600k+ (high-end) or $450k (as-is)</span></div>
+    </div>
+    <div class="property-card">
+        <div class="card-header">
+            <div class="card-header-left">
                 <h2 class="property-address">40 Roland St, Pittsfield, MA 01201</h2>
-                <div class="header-meta">
-                    <span class="current-phase">Repairs / Rehab</span>
+                <div class="header-tags">
+                    <span class="current-phase phase-rehab">Repairs / Rehab</span>
                     <span class="source-badge">Email</span> <span class="source-badge">PDF Attachment</span>
                 </div>
-                
             </div>
-            <div class="timeline"><div class="milestone completed"><div class="dot"></div><span>Offer Made</span></div><div class="milestone completed"><div class="dot"></div><span>Under Contract</span></div><div class="milestone completed"><div class="dot"></div><span>Title & Escrow</span></div><div class="milestone completed"><div class="dot"></div><span>Inspections</span></div><div class="milestone completed"><div class="dot"></div><span>Appraisal</span></div><div class="milestone completed"><div class="dot"></div><span>Financing</span></div><div class="milestone active"><div class="dot"></div><span>Repairs / Rehab</span></div><div class="milestone pending"><div class="dot"></div><span>Final Walkthrough</span></div><div class="milestone pending"><div class="dot"></div><span>Closing</span></div><div class="milestone pending"><div class="dot"></div><span>Closed</span></div></div>
-            <div class="card-body">
-                <div class="card-section financials">
-                    <h3>Financials</h3>
-                    <p class="empty-state">No financial data yet</p>
-                </div>
-                <div class="card-section contacts-section">
-                    <h3>Key Contacts</h3>
-                    <div class="contact-item"><span class="contact-role">Agent</span><span class="contact-name">Alice Kempf</span></div><div class="contact-item"><span class="contact-role">Attorney</span><span class="contact-name">David Burstein</span></div><div class="contact-item"><span class="contact-role">Partner</span><span class="contact-name">William McGuire</span></div><div class="contact-item"><span class="contact-role">Partner</span><span class="contact-name">Antonio Cucciniello</span></div><div class="contact-item"><span class="contact-role">Partner</span><span class="contact-name">Kevin Shippee</span></div><div class="contact-item"><span class="contact-role">Contractor</span><span class="contact-name">Premiere Home Solutions</span></div><div class="contact-item"><span class="contact-role">Project Manager</span><span class="contact-name">Jessica Sicard</span></div>
-                </div>
+            <div class="card-header-right"><div class="countdown tbd"><span class="countdown-label">TBD</span></div></div>
+        </div>
+        <div class="timeline"><div class="milestone completed"><div class="dot"></div><span>Offer Made</span></div><div class="milestone completed"><div class="dot"></div><span>Contract</span></div><div class="milestone completed"><div class="dot"></div><span>Title</span></div><div class="milestone completed"><div class="dot"></div><span>Inspections</span></div><div class="milestone completed"><div class="dot"></div><span>Appraisal</span></div><div class="milestone completed"><div class="dot"></div><span>Financing</span></div><div class="milestone active"><div class="dot"></div><span>Rehab</span></div><div class="milestone pending"><div class="dot"></div><span>Walk</span></div><div class="milestone pending"><div class="dot"></div><span>Closing</span></div><div class="milestone pending"><div class="dot"></div><span>Closed</span></div></div>
+        <div class="card-body-2col">
+            <div class="col-left">
                 <div class="card-section dates-section">
-                    <h3>Important Dates</h3>
-                    <p class="empty-state">No dates detected yet</p>
+                    <h3>&#128197; Important Dates</h3>
+                    <div class="date-item"><span class="date-icon">&#128336;</span><span class="date-label">Purchased</span><span class="date-value">12/18/2025</span></div><div class="date-item"><span class="date-icon">&#128336;</span><span class="date-label">Rehab Started</span><span class="date-value">1/12/2026</span></div><div class="date-item"><span class="date-icon">&#128336;</span><span class="date-label">Offer Received</span><span class="date-value">2/9/2026</span></div><div class="date-item date-closing"><span class="date-icon">&#128197;</span><span class="date-label">Closing Date</span><span class="date-value closing-val">TBD</span></div>
+                </div>
+                <div class="card-section repair-section">
+                    <h3>&#128295; Repair / Punch List Items</h3>
+                    <div class="repair-progress"><div class="repair-bar"><div class="repair-fill" style="width:100%"></div></div><span class="repair-pct">5/5 done</span></div><div class="repair-item repair-done"><span class="repair-icon">&#10003;</span><span class="repair-text">Demo (complete)</span><span class="repair-who">Premiere Home Solutions</span></div><div class="repair-item repair-done"><span class="repair-icon">&#10003;</span><span class="repair-text">Painting (complete)</span><span class="repair-who">Premiere Home Solutions</span></div><div class="repair-item repair-done"><span class="repair-icon">&#10003;</span><span class="repair-text">New hardware & doors installed</span><span class="repair-who">Premiere Home Solutions</span></div><div class="repair-item repair-done"><span class="repair-icon">&#10003;</span><span class="repair-text">Vanity replaced</span><span class="repair-who">Contractor</span></div><div class="repair-item repair-done"><span class="repair-icon">&#10003;</span><span class="repair-text">Leak repairs</span><span class="repair-who">Contractor</span></div>
+                </div>
+            </div>
+            <div class="col-right">
+                <div class="two-col-inner">
+                    <div class="card-section financials">
+                        <h3>&#128176; Financials</h3>
+                        <p class="empty-state">No financial data yet</p>
+                    </div>
+                    <div class="card-section contacts-section">
+                        <h3>&#128101; Contacts</h3>
+                        <div class="contact-item"><span class="contact-role">Agent</span><span class="contact-name">Alice Kempf</span></div><div class="contact-item"><span class="contact-role">Attorney</span><span class="contact-name">David Burstein</span></div><div class="contact-item"><span class="contact-role">Partner</span><span class="contact-name">William McGuire</span></div><div class="contact-item"><span class="contact-role">Partner</span><span class="contact-name">Antonio Cucciniello</span></div><div class="contact-item"><span class="contact-role">Partner</span><span class="contact-name">Kevin Shippee</span></div><div class="contact-item"><span class="contact-role">Contractor</span><span class="contact-name">Premiere Home Solutions</span></div><div class="contact-more">+1 more</div>
+                    </div>
                 </div>
                 <div class="card-section actions-section">
-                    <h3>Action Items</h3>
+                    <h3>&#9888;&#65039; Action Items</h3>
                     <div class="action-item"><span class="action-bullet">!</span>Demo complete, painting done, new hardware installed</div><div class="action-item"><span class="action-bullet">!</span>Vanity replaced by contractor</div><div class="action-item"><span class="action-bullet">!</span>Track rehab expenses in QBO under House Hack Helpers</div>
                 </div>
                 <div class="card-section updates-section">
-                    <h3>Recent Updates</h3>
-                    <div class="update-item">
-                <span class="update-date">2025-12-31</span>
-                <span class="src-badge">Email</span>
-                <span class="update-subject">Purchase completed</span>
-            </div><div class="update-item">
-                <span class="update-date">2026-01-12</span>
-                <span class="src-badge">Email</span>
-                <span class="update-subject">40 Roland progress photos</span>
-            </div><div class="update-item">
-                <span class="update-date">2026-02-09</span>
-                <span class="src-badge">Email</span>
-                <span class="update-subject">40 Roland Offer received</span>
-            </div><div class="update-item">
-                <span class="update-date">2026-03-18</span>
-                <span class="src-badge">Email</span>
-                <span class="update-subject">Vanity install & leak repairs invoice</span>
-            </div>
+                    <h3>&#128172; Recent Updates</h3>
+                    <div class="update-item"><span class="update-date">2025-12-31</span><span class="src-badge">Email</span><span class="update-subject">Purchase completed</span></div><div class="update-item"><span class="update-date">2026-01-12</span><span class="src-badge">Email</span><span class="update-subject">40 Roland progress photos</span></div><div class="update-item"><span class="update-date">2026-02-09</span><span class="src-badge">Email</span><span class="update-subject">40 Roland Offer received</span></div><div class="update-item"><span class="update-date">2026-03-18</span><span class="src-badge">Email</span><span class="update-subject">Vanity install & leak repairs invoice</span></div>
                 </div>
             </div>
         </div>
-        
-        <div class="property-card">
-            <div class="card-header">
+        <div class="card-notes"><span class="note-tag">Entity: House Hack Helpers LLC</span><span class="note-tag">Partners: Will McGuire, Antonio Cucciniello, Kevin Shippee</span></div>
+    </div>
+    <div class="property-card">
+        <div class="card-header">
+            <div class="card-header-left">
                 <h2 class="property-address">1 Richmond Ln, Pittsfield, MA</h2>
-                <div class="header-meta">
-                    <span class="current-phase">Repairs / Rehab</span>
+                <div class="header-tags">
+                    <span class="current-phase phase-rehab">Repairs / Rehab</span>
                     <span class="source-badge">Email</span>
                 </div>
-                
             </div>
-            <div class="timeline"><div class="milestone completed"><div class="dot"></div><span>Offer Made</span></div><div class="milestone completed"><div class="dot"></div><span>Under Contract</span></div><div class="milestone completed"><div class="dot"></div><span>Title & Escrow</span></div><div class="milestone completed"><div class="dot"></div><span>Inspections</span></div><div class="milestone completed"><div class="dot"></div><span>Appraisal</span></div><div class="milestone completed"><div class="dot"></div><span>Financing</span></div><div class="milestone active"><div class="dot"></div><span>Repairs / Rehab</span></div><div class="milestone pending"><div class="dot"></div><span>Final Walkthrough</span></div><div class="milestone pending"><div class="dot"></div><span>Closing</span></div><div class="milestone pending"><div class="dot"></div><span>Closed</span></div></div>
-            <div class="card-body">
-                <div class="card-section financials">
-                    <h3>Financials</h3>
-                    <div class="fin-item"><span class="fin-label">Repair Budget</span><span class="fin-value">$4,000</span></div>
-                </div>
-                <div class="card-section contacts-section">
-                    <h3>Key Contacts</h3>
-                    <div class="contact-item"><span class="contact-role">Contractor</span><span class="contact-name">Premiere Home Solutions</span></div><div class="contact-item"><span class="contact-role">Project Manager</span><span class="contact-name">Jessica Sicard</span></div><div class="contact-item"><span class="contact-role">Partner</span><span class="contact-name">Antonio Cucciniello</span></div><div class="contact-item"><span class="contact-role">Subcontractor</span><span class="contact-name">J.M. Koenig</span></div>
-                </div>
+            <div class="card-header-right"><div class="countdown tbd"><span class="countdown-label">TBD</span></div></div>
+        </div>
+        <div class="timeline"><div class="milestone completed"><div class="dot"></div><span>Offer Made</span></div><div class="milestone completed"><div class="dot"></div><span>Contract</span></div><div class="milestone completed"><div class="dot"></div><span>Title</span></div><div class="milestone completed"><div class="dot"></div><span>Inspections</span></div><div class="milestone completed"><div class="dot"></div><span>Appraisal</span></div><div class="milestone completed"><div class="dot"></div><span>Financing</span></div><div class="milestone active"><div class="dot"></div><span>Rehab</span></div><div class="milestone pending"><div class="dot"></div><span>Walk</span></div><div class="milestone pending"><div class="dot"></div><span>Closing</span></div><div class="milestone pending"><div class="dot"></div><span>Closed</span></div></div>
+        <div class="card-body-2col">
+            <div class="col-left">
                 <div class="card-section dates-section">
-                    <h3>Important Dates</h3>
-                    <p class="empty-state">No dates detected yet</p>
+                    <h3>&#128197; Important Dates</h3>
+                    <div class="date-item"><span class="date-icon">&#128336;</span><span class="date-label">Purchased</span><span class="date-value">12/1/2025</span></div><div class="date-item"><span class="date-icon">&#128336;</span><span class="date-label">Rehab Started</span><span class="date-value">3/11/2026</span></div><div class="date-item"><span class="date-icon">&#128336;</span><span class="date-label">Last Draw Request</span><span class="date-value">4/1/2026</span></div><div class="date-item date-closing"><span class="date-icon">&#128197;</span><span class="date-label">Closing Date</span><span class="date-value closing-val">TBD</span></div>
+                </div>
+                <div class="card-section repair-section">
+                    <h3>&#128295; Repair / Punch List Items</h3>
+                    <div class="repair-progress"><div class="repair-bar"><div class="repair-fill" style="width:57%"></div></div><span class="repair-pct">4/7 done</span></div><div class="repair-item repair-done"><span class="repair-icon">&#10003;</span><span class="repair-text">Stairs repaired & finished (basement + 2nd floor)</span><span class="repair-who">Premiere Home Solutions</span></div><div class="repair-item repair-done"><span class="repair-icon">&#10003;</span><span class="repair-text">Wood stove & hearth painted</span><span class="repair-who">Premiere Home Solutions</span></div><div class="repair-item repair-done"><span class="repair-icon">&#10003;</span><span class="repair-text">Carport ceiling and soffit work</span><span class="repair-who">Premiere Home Solutions</span></div><div class="repair-item repair-done"><span class="repair-icon">&#10003;</span><span class="repair-text">Kitchen cabinets & crown molding installed</span><span class="repair-who">Premiere Home Solutions</span></div><div class="repair-item repair-wip"><span class="repair-icon">&#9881;</span><span class="repair-text">Electrical work</span><span class="repair-who">Electrician</span></div><div class="repair-item repair-todo"><span class="repair-icon">&#9675;</span><span class="repair-text">Dumpster swap</span><span class="repair-who">TBD</span></div><div class="repair-item repair-todo"><span class="repair-icon">&#9675;</span><span class="repair-text">Appliance order</span><span class="repair-who">Jesse (confirm)</span></div>
+                </div>
+            </div>
+            <div class="col-right">
+                <div class="two-col-inner">
+                    <div class="card-section financials">
+                        <h3>&#128176; Financials</h3>
+                        <div class="fin-item"><span class="fin-label">Repair Budget</span><span class="fin-value">$4,000</span></div>
+                    </div>
+                    <div class="card-section contacts-section">
+                        <h3>&#128101; Contacts</h3>
+                        <div class="contact-item"><span class="contact-role">Contractor</span><span class="contact-name">Premiere Home Solutions</span></div><div class="contact-item"><span class="contact-role">Project Manager</span><span class="contact-name">Jessica Sicard</span></div><div class="contact-item"><span class="contact-role">Partner</span><span class="contact-name">Antonio Cucciniello</span></div><div class="contact-item"><span class="contact-role">Subcontractor</span><span class="contact-name">J.M. Koenig</span></div>
+                    </div>
                 </div>
                 <div class="card-section actions-section">
-                    <h3>Action Items</h3>
+                    <h3>&#9888;&#65039; Action Items</h3>
                     <div class="action-item"><span class="action-bullet">!</span>Stairs repaired and finished (basement & second floor)</div><div class="action-item"><span class="action-bullet">!</span>Wood stove & hearth painted</div><div class="action-item"><span class="action-bullet">!</span>Carport ceiling and soffit work complete</div><div class="action-item"><span class="action-bullet">!</span>Kitchen cabinets & crown molding installed</div><div class="action-item"><span class="action-bullet">!</span>Electrical work pending - will notify when done</div>
                 </div>
                 <div class="card-section updates-section">
-                    <h3>Recent Updates</h3>
-                    <div class="update-item">
-                <span class="update-date">2026-03-11</span>
-                <span class="src-badge">Email</span>
-                <span class="update-subject">Electrical pending, dumpster swap needed</span>
-            </div><div class="update-item">
-                <span class="update-date">2026-03-11</span>
-                <span class="src-badge">Email</span>
-                <span class="update-subject">1 Richmond Ave update & draw request</span>
-            </div><div class="update-item">
-                <span class="update-date">2026-03-13</span>
-                <span class="src-badge">Email</span>
-                <span class="update-subject">Draw for Richmond lane</span>
-            </div><div class="update-item">
-                <span class="update-date">2026-03-19</span>
-                <span class="src-badge">Email</span>
-                <span class="update-subject">J.M Koenig - $4000 deposit</span>
-            </div><div class="update-item">
-                <span class="update-date">2026-04-01</span>
-                <span class="src-badge">Email</span>
-                <span class="update-subject">1 Richmond lane update / draw request</span>
-            </div>
+                    <h3>&#128172; Recent Updates</h3>
+                    <div class="update-item"><span class="update-date">2026-03-11</span><span class="src-badge">Email</span><span class="update-subject">Electrical pending, dumpster swap needed</span></div><div class="update-item"><span class="update-date">2026-03-11</span><span class="src-badge">Email</span><span class="update-subject">1 Richmond Ave update & draw request</span></div><div class="update-item"><span class="update-date">2026-03-13</span><span class="src-badge">Email</span><span class="update-subject">Draw for Richmond lane</span></div><div class="update-item"><span class="update-date">2026-03-19</span><span class="src-badge">Email</span><span class="update-subject">J.M Koenig - $4000 deposit</span></div>
                 </div>
             </div>
         </div>
-        
+        <div class="card-notes"><span class="note-tag">Entity: House Hack Helpers LLC</span><span class="note-tag">GC: Premiere Home Solutions</span></div>
     </div>
-    <footer style="text-align:center; padding:2rem; color:var(--text-muted); font-size:0.75rem;">
-        House Flip Closing Coordinator &mdash; Auto-generated 2026-04-10 21:06
-    </footer>
+    <div class="property-card">
+        <div class="card-header">
+            <div class="card-header-left">
+                <h2 class="property-address">583 Hawks Spur</h2>
+                <div class="header-tags">
+                    <span class="current-phase phase-rehab">Repairs / Rehab</span>
+                    <span class="source-badge">Email</span> <span class="source-badge">Venmo</span>
+                </div>
+            </div>
+            <div class="card-header-right"><div class="countdown tbd"><span class="countdown-label">TBD - Preparing to sell</span></div></div>
+        </div>
+        <div class="timeline"><div class="milestone completed"><div class="dot"></div><span>Offer Made</span></div><div class="milestone completed"><div class="dot"></div><span>Contract</span></div><div class="milestone completed"><div class="dot"></div><span>Title</span></div><div class="milestone completed"><div class="dot"></div><span>Inspections</span></div><div class="milestone completed"><div class="dot"></div><span>Appraisal</span></div><div class="milestone completed"><div class="dot"></div><span>Financing</span></div><div class="milestone active"><div class="dot"></div><span>Rehab</span></div><div class="milestone pending"><div class="dot"></div><span>Walk</span></div><div class="milestone pending"><div class="dot"></div><span>Closing</span></div><div class="milestone pending"><div class="dot"></div><span>Closed</span></div></div>
+        <div class="card-body-2col">
+            <div class="col-left">
+                <div class="card-section dates-section">
+                    <h3>&#128197; Important Dates</h3>
+                    <div class="date-item"><span class="date-icon">&#128336;</span><span class="date-label">Winterized</span><span class="date-value">Late 2025</span></div><div class="date-item"><span class="date-icon">&#128336;</span><span class="date-label">Cleaning Attempted</span><span class="date-value">1/24/2026</span></div><div class="date-item"><span class="date-icon">&#128336;</span><span class="date-label">Cleaning Resumed</span><span class="date-value">3/29/2026</span></div><div class="date-item"><span class="date-icon">&#128336;</span><span class="date-label">Last Payment</span><span class="date-value">4/9/2026</span></div><div class="date-item date-closing"><span class="date-icon">&#128197;</span><span class="date-label">Closing Date</span><span class="date-value closing-val">TBD - Preparing to sell</span></div>
+                </div>
+                <div class="card-section repair-section">
+                    <h3>&#128295; Repair / Punch List Items</h3>
+                    <div class="repair-progress"><div class="repair-bar"><div class="repair-fill" style="width:50%"></div></div><span class="repair-pct">3/6 done</span></div><div class="repair-item repair-wip"><span class="repair-icon">&#9881;</span><span class="repair-text">Deep cleaning (multi-session)</span><span class="repair-who">Amanda Taylor</span><span class="repair-cost">$1,500 + $800 + $560 + $500 paid</span></div><div class="repair-item repair-done"><span class="repair-icon">&#10003;</span><span class="repair-text">Winterization (Barry)</span><span class="repair-who">Barry</span></div><div class="repair-item repair-done"><span class="repair-icon">&#10003;</span><span class="repair-text">Seasonal plowing</span><span class="repair-who">Contractor</span><span class="repair-cost">Paid 1/21</span></div><div class="repair-item repair-done"><span class="repair-icon">&#10003;</span><span class="repair-text">Riley Services work ($2,600)</span><span class="repair-who">Rileys Services</span><span class="repair-cost">$2,600</span></div><div class="repair-item repair-todo"><span class="repair-icon">&#9675;</span><span class="repair-text">Power/heat restoration</span><span class="repair-who">TBD</span></div><div class="repair-item repair-todo"><span class="repair-icon">&#9675;</span><span class="repair-text">Water re-pressurize for final clean</span><span class="repair-who">TBD</span></div>
+                </div>
+            </div>
+            <div class="col-right">
+                <div class="two-col-inner">
+                    <div class="card-section financials">
+                        <h3>&#128176; Financials</h3>
+                        <div class="fin-item"><span class="fin-label">Repair Budget</span><span class="fin-value">$5,460</span></div>
+                    </div>
+                    <div class="card-section contacts-section">
+                        <h3>&#128101; Contacts</h3>
+                        <div class="contact-item"><span class="contact-role">Project Manager</span><span class="contact-name">Jessica Sicard</span></div><div class="contact-item"><span class="contact-role">Accounting</span><span class="contact-name">Chris Keniley</span></div><div class="contact-item"><span class="contact-role">Cleaning</span><span class="contact-name">Amanda Taylor</span></div><div class="contact-item"><span class="contact-role">Winterization</span><span class="contact-name">Barry</span></div><div class="contact-item"><span class="contact-role">Contractor</span><span class="contact-name">Riley (Rileys Services)</span></div>
+                    </div>
+                </div>
+                <div class="card-section actions-section">
+                    <h3>&#9888;&#65039; Action Items</h3>
+                    <div class="action-item"><span class="action-bullet">!</span>Deep cleaning in progress (Amanda Taylor)</div><div class="action-item"><span class="action-bullet">!</span>Reimbursement pending from Chris Keniley ($1,500 + $800 + $500)</div><div class="action-item"><span class="action-bullet">!</span>Confirm power restored and main breaker on</div><div class="action-item"><span class="action-bullet">!</span>Re-pressurize water when warm enough</div><div class="action-item"><span class="action-bullet">!</span>Prepare property for listing</div>
+                </div>
+                <div class="card-section updates-section">
+                    <h3>&#128172; Recent Updates</h3>
+                    <div class="update-item"><span class="update-date">2026-04-09</span><span class="src-badge">Email</span><span class="update-subject">Re: Reimbursement for 583 Hawks spur</span></div><div class="update-item"><span class="update-date">2026-04-04</span><span class="src-badge">Venmo</span><span class="update-subject">Venmo payment $560</span></div><div class="update-item"><span class="update-date">2026-04-04</span><span class="src-badge">Email</span> <span class="src-badge">Venmo</span><span class="update-subject">Reimbursement for 583 Hawks spur</span></div><div class="update-item"><span class="update-date">2026-03-29</span><span class="src-badge">Email</span> <span class="src-badge">Venmo</span><span class="update-subject">Reimbursement</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="card-notes"><span class="note-tag">Entity: Wicked Deals LLC</span><span class="note-tag">Managed by YellowBrick Management</span><span class="note-tag">Remote property - winterized, far from team</span></div>
+    </div>
+    <div class="property-card">
+        <div class="card-header">
+            <div class="card-header-left">
+                <h2 class="property-address">4 School St, Ware, MA</h2>
+                <div class="header-tags">
+                    <span class="current-phase phase-finance">Financing</span>
+                    <span class="source-badge">Email</span> <span class="source-badge">PDF Attachment</span>
+                </div>
+            </div>
+            <div class="card-header-right"><div class="countdown"><span class="countdown-num">5</span><span class="countdown-label">days to closing</span></div></div>
+        </div>
+        <div class="timeline"><div class="milestone completed"><div class="dot"></div><span>Offer Made</span></div><div class="milestone completed"><div class="dot"></div><span>Contract</span></div><div class="milestone completed"><div class="dot"></div><span>Title</span></div><div class="milestone completed"><div class="dot"></div><span>Inspections</span></div><div class="milestone completed"><div class="dot"></div><span>Appraisal</span></div><div class="milestone active"><div class="dot"></div><span>Financing</span></div><div class="milestone pending"><div class="dot"></div><span>Rehab</span></div><div class="milestone pending"><div class="dot"></div><span>Walk</span></div><div class="milestone pending"><div class="dot"></div><span>Closing</span></div><div class="milestone pending"><div class="dot"></div><span>Closed</span></div></div>
+        <div class="card-body-2col">
+            <div class="col-left">
+                <div class="card-section dates-section">
+                    <h3>&#128197; Important Dates</h3>
+                    <div class="date-item date-closing"><span class="date-icon">&#128197;</span><span class="date-label">Closing Date</span><span class="date-value closing-val">4/16/2026</span></div><div class="date-item"><span class="date-icon">&#128336;</span><span class="date-label">Loan Application</span><span class="date-value">2/24/2026</span></div><div class="date-item"><span class="date-icon">&#128336;</span><span class="date-label">Appraisal Follow-Up</span><span class="date-value">3/19/2026</span></div><div class="date-item"><span class="date-icon">&#128336;</span><span class="date-label">Loan Docs Received</span><span class="date-value">3/20/2026</span></div><div class="date-item"><span class="date-icon">&#128336;</span><span class="date-label">Closing Confirmed</span><span class="date-value">3/28/2026</span></div>
+                </div>
+                <div class="card-section repair-section">
+                    <h3>&#128295; Repair / Punch List Items</h3>
+                    <div class="repair-progress"><div class="repair-bar"><div class="repair-fill" style="width:0%"></div></div><span class="repair-pct">0/1 done</span></div><div class="repair-item repair-todo"><span class="repair-icon">&#9675;</span><span class="repair-text">Utilities transfer/status</span><span class="repair-who">Jessica Sicard</span></div>
+                </div>
+            </div>
+            <div class="col-right">
+                <div class="two-col-inner">
+                    <div class="card-section financials">
+                        <h3>&#128176; Financials</h3>
+                        <div class="fin-item"><span class="fin-label">Closing Costs</span><span class="fin-value">$34,355</span></div>
+                    </div>
+                    <div class="card-section contacts-section">
+                        <h3>&#128101; Contacts</h3>
+                        <div class="contact-item"><span class="contact-role">Attorney</span><span class="contact-name">David Burstein</span></div><div class="contact-item"><span class="contact-role">Lender</span><span class="contact-name">David Chase</span></div><div class="contact-item"><span class="contact-role">Lender</span><span class="contact-name">Camille Ali</span></div><div class="contact-item"><span class="contact-role">Project Manager</span><span class="contact-name">Jessica Sicard</span></div><div class="contact-item"><span class="contact-role">Partner</span><span class="contact-name">Kevin Shippee</span></div>
+                    </div>
+                </div>
+                <div class="card-section actions-section">
+                    <h3>&#9888;&#65039; Action Items</h3>
+                    <div class="action-item"><span class="action-bullet">!</span>Follow up on appraisal status with Freedom Credit Union</div><div class="action-item"><span class="action-bullet">!</span>Confirm Jeff's update on closing timeline</div><div class="action-item"><span class="action-bullet">!</span>Utilities status still pending</div>
+                </div>
+                <div class="card-section updates-section">
+                    <h3>&#128172; Recent Updates</h3>
+                    <div class="update-item"><span class="update-date">2026-03-19</span><span class="src-badge">Email</span><span class="update-subject">Appraisal follow-up</span></div><div class="update-item"><span class="update-date">2026-03-20</span><span class="src-badge">Email</span> <span class="src-badge">PDF Attachment</span><span class="update-subject">Loan documents from Freedom CU</span></div><div class="update-item"><span class="update-date">2026-03-26</span><span class="src-badge">Email</span><span class="update-subject">Checking on closing date & utilities</span></div><div class="update-item"><span class="update-date">2026-03-28</span><span class="src-badge">Email</span><span class="update-subject">4 School - closing date 4/16</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="card-notes"><span class="note-tag">Lender: Freedom Credit Union</span><span class="note-tag">Entity: Wicked Deals LLC</span><span class="note-tag">Closing date 4/16/2026</span></div>
+    </div>
+    <div class="property-card">
+        <div class="card-header">
+            <div class="card-header-left">
+                <h2 class="property-address">21 Holly St, Greenfield, MA</h2>
+                <div class="header-tags">
+                    <span class="current-phase phase-contract">Under Contract</span>
+                    <span class="source-badge">Email</span> <span class="source-badge">PDF Attachment</span>
+                </div>
+            </div>
+            <div class="card-header-right"><div class="countdown tbd"><span class="countdown-label">TBD - Awaiting lender info</span></div></div>
+        </div>
+        <div class="timeline"><div class="milestone completed"><div class="dot"></div><span>Offer Made</span></div><div class="milestone active"><div class="dot"></div><span>Contract</span></div><div class="milediv><div class="date-item"><span class="date-icon">&#128336;</span><span class="date-label">Loan Application</span><span class="date-value">2/24/2026</span></div><div class="date-item"><span class="date-icon">&#128336;</span><span class="date-label">Appraisal Follow-Up</span><span class="date-value">3/19/2026</span></div><div class="date-item"><span class="date-icon">&#128336;</span><span class="date-label">Loan Docs Received</span><span class="date-value">3/20/2026</span></div><div class="date-item"><span class="date-icon">&#128336;</span><span class="date-label">Closing Confirmed</span><span class="date-value">3/28/2026</span></div>
+                </div>
+                <div class="card-section repair-section">
+                    <h3>&#128295; Repair / Punch List Items</h3>
+                    <div class="repair-progress"><div class="repair-bar"><div class="repair-fill" style="width:0%"></div></div><span class="repair-pct">0/1 done</span></div><div class="repair-item repair-todo"><span class="repair-icon">&#9675;</span><span class="repair-text">Utilities transfer/status</span><span class="repair-who">Jessica Sicard</span></div>
+                </div>
+            </div>
+            <div class="col-right">
+                <div class="two-col-inner">
+                    <div class="card-section financials">
+                        <h3>&#128176; Financials</h3>
+                        <div class="fin-item"><span class="fin-label">Closing Costs</span><span class="fin-value">$34,355</span></div>
+                    </div>
+                    <div class="card-section contacts-section">
+                        <h3>&#128101; Contacts</h3>
+                        <div class="contact-item"><span class="contact-role">Attorney</span><span class="contact-name">David Burstein</span></div><div class="contact-item"><span class="contact-role">Lender</span><span class="contact-name">David Chase</span></div><div class="contact-item"><span class="contact-role">Lender</span><span class="contact-name">Camille Ali</span></div><div class="contact-item"><span class="contact-role">Project Manager</span><span class="contact-name">Jessica Sicard</span></div><div class="contact-item"><span class="contact-role">Partner</span><span class="contact-name">Kevin Shippee</span></div>
+                    </div>
+                </div>
+                <div class="card-section actions-section">
+                    <h3>&#9888;&#65039; Action Items</h3>
+                    <div class="action-item"><span class="action-bullet">!</span>Follow up on appraisal status with Freedom Credit Union</div><div class="action-item"><span class="action-bullet">!</span>Confirm Jeff's update on closing timeline</div><div class="action-item"><span class="action-bullet">!</span>Utilities status still pending</div>
+                </div>
+                <div class="card-section updates-section">
+                    <h3>&#128172; Recent Updates</h3>
+                    <div class="update-item"><span class="update-date">2026-03-19</span><span class="src-badge">Email</span><span class="update-subject">Appraisal follow-up</span></div><div class="update-item"><span class="update-date">2026-03-20</span><span class="src-badge">Email</span> <span class="src-badge">PDF Attachment</span><span class="update-subject">Loan documents from Freedom CU</span></div><div class="update-item"><span class="update-date">2026-03-26</span><span class="src-badge">Email</span><span class="update-subject">Checking on closing date & utilities</span></div><div class="update-item"><span class="update-date">2026-03-28</span><span class="src-badge">Email</span><span class="update-subject">4 School - closing date 4/16</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="card-notes"><span class="note-tag">Lender: Freedom Credit Union</span><span class="note-tag">Entity: Wicked Deals LLC</span><span class="note-tag">Closing date 4/16/2026</span></div>
+    </div>
+    <div class="property-card">
+        <div class="card-header">
+            <div class="card-header-left">
+                <h2 class="property-address">21 Holly St, Greenfield, MA</h2>
+                <div class="header-tags">
+                    <span class="current-phase phase-contract">Under Contract</span>
+                    <span class="source-badge">Email</span> <span class="source-badge">PDF Attachment</span>
+                </div>
+            </div>
+            <div class="card-header-right"><div class="countdown tbd"><span class="countdown-label">TBD - Awaiting lender info</span></div></div>
+        </div>
+        <div class="timeline"><div class="milestone completed"><div class="dot"></div><span>Offer Made</span></div><div class="milestone active"><div class="dot"></div><span>Contract</span></div><div class="milestone pending"><div class="dot"></div><span>Title</span></div><div class="milestone pending"><div class="dot"></div><span>Inspections</span></div><div class="milestone pending"><div class="dot"></div><span>Appraisal</span></div><div class="milestone pending"><div class="dot"></div><span>Financing</span></div><div class="milestone pending"><div class="dot"></div><span>Rehab</span></div><div class="milestone pending"><div class="dot"></div><span>Walk</span></div><div class="milestone pending"><div class="dot"></div><span>Closing</span></div><div class="milestone pending"><div class="dot"></div><span>Closed</span></div></div>
+        <div class="card-body-2col">
+            <div class="col-left">
+                <div class="card-section dates-section">
+                    <h3>&#128197; Important Dates</h3>
+                    <div class="date-item"><span class="date-icon">&#128336;</span><span class="date-label">P&S Executed</span><span class="date-value">3/28/2026</span></div><div class="date-item"><span class="date-icon">&#128336;</span><span class="date-label">Draft P&S Sent</span><span class="date-value">3/24/2026</span></div><div class="date-item date-closing"><span class="date-icon">&#128197;</span><span class="date-label">Closing Date</span><span class="date-value closing-val">TBD - Awaiting lender info</span></div>
+                </div>
+                <div class="card-section repair-section">
+                    <h3>&#128295; Repair / Punch List Items</h3>
+                    <div class="repair-item repair-na"><span class="repair-icon">&#8212;</span><span class="repair-text">As-is sale - no agreed repairs</span></div>
+                </div>
+            </div>
+            <div class="col-right">
+                <div class="two-col-inner">
+                    <div class="card-section financials">
+                        <h3>&#128176; Financials</h3>
+                        <p class="empty-state">No financial data yet</p>
+                    </div>
+                    <div class="card-section contacts-section">
+                        <h3>&#128101; Contacts</h3>
+                        <div class="contact-item"><span class="contact-role">Attorney</span><span class="contact-name">David Burstein</span></div><div class="contact-item"><span class="contact-role">Buyer Contact</span><span class="contact-name">Jose Teo</span></div><div class="contact-item"><span class="contact-role">Contractor</span><span class="contact-name">Elier Rosado</span></div>
+                    </div>
+                </div>
+                <div class="card-section actions-section">
+                    <h3>&#9888;&#65039; Action Items</h3>
+                    <div class="action-item"><span class="action-bullet">!</span>Buyer using their own lender - need lender info</div><div class="action-item"><span class="action-bullet">!</span>Determine if buyer's lender uses own attorney for closing</div>
+                </div>
+                <div class="card-section updates-section">
+                    <h3>&#128172; Recent Updates</h3>
+                    <div class="update-item"><span class="update-date">2026-03-23</span><span class="src-badge">Email</span><span class="update-subject">Sale initiated - buyer financing details</span></div><div class="update-item"><span class="update-date">2026-03-24</span><span class="src-badge">Email</span> <span class="src-badge">PDF Attachment</span><span class="update-subject">Draft P&S sent for review</span></div><div class="update-item"><span class="update-date">2026-03-25</span><span class="src-badge">Email</span><span class="update-subject">Draft P&S approved</span></div><div class="update-item"><span class="update-date">2026-03-28</span><span class="src-badge">Email</span> <span class="src-badge">PDF Attachment</span><span class="update-subject">Fully executed P&S with deposit check</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="card-notes"><span class="note-tag">Buyer: Jose Teo / Unlimited Home Roofing</span><span class="note-tag">As-is sale</span></div>
+    </div>
+    </div>
+    <footer>House Flip Closing Coordinator &mdash; Auto-generated 2026-04-10 22:03</footer>
 </body>
-</html>
+                                                                                                                                                                                                                                                                                                                                                                     </html>
