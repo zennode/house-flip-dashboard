@@ -5,236 +5,80 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>House Flip Closing Coordinator</title>
 <style>
-:root { --bg: #0f1117; --card-bg: #1a1d27; --card-border: #2a2d3a; --text: #e1e4eb; --text-muted: #8b8fa3; --accent: #6c8cff; --green: #34d399; --yellow: #fbbf24; --red: #f87171; --blue: #60a5fa; --purple: #a78bfa; }
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.5; }
-.header { position: sticky; top: 0; z-index: 100; background: linear-gradient(135deg, #1a1d27 0%, #0f1117 100%); border-bottom: 1px solid var(--card-border); padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
-.header h1 { font-size: 1.3rem; font-weight: 700; letter-spacing: -0.02em; }
-.header h1 span { color: var(--accent); }
-.header-meta { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
-.stat-badge { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; padding: 6px 14px; font-size: 0.8rem; }
-.stat-badge .num { font-weight: 700; font-size: 1.1rem; margin-right: 4px; }
-.stat-badge.closing .num { color: var(--yellow); }
-.stat-badge.rehab .num { color: var(--purple); }
-.stat-badge.active .num { color: var(--green); }
-.updated { font-size: 0.75rem; color: var(--text-muted); }
-.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 20px; padding: 24px; max-width: 1600px; margin: 0 auto; }
-.card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; overflow: hidden; transition: transform 0.15s, box-shadow 0.15s; }
-.card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
-.card-header { padding: 16px 20px; border-bottom: 1px solid var(--card-border); display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
-.card-address { font-size: 1.05rem; font-weight: 600; }
-.phase-badge { padding: 4px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; white-space: nowrap; letter-spacing: 0.04em; }
-.phase-closing { background: rgba(251,191,36,0.15); color: var(--yellow); }
-.phase-rehab { background: rgba(167,139,250,0.15); color: var(--purple); }
-.phase-financing { background: rgba(96,165,250,0.15); color: var(--blue); }
-.phase-contract { background: rgba(52,211,153,0.15); color: var(--green); }
-.phase-closed { background: rgba(52,211,153,0.25); color: var(--green); }
-.phase-default { background: rgba(139,143,163,0.15); color: var(--text-muted); }
-.countdown { padding: 10px 20px; background: rgba(251,191,36,0.06); text-align: center; font-size: 0.85rem; color: var(--yellow); font-weight: 500; }
-.countdown.urgent { background: rgba(248,113,113,0.1); color: var(--red); }
-.source-badges { padding: 8px 20px; display: flex; gap: 6px; flex-wrap: wrap; }
-.src-badge { font-size: 0.65rem; padding: 2px 8px; border-radius: 4px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
-.src-dotloop { background: rgba(108,140,255,0.15); color: var(--accent); }
-.src-email { background: rgba(139,143,163,0.12); color: var(--text-muted); }
-.src-pdf { background: rgba(248,113,113,0.12); color: var(--red); }
-.src-docusign { background: rgba(52,211,153,0.12); color: var(--green); }
-.src-venmo { background: rgba(96,165,250,0.12); color: var(--blue); }
-.timeline { padding: 12px 20px; display: flex; align-items: center; gap: 0; }
-.dot-wrapper { display: flex; flex-direction: column; align-items: center; flex: 1; position: relative; }
-.dot { width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--card-border); background: transparent; position: relative; z-index: 2; }
-.dot.completed { background: var(--green); border-color: var(--green); }
-.dot.active { background: var(--blue); border-color: var(--blue); box-shadow: 0 0 8px rgba(96,165,250,0.5); }
-.dot.pending { background: transparent; border-color: #3a3d4a; }
-.dot-label { font-size: 0.5rem; color: var(--text-muted); margin-top: 4px; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 50px; }
-.dot-label.active { color: var(--blue); font-weight: 600; }
-.connector { position: absolute; top: 6px; left: 50%; width: 100%; height: 2px; background: #3a3d4a; z-index: 1; }
-.connector.completed { background: var(--green); }
-.card-body { padding: 16px 20px; }
-.section { margin-bottom: 14px; }
-.section:last-child { margin-bottom: 0; }
-.section-title { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 6px; }
-.info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 16px; }
-.info-item { font-size: 0.8rem; }
-.info-label { color: var(--text-muted); }
-.info-value { font-weight: 500; }
-.contact-list, .update-list, .action-list { list-style: none; }
-.contact-list li, .update-list li, .action-list li { font-size: 0.8rem; padding: 2px 0; }
-.contact-role { color: var(--text-muted); font-size: 0.7rem; }
-.update-source { font-size: 0.65rem; padding: 1px 6px; border-radius: 3px; background: rgba(139,143,163,0.1); color: var(--text-muted); margin-left: 4px; }
-.empty { color: var(--text-muted); font-size: 0.75rem; font-style: italic; }
-@media (max-width: 480px) { .grid { grid-template-columns: 1fr; padding: 12px; gap: 12px; } .header { padding: 12px 16px; } .header h1 { font-size: 1.1rem; } .dot-label { display: none; } }
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0f1117;--card-bg:#1a1d27;--border:#2a2d3a;--text:#e2e4e9;--muted:#8b8fa3;--accent:#3b82f6;--green:#22c55e;--yellow:#eab308;--red:#ef4444;--orange:#f97316}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.5}
+header{position:sticky;top:0;z-index:100;background:var(--card-bg);border-bottom:1px solid var(--border);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+header h1{font-size:1.25rem;font-weight:700;letter-spacing:-0.02em}
+.header-meta{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.stat{text-align:center;padding:4px 16px;border-radius:8px;background:var(--bg)}
+.stat .num{font-size:1.5rem;font-weight:700;color:var(--accent)}
+.stat .lbl{font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+.updated{font-size:.75rem;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:20px;padding:24px}
+.card{background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:20px;transition:border-color .2s}
+.card:hover{border-color:var(--accent)}
+.card-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;gap:8px}
+.card-header h2{font-size:1rem;font-weight:600}
+.phase-badge{padding:3px 10px;border-radius:20px;font-size:.7rem;font-weight:600;white-space:nowrap}
+.phase-closing{background:rgba(234,179,8,.15);color:var(--yellow)}
+.phase-repairs{background:rgba(249,115,22,.15);color:var(--orange)}
+.phase-financing{background:rgba(59,130,246,.15);color:var(--accent)}
+.phase-under-contract{background:rgba(139,143,163,.15);color:var(--muted)}
+.phase-closed{background:rgba(34,197,94,.15);color:var(--green)}
+.source-badges{display:flex;gap:4px;margin-bottom:12px;flex-wrap:wrap}
+.src{padding:2px 8px;border-radius:4px;font-size:.65rem;font-weight:500;background:var(--bg);color:var(--muted);border:1px solid var(--border)}
+.countdown{font-size:.8rem;color:var(--yellow);margin-bottom:14px;font-weight:500}
+.countdown.urgent{color:var(--red);font-weight:700}
+.timeline{display:flex;align-items:center;gap:0;margin-bottom:18px;padding:8px 0}
+.dot-wrap{display:flex;flex-direction:column;align-items:center;flex:1;position:relative}
+.dot{width:14px;height:14px;border-radius:50%;border:2px solid var(--border);background:var(--bg);z-index:1}
+.dot.completed{background:var(--green);border-color:var(--green)}
+.dot.active{background:var(--accent);border-color:var(--accent);box-shadow:0 0 8px rgba(59,130,246,.5)}
+.dot-label{font-size:.5rem;color:var(--muted);margin-top:4px;text-align:center;width:50px;line-height:1.1}
+.line{position:absolute;top:7px;left:calc(50% + 7px);right:calc(-50% + 7px);height:2px;background:var(--border)}
+.line.completed{background:var(--green)}
+.sections{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.section{background:var(--bg);border-radius:8px;padding:10px 12px}
+.section h3{font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:6px}
+.section p,.section li{font-size:.8rem;color:var(--text)}
+.section ul{list-style:none;padding:0}
+.section li{padding:2px 0}
+.section li::before{content:"â¢";color:var(--accent);margin-right:6px}
+.section.full{grid-column:1/-1}
+@media(max-width:500px){.grid{grid-template-columns:1fr;padding:12px}.sections{grid-template-columns:1fr}header{flex-direction:column;align-items:flex-start}}
 </style>
 </head>
 <body>
-<div class="header">
+<header>
 <div>
-<h1><span>&#9670;</span> House Flip Closing Coordinator</h1>
-<div class="updated">Last updated: April 12, 2026 at 8:01 AM EDT</div>
+<h1>House Flip Closing Coordinator</h1>
+<div class="updated">Last updated: Apr 12, 2026 6:01 PM EDT</div>
 </div>
 <div class="header-meta">
-<div class="stat-badge active"><span class="num">8</span> Active Properties</div>
-<div class="stat-badge closing"><span class="num">2</span> At Closing</div>
-<div class="stat-badge rehab"><span class="num">4</span> In Rehab</div>
+<div class="stat"><div class="num">8</div><div class="lbl">Active Properties</div></div>
+<div class="stat"><div class="num" style="color:var(--yellow)">2</div><div class="lbl">At Closing</div></div>
+<div class="stat"><div class="num" style="color:var(--orange)">4</div><div class="lbl">In Rehab</div></div>
 </div>
-</div>
+</header>
 <div class="grid" id="cards"></div>
 <script>
-const MILESTONES = ["Offer Made","Under Contract","Title & Escrow","Inspections","Appraisal","Financing","Repairs / Rehab","Final Walkthrough","Closing","Closed"];
-const properties = [
-  {
-    address: "297 Breckwood Blvd, Springfield, MA 01109",
-    current_milestone: "Closing",
-    closing_date: "4/13/2026",
-    sources: ["dotloop", "Email"],
-    contacts: [{name:"Alice Kempf",role:"Agent"},{name:"David Burstein",role:"Attorney"},{name:"Jessica Sicard",role:"Project Manager"}],
-    financials: {},
-    recent_updates: [{subject:"Repairs priority",source:"Email"},{subject:"FHA Amendatory signed",source:"dotloop"}]
-  },
-  {
-    address: "29 Chestnut Dr, Belchertown, MA 01007",
-    current_milestone: "Closing",
-    closing_date: "4/14/2026",
-    sources: ["dotloop", "Email"],
-    contacts: [{name:"Alice Kempf",role:"Agent"},{name:"David Burstein",role:"Attorney"},{name:"Jessica Sicard",role:"Project Manager"}],
-    financials: {},
-    recent_updates: [{subject:"PSA signed via dotloop",source:"dotloop"},{subject:"Pioneer Valley Oil invoice",source:"Email"}]
-  },
-  {
-    address: "4 School St, Ware, MA",
-    current_milestone: "Financing",
-    closing_date: "4/16/2026",
-    sources: ["Email", "PDF"],
-    contacts: [{name:"David Burstein",role:"Attorney"},{name:"David Chase",role:"Lender"}],
-    financials: {closing_costs:"$34,355"},
-    recent_updates: [{subject:"Loan documents from Freedom CU",source:"PDF"},{subject:"Closing date 4/16",source:"Email"}]
-  },
-  {
-    address: "21 Holly St, Greenfield, MA",
-    current_milestone: "Under Contract",
-    closing_date: null,
-    sources: ["Email", "PDF"],
-    contacts: [{name:"David Burstein",role:"Attorney"}],
-    financials: {},
-    recent_updates: [{subject:"Sale initiated",source:"Email"},{subject:"Draft PS sent",source:"Email"}]
-  },
-  {
-    address: "1874 Home Rd, Sheffield, MA",
-    current_milestone: "Repairs / Rehab",
-    closing_date: null,
-    sources: ["Email", "PDF"],
-    contacts: [{name:"Alice Kempf",role:"Agent"},{name:"Mahari Miller",role:"Contractor"}],
-    financials: {wire_amount:"$34,355",potential_arv:"$600,000"},
-    recent_updates: [{subject:"Refinance HUD-1",source:"PDF"},{subject:"Scope sent to contractor",source:"Email"}]
-  },
-  {
-    address: "40 Roland St, Pittsfield, MA 01201",
-    current_milestone: "Repairs / Rehab",
-    closing_date: null,
-    sources: ["Email"],
-    contacts: [],
-    financials: {},
-    recent_updates: []
-  },
-  {
-    address: "1 Richmond Ln, Pittsfield, MA",
-    current_milestone: "Repairs / Rehab",
-    closing_date: null,
-    sources: ["Email"],
-    contacts: [{name:"J.M. Koenig",role:"Contractor"}],
-    financials: {repair_budget:"$4,000"},
-    recent_updates: [{subject:"Electrical pending",source:"Email"}]
-  },
-  {
-    address: "583 Hawks Spur",
-    current_milestone: "Repairs / Rehab",
-    closing_date: null,
-    sources: ["Email", "Venmo"],
-    contacts: [{name:"Jessica Sicard",role:"PM"}],
-    financials: {repair_budget:"$5,460"},
-    recent_updates: [{subject:"Reimbursement",source:"Email"}]
-  }
-];
+const MILESTONES=["Offer Made","Under Contract","Title & Escrow","Inspections","Appraisal","Financing","Repairs / Rehab","Final Walkthrough","Closing","Closed"];
+const data={"last_updated":"2026-04-12T18:01:59-04:00","properties":[{"address":"297 Breckwood Blvd, Springfield, MA 01109","current_milestone":"Closing","closing_date":"4/13/2026","sources":["dotloop","Email"],"contacts":[{"name":"Alice Kempf","role":"Agent"},{"name":"David Burstein","role":"Attorney"},{"name":"Jessica Sicard","role":"Project Manager"}],"financials":{},"recent_updates":[{"subject":"Repairs priority","source":"Email"},{"subject":"FHA Amendatory signed","source":"dotloop"}]},{"address":"29 Chestnut Dr, Belchertown, MA 01007","current_milestone":"Closing","closing_date":"4/14/2026","sources":["dotloop","Email"],"contacts":[{"name":"Alice Kempf","role":"Agent"},{"name":"David Burstein","role":"Attorney"},{"name":"Jessica Sicard","role":"Project Manager"}],"financials":{},"recent_updates":[{"subject":"PSA signed via dotloop","source":"dotloop"},{"subject":"Pioneer Valley Oil invoice","source":"Email"}]},{"address":"1874 Home Rd, Sheffield, MA","current_milestone":"Repairs / Rehab","closing_date":null,"sources":["Email","PDF"],"contacts":[{"name":"Alice Kempf","role":"Agent"},{"name":"Mahari Miller","role":"Contractor"}],"financials":{"wire_amount":"34355","potential_arv":"600000"},"recent_updates":[{"subject":"Refinance HUD-1","source":"PDF"},{"subject":"Scope sent to contractor","source":"Email"}]},{"address":"40 Roland St, Pittsfield, MA 01201","current_milestone":"Repairs / Rehab","closing_date":null,"sources":["Email"],"contacts":[],"financials":{},"recent_updates":[]},{"address":"1 Richmond Ln, Pittsfield, MA","current_milestone":"Repairs / Rehab","closing_date":null,"sources":["Email"],"contacts":[{"name":"J.M. Koenig","role":"Contractor"}],"financials":{"repair_budget":"4000"},"recent_updates":[{"subject":"Electrical pending","source":"Email"}]},{"address":"583 Hawks Spur","current_milestone":"Repairs / Rehab","closing_date":null,"sources":["Email","Venmo"],"contacts":[{"name":"Jessica Sicard","role":"PM"}],"financials":{"repair_budget":"5460"},"recent_updates":[{"subject":"Reimbursement","source":"Email"}]},{"address":"4 School St, Ware, MA","current_milestone":"Financing","closing_date":"4/16/2026","sources":["Email","PDF"],"contacts":[{"name":"David Burstein","role":"Attorney"},{"name":"David Chase","role":"Lender"}],"financials":{"closing_costs":"34355"},"recent_updates":[{"subject":"Loan documents from Freedom CU","source":"PDF"},{"subject":"Closing date 4/16","source":"Email"}]},{"address":"21 Holly St, Greenfield, MA","current_milestone":"Under Contract","closing_date":null,"sources":["Email","PDF"],"contacts":[{"name":"David Burstein","role":"Attorney"}],"financials":{},"recent_updates":[{"subject":"Sale initiated","source":"Email"},{"subject":"Draft PS sent","source":"Email"}]}]};
 
-function phaseClass(m) {
-  if (m === "Closing") return "phase-closing";
-  if (m === "Closed") return "phase-closed";
-  if (m === "Repairs / Rehab") return "phase-rehab";
-  if (m === "Financing") return "phase-financing";
-  if (m === "Under Contract") return "phase-contract";
-  return "phase-default";
-}
-function srcClass(s) {
-  const l = s.toLowerCase();
-  if (l === "dotloop") return "src-dotloop";
-  if (l === "pdf") return "src-pdf";
-  if (l === "docusign") return "src-docusign";
-  if (l === "venmo") return "src-venmo";
-  return "src-email";
-}
-function daysUntil(dateStr) {
-  if (!dateStr) return null;
-  const parts = dateStr.split('/');
-  const target = new Date(parts[2], parts[0]-1, parts[1]);
-  const now = new Date(2026, 3, 12); // April 12, 2026
-  const diff = Math.ceil((target - now) / (1000*60*60*24));
-  return diff;
-}
-function buildTimeline(current) {
-  const idx = MILESTONES.indexOf(current);
-  let html = '<div class="timeline">';
-  MILESTONES.forEach((m, i) => {
-    let cls = 'pending';
-    let lblCls = '';
-    if (i < idx) { cls = 'completed'; }
-    else if (i === idx) { cls = 'active'; lblCls = ' active'; }
-    const conn = i < MILESTONES.length - 1 ? `<div class="connector ${i < idx ? 'completed' : ''}"></div>` : '';
-    html += `<div class="dot-wrapper">${conn}<div class="dot ${cls}"></div><div class="dot-label${lblCls}">${m.replace('Repairs / Rehab','Rehab')}</div></div>`;
-  });
-  html += '</div>';
-  return html;
-}
-function buildCard(p) {
-  const days = daysUntil(p.closing_date);
-  let countdownHtml = '';
-  if (days !== null) {
-    const urgentCls = days <= 2 ? ' urgent' : '';
-    const label = days === 0 ? 'CLOSING TODAY' : days === 1 ? 'CLOSING TOMORROW' : days < 0 ? `CLOSED ${Math.abs(days)} day(s) ago` : `${days} days to closing (${p.closing_date})`;
-    countdownHtml = `<div class="countdown${urgentCls}">${label}</div>`;
-  }
-  const sourcesHtml = p.sources.map(s => `<span class="src-badge ${srcClass(s)}">${s}</span>`).join('');
-  const contactsHtml = p.contacts.length ? p.contacts.map(c => `<li>${c.name} <span class="contact-role">${c.role}</span></li>`).join('') : '<li class="empty">No contacts listed</li>';
-  const finKeys = Object.keys(p.financials);
-  const financialsHtml = finKeys.length ? finKeys.map(k => {
-    const label = k.replace(/_/g,' ').replace(/\b\w/g,l=>l.toUpperCase());
-    return `<div class="info-item"><span class="info-label">${label}:</span> <span class="info-value">${p.financials[k]}</span></div>`;
-  }).join('') : '<div class="empty">No financial data</div>';
-  const updatesHtml = p.recent_updates.length ? p.recent_updates.map(u => `<li>${u.subject} <span class="update-source">${u.source}</span></li>`).join('') : '<li class="empty">No recent updates</li>';
-  return `
-    <div class="card">
-      <div class="card-header">
-        <div class="card-address">${p.address}</div>
-        <div class="phase-badge ${phaseClass(p.current_milestone)}">${p.current_milestone}</div>
-      </div>
-      ${countdownHtml}
-      <div class="source-badges">${sourcesHtml}</div>
-      ${buildTimeline(p.current_milestone)}
-      <div class="card-body">
-        <div class="section">
-          <div class="section-title">Financials</div>
-          <div class="info-grid">${financialsHtml}</div>
-        </div>
-        <div class="section">
-          <div class="section-title">Key Contacts</div>
-          <ul class="contact-list">${contactsHtml}</ul>
-        </div>
-        <div class="section">
-          <div class="section-title">Recent Updates</div>
-          <ul class="update-list">${updatesHtml}</ul>
-        </div>
-      </div>
-    </div>`;
-}
-document.getElementById('cards').innerHTML = properties.map(buildCard).join('');
+function phaseClass(m){if(m==="Closing")return"phase-closing";if(m==="Repairs / Rehab")return"phase-repairs";if(m==="Financing")return"phase-financing";if(m==="Under Contract")return"phase-under-contract";if(m==="Closed")return"phase-closed";return"phase-under-contract";}
+
+function countdown(d){if(!d)return"";const t=new Date(d),n=new Date("2026-04-12T18:01:59-04:00");const diff=Math.ceil((t-n)/(1000*60*60*24));if(diff<0)return'<div class="countdown urgent">Closing date passed</div>';if(diff===0)return'<div class="countdown urgent">CLOSING TODAY</div>';if(diff===1)return'<div class="countdown urgent">CLOSING TOMORROW</div>';if(diff<=3)return'<div class="countdown urgent">'+diff+' days to closing</div>';return'<div class="countdown">'+diff+' days to closing</div>';}
+
+function timeline(cur){const idx=MILESTONES.indexOf(cur);let h='';for(let i=0;i<MILESTONES.length;i++){const st=i<idx?"completed":i===idx?"active":"";const ln=i<MILESTONES.length-1?(i<idx?"completed":""):"";h+='<div class="dot-wrap"><div class="dot '+st+'"></div><div class="dot-label">'+MILESTONES[i]+'</div>'+(i<MILESTONES.length-1?'<div class="line '+ln+'"></div>':'')+'</div>';}return h;}
+
+function fin(f){const items=[];if(f.wire_amount)items.push("Wire: $"+Number(f.wire_amount).toLocaleString());if(f.potential_arv)items.push("ARV: $"+Number(f.potential_arv).toLocaleString());if(f.repair_budget)items.push("Repairs: $"+Number(f.repair_budget).toLocaleString());if(f.closing_costs)items.push("Closing: $"+Number(f.closing_costs).toLocaleString());if(f.purchase_price)items.push("Purchase: $"+Number(f.purchase_price).toLocaleString());return items.length?items.map(i=>"<li>"+i+"</li>").join(""):"<li>â</li>";}
+
+const grid=document.getElementById("cards");
+data.properties.forEach(p=>{
+const c=document.createElement("div");c.className="card";
+c.innerHTML=`<div class="card-header"><h2>${p.address}</h2><span class="phase-badge ${phaseClass(p.current_milestone)}">${p.current_milestone}</span></div><div class="source-badges">${p.sources.map(s=>'<span class="src">'+s+'</span>').join("")}</div>${countdown(p.closing_date)}<div class="timeline">${timeline(p.current_milestone)}</div><div class="sections"><div class="section"><h3>Financials</h3><ul>${fin(p.financials)}</ul></div><div class="section"><h3>Key Contacts</h3><ul>${p.contacts.length?p.contacts.map(c=>"<li>"+c.name+" ("+c.role+")</li>").join(""):"<li>â</li>"}</ul></div>${p.closing_date?'<div class="section"><h3>Important Dates</h3><ul><li>Closing: '+p.closing_date+'</li></ul></div>':''}<div class="section${!p.closing_date?" full":""}"><h3>Recent Updates</h3><ul>${p.recent_updates.length?p.recent_updates.map(u=>"<li>"+u.subject+" <span style='color:var(--muted);font-size:.7rem'>("+u.source+")</span></li>").join(""):"<li>No recent updates</li>"}</ul></div></div>`;
+grid.appendChild(c);});
 </script>
 </body>
 </html>
