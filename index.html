@@ -5,19 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>House Flip Closing Coordinator</title>
 <style>
-:root {
-  --bg: #0f1117;
-  --card-bg: #1a1d27;
-  --card-border: #2a2d3a;
-  --text: #e1e4eb;
-  --text-muted: #8b8fa3;
-  --accent: #6c8cff;
-  --green: #34d399;
-  --yellow: #fbbf24;
-  --red: #f87171;
-  --blue: #60a5fa;
-  --purple: #a78bfa;
-}
+:root { --bg: #0f1117; --card-bg: #1a1d27; --card-border: #2a2d3a; --text: #e1e4eb; --text-muted: #8b8fa3; --accent: #6c8cff; --green: #34d399; --yellow: #fbbf24; --red: #f87171; --blue: #60a5fa; --purple: #a78bfa; }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.5; }
 .header { position: sticky; top: 0; z-index: 100; background: linear-gradient(135deg, #1a1d27 0%, #0f1117 100%); border-bottom: 1px solid var(--card-border); padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
@@ -74,30 +62,24 @@ body { background: var(--bg); color: var(--text); font-family: -apple-system, Bl
 .contact-role { color: var(--text-muted); font-size: 0.7rem; }
 .update-source { font-size: 0.65rem; padding: 1px 6px; border-radius: 3px; background: rgba(139,143,163,0.1); color: var(--text-muted); margin-left: 4px; }
 .empty { color: var(--text-muted); font-size: 0.75rem; font-style: italic; }
-@media (max-width: 480px) {
-  .grid { grid-template-columns: 1fr; padding: 12px; gap: 12px; }
-  .header { padding: 12px 16px; }
-  .header h1 { font-size: 1.1rem; }
-  .dot-label { display: none; }
-}
+@media (max-width: 480px) { .grid { grid-template-columns: 1fr; padding: 12px; gap: 12px; } .header { padding: 12px 16px; } .header h1 { font-size: 1.1rem; } .dot-label { display: none; } }
 </style>
 </head>
 <body>
 <div class="header">
-  <div>
-    <h1><span>&#9670;</span> House Flip Closing Coordinator</h1>
-    <div class="updated">Last updated: April 11, 2026 at 6:00 PM EDT</div>
-  </div>
-  <div class="header-meta">
-    <div class="stat-badge active"><span class="num">8</span> Active Properties</div>
-    <div class="stat-badge closing"><span class="num">2</span> At Closing</div>
-    <div class="stat-badge rehab"><span class="num">4</span> In Rehab</div>
-  </div>
+<div>
+<h1><span>&#9670;</span> House Flip Closing Coordinator</h1>
+<div class="updated">Last updated: April 12, 2026 at 8:01 AM EDT</div>
+</div>
+<div class="header-meta">
+<div class="stat-badge active"><span class="num">8</span> Active Properties</div>
+<div class="stat-badge closing"><span class="num">2</span> At Closing</div>
+<div class="stat-badge rehab"><span class="num">4</span> In Rehab</div>
+</div>
 </div>
 <div class="grid" id="cards"></div>
 <script>
 const MILESTONES = ["Offer Made","Under Contract","Title & Escrow","Inspections","Appraisal","Financing","Repairs / Rehab","Final Walkthrough","Closing","Closed"];
-
 const properties = [
   {
     address: "297 Breckwood Blvd, Springfield, MA 01109",
@@ -181,7 +163,6 @@ function phaseClass(m) {
   if (m === "Under Contract") return "phase-contract";
   return "phase-default";
 }
-
 function srcClass(s) {
   const l = s.toLowerCase();
   if (l === "dotloop") return "src-dotloop";
@@ -190,16 +171,14 @@ function srcClass(s) {
   if (l === "venmo") return "src-venmo";
   return "src-email";
 }
-
 function daysUntil(dateStr) {
   if (!dateStr) return null;
   const parts = dateStr.split('/');
   const target = new Date(parts[2], parts[0]-1, parts[1]);
-  const now = new Date(2026, 3, 11); // April 11, 2026
+  const now = new Date(2026, 3, 12); // April 12, 2026
   const diff = Math.ceil((target - now) / (1000*60*60*24));
   return diff;
 }
-
 function buildTimeline(current) {
   const idx = MILESTONES.indexOf(current);
   let html = '<div class="timeline">';
@@ -214,7 +193,6 @@ function buildTimeline(current) {
   html += '</div>';
   return html;
 }
-
 function buildCard(p) {
   const days = daysUntil(p.closing_date);
   let countdownHtml = '';
@@ -231,33 +209,31 @@ function buildCard(p) {
     return `<div class="info-item"><span class="info-label">${label}:</span> <span class="info-value">${p.financials[k]}</span></div>`;
   }).join('') : '<div class="empty">No financial data</div>';
   const updatesHtml = p.recent_updates.length ? p.recent_updates.map(u => `<li>${u.subject} <span class="update-source">${u.source}</span></li>`).join('') : '<li class="empty">No recent updates</li>';
-
   return `
-<div class="card">
-  <div class="card-header">
-    <div class="card-address">${p.address}</div>
-    <div class="phase-badge ${phaseClass(p.current_milestone)}">${p.current_milestone}</div>
-  </div>
-  ${countdownHtml}
-  <div class="source-badges">${sourcesHtml}</div>
-  ${buildTimeline(p.current_milestone)}
-  <div class="card-body">
-    <div class="section">
-      <div class="section-title">Financials</div>
-      <div class="info-grid">${financialsHtml}</div>
-    </div>
-    <div class="section">
-      <div class="section-title">Key Contacts</div>
-      <ul class="contact-list">${contactsHtml}</ul>
-    </div>
-    <div class="section">
-      <div class="section-title">Recent Updates</div>
-      <ul class="update-list">${updatesHtml}</ul>
-    </div>
-  </div>
-</div>`;
+    <div class="card">
+      <div class="card-header">
+        <div class="card-address">${p.address}</div>
+        <div class="phase-badge ${phaseClass(p.current_milestone)}">${p.current_milestone}</div>
+      </div>
+      ${countdownHtml}
+      <div class="source-badges">${sourcesHtml}</div>
+      ${buildTimeline(p.current_milestone)}
+      <div class="card-body">
+        <div class="section">
+          <div class="section-title">Financials</div>
+          <div class="info-grid">${financialsHtml}</div>
+        </div>
+        <div class="section">
+          <div class="section-title">Key Contacts</div>
+          <ul class="contact-list">${contactsHtml}</ul>
+        </div>
+        <div class="section">
+          <div class="section-title">Recent Updates</div>
+          <ul class="update-list">${updatesHtml}</ul>
+        </div>
+      </div>
+    </div>`;
 }
-
 document.getElementById('cards').innerHTML = properties.map(buildCard).join('');
 </script>
 </body>
