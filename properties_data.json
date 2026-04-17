@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-13T08:02:16-04:00",
+  "last_updated": "2026-04-17T08:02:00-04:00",
   "properties": [
     {
       "address": "297 Breckwood Blvd, Springfield, MA 01109",
@@ -13,6 +13,7 @@
       ],
       "financials": {},
       "recent_updates": [
+        {"date": "2026-04-13", "subject": "Closing date reached", "source": "Email"},
         {"subject": "Repairs priority", "source": "Email"},
         {"subject": "FHA Amendatory signed", "source": "dotloop"}
       ]
@@ -29,8 +30,67 @@
       ],
       "financials": {},
       "recent_updates": [
+        {"date": "2026-04-14", "subject": "Closing date reached", "source": "Email"},
         {"subject": "PSA signed via dotloop", "source": "dotloop"},
         {"subject": "Pioneer Valley Oil invoice", "source": "Email"}
+      ]
+    },
+    {
+      "address": "4 School St, Ware, MA",
+      "current_milestone": "Closing",
+      "closing_date": "4/16/2026",
+      "sources": ["Email", "PDF"],
+      "contacts": [
+        {"name": "David Burstein", "role": "Attorney"},
+        {"name": "David Chase", "role": "Lender"}
+      ],
+      "financials": {"closing_costs": "34355"},
+      "recent_updates": [
+        {"date": "2026-04-16", "subject": "Closing date reached", "source": "Email"},
+        {"subject": "Loan documents from Freedom CU", "source": "PDF"},
+        {"subject": "Closing date 4/16", "source": "Email"}
+      ]
+    },
+    {
+      "address": "167 East Park Terrace, Pittsfield, MA 01201",
+      "current_milestone": "Title & Escrow",
+      "closing_date": "5/8/2026",
+      "sources": ["Email", "PDF"],
+      "contacts": [
+        {"name": "Antonio Cucciniello", "role": "Partner (House Hack Helpers)"},
+        {"name": "William McGuire", "role": "Investors & Team Ops"},
+        {"name": "David Burstein", "role": "Attorney"},
+        {"name": "Kelcey Rogers", "role": "Lender (Pinnacle Financial)"},
+        {"name": "Adina Edgett", "role": "Insurance (Webber & Grinnell)"},
+        {"name": "Kevin Shippee", "role": "Partner"}
+      ],
+      "financials": {"purchase_price": "145000", "deposit": "500"},
+      "recent_updates": [
+        {"date": "2026-04-16", "subject": "NEW: Under contract via assignment from Miles Buys Homes LLC", "source": "Email"},
+        {"date": "2026-04-16", "subject": "Sent to Burstein for title check and Pinnacle for loan setup", "source": "Email"},
+        {"date": "2026-04-16", "subject": "Assignment contract PDF attached", "source": "PDF"},
+        {"date": "2026-04-16", "subject": "Waiting on wire instructions for $500 deposit", "source": "Email"}
+      ],
+      "action_items": [
+        "Send $500 deposit once wire instructions received",
+        "Antonio to provide underlying contract to Burstein",
+        "Pinnacle to set up loan",
+        "Burstein to check title",
+        "Adina to start insurance"
+      ]
+    },
+    {
+      "address": "21 Holly St, Greenfield, MA",
+      "current_milestone": "Under Contract",
+      "closing_date": null,
+      "sources": ["Email", "PDF"],
+      "contacts": [
+        {"name": "David Burstein", "role": "Attorney"}
+      ],
+      "financials": {},
+      "recent_updates": [
+        {"subject": "Sale initiated", "source": "Email"},
+        {"subject": "Draft PS sent", "source": "Email"}
       ]
     },
     {
@@ -55,7 +115,9 @@
       "sources": ["Email"],
       "contacts": [],
       "financials": {},
-      "recent_updates": []
+      "recent_updates": [
+        {"date": "2026-04-16", "subject": "Note: Missing escrow deposit forms for Pittsfield properties (Cavalier mgmt) â SD/LMR moved to Master Escrow, needs verification", "source": "Email"}
+      ]
     },
     {
       "address": "1 Richmond Ln, Pittsfield, MA",
@@ -67,6 +129,7 @@
       ],
       "financials": {"repair_budget": "4000"},
       "recent_updates": [
+        {"date": "2026-04-16", "subject": "Note: Missing escrow deposit forms for Pittsfield properties (Cavalier mgmt)", "source": "Email"},
         {"subject": "Electrical pending", "source": "Email"}
       ]
     },
@@ -81,35 +144,6 @@
       "financials": {"repair_budget": "5460"},
       "recent_updates": [
         {"subject": "Reimbursement", "source": "Email"}
-      ]
-    },
-    {
-      "address": "4 School St, Ware, MA",
-      "current_milestone": "Financing",
-      "closing_date": "4/16/2026",
-      "sources": ["Email", "PDF"],
-      "contacts": [
-        {"name": "David Burstein", "role": "Attorney"},
-        {"name": "David Chase", "role": "Lender"}
-      ],
-      "financials": {"closing_costs": "34355"},
-      "recent_updates": [
-        {"subject": "Loan documents from Freedom CU", "source": "PDF"},
-        {"subject": "Closing date 4/16", "source": "Email"}
-      ]
-    },
-    {
-      "address": "21 Holly St, Greenfield, MA",
-      "current_milestone": "Under Contract",
-      "closing_date": null,
-      "sources": ["Email", "PDF"],
-      "contacts": [
-        {"name": "David Burstein", "role": "Attorney"}
-      ],
-      "financials": {},
-      "recent_updates": [
-        {"subject": "Sale initiated", "source": "Email"},
-        {"subject": "Draft PS sent", "source": "Email"}
       ]
     }
   ]
