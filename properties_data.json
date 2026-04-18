@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-17T18:02:00-04:00",
+  "last_updated": "2026-04-18T08:00:00-04:00",
   "properties": [
     {
       "address": "297 Breckwood Blvd, Springfield, MA 01109",
@@ -45,10 +45,14 @@
         {"name": "David Chase", "role": "Lender"},
         {"name": "Michelle", "role": "Loan Processing"},
         {"name": "Ruby Lending LLC", "role": "Lender"},
-        {"name": "Freedom Credit Union", "role": "Lender (FCU)"}
+        {"name": "Freedom Credit Union", "role": "Lender (FCU)"},
+        {"name": "Gregory", "role": "FCU Contact"},
+        {"name": "Camille", "role": "FCU Contact"},
+        {"name": "Shamikka", "role": "FCU Contact"}
       ],
       "financials": {"closing_costs": "34355"},
       "recent_updates": [
+        {"date": "2026-04-17", "subject": "FCU confirmed funding request package looks good", "source": "Email"},
         {"date": "2026-04-17", "subject": "Burstein sent loan packages (Freedom CU & Ruby Lending) for funding request", "source": "Email"},
         {"date": "2026-04-17", "subject": "Matt forwarded to Michelle - will use Freedom Credit Union funds", "source": "Email"},
         {"date": "2026-04-17", "subject": "Originals to be dropped off at FCU next week", "source": "Email"},
@@ -56,9 +60,9 @@
         {"subject": "Loan documents from Freedom CU", "source": "PDF"}
       ],
       "action_items": [
-        "Michelle to add Ruby Lending loan with Freedom CU funds",
         "Drop off original funding request to FCU next week",
-        "Awaiting confirmation from FCU on funding"
+        "Michelle to add Ruby Lending loan with Freedom CU funds",
+        "Awaiting final funding confirmation from FCU"
       ]
     },
     {
@@ -71,12 +75,14 @@
         {"name": "William McGuire", "role": "Investors & Team Ops"},
         {"name": "David Burstein", "role": "Attorney"},
         {"name": "Kelcey Rogers", "role": "Lender (Pinnacle Financial)"},
+        {"name": "Lauren Whalen", "role": "Lender Contact (Pinnacle Financial)"},
         {"name": "Adina Edgett", "role": "Insurance (Webber & Grinnell)"},
         {"name": "Kevin Shippee", "role": "Partner"},
         {"name": "Miles Jiles", "role": "Assignor (Miles Buys Homes LLC)"}
       ],
       "financials": {"purchase_price": "145000", "deposit": "500"},
       "recent_updates": [
+        {"date": "2026-04-18", "subject": "Daily brief: Coordinate next steps with Lauren Whalen at Pinnacle; provide renovation budget & ARV", "source": "Email"},
         {"date": "2026-04-17", "subject": "Burstein still looking for underlying contract", "source": "Email"},
         {"date": "2026-04-17", "subject": "Adina Edgett (insurance) sent questionnaire to line up coverage", "source": "Email"},
         {"date": "2026-04-17", "subject": "Antonio forwarded P&S contract PDF from Miles Jiles to David & William", "source": "Email"},
@@ -86,11 +92,13 @@
         {"date": "2026-04-16", "subject": "Waiting on wire instructions for $500 deposit", "source": "Email"}
       ],
       "action_items": [
-        "Send $500 deposit once wire instructions received",
-        "Burstein needs underlying contract - Antonio sent P&S today",
+        "Will to transmit $500 earnest money deposit",
+        "Provide renovation budget breakdown and ARV to Pinnacle",
+        "Coordinate walkthrough for next week",
+        "Complete insurance questionnaire for Adina Edgett",
+        "Antonio to confirm underlying contract sent to Burstein",
         "Pinnacle to set up loan",
-        "Burstein to check title",
-        "Complete insurance questionnaire for Adina Edgett"
+        "Burstein to check title"
       ]
     },
     {
@@ -134,12 +142,14 @@
       ],
       "financials": {},
       "recent_updates": [
+        {"date": "2026-04-18", "subject": "Daily brief: Review SD/LMR security deposit report with Chris Keniley", "source": "Email"},
         {"date": "2026-04-17", "subject": "SD/LMR escrow discussion - $2,900 LMR moved to Master Escrow from closings (Ferry $950, Carmon $850, Nyamekeh $1,100)", "source": "Email"},
         {"date": "2026-04-17", "subject": "LMRs must be held in escrow or 5% interest applies; Chris adding to UDFs", "source": "Email"},
         {"date": "2026-04-17", "subject": "Cavalier does not want to handle LMR escrow forms - team must collect signatures", "source": "Email"},
         {"date": "2026-04-16", "subject": "Missing escrow deposit forms for Pittsfield properties (Cavalier mgmt)", "source": "Email"}
       ],
       "action_items": [
+        "Review SD/LMR report with Chris Keniley by Mon 4/20",
         "Get escrow forms signed for tenant deposits",
         "Discuss with Cavalier about handling LMRs",
         "Chris to update UDFs with LMR amounts"
