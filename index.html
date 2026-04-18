@@ -2,349 +2,422 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>House Flip Closing Coordinator</title>
 <style>
-:root {
-  --bg: #0f1117;
-  --card-bg: #1a1d27;
-  --card-border: #2a2d3a;
-  --text: #e4e4e7;
-  --text-muted: #9ca3af;
-  --accent: #6366f1;
-  --green: #22c55e;
-  --blue: #3b82f6;
-  --yellow: #eab308;
-  --red: #ef4444;
-  --orange: #f97316;
-  --gray: #4b5563;
-}
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; min-height: 100vh; }
-.header { position: sticky; top: 0; z-index: 100; background: linear-gradient(135deg, #1a1d27 0%, #0f1117 100%); border-bottom: 1px solid var(--card-border); padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
-.header h1 { font-size: 1.4rem; font-weight: 700; background: linear-gradient(135deg, #818cf8, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-.header-meta { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
-.header-meta .updated { color: var(--text-muted); font-size: 0.8rem; }
-.stat-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 20px; padding: 4px 12px; font-size: 0.8rem; }
-.stat-badge .dot { width: 8px; height: 8px; border-radius: 50%; }
-.stat-badge .dot.green { background: var(--green); }
-.stat-badge .dot.blue { background: var(--blue); }
-.stat-badge .dot.yellow { background: var(--yellow); }
-.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(420px, 1fr)); gap: 20px; padding: 24px; }
-.card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; overflow: hidden; transition: border-color 0.2s; }
-.card:hover { border-color: var(--accent); }
-.card-header { padding: 16px 20px; border-bottom: 1px solid var(--card-border); }
-.card-header .address { font-size: 1.1rem; font-weight: 600; margin-bottom: 8px; }
-.card-header .badges { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
-.badge { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
-.badge.phase { background: rgba(99,102,241,0.15); color: #818cf8; border: 1px solid rgba(99,102,241,0.3); }
-.badge.phase.closed { background: rgba(34,197,94,0.15); color: #4ade80; border-color: rgba(34,197,94,0.3); }
-.badge.phase.rehab { background: rgba(249,115,22,0.15); color: #fb923c; border-color: rgba(249,115,22,0.3); }
-.badge.source { background: rgba(59,130,246,0.1); color: #60a5fa; border: 1px solid rgba(59,130,246,0.2); font-size: 0.65rem; }
-.countdown { margin-top: 8px; font-size: 0.85rem; color: var(--yellow); font-weight: 500; }
-.timeline { padding: 12px 20px; border-bottom: 1px solid var(--card-border); display: flex; align-items: center; gap: 4px; }
-.timeline .dot { width: 12px; height: 12px; border-radius: 50%; border: 2px solid transparent; position: relative; cursor: default; }
-.timeline .dot.completed { background: var(--green); border-color: rgba(34,197,94,0.3); }
-.timeline .dot.active { background: var(--blue); border-color: rgba(59,130,246,0.4); box-shadow: 0 0 8px rgba(59,130,246,0.4); }
-.timeline .dot.pending { background: var(--gray); border-color: rgba(75,85,99,0.3); }
-.timeline .line { flex: 1; height: 2px; background: var(--gray); min-width: 4px; }
-.timeline .line.completed { background: var(--green); }
-.card-body { padding: 16px 20px; }
-.section { margin-bottom: 14px; }
-.section:last-child { margin-bottom: 0; }
-.section-title { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 6px; font-weight: 600; }
-.section-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.info-item { font-size: 0.82rem; }
-.info-item .label { color: var(--text-muted); font-size: 0.72rem; }
-.info-item .value { font-weight: 500; }
-.contact-list, .update-list, .action-list { list-style: none; }
-.contact-list li, .update-list li, .action-list li { font-size: 0.8rem; padding: 3px 0; border-bottom: 1px solid rgba(42,45,58,0.5); }
-.contact-list li:last-child, .update-list li:last-child, .action-list li:last-child { border-bottom: none; }
-.contact-role { color: var(--text-muted); font-size: 0.72rem; }
-.update-date { color: var(--accent); font-size: 0.7rem; margin-right: 6px; }
-.update-source { font-size: 0.65rem; color: var(--text-muted); background: rgba(99,102,241,0.1); padding: 1px 6px; border-radius: 4px; margin-left: 4px; }
-.action-list li { color: var(--yellow); }
-.action-list li::before { content: "â¡ "; }
-@media (max-width: 500px) { .grid { grid-template-columns: 1fr; padding: 12px; } .header { padding: 12px 16px; } }
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#0f1117;color:#e5e7eb;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;padding:0;}
+.header{position:sticky;top:0;z-index:100;background:#0f1117ee;backdrop-filter:blur(12px);border-bottom:1px solid #2a2d3a;padding:16px 24px;}
+.header h1{font-size:22px;color:#f1f5f9;margin-bottom:4px;}
+.header .meta{font-size:13px;color:#6b7280;}
+.stats{display:flex;gap:16px;margin-top:8px;}
+.stat{background:#1a1d27;padding:8px 16px;border-radius:8px;border:1px solid #2a2d3a;}
+.stat .num{font-size:20px;font-weight:700;color:#3b82f6;}
+.stat .label{font-size:11px;color:#6b7280;text-transform:uppercase;letter-spacing:1px;}
+.container{max-width:1100px;margin:0 auto;padding:20px;}
+@media(max-width:600px){.container{padding:12px;}.header{padding:12px 16px;}}
 </style>
 </head>
 <body>
 <div class="header">
-  <h1>ð  House Flip Closing Coordinator</h1>
-  <div class="header-meta">
-    <span class="updated">Updated: Apr 18, 2026 8:00 AM EDT</span>
-    <span class="stat-badge"><span class="dot green"></span> 9 Properties</span>
-    <span class="stat-badge"><span class="dot blue"></span> 2 Closed</span>
-    <span class="stat-badge"><span class="dot yellow"></span> 4 In Rehab</span>
-  </div>
+<h1>House Flip Closing Coordinator</h1>
+<div class="meta">Last updated: 2026-04-18T18:02:00-04:00 &nbsp;|&nbsp; Dashboard auto-refreshes twice daily</div>
+<div class="stats">
+<div class="stat"><div class="num">9</div><div class="label">Total Properties</div></div>
+<div class="stat"><div class="num">7</div><div class="label">Active</div></div>
+<div class="stat"><div class="num">0</div><div class="label">At Closing</div></div>
+<div class="stat"><div class="num">4</div><div class="label">In Rehab</div></div>
 </div>
-<div class="grid" id="grid"></div>
-
-<script>
-const DATA = {
-  "properties": [
-    {
-      "address": "167 East Park Terrace, Pittsfield, MA 01201",
-      "current_milestone": "Title & Escrow",
-      "closing_date": "5/8/2026",
-      "sources": ["Email", "PDF"],
-      "contacts": [
-        {"name": "Antonio Cucciniello", "role": "Partner (House Hack Helpers)"},
-        {"name": "William McGuire", "role": "Investors & Team Ops"},
-        {"name": "David Burstein", "role": "Attorney"},
-        {"name": "Kelcey Rogers", "role": "Lender (Pinnacle Financial)"},
-        {"name": "Lauren Whalen", "role": "Lender Contact (Pinnacle Financial)"},
-        {"name": "Adina Edgett", "role": "Insurance (Webber & Grinnell)"},
-        {"name": "Kevin Shippee", "role": "Partner"},
-        {"name": "Miles Jiles", "role": "Assignor (Miles Buys Homes LLC)"}
-      ],
-      "financials": {"purchase_price": "$145,000", "deposit": "$500"},
-      "recent_updates": [
-        {"date": "2026-04-18", "subject": "Daily brief: Coordinate next steps with Lauren Whalen at Pinnacle; provide renovation budget & ARV", "source": "Email"},
-        {"date": "2026-04-17", "subject": "Burstein still looking for underlying contract", "source": "Email"},
-        {"date": "2026-04-17", "subject": "Adina Edgett sent insurance questionnaire", "source": "Email"},
-        {"date": "2026-04-17", "subject": "Antonio forwarded P&S contract PDF", "source": "Email"}
-      ],
-      "action_items": [
-        "Will to transmit $500 earnest money deposit",
-        "Provide renovation budget & ARV to Pinnacle",
-        "Coordinate walkthrough for next week",
-        "Complete insurance questionnaire for Adina Edgett",
-        "Antonio to confirm underlying contract sent to Burstein"
-      ]
-    },
-    {
-      "address": "4 School St, Ware, MA 01082",
-      "current_milestone": "Financing",
-      "closing_date": null,
-      "sources": ["Email", "PDF"],
-      "contacts": [
-        {"name": "David Burstein", "role": "Attorney"},
-        {"name": "Michelle", "role": "Loan Processing"},
-        {"name": "Freedom Credit Union", "role": "Lender (FCU)"},
-        {"name": "Ruby Lending LLC", "role": "Lender"}
-      ],
-      "financials": {"closing_costs": "$34,355"},
-      "recent_updates": [
-        {"date": "2026-04-17", "subject": "FCU confirmed funding package looks good", "source": "Email"},
-        {"date": "2026-04-17", "subject": "Burstein sent loan packages for funding request", "source": "Email"},
-        {"date": "2026-04-17", "subject": "Originals to be dropped off at FCU next week", "source": "Email"}
-      ],
-      "action_items": [
-        "Drop off original funding request to FCU next week",
-        "Michelle to add Ruby Lending loan with FCU funds",
-        "Awaiting final funding confirmation from FCU"
-      ]
-    },
-    {
-      "address": "21 Holly St, Greenfield, MA",
-      "current_milestone": "Under Contract",
-      "closing_date": null,
-      "sources": ["Email", "PDF"],
-      "contacts": [{"name": "David Burstein", "role": "Attorney"}],
-      "financials": {},
-      "recent_updates": [
-        {"subject": "Sale initiated", "source": "Email"},
-        {"subject": "Draft P&S sent", "source": "Email"}
-      ],
-      "action_items": []
-    },
-    {
-      "address": "1874 Home Rd, Sheffield, MA",
-      "current_milestone": "Repairs / Rehab",
-      "closing_date": null,
-      "sources": ["Email", "PDF"],
-      "contacts": [
-        {"name": "Alice Kempf", "role": "Agent"},
-        {"name": "Mahari Miller", "role": "Contractor"}
-      ],
-      "financials": {"potential_arv": "$600,000"},
-      "recent_updates": [
-        {"subject": "Refinance HUD-1", "source": "PDF"},
-        {"subject": "Scope sent to contractor", "source": "Email"}
-      ],
-      "action_items": []
-    },
-    {
-      "address": "40 Roland St, Pittsfield, MA 01201",
-      "current_milestone": "Repairs / Rehab",
-      "closing_date": null,
-      "sources": ["Email"],
-      "contacts": [
-        {"name": "Chris Keniley", "role": "Accounting"},
-        {"name": "Gabby Voorhies", "role": "Operations"},
-        {"name": "Cavalier", "role": "Property Manager"}
-      ],
-      "financials": {},
-      "recent_updates": [
-        {"date": "2026-04-18", "subject": "Review SD/LMR report with Chris by Mon 4/20", "source": "Email"},
-        {"date": "2026-04-17", "subject": "$2,900 LMR moved to Master Escrow", "source": "Email"},
-        {"date": "2026-04-17", "subject": "LMRs must be held in escrow or 5% interest", "source": "Email"},
-        {"date": "2026-04-17", "subject": "Cavalier won't handle LMR escrow forms", "source": "Email"}
-      ],
-      "action_items": [
-        "Review SD/LMR report with Chris by Mon 4/20",
-        "Get escrow forms signed for tenant deposits",
-        "Discuss with Cavalier about handling LMRs"
-      ]
-    },
-    {
-      "address": "1 Richmond Ln, Pittsfield, MA",
-      "current_milestone": "Repairs / Rehab",
-      "closing_date": null,
-      "sources": ["Email"],
-      "contacts": [
-        {"name": "J.M. Koenig", "role": "Contractor"},
-        {"name": "Chris Keniley", "role": "Accounting"},
-        {"name": "Cavalier", "role": "Property Manager"}
-      ],
-      "financials": {"repair_budget": "$4,000"},
-      "recent_updates": [
-        {"date": "2026-04-17", "subject": "SD/LMR escrow discussion - multiple tenant LMRs added", "source": "Email"},
-        {"date": "2026-04-17", "subject": "Chris billed Will for SD/LMR + 4 months rent", "source": "Email"}
-      ],
-      "action_items": [
-        "Get escrow forms signed for tenant deposits",
-        "Complete electrical work"
-      ]
-    },
-    {
-      "address": "583 Hawks Spur",
-      "current_milestone": "Repairs / Rehab",
-      "closing_date": null,
-      "sources": ["Email", "Venmo"],
-      "contacts": [{"name": "Jessica Sicard", "role": "PM"}],
-      "financials": {"repair_budget": "$5,460"},
-      "recent_updates": [{"subject": "Reimbursement", "source": "Email"}],
-      "action_items": []
-    },
-    {
-      "address": "297 Breckwood Blvd, Springfield, MA 01109",
-      "current_milestone": "Closed",
-      "closing_date": "4/13/2026",
-      "sources": ["dotloop", "Email"],
-      "contacts": [
-        {"name": "Alice Kempf", "role": "Agent"},
-        {"name": "David Burstein", "role": "Attorney"},
-        {"name": "Jessica Sicard", "role": "Project Manager"}
-      ],
-      "financials": {},
-      "recent_updates": [
-        {"date": "2026-04-13", "subject": "Closing date reached", "source": "Email"},
-        {"subject": "FHA Amendatory signed", "source": "dotloop"}
-      ],
-      "action_items": []
-    },
-    {
-      "address": "29 Chestnut Dr, Belchertown, MA 01007",
-      "current_milestone": "Closed",
-      "closing_date": "4/14/2026",
-      "sources": ["dotloop", "Email"],
-      "contacts": [
-        {"name": "Alice Kempf", "role": "Agent"},
-        {"name": "David Burstein", "role": "Attorney"},
-        {"name": "Jessica Sicard", "role": "Project Manager"}
-      ],
-      "financials": {},
-      "recent_updates": [
-        {"date": "2026-04-14", "subject": "Closing date reached", "source": "Email"},
-        {"subject": "PSA signed via dotloop", "source": "dotloop"}
-      ],
-      "action_items": []
-    }
-  ]
-};
-
-const MILESTONES = ["Offer Made","Under Contract","Title & Escrow","Inspections","Appraisal","Financing","Repairs / Rehab","Final Walkthrough","Closing","Closed"];
-
-function getMilestoneIndex(m) {
-  const idx = MILESTONES.indexOf(m);
-  return idx >= 0 ? idx : 0;
-}
-
-function daysUntil(dateStr) {
-  if (!dateStr) return null;
-  const parts = dateStr.split('/');
-  const d = new Date(parseInt(parts[2]), parseInt(parts[0])-1, parseInt(parts[1]));
-  const now = new Date();
-  now.setHours(0,0,0,0);
-  return Math.ceil((d - now) / (1000*60*60*24));
-}
-
-function renderTimeline(milestone) {
-  const idx = getMilestoneIndex(milestone);
-  let html = '';
-  for (let i = 0; i < MILESTONES.length; i++) {
-    const cls = i < idx ? 'completed' : i === idx ? 'active' : 'pending';
-    html += '<div class="dot ' + cls + '" title="' + MILESTONES[i] + '"></div>';
-    if (i < MILESTONES.length - 1) {
-      html += '<div class="line ' + (i < idx ? 'completed' : '') + '"></div>';
-    }
-  }
-  return html;
-}
-
-function renderCard(p) {
-  const days = daysUntil(p.closing_date);
-  const phaseClass = p.current_milestone === 'Closed' ? 'closed' : p.current_milestone.includes('Rehab') ? 'rehab' : '';
-
-  let financialsHtml = '';
-  const fKeys = Object.keys(p.financials || {});
-  if (fKeys.length) {
-    financialsHtml = '<div class="section"><div class="section-title">Financials</div><div class="section-grid">';
-    fKeys.forEach(k => {
-      const label = k.replace(/_/g,' ').replace(/\b\w/g, c => c.toUpperCase());
-      financialsHtml += '<div class="info-item"><div class="label">' + label + '</div><div class="value">' + p.financials[k] + '</div></div>';
-    });
-    financialsHtml += '</div></div>';
-  }
-
-  let contactsHtml = '';
-  if (p.contacts && p.contacts.length) {
-    contactsHtml = '<div class="section"><div class="section-title">Key Contacts</div><ul class="contact-list">';
-    p.contacts.slice(0,5).forEach(c => {
-      contactsHtml += '<li>' + c.name + ' <span class="contact-role">â ' + c.role + '</span></li>';
-    });
-    if (p.contacts.length > 5) contactsHtml += '<li style="color:var(--text-muted)">+ ' + (p.contacts.length - 5) + ' more</li>';
-    contactsHtml += '</ul></div>';
-  }
-
-  let updatesHtml = '';
-  if (p.recent_updates && p.recent_updates.length) {
-    updatesHtml = '<div class="section"><div class="section-title">Recent Updates</div><ul class="update-list">';
-    p.recent_updates.slice(0,4).forEach(u => {
-      const dateStr = u.date ? '<span class="update-date">' + u.date.replace('2026-','') + '</span>' : '';
-      updatesHtml += '<li>' + dateStr + u.subject + '<span class="update-source">' + u.source + '</span></li>';
-    });
-    updatesHtml += '</ul></div>';
-  }
-
-  let actionsHtml = '';
-  if (p.action_items && p.action_items.length) {
-    actionsHtml = '<div class="section"><div class="section-title">Action Items</div><ul class="action-list">';
-    p.action_items.forEach(a => { actionsHtml += '<li>' + a + '</li>'; });
-    actionsHtml += '</ul></div>';
-  }
-
-  const countdownHtml = days !== null ? '<div class="countdown">' + (days <= 0 ? 'â Closing date passed' : 'â³ ' + days + ' days to closing') + '</div>' : '';
-
-  return '<div class="card">' +
-    '<div class="card-header">' +
-      '<div class="address">' + p.address + '</div>' +
-      '<div class="badges">' +
-        '<span class="badge phase ' + phaseClass + '">' + p.current_milestone + '</span>' +
-        p.sources.map(s => '<span class="badge source">' + s + '</span>').join('') +
-      '</div>' +
-      countdownHtml +
-    '</div>' +
-    '<div class="timeline">' + renderTimeline(p.current_milestone) + '</div>' +
-    '<div class="card-body">' +
-      financialsHtml + contactsHtml + updatesHtml + actionsHtml +
-    '</div>' +
-  '</div>';
-}
-
-document.getElementById('grid').innerHTML = DATA.properties.map(renderCard).join('');
-</script>
+</div>
+<div class="container">
+<div style="background:#1a1d27;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid #2a2d3a;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;">
+            <div>
+                <h2 style="margin:0 0 6px 0;font-size:18px;color:#f1f5f9;">297 Breckwood Blvd, Springfield, MA 01109</h2>
+                <div style="margin-bottom:6px;"><span style="display:inline-block;padding:4px 12px;border-radius:12px;font-size:12px;font-weight:600;background:#10b98122;color:#10b981;border:1px solid #10b98155;">Closed</span> <span style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:11px;background:#6366f133;color:#6366f1;border:1px solid #6366f155;margin-right:4px;">dotloop</span><span style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:11px;background:#3b82f633;color:#3b82f6;border:1px solid #3b82f655;margin-right:4px;">Email</span></div>
+            </div>
+            <div style="text-align:right;"><span style="font-size:12px;color:#6b7280;">Closed 4/13/2026</span></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin:12px 0;gap:2px;"><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;opacity:1;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:block;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Offer Made</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;opacity:1;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:none;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Under Contract</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;opacity:1;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:block;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Title & Escrow</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;opacity:1;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:none;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Inspections</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;opacity:1;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:block;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Appraisal</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;opacity:1;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:none;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Financing</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;opacity:1;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:block;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Repairs / Rehab</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;opacity:1;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:none;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Final Walkthrough</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;opacity:1;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:block;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Closing</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#3b82f6;opacity:1;margin-bottom:4px;box-shadow:0 0 8px #3b82f688;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:none;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Closed</span>
+        </div></div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:8px;">
+            <div><div style="margin-top:8px;"><div style="font-size:11px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Key Contacts</div><div style="padding:3px 0;font-size:13px;"><span style="color:#e5e7eb;">Alice Kempf</span> <span style="color:#6b7280;">— Agent</span></div><div style="padding:3px 0;font-size:13px;"><span style="color:#e5e7eb;">David Burstein</span> <span style="color:#6b7280;">— Attorney</span></div><div style="padding:3px 0;font-size:13px;"><span style="color:#e5e7eb;">Jessica Sicard</span> <span style="color:#6b7280;">— Project Manager</span></div></div></div>
+            <div><div style="margin-top:8px;"><div style="font-size:11px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Recent Updates</div><div style="padding:3px 0;font-size:13px;border-bottom:1px solid #2a2d3a;"><span style="color:#6b7280;font-size:11px;margin-right:6px;">2026-04-13</span><span style="color:#d1d5db;">Closing date reached</span><span style="color:#6b7280;font-size:11px;"> [Email]</span></div><div style="padding:3px 0;font-size:13px;border-bottom:1px solid #2a2d3a;"><span style="color:#d1d5db;">Repairs priority</span><span style="color:#6b7280;font-size:11px;"> [Email]</span></div><div style="padding:3px 0;font-size:13px;border-bottom:1px solid #2a2d3a;"><span style="color:#d1d5db;">FHA Amendatory signed</span><span style="color:#6b7280;font-size:11px;"> [dotloop]</span></div></div></div>
+        </div>
+    </div><div style="background:#1a1d27;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid #2a2d3a;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;">
+            <div>
+                <h2 style="margin:0 0 6px 0;font-size:18px;color:#f1f5f9;">29 Chestnut Dr, Belchertown, MA 01007</h2>
+                <div style="margin-bottom:6px;"><span style="display:inline-block;padding:4px 12px;border-radius:12px;font-size:12px;font-weight:600;background:#10b98122;color:#10b981;border:1px solid #10b98155;">Closed</span> <span style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:11px;background:#6366f133;color:#6366f1;border:1px solid #6366f155;margin-right:4px;">dotloop</span><span style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:11px;background:#3b82f633;color:#3b82f6;border:1px solid #3b82f655;margin-right:4px;">Email</span></div>
+            </div>
+            <div style="text-align:right;"><span style="font-size:12px;color:#6b7280;">Closed 4/14/2026</span></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin:12px 0;gap:2px;"><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;opacity:1;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:block;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Offer Made</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;opacity:1;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:none;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Under Contract</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;opacity:1;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:block;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Title & Escrow</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;opacity:1;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:none;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Inspections</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;opacity:1;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:block;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Appraisal</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;opacity:1;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:none;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Financing</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;opacity:1;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:block;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Repairs / Rehab</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;opacity:1;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:none;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Final Walkthrough</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;opacity:1;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:block;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Closing</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#3b82f6;opacity:1;margin-bottom:4px;box-shadow:0 0 8px #3b82f688;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:none;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Closed</span>
+        </div></div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:8px;">
+            <div><div style="margin-top:8px;"><div style="font-size:11px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Key Contacts</div><div style="padding:3px 0;font-size:13px;"><span style="color:#e5e7eb;">Alice Kempf</span> <span style="color:#6b7280;">— Agent</span></div><div style="padding:3px 0;font-size:13px;"><span style="color:#e5e7eb;">David Burstein</span> <span style="color:#6b7280;">— Attorney</span></div><div style="padding:3px 0;font-size:13px;"><span style="color:#e5e7eb;">Jessica Sicard</span> <span style="color:#6b7280;">— Project Manager</span></div></div></div>
+            <div><div style="margin-top:8px;"><div style="font-size:11px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Recent Updates</div><div style="padding:3px 0;font-size:13px;border-bottom:1px solid #2a2d3a;"><span style="color:#6b7280;font-size:11px;margin-right:6px;">2026-04-14</span><span style="color:#d1d5db;">Closing date reached</span><span style="color:#6b7280;font-size:11px;"> [Email]</span></div><div style="padding:3px 0;font-size:13px;border-bottom:1px solid #2a2d3a;"><span style="color:#d1d5db;">PSA signed via dotloop</span><span style="color:#6b7280;font-size:11px;"> [dotloop]</span></div><div style="padding:3px 0;font-size:13px;border-bottom:1px solid #2a2d3a;"><span style="color:#d1d5db;">Pioneer Valley Oil invoice</span><span style="color:#6b7280;font-size:11px;"> [Email]</span></div></div></div>
+        </div>
+    </div><div style="background:#1a1d27;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid #2a2d3a;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;">
+            <div>
+                <h2 style="margin:0 0 6px 0;font-size:18px;color:#f1f5f9;">4 School St, Ware, MA 01082</h2>
+                <div style="margin-bottom:6px;"><span style="display:inline-block;padding:4px 12px;border-radius:12px;font-size:12px;font-weight:600;background:#3b82f622;color:#3b82f6;border:1px solid #3b82f655;">Financing</span> <span style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:11px;background:#3b82f633;color:#3b82f6;border:1px solid #3b82f655;margin-right:4px;">Email</span><span style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:11px;background:#ef444433;color:#ef4444;border:1px solid #ef444455;margin-right:4px;">PDF</span></div>
+            </div>
+            
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin:12px 0;gap:2px;"><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;opacity:1;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:block;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Offer Made</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;opacity:1;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:none;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Under Contract</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;opacity:1;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:block;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Title & Escrow</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;opacity:1;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:none;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Inspections</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;opacity:1;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:block;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Appraisal</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#3b82f6;opacity:1;margin-bottom:4px;box-shadow:0 0 8px #3b82f688;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:none;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Financing</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#4b5563;opacity:0.5;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:block;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Repairs / Rehab</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#4b5563;opacity:0.5;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:none;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Final Walkthrough</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#4b5563;opacity:0.5;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:block;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Closing</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#4b5563;opacity:0.5;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:none;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Closed</span>
+        </div></div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:8px;">
+            <div><div style="margin-top:8px;"><div style="font-size:11px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Financials</div><div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid #2a2d3a;"><span style="color:#9ca3af;font-size:13px;">Closing Costs</span><span style="color:#e5e7eb;font-size:13px;font-weight:500;">$34,355</span></div></div><div style="margin-top:8px;"><div style="font-size:11px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Key Contacts</div><div style="padding:3px 0;font-size:13px;"><span style="color:#e5e7eb;">David Burstein</span> <span style="color:#6b7280;">— Attorney</span></div><div style="padding:3px 0;font-size:13px;"><span style="color:#e5e7eb;">David Chase</span> <span style="color:#6b7280;">— Lender</span></div><div style="padding:3px 0;font-size:13px;"><span style="color:#e5e7eb;">Michelle</span> <span style="color:#6b7280;">— Loan Processing</span></div><div style="padding:3px 0;font-size:13px;"><span style="color:#e5e7eb;">Ruby Lending LLC</span> <span style="color:#6b7280;">— Lender</span></div><div style="padding:3px 0;font-size:13px;"><span style="color:#e5e7eb;">Freedom Credit Union</span> <span style="color:#6b7280;">— Lender (FCU)</span></div><div style="padding:3px 0;font-size:13px;"><span style="color:#e5e7eb;">Gregory</span> <span style="color:#6b7280;">— FCU Contact</span></div><div style="color:#6b7280;font-size:12px;">+2 more</div></div></div>
+            <div><div style="margin-top:8px;"><div style="font-size:11px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Action Items</div><div style="padding:3px 0;font-size:13px;color:#fbbf24;">• Drop off original funding request to FCU next week</div><div style="padding:3px 0;font-size:13px;color:#fbbf24;">• Michelle to add Ruby Lending loan with Freedom CU funds</div><div style="padding:3px 0;font-size:13px;color:#fbbf24;">• Awaiting final funding confirmation from FCU</div></div><div style="margin-top:8px;"><div style="font-size:11px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Recent Updates</div><div style="padding:3px 0;font-size:13px;border-bottom:1px solid #2a2d3a;"><span style="color:#6b7280;font-size:11px;margin-right:6px;">2026-04-17</span><span style="color:#d1d5db;">FCU confirmed funding request package looks good</span><span style="color:#6b7280;font-size:11px;"> [Email]</span></div><div style="padding:3px 0;font-size:13px;border-bottom:1px solid #2a2d3a;"><span style="color:#6b7280;font-size:11px;margin-right:6px;">2026-04-17</span><span style="color:#d1d5db;">Burstein sent loan packages (Freedom CU & Ruby Lending) for funding request</span><span style="color:#6b7280;font-size:11px;"> [Email]</span></div><div style="padding:3px 0;font-size:13px;border-bottom:1px solid #2a2d3a;"><span style="color:#6b7280;font-size:11px;margin-right:6px;">2026-04-17</span><span style="color:#d1d5db;">Matt forwarded to Michelle - will use Freedom Credit Union funds</span><span style="color:#6b7280;font-size:11px;"> [Email]</span></div><div style="padding:3px 0;font-size:13px;border-bottom:1px solid #2a2d3a;"><span style="color:#6b7280;font-size:11px;margin-right:6px;">2026-04-17</span><span style="color:#d1d5db;">Originals to be dropped off at FCU next week</span><span style="color:#6b7280;font-size:11px;"> [Email]</span></div><div style="padding:3px 0;font-size:13px;border-bottom:1px solid #2a2d3a;"><span style="color:#6b7280;font-size:11px;margin-right:6px;">2026-04-16</span><span style="color:#d1d5db;">Original closing date 4/16</span><span style="color:#6b7280;font-size:11px;"> [Email]</span></div></div></div>
+        </div>
+    </div><div style="background:#1a1d27;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid #2a2d3a;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;">
+            <div>
+                <h2 style="margin:0 0 6px 0;font-size:18px;color:#f1f5f9;">167 East Park Terrace, Pittsfield, MA 01201</h2>
+                <div style="margin-bottom:6px;"><span style="display:inline-block;padding:4px 12px;border-radius:12px;font-size:12px;font-weight:600;background:#6366f122;color:#6366f1;border:1px solid #6366f155;">Title & Escrow</span> <span style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:11px;background:#3b82f633;color:#3b82f6;border:1px solid #3b82f655;margin-right:4px;">Email</span><span style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:11px;background:#ef444433;color:#ef4444;border:1px solid #ef444455;margin-right:4px;">PDF</span></div>
+            </div>
+            <div style="text-align:right;"><span style="font-size:28px;font-weight:700;color:#f59e0b;">20</span><span style="font-size:12px;color:#9ca3af;margin-left:4px;">days to closing</span></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin:12px 0;gap:2px;"><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;opacity:1;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:block;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Offer Made</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;opacity:1;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:none;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Under Contract</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#3b82f6;opacity:1;margin-bottom:4px;box-shadow:0 0 8px #3b82f688;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:block;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Title & Escrow</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#4b5563;opacity:0.5;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:none;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Inspections</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#4b5563;opacity:0.5;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:block;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Appraisal</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#4b5563;opacity:0.5;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:none;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Financing</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#4b5563;opacity:0.5;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:block;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Repairs / Rehab</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#4b5563;opacity:0.5;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:none;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Final Walkthrough</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#4b5563;opacity:0.5;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:block;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Closing</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#4b5563;opacity:0.5;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:none;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Closed</span>
+        </div></div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:8px;">
+            <div><div style="margin-top:8px;"><div style="font-size:11px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Financials</div><div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid #2a2d3a;"><span style="color:#9ca3af;font-size:13px;">Purchase Price</span><span style="color:#e5e7eb;font-size:13px;font-weight:500;">$145,000</span></div><div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid #2a2d3a;"><span style="color:#9ca3af;font-size:13px;">Deposit</span><span style="color:#e5e7eb;font-size:13px;font-weight:500;">$500</span></div></div><div style="margin-top:8px;"><div style="font-size:11px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Key Contacts</div><div style="padding:3px 0;font-size:13px;"><span style="color:#e5e7eb;">Antonio Cucciniello</span> <span style="color:#6b7280;">— Partner (House Hack Helpers)</span></div><div style="padding:3px 0;font-size:13px;"><span style="color:#e5e7eb;">William McGuire</span> <span style="color:#6b7280;">— Investors & Team Ops</span></div><div style="padding:3px 0;font-size:13px;"><span style="color:#e5e7eb;">David Burstein</span> <span style="color:#6b7280;">— Attorney</span></div><div style="padding:3px 0;font-size:13px;"><span style="color:#e5e7eb;">Kelcey Rogers</span> <span style="color:#6b7280;">— Lender (Pinnacle Financial)</span></div><div style="padding:3px 0;font-size:13px;"><span style="color:#e5e7eb;">Lauren Whalen</span> <span style="color:#6b7280;">— Lender Contact (Pinnacle Financial)</span></div><div style="padding:3px 0;font-size:13px;"><span style="color:#e5e7eb;">Adina Edgett</span> <span style="color:#6b7280;">— Insurance (Webber & Grinnell)</span></div><div style="color:#6b7280;font-size:12px;">+2 more</div></div></div>
+            <div><div style="margin-top:8px;"><div style="font-size:11px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Action Items</div><div style="padding:3px 0;font-size:13px;color:#fbbf24;">• Will to transmit $500 earnest money deposit</div><div style="padding:3px 0;font-size:13px;color:#fbbf24;">• Provide renovation budget breakdown and ARV to Pinnacle</div><div style="padding:3px 0;font-size:13px;color:#fbbf24;">• Coordinate walkthrough for next week</div><div style="padding:3px 0;font-size:13px;color:#fbbf24;">• Complete insurance questionnaire for Adina Edgett</div><div style="padding:3px 0;font-size:13px;color:#fbbf24;">• Antonio to confirm underlying contract sent to Burstein</div><div style="padding:3px 0;font-size:13px;color:#fbbf24;">• Pinnacle to set up loan</div><div style="padding:3px 0;font-size:13px;color:#fbbf24;">• Burstein to check title</div></div><div style="margin-top:8px;"><div style="font-size:11px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Recent Updates</div><div style="padding:3px 0;font-size:13px;border-bottom:1px solid #2a2d3a;"><span style="color:#6b7280;font-size:11px;margin-right:6px;">2026-04-18</span><span style="color:#d1d5db;">Antonio sent escrow addendum to work with Burstein's office</span><span style="color:#6b7280;font-size:11px;"> [Email]</span></div><div style="padding:3px 0;font-size:13px;border-bottom:1px solid #2a2d3a;"><span style="color:#6b7280;font-size:11px;margin-right:6px;">2026-04-18</span><span style="color:#d1d5db;">Daily brief: Coordinate next steps with Lauren Whalen at Pinnacle; provide renovation budget & ARV</span><span style="color:#6b7280;font-size:11px;"> [Email]</span></div><div style="padding:3px 0;font-size:13px;border-bottom:1px solid #2a2d3a;"><span style="color:#6b7280;font-size:11px;margin-right:6px;">2026-04-17</span><span style="color:#d1d5db;">Burstein still looking for underlying contract</span><span style="color:#6b7280;font-size:11px;"> [Email]</span></div><div style="padding:3px 0;font-size:13px;border-bottom:1px solid #2a2d3a;"><span style="color:#6b7280;font-size:11px;margin-right:6px;">2026-04-17</span><span style="color:#d1d5db;">Adina Edgett (insurance) sent questionnaire to line up coverage</span><span style="color:#6b7280;font-size:11px;"> [Email]</span></div><div style="padding:3px 0;font-size:13px;border-bottom:1px solid #2a2d3a;"><span style="color:#6b7280;font-size:11px;margin-right:6px;">2026-04-17</span><span style="color:#d1d5db;">Antonio forwarded P&S contract PDF from Miles Jiles to David & William</span><span style="color:#6b7280;font-size:11px;"> [Email]</span></div></div></div>
+        </div>
+    </div><div style="background:#1a1d27;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid #2a2d3a;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;">
+            <div>
+                <h2 style="margin:0 0 6px 0;font-size:18px;color:#f1f5f9;">21 Holly St, Greenfield, MA</h2>
+                <div style="margin-bottom:6px;"><span style="display:inline-block;padding:4px 12px;border-radius:12px;font-size:12px;font-weight:600;background:#8b5cf622;color:#8b5cf6;border:1px solid #8b5cf655;">Under Contract</span> <span style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:11px;background:#3b82f633;color:#3b82f6;border:1px solid #3b82f655;margin-right:4px;">Email</span><span style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:11px;background:#ef444433;color:#ef4444;border:1px solid #ef444455;margin-right:4px;">PDF</span></div>
+            </div>
+            
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin:12px 0;gap:2px;"><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;opacity:1;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:block;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Offer Made</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#3b82f6;opacity:1;margin-bottom:4px;box-shadow:0 0 8px #3b82f688;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:none;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Under Contract</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#4b5563;opacity:0.5;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:block;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Title & Escrow</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#4b5563;opacity:0.5;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:none;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Inspections</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#4b5563;opacity:0.5;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:block;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Appraisal</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#4b5563;opacity:0.5;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:none;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Financing</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#4b5563;opacity:0.5;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:block;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Repairs / Rehab</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#4b5563;opacity:0.5;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:none;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Final Walkthrough</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#4b5563;opacity:0.5;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:block;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Closing</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#4b5563;opacity:0.5;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:none;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Closed</span>
+        </div></div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:8px;">
+            <div><div style="margin-top:8px;"><div style="font-size:11px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Key Contacts</div><div style="padding:3px 0;font-size:13px;"><span style="color:#e5e7eb;">David Burstein</span> <span style="color:#6b7280;">— Attorney</span></div></div></div>
+            <div><div style="margin-top:8px;"><div style="font-size:11px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Recent Updates</div><div style="padding:3px 0;font-size:13px;border-bottom:1px solid #2a2d3a;"><span style="color:#d1d5db;">Sale initiated</span><span style="color:#6b7280;font-size:11px;"> [Email]</span></div><div style="padding:3px 0;font-size:13px;border-bottom:1px solid #2a2d3a;"><span style="color:#d1d5db;">Draft PS sent</span><span style="color:#6b7280;font-size:11px;"> [Email]</span></div></div></div>
+        </div>
+    </div><div style="background:#1a1d27;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid #2a2d3a;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;">
+            <div>
+                <h2 style="margin:0 0 6px 0;font-size:18px;color:#f1f5f9;">1874 Home Rd, Sheffield, MA</h2>
+                <div style="margin-bottom:6px;"><span style="display:inline-block;padding:4px 12px;border-radius:12px;font-size:12px;font-weight:600;background:#f9731622;color:#f97316;border:1px solid #f9731655;">Repairs / Rehab</span> <span style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:11px;background:#3b82f633;color:#3b82f6;border:1px solid #3b82f655;margin-right:4px;">Email</span><span style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:11px;background:#ef444433;color:#ef4444;border:1px solid #ef444455;margin-right:4px;">PDF</span></div>
+            </div>
+            
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin:12px 0;gap:2px;"><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;opacity:1;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:block;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Offer Made</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;opacity:1;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:none;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Under Contract</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;opacity:1;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:block;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Title & Escrow</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;opacity:1;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:none;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Inspections</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;opacity:1;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:block;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Appraisal</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;opacity:1;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:none;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Financing</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#3b82f6;opacity:1;margin-bottom:4px;box-shadow:0 0 8px #3b82f688;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:block;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Repairs / Rehab</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#4b5563;opacity:0.5;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:none;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Final Walkthrough</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#4b5563;opacity:0.5;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:block;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Closing</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#4b5563;opacity:0.5;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:none;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Closed</span>
+        </div></div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:8px;">
+            <div><div style="margin-top:8px;"><div style="font-size:11px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Financials</div><div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid #2a2d3a;"><span style="color:#9ca3af;font-size:13px;">Wire Amount</span><span style="color:#e5e7eb;font-size:13px;font-weight:500;">$34,355</span></div><div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid #2a2d3a;"><span style="color:#9ca3af;font-size:13px;">Potential ARV</span><span style="color:#e5e7eb;font-size:13px;font-weight:500;">$600,000</span></div></div><div style="margin-top:8px;"><div style="font-size:11px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Key Contacts</div><div style="padding:3px 0;font-size:13px;"><span style="color:#e5e7eb;">Alice Kempf</span> <span style="color:#6b7280;">— Agent</span></div><div style="padding:3px 0;font-size:13px;"><span style="color:#e5e7eb;">Mahari Miller</span> <span style="color:#6b7280;">— Contractor</span></div></div></div>
+            <div><div style="margin-top:8px;"><div style="font-size:11px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Recent Updates</div><div style="padding:3px 0;font-size:13px;border-bottom:1px solid #2a2d3a;"><span style="color:#d1d5db;">Refinance HUD-1</span><span style="color:#6b7280;font-size:11px;"> [PDF]</span></div><div style="padding:3px 0;font-size:13px;border-bottom:1px solid #2a2d3a;"><span style="color:#d1d5db;">Scope sent to contractor</span><span style="color:#6b7280;font-size:11px;"> [Email]</span></div></div></div>
+        </div>
+    </div><div style="background:#1a1d27;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid #2a2d3a;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;">
+            <div>
+                <h2 style="margin:0 0 6px 0;font-size:18px;color:#f1f5f9;">40 Roland St, Pittsfield, MA 01201</h2>
+                <div style="margin-bottom:6px;"><span style="display:inline-block;padding:4px 12px;border-radius:12px;font-size:12px;font-weight:600;background:#f9731622;color:#f97316;border:1px solid #f9731655;">Repairs / Rehab</span> <span style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:11px;background:#3b82f633;color:#3b82f6;border:1px solid #3b82f655;margin-right:4px;">Email</span></div>
+            </div>
+            
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin:12px 0;gap:2px;"><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;opacity:1;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:block;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Offer Made</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;opacity:1;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:none;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Under Contract</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;opacity:1;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:block;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Title & Escrow</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;opacity:1;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:none;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Inspections</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;opacity:1;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:block;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Appraisal</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;opacity:1;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:none;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Financing</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#3b82f6;opacity:1;margin-bottom:4px;box-shadow:0 0 8px #3b82f688;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:block;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Repairs / Rehab</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#4b5563;opacity:0.5;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:none;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Final Walkthrough</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#4b5563;opacity:0.5;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:block;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Closing</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#4b5563;opacity:0.5;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:none;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Closed</span>
+        </div></div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:8px;">
+            <div><div style="margin-top:8px;"><div style="font-size:11px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Key Contacts</div><div style="padding:3px 0;font-size:13px;"><span style="color:#e5e7eb;">Chris Keniley</span> <span style="color:#6b7280;">— Accounting</span></div><div style="padding:3px 0;font-size:13px;"><span style="color:#e5e7eb;">Gabby Voorhies</span> <span style="color:#6b7280;">— Operations</span></div><div style="padding:3px 0;font-size:13px;"><span style="color:#e5e7eb;">Cavalier</span> <span style="color:#6b7280;">— Property Manager</span></div></div></div>
+            <div><div style="margin-top:8px;"><div style="font-size:11px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Action Items</div><div style="padding:3px 0;font-size:13px;color:#fbbf24;">• Review SD/LMR report with Chris Keniley by Mon 4/20</div><div style="padding:3px 0;font-size:13px;color:#fbbf24;">• Get escrow forms signed for tenant deposits</div><div style="padding:3px 0;font-size:13px;color:#fbbf24;">• Discuss with Cavalier about handling LMRs</div><div style="padding:3px 0;font-size:13px;color:#fbbf24;">• Chris to update UDFs with LMR amounts</div></div><div style="margin-top:8px;"><div style="font-size:11px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Recent Updates</div><div style="padding:3px 0;font-size:13px;border-bottom:1px solid #2a2d3a;"><span style="color:#6b7280;font-size:11px;margin-right:6px;">2026-04-18</span><span style="color:#d1d5db;">Daily brief: Review SD/LMR security deposit report with Chris Keniley</span><span style="color:#6b7280;font-size:11px;"> [Email]</span></div><div style="padding:3px 0;font-size:13px;border-bottom:1px solid #2a2d3a;"><span style="color:#6b7280;font-size:11px;margin-right:6px;">2026-04-17</span><span style="color:#d1d5db;">SD/LMR escrow discussion - $2,900 LMR moved to Master Escrow from closings (Ferry $950, Carmon $850, Nyamekeh $1,100)</span><span style="color:#6b7280;font-size:11px;"> [Email]</span></div><div style="padding:3px 0;font-size:13px;border-bottom:1px solid #2a2d3a;"><span style="color:#6b7280;font-size:11px;margin-right:6px;">2026-04-17</span><span style="color:#d1d5db;">LMRs must be held in escrow or 5% interest applies; Chris adding to UDFs</span><span style="color:#6b7280;font-size:11px;"> [Email]</span></div><div style="padding:3px 0;font-size:13px;border-bottom:1px solid #2a2d3a;"><span style="color:#6b7280;font-size:11px;margin-right:6px;">2026-04-17</span><span style="color:#d1d5db;">Cavalier does not want to handle LMR escrow forms - team must collect signatures</span><span style="color:#6b7280;font-size:11px;"> [Email]</span></div><div style="padding:3px 0;font-size:13px;border-bottom:1px solid #2a2d3a;"><span style="color:#6b7280;font-size:11px;margin-right:6px;">2026-04-16</span><span style="color:#d1d5db;">Missing escrow deposit forms for Pittsfield properties (Cavalier mgmt)</span><span style="color:#6b7280;font-size:11px;"> [Email]</span></div></div></div>
+        </div>
+    </div><div style="background:#1a1d27;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid #2a2d3a;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;">
+            <div>
+                <h2 style="margin:0 0 6px 0;font-size:18px;color:#f1f5f9;">1 Richmond Ln, Pittsfield, MA</h2>
+                <div style="margin-bottom:6px;"><span style="display:inline-block;padding:4px 12px;border-radius:12px;font-size:12px;font-weight:600;background:#f9731622;color:#f97316;border:1px solid #f9731655;">Repairs / Rehab</span> <span style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:11px;background:#3b82f633;color:#3b82f6;border:1px solid #3b82f655;margin-right:4px;">Email</span></div>
+            </div>
+            
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin:12px 0;gap:2px;"><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;opacity:1;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:block;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Offer Made</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;opacity:1;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:none;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Under Contract</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;opacity:1;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:block;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Title & Escrow</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;opacity:1;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:none;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Inspections</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;opacity:1;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:block;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Appraisal</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;opacity:1;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:none;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Financing</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#3b82f6;opacity:1;margin-bottom:4px;box-shadow:0 0 8px #3b82f688;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:block;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Repairs / Rehab</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#4b5563;opacity:0.5;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:none;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Final Walkthrough</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#4b5563;opacity:0.5;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:block;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Closing</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#4b5563;opacity:0.5;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:none;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Closed</span>
+        </div></div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:8px;">
+            <div><div style="margin-top:8px;"><div style="font-size:11px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Financials</div><div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid #2a2d3a;"><span style="color:#9ca3af;font-size:13px;">Repair Budget</span><span style="color:#e5e7eb;font-size:13px;font-weight:500;">$4,000</span></div></div><div style="margin-top:8px;"><div style="font-size:11px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Key Contacts</div><div style="padding:3px 0;font-size:13px;"><span style="color:#e5e7eb;">J.M. Koenig</span> <span style="color:#6b7280;">— Contractor</span></div><div style="padding:3px 0;font-size:13px;"><span style="color:#e5e7eb;">Chris Keniley</span> <span style="color:#6b7280;">— Accounting</span></div><div style="padding:3px 0;font-size:13px;"><span style="color:#e5e7eb;">Gabby Voorhies</span> <span style="color:#6b7280;">— Operations</span></div><div style="padding:3px 0;font-size:13px;"><span style="color:#e5e7eb;">Cavalier</span> <span style="color:#6b7280;">— Property Manager</span></div></div></div>
+            <div><div style="margin-top:8px;"><div style="font-size:11px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Action Items</div><div style="padding:3px 0;font-size:13px;color:#fbbf24;">• Get escrow forms signed for tenant deposits</div><div style="padding:3px 0;font-size:13px;color:#fbbf24;">• Cavalier to handle LMR collection at move-in/ownership change</div><div style="padding:3px 0;font-size:13px;color:#fbbf24;">• Complete electrical work</div></div><div style="margin-top:8px;"><div style="font-size:11px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Recent Updates</div><div style="padding:3px 0;font-size:13px;border-bottom:1px solid #2a2d3a;"><span style="color:#6b7280;font-size:11px;margin-right:6px;">2026-04-17</span><span style="color:#d1d5db;">SD/LMR escrow discussion - LMRs added in Jan (Akroman $1,100, Haugh $650, Negri $800, Otoole $1,250, Vogel $750, Williams $900)</span><span style="color:#6b7280;font-size:11px;"> [Email]</span></div><div style="padding:3px 0;font-size:13px;border-bottom:1px solid #2a2d3a;"><span style="color:#6b7280;font-size:11px;margin-right:6px;">2026-04-17</span><span style="color:#d1d5db;">Chris billed Will for SD/LMR + 4 months rent to fund Miguels SD/LMR and repay YBP</span><span style="color:#6b7280;font-size:11px;"> [Email]</span></div><div style="padding:3px 0;font-size:13px;border-bottom:1px solid #2a2d3a;"><span style="color:#6b7280;font-size:11px;margin-right:6px;">2026-04-16</span><span style="color:#d1d5db;">Missing escrow deposit forms for Pittsfield properties (Cavalier mgmt)</span><span style="color:#6b7280;font-size:11px;"> [Email]</span></div><div style="padding:3px 0;font-size:13px;border-bottom:1px solid #2a2d3a;"><span style="color:#d1d5db;">Electrical pending</span><span style="color:#6b7280;font-size:11px;"> [Email]</span></div></div></div>
+        </div>
+    </div><div style="background:#1a1d27;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid #2a2d3a;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;">
+            <div>
+                <h2 style="margin:0 0 6px 0;font-size:18px;color:#f1f5f9;">583 Hawks Spur</h2>
+                <div style="margin-bottom:6px;"><span style="display:inline-block;padding:4px 12px;border-radius:12px;font-size:12px;font-weight:600;background:#f9731622;color:#f97316;border:1px solid #f9731655;">Repairs / Rehab</span> <span style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:11px;background:#3b82f633;color:#3b82f6;border:1px solid #3b82f655;margin-right:4px;">Email</span><span style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:11px;background:#10b98133;color:#10b981;border:1px solid #10b98155;margin-right:4px;">Venmo</span></div>
+            </div>
+            
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin:12px 0;gap:2px;"><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;opacity:1;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:block;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Offer Made</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;opacity:1;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:none;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Under Contract</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;opacity:1;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:block;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Title & Escrow</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;opacity:1;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:none;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Inspections</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;opacity:1;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:block;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Appraisal</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;opacity:1;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:none;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Financing</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#3b82f6;opacity:1;margin-bottom:4px;box-shadow:0 0 8px #3b82f688;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:block;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Repairs / Rehab</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#4b5563;opacity:0.5;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:none;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Final Walkthrough</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#4b5563;opacity:0.5;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:block;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Closing</span>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#4b5563;opacity:0.5;margin-bottom:4px;box-shadow:none;"></div>
+            <span style="font-size:9px;color:#9ca3af;text-align:center;display:none;line-height:1.1;max-width:60px;overflow:hidden;text-overflow:ellipsis;">Closed</span>
+        </div></div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:8px;">
+            <div><div style="margin-top:8px;"><div style="font-size:11px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Financials</div><div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid #2a2d3a;"><span style="color:#9ca3af;font-size:13px;">Repair Budget</span><span style="color:#e5e7eb;font-size:13px;font-weight:500;">$5,460</span></div></div><div style="margin-top:8px;"><div style="font-size:11px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Key Contacts</div><div style="padding:3px 0;font-size:13px;"><span style="color:#e5e7eb;">Jessica Sicard</span> <span style="color:#6b7280;">— PM</span></div></div></div>
+            <div><div style="margin-top:8px;"><div style="font-size:11px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Recent Updates</div><div style="padding:3px 0;font-size:13px;border-bottom:1px solid #2a2d3a;"><span style="color:#d1d5db;">Reimbursement</span><span style="color:#6b7280;font-size:11px;"> [Email]</span></div></div></div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
