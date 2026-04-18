@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-18T08:00:00-04:00",
+  "last_updated": "2026-04-18T18:02:00-04:00",
   "properties": [
     {
       "address": "297 Breckwood Blvd, Springfield, MA 01109",
@@ -82,6 +82,7 @@
       ],
       "financials": {"purchase_price": "145000", "deposit": "500"},
       "recent_updates": [
+        {"date": "2026-04-18", "subject": "Antonio sent escrow addendum to work with Burstein's office", "source": "Email"},
         {"date": "2026-04-18", "subject": "Daily brief: Coordinate next steps with Lauren Whalen at Pinnacle; provide renovation budget & ARV", "source": "Email"},
         {"date": "2026-04-17", "subject": "Burstein still looking for underlying contract", "source": "Email"},
         {"date": "2026-04-17", "subject": "Adina Edgett (insurance) sent questionnaire to line up coverage", "source": "Email"},
