@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-21T09:01:56-04:00",
+  "last_updated": "2026-04-21T18:02:00-04:00",
   "properties": [
     {
       "address": "297 Breckwood Blvd, Springfield, MA 01109",
@@ -51,8 +51,7 @@
         {"name": "Shamikka", "role": "FCU Contact"}
       ],
       "financials": {"closing_costs": "34355"},
-      "recent_updates": [
-        {"date": "2026-04-17", "subject": "FCU confirmed funding request package looks good", "source": "Email"},
+      "recent_updates": [        {"date": "2026-04-17", "subject": "FCU confirmed funding request package looks good", "source": "Email"},
         {"date": "2026-04-17", "subject": "Burstein sent loan packages (Freedom CU & Ruby Lending) for funding request", "source": "Email"},
         {"date": "2026-04-17", "subject": "Matt forwarded to Michelle - will use Freedom Credit Union funds", "source": "Email"},
         {"date": "2026-04-17", "subject": "Originals to be dropped off at FCU next week", "source": "Email"},
@@ -67,21 +66,35 @@
     },
     {
       "address": "167 East Park Terrace, Pittsfield, MA 01201",
-      "current_milestone": "Title & Escrow",
+      "current_milestone": "Financing",
       "closing_date": "5/8/2026",
       "sources": ["Email", "PDF"],
       "contacts": [
         {"name": "Antonio Cucciniello", "role": "Partner (House Hack Helpers)"},
         {"name": "William McGuire", "role": "Investors & Team Ops"},
         {"name": "David Burstein", "role": "Attorney"},
+        {"name": "Linda Duverger", "role": "Lender (Pinnacle Financial)"},
         {"name": "Kelcey Rogers", "role": "Lender (Pinnacle Financial)"},
         {"name": "Lauren Whalen", "role": "Lender Contact (Pinnacle Financial)"},
-        {"name": "Adina Edgett", "role": "Insurance (Webber & Grinnell)"},
+        {"name": "Adina Edgett", "role": "Insurance (Webber & Grinnell / Alera Group)"},
         {"name": "Kevin Shippee", "role": "Partner"},
-        {"name": "Miles Jiles", "role": "Assignor (Miles Buys Homes LLC)"}
+        {"name": "Miles Jiles", "role": "Assignor (Miles Buys Homes LLC)"},
+        {"name": "Shamikka", "role": "Burstein Law Office"}
       ],
-      "financials": {"purchase_price": "145000", "deposit": "500"},
-      "recent_updates": [
+      "financials": {
+        "purchase_price": "145000",
+        "rehab_budget": "50000",
+        "total_loan": "166000",
+        "funds_at_closing": "116000",
+        "construction_advances": "50000",
+        "points": "4980",
+        "rate": "12%",
+        "term": "12 months",
+        "deposit": "500",
+        "lender_fees": "570"
+      },
+      "recent_updates": [        {"date": "2026-04-21", "subject": "Pinnacle Financial sent financing term sheet: $166K total loan, 12% rate, 3 points, closing May 8", "source": "Email"},
+        {"date": "2026-04-21", "subject": "Adina Edgett (insurance) requesting details on the application", "source": "Email"},
         {"date": "2026-04-18", "subject": "Antonio sent escrow addendum to work with Burstein's office", "source": "Email"},
         {"date": "2026-04-18", "subject": "Daily brief: Coordinate next steps with Lauren Whalen at Pinnacle; provide renovation budget & ARV", "source": "Email"},
         {"date": "2026-04-17", "subject": "Burstein still looking for underlying contract", "source": "Email"},
@@ -93,13 +106,45 @@
         {"date": "2026-04-16", "subject": "Waiting on wire instructions for $500 deposit", "source": "Email"}
       ],
       "action_items": [
+        "Send insurance application details to Adina Edgett",
+        "Provide property insurance binder naming Pinnacle as mortgagee before closing",
+        "Confirm LLC docs (Articles of Organization / Operating Agreement) with Pinnacle",
+        "Provide bank account info for monthly payments and construction draws",
+        "Confirm tax IDs for borrower and all guarantors",
+        "Provide driver's licenses for all guarantors if changed",
         "Will to transmit $500 earnest money deposit",
         "Provide renovation budget breakdown and ARV to Pinnacle",
-        "Coordinate walkthrough for next week",
-        "Complete insurance questionnaire for Adina Edgett",
-        "Antonio to confirm underlying contract sent to Burstein",
-        "Pinnacle to set up loan",
-        "Burstein to check title"
+        "Coordinate walkthrough for next week"
+      ]
+    },
+    {
+      "address": "70 Town Hill Road, Middlefield, MA 01243",
+      "current_milestone": "Final Walkthrough",
+      "closing_date": "4/29/2026",
+      "sources": ["Email"],
+      "contacts": [
+        {"name": "David Burstein", "role": "Attorney (Seller)"},
+        {"name": "Alice Kempf", "role": "Listing Agent (KVR Team)"},
+        {"name": "Sarah Catapano Friedman", "role": "Buyer's Attorney (Crowley & Cummings)"},
+        {"name": "Megan Houatchanthara", "role": "Buyer's Agent (Compass)"},
+        {"name": "Alexandra Fazzi", "role": "KVR Team"},
+        {"name": "Melissa Vanderburgh", "role": "KVR Team"},
+        {"name": "Riley Brennan", "role": "KVR Team"}
+      ],
+      "financials": {},
+      "recent_updates": [        {"date": "2026-04-20", "subject": "Burstein requesting propane reading and last fill invoice for closing adjustments", "source": "Email"},
+        {"date": "2026-04-20", "subject": "Alice confirmed smoke certs part of building permit closeout this week; will provide propane reading", "source": "Email"},
+        {"date": "2026-04-20", "subject": "Alexandra sent listing commission bill; buyer agent paid at closing", "source": "Email"},
+        {"date": "2026-04-18", "subject": "Burstein requested commission invoices from both brokers and smoke certificate status", "source": "Email"},
+        {"date": "2026-04-09", "subject": "Alice sent fully executed P&S with riders and separate repair rider", "source": "Email"},
+        {"date": "2026-04-07", "subject": "P&S signed; commitment date set to 4/21; closing originally 4/23 then proposed 4/29", "source": "Email"},
+        {"date": "2026-04-07", "subject": "Title V report revised to 3 bedrooms and submitted to BOH", "source": "Email"}
+      ],
+      "action_items": [
+        "Send propane reading and last fill invoice to Burstein for adjustments",
+        "Complete smoke certificate inspection (part of building permit closeout this week)",
+        "Confirm closing date (originally 4/23, proposed 4/29)",
+        "Forward overage from escrow to seller after closing"
       ]
     },
     {
@@ -145,8 +190,7 @@
         {"name": "Jesse (Premiere Home MA)", "role": "Contractor"}
       ],
       "financials": {},
-      "recent_updates": [
-        {"date": "2026-04-20", "subject": "Jesse (Premiere Home) confirmed sink leak & shower mixer already fixed; will coordinate remaining repairs with subcontractors", "source": "Email"},
+      "recent_updates": [        {"date": "2026-04-20", "subject": "Jesse (Premiere Home) confirmed sink leak & shower mixer already fixed; will coordinate remaining repairs with subcontractors", "source": "Email"},
         {"date": "2026-04-20", "subject": "Jessica forwarded 7-item inspection repair list to Jesse for execution", "source": "Email"},
         {"date": "2026-04-18", "subject": "Daily brief: Review SD/LMR security deposit report with Chris Keniley", "source": "Email"},
         {"date": "2026-04-17", "subject": "SD/LMR escrow discussion - $2,900 LMR moved to Master Escrow from closings (Ferry $950, Carmon $850, Nyamekeh $1,100)", "source": "Email"},
@@ -186,8 +230,7 @@
         "Cavalier to handle LMR collection at move-in/ownership change",
         "Complete electrical work"
       ]
-    },
-    {
+    },    {
       "address": "583 Hawks Spur",
       "current_milestone": "Repairs / Rehab",
       "closing_date": null,
@@ -251,8 +294,7 @@
         "Follow up on Gandara LOI next steps",
         "Provide insurance and tax rate info to Richard Borsari for buyer"
       ]
-    },
-    {
+    },    {
       "address": "42 Washington St, Monson, MA 01057",
       "current_milestone": "Inspections",
       "closing_date": null,
@@ -325,4 +367,3 @@
     }
   ]
 }
-
