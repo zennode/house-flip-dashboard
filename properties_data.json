@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-21T18:02:00-04:00",
+  "last_updated": "2026-04-22T08:02:00-04:00",
   "properties": [
     {
       "address": "297 Breckwood Blvd, Springfield, MA 01109",
@@ -51,7 +51,8 @@
         {"name": "Shamikka", "role": "FCU Contact"}
       ],
       "financials": {"closing_costs": "34355"},
-      "recent_updates": [        {"date": "2026-04-17", "subject": "FCU confirmed funding request package looks good", "source": "Email"},
+      "recent_updates": [
+        {"date": "2026-04-17", "subject": "FCU confirmed funding request package looks good", "source": "Email"},
         {"date": "2026-04-17", "subject": "Burstein sent loan packages (Freedom CU & Ruby Lending) for funding request", "source": "Email"},
         {"date": "2026-04-17", "subject": "Matt forwarded to Michelle - will use Freedom Credit Union funds", "source": "Email"},
         {"date": "2026-04-17", "subject": "Originals to be dropped off at FCU next week", "source": "Email"},
@@ -93,7 +94,9 @@
         "deposit": "500",
         "lender_fees": "570"
       },
-      "recent_updates": [        {"date": "2026-04-21", "subject": "Pinnacle Financial sent financing term sheet: $166K total loan, 12% rate, 3 points, closing May 8", "source": "Email"},
+      "recent_updates": [
+        {"date": "2026-04-22", "subject": "Matt sent insurance application details to Adina Edgett", "source": "Email"},
+        {"date": "2026-04-21", "subject": "Pinnacle Financial sent financing term sheet: $166K total loan, 12% rate, 3 points, closing May 8", "source": "Email"},
         {"date": "2026-04-21", "subject": "Adina Edgett (insurance) requesting details on the application", "source": "Email"},
         {"date": "2026-04-18", "subject": "Antonio sent escrow addendum to work with Burstein's office", "source": "Email"},
         {"date": "2026-04-18", "subject": "Daily brief: Coordinate next steps with Lauren Whalen at Pinnacle; provide renovation budget & ARV", "source": "Email"},
@@ -106,7 +109,6 @@
         {"date": "2026-04-16", "subject": "Waiting on wire instructions for $500 deposit", "source": "Email"}
       ],
       "action_items": [
-        "Send insurance application details to Adina Edgett",
         "Provide property insurance binder naming Pinnacle as mortgagee before closing",
         "Confirm LLC docs (Articles of Organization / Operating Agreement) with Pinnacle",
         "Provide bank account info for monthly payments and construction draws",
@@ -132,7 +134,8 @@
         {"name": "Riley Brennan", "role": "KVR Team"}
       ],
       "financials": {},
-      "recent_updates": [        {"date": "2026-04-20", "subject": "Burstein requesting propane reading and last fill invoice for closing adjustments", "source": "Email"},
+      "recent_updates": [
+        {"date": "2026-04-20", "subject": "Burstein requesting propane reading and last fill invoice for closing adjustments", "source": "Email"},
         {"date": "2026-04-20", "subject": "Alice confirmed smoke certs part of building permit closeout this week; will provide propane reading", "source": "Email"},
         {"date": "2026-04-20", "subject": "Alexandra sent listing commission bill; buyer agent paid at closing", "source": "Email"},
         {"date": "2026-04-18", "subject": "Burstein requested commission invoices from both brokers and smoke certificate status", "source": "Email"},
@@ -190,7 +193,8 @@
         {"name": "Jesse (Premiere Home MA)", "role": "Contractor"}
       ],
       "financials": {},
-      "recent_updates": [        {"date": "2026-04-20", "subject": "Jesse (Premiere Home) confirmed sink leak & shower mixer already fixed; will coordinate remaining repairs with subcontractors", "source": "Email"},
+      "recent_updates": [
+        {"date": "2026-04-20", "subject": "Jesse (Premiere Home) confirmed sink leak & shower mixer already fixed; will coordinate remaining repairs with subcontractors", "source": "Email"},
         {"date": "2026-04-20", "subject": "Jessica forwarded 7-item inspection repair list to Jesse for execution", "source": "Email"},
         {"date": "2026-04-18", "subject": "Daily brief: Review SD/LMR security deposit report with Chris Keniley", "source": "Email"},
         {"date": "2026-04-17", "subject": "SD/LMR escrow discussion - $2,900 LMR moved to Master Escrow from closings (Ferry $950, Carmon $850, Nyamekeh $1,100)", "source": "Email"},
@@ -230,7 +234,8 @@
         "Cavalier to handle LMR collection at move-in/ownership change",
         "Complete electrical work"
       ]
-    },    {
+    },
+    {
       "address": "583 Hawks Spur",
       "current_milestone": "Repairs / Rehab",
       "closing_date": null,
@@ -294,7 +299,8 @@
         "Follow up on Gandara LOI next steps",
         "Provide insurance and tax rate info to Richard Borsari for buyer"
       ]
-    },    {
+    },
+    {
       "address": "42 Washington St, Monson, MA 01057",
       "current_milestone": "Inspections",
       "closing_date": null,
@@ -363,6 +369,32 @@
         "Peter to run numbers on the deal",
         "Matt to drive by property",
         "Review marketing brochure, rent roll, and income/expense from seller"
+      ]
+    },
+    {
+      "address": "Egremont Project, Egremont, MA",
+      "current_milestone": "Prospecting",
+      "closing_date": null,
+      "sources": ["Email"],
+      "contacts": [
+        {"name": "Jacob Trudeau", "role": "Contractor / Project Lead"}
+      ],
+      "financials": {
+        "purchase_price": "175000",
+        "rehab_budget": "200000",
+        "total_investment": "450000",
+        "potential_arv": "600000"
+      },
+      "recent_updates": [
+        {"date": "2026-04-22", "subject": "Matt followed up with Jacob requesting more photos and slab foundation confirmation", "source": "Email"},
+        {"date": "2026-04-16", "subject": "Matt questioned budget numbers - thinks rehab may be high; asked about slab foundation", "source": "Email"},
+        {"date": "2026-04-15", "subject": "Jacob Trudeau sent rough rehab budget: $200K rehab, $175K purchase, $600K ARV", "source": "Email"}
+      ],
+      "action_items": [
+        "Jacob to send more property photos",
+        "Confirm slab foundation (affects scope and budget)",
+        "Reassess rehab budget once foundation type confirmed",
+        "Review detailed scope before committing"
       ]
     }
   ]
