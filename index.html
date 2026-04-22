@@ -1,1 +1,589 @@
-test placeholder
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>House Flip Closing Coordinator</title>
+<style>
+:root {
+  --bg: #0f1117;
+  --card-bg: #1a1d27;
+  --card-border: #2a2d3a;
+  --text: #e1e4ed;
+  --text-muted: #8b8fa3;
+  --accent: #6c8cff;
+  --green: #4ade80;
+  --blue: #60a5fa;
+  --yellow: #fbbf24;
+  --red: #f87171;
+  --orange: #fb923c;
+  --purple: #a78bfa;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.5; }
+.header { position: sticky; top: 0; z-index: 100; background: linear-gradient(135deg, #141620, #1a1d2e); border-bottom: 1px solid var(--card-border); padding: 20px 24px; }
+.header h1 { font-size: 1.5rem; font-weight: 700; background: linear-gradient(135deg, #6c8cff, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.header-meta { display: flex; gap: 24px; margin-top: 8px; flex-wrap: wrap; }
+.header-meta .stat { display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: var(--text-muted); }
+.header-meta .stat .num { color: var(--text); font-weight: 600; font-size: 1.1rem; }
+.header-meta .stat .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+.container { max-width: 1200px; margin: 0 auto; padding: 24px; display: grid; grid-template-columns: repeat(auto-fill, minmax(540px, 1fr)); gap: 20px; }
+@media (max-width: 600px) { .container { grid-template-columns: 1fr; padding: 12px; } }
+.card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 20px; transition: border-color 0.2s; }
+.card:hover { border-color: var(--accent); }
+.card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+.card-header h2 { font-size: 1.05rem; font-weight: 600; flex: 1; }
+.badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+.badge-closed { background: rgba(74,222,128,0.15); color: var(--green); }
+.badge-closing { background: rgba(96,165,250,0.15); color: var(--blue); }
+.badge-rehab { background: rgba(251,191,36,0.15); color: var(--yellow); }
+.badge-financing { background: rgba(251,146,60,0.15); color: var(--orange); }
+.badge-contract { background: rgba(167,139,250,0.15); color: var(--purple); }
+.badge-inspection { background: rgba(248,113,113,0.15); color: var(--red); }
+.badge-prospecting { background: rgba(139,143,163,0.15); color: var(--text-muted); }
+.badge-walkthrough { background: rgba(96,165,250,0.15); color: var(--blue); }
+.source-badges { display: flex; gap: 4px; margin-bottom: 12px; flex-wrap: wrap; }
+.source-badge { font-size: 0.65rem; padding: 2px 6px; border-radius: 4px; background: rgba(108,140,255,0.1); color: var(--accent); }
+.countdown { font-size: 0.8rem; color: var(--yellow); margin-bottom: 12px; font-weight: 500; }
+.timeline { display: flex; gap: 4px; margin-bottom: 16px; align-items: center; }
+.timeline .dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+.timeline .dot.completed { background: var(--green); }
+.timeline .dot.active { background: var(--blue); box-shadow: 0 0 8px rgba(96,165,250,0.5); }
+.timeline .dot.pending { background: #2a2d3a; }
+.timeline .line { flex: 1; height: 2px; background: #2a2d3a; min-width: 4px; }
+.section-title { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 8px; margin-top: 12px; }
+.info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.info-item { font-size: 0.8rem; }
+.info-item .label { color: var(--text-muted); }
+.info-item .value { color: var(--text); font-weight: 500; }
+.contact-list, .update-list, .action-list { list-style: none; }
+.contact-list li, .update-list li, .action-list li { font-size: 0.8rem; padding: 3px 0; border-bottom: 1px solid rgba(42,45,58,0.5); }
+.contact-list li:last-child, .update-list li:last-child, .action-list li:last-child { border-bottom: none; }
+.update-date { color: var(--accent); font-size: 0.7rem; margin-right: 4px; }
+.update-source { font-size: 0.65rem; color: var(--text-muted); }
+.action-list li::before { content: "â "; color: var(--yellow); }
+.footer { text-align: center; padding: 24px; color: var(--text-muted); font-size: 0.75rem; }
+</style>
+</head>
+<body>
+<div class="header">
+<h1>House Flip Closing Coordinator</h1>
+<div class="header-meta">
+<div class="stat">Last updated: <span class="num">Apr 22, 2026 8:02 AM ET</span></div>
+<div class="stat"><span class="dot" style="background:var(--blue)"></span>Active: <span class="num">15</span></div>
+<div class="stat"><span class="dot" style="background:var(--green)"></span>Closed: <span class="num">2</span></div>
+<div class="stat"><span class="dot" style="background:var(--yellow)"></span>In Rehab: <span class="num">6</span></div>
+<div class="stat"><span class="dot" style="background:var(--orange)"></span>Closing Soon: <span class="num">2</span></div>
+</div>
+</div>
+<div class="container" id="cards"></div>
+<div class="footer">House Flip Closing Coordinator &bull; Auto-updated by automation &bull; Dashboard: zennode.github.io/house-flip-dashboard</div>
+<script>
+const MILESTONES = ["Offer Made","Under Contract","Title & Escrow","Inspections","Appraisal","Financing","Repairs / Rehab","Final Walkthrough","Closing","Closed","Prospecting"];
+function getMilestoneIndex(m) {
+  if (m === "Prospecting") return -1;
+  return MILESTONES.indexOf(m);
+}
+function getBadgeClass(m) {
+  if (m === "Closed") return "badge-closed";
+  if (m === "Final Walkthrough" || m === "Closing") return "badge-closing";
+  if (m === "Repairs / Rehab") return "badge-rehab";
+  if (m === "Financing") return "badge-financing";
+  if (m === "Under Contract" || m === "Title & Escrow") return "badge-contract";
+  if (m === "Inspections" || m === "Appraisal") return "badge-inspection";
+  if (m === "Prospecting") return "badge-prospecting";
+  return "badge-contract";
+}
+function daysUntil(dateStr) {
+  if (!dateStr) return null;
+  const parts = dateStr.split('/');
+  const d = new Date(parseInt(parts[2]), parseInt(parts[0])-1, parseInt(parts[1]));
+  const now = new Date();
+  now.setHours(0,0,0,0);
+  return Math.ceil((d - now) / (1000*60*60*24));
+}
+function fmt(n) { return n ? '$' + Number(n).toLocaleString() : 'â'; }
+
+const data = {
+  "last_updated": "2026-04-22T08:02:00-04:00",
+  "properties": [
+    {
+      "address": "297 Breckwood Blvd, Springfield, MA 01109",
+      "current_milestone": "Closed",
+      "closing_date": "4/13/2026",
+      "sources": ["dotloop", "Email"],
+      "contacts": [
+        {"name": "Alice Kempf", "role": "Agent"},
+        {"name": "David Burstein", "role": "Attorney"},
+        {"name": "Jessica Sicard", "role": "Project Manager"}
+      ],
+      "financials": {},
+      "recent_updates": [
+        {"date": "2026-04-13", "subject": "Closing date reached", "source": "Email"},
+        {"subject": "Repairs priority", "source": "Email"},
+        {"subject": "FHA Amendatory signed", "source": "dotloop"}
+      ]
+    },
+    {
+      "address": "29 Chestnut Dr, Belchertown, MA 01007",
+      "current_milestone": "Closed",
+      "closing_date": "4/14/2026",
+      "sources": ["dotloop", "Email"],
+      "contacts": [
+        {"name": "Alice Kempf", "role": "Agent"},
+        {"name": "David Burstein", "role": "Attorney"},
+        {"name": "Jessica Sicard", "role": "Project Manager"}
+      ],
+      "financials": {},
+      "recent_updates": [
+        {"date": "2026-04-14", "subject": "Closing date reached", "source": "Email"},
+        {"subject": "PSA signed via dotloop", "source": "dotloop"},
+        {"subject": "Pioneer Valley Oil invoice", "source": "Email"}
+      ]
+    },
+    {
+      "address": "4 School St, Ware, MA 01082",
+      "current_milestone": "Financing",
+      "closing_date": null,
+      "sources": ["Email", "PDF"],
+      "contacts": [
+        {"name": "David Burstein", "role": "Attorney"},
+        {"name": "David Chase", "role": "Lender"},
+        {"name": "Michelle", "role": "Loan Processing"},
+        {"name": "Ruby Lending LLC", "role": "Lender"},
+        {"name": "Freedom Credit Union", "role": "Lender (FCU)"},
+        {"name": "Gregory", "role": "FCU Contact"},
+        {"name": "Camille", "role": "FCU Contact"},
+        {"name": "Shamikka", "role": "FCU Contact"}
+      ],
+      "financials": {"closing_costs": "34355"},
+      "recent_updates": [
+        {"date": "2026-04-17", "subject": "FCU confirmed funding request package looks good", "source": "Email"},
+        {"date": "2026-04-17", "subject": "Burstein sent loan packages (Freedom CU & Ruby Lending) for funding request", "source": "Email"},
+        {"date": "2026-04-17", "subject": "Matt forwarded to Michelle - will use Freedom Credit Union funds", "source": "Email"},
+        {"date": "2026-04-17", "subject": "Originals to be dropped off at FCU next week", "source": "Email"},
+        {"date": "2026-04-16", "subject": "Original closing date 4/16", "source": "Email"},
+        {"subject": "Loan documents from Freedom CU", "source": "PDF"}
+      ],
+      "action_items": [
+        "Drop off original funding request to FCU next week",
+        "Michelle to add Ruby Lending loan with Freedom CU funds",
+        "Awaiting final funding confirmation from FCU"
+      ]
+    },
+    {
+      "address": "167 East Park Terrace, Pittsfield, MA 01201",
+      "current_milestone": "Financing",
+      "closing_date": "5/8/2026",
+      "sources": ["Email", "PDF"],
+      "contacts": [
+        {"name": "Antonio Cucciniello", "role": "Partner (House Hack Helpers)"},
+        {"name": "William McGuire", "role": "Investors & Team Ops"},
+        {"name": "David Burstein", "role": "Attorney"},
+        {"name": "Linda Duverger", "role": "Lender (Pinnacle Financial)"},
+        {"name": "Kelcey Rogers", "role": "Lender (Pinnacle Financial)"},
+        {"name": "Lauren Whalen", "role": "Lender Contact (Pinnacle Financial)"},
+        {"name": "Adina Edgett", "role": "Insurance (Webber & Grinnell / Alera Group)"},
+        {"name": "Kevin Shippee", "role": "Partner"},
+        {"name": "Miles Jiles", "role": "Assignor (Miles Buys Homes LLC)"},
+        {"name": "Shamikka", "role": "Burstein Law Office"}
+      ],
+      "financials": {
+        "purchase_price": "145000",
+        "rehab_budget": "50000",
+        "total_loan": "166000",
+        "funds_at_closing": "116000",
+        "construction_advances": "50000",
+        "points": "4980",
+        "rate": "12%",
+        "term": "12 months",
+        "deposit": "500",
+        "lender_fees": "570"
+      },
+      "recent_updates": [
+        {"date": "2026-04-22", "subject": "Matt sent insurance application details to Adina Edgett", "source": "Email"},
+        {"date": "2026-04-21", "subject": "Pinnacle Financial sent financing term sheet: $166K total loan, 12% rate, 3 points, closing May 8", "source": "Email"},
+        {"date": "2026-04-21", "subject": "Adina Edgett (insurance) requesting details on the application", "source": "Email"},
+        {"date": "2026-04-18", "subject": "Antonio sent escrow addendum to work with Burstein's office", "source": "Email"},
+        {"date": "2026-04-18", "subject": "Daily brief: Coordinate next steps with Lauren Whalen at Pinnacle; provide renovation budget & ARV", "source": "Email"},
+        {"date": "2026-04-17", "subject": "Burstein still looking for underlying contract", "source": "Email"},
+        {"date": "2026-04-17", "subject": "Adina Edgett (insurance) sent questionnaire to line up coverage", "source": "Email"},
+        {"date": "2026-04-17", "subject": "Antonio forwarded P&S contract PDF from Miles Jiles to David & William", "source": "Email"},
+        {"date": "2026-04-16", "subject": "NEW: Under contract via assignment from Miles Buys Homes LLC", "source": "Email"},
+        {"date": "2026-04-16", "subject": "Sent to Burstein for title check and Pinnacle for loan setup", "source": "Email"},
+        {"date": "2026-04-16", "subject": "Assignment contract PDF attached", "source": "PDF"},
+        {"date": "2026-04-16", "subject": "Waiting on wire instructions for $500 deposit", "source": "Email"}
+      ],
+      "action_items": [
+        "Provide property insurance binder naming Pinnacle as mortgagee before closing",
+        "Confirm LLC docs (Articles of Organization / Operating Agreement) with Pinnacle",
+        "Provide bank account info for monthly payments and construction draws",
+        "Confirm tax IDs for borrower and all guarantors",
+        "Provide driver's licenses for all guarantors if changed",
+        "Will to transmit $500 earnest money deposit",
+        "Provide renovation budget breakdown and ARV to Pinnacle",
+        "Coordinate walkthrough for next week"
+      ]
+    },
+    {
+      "address": "70 Town Hill Road, Middlefield, MA 01243",
+      "current_milestone": "Final Walkthrough",
+      "closing_date": "4/29/2026",
+      "sources": ["Email"],
+      "contacts": [
+        {"name": "David Burstein", "role": "Attorney (Seller)"},
+        {"name": "Alice Kempf", "role": "Listing Agent (KVR Team)"},
+        {"name": "Sarah Catapano Friedman", "role": "Buyer's Attorney (Crowley & Cummings)"},
+        {"name": "Megan Houatchanthara", "role": "Buyer's Agent (Compass)"},
+        {"name": "Alexandra Fazzi", "role": "KVR Team"},
+        {"name": "Melissa Vanderburgh", "role": "KVR Team"},
+        {"name": "Riley Brennan", "role": "KVR Team"}
+      ],
+      "financials": {},
+      "recent_updates": [
+        {"date": "2026-04-20", "subject": "Burstein requesting propane reading and last fill invoice for closing adjustments", "source": "Email"},
+        {"date": "2026-04-20", "subject": "Alice confirmed smoke certs part of building permit closeout this week; will provide propane reading", "source": "Email"},
+        {"date": "2026-04-20", "subject": "Alexandra sent listing commission bill; buyer agent paid at closing", "source": "Email"},
+        {"date": "2026-04-18", "subject": "Burstein requested commission invoices from both brokers and smoke certificate status", "source": "Email"},
+        {"date": "2026-04-09", "subject": "Alice sent fully executed P&S with riders and separate repair rider", "source": "Email"},
+        {"date": "2026-04-07", "subject": "P&S signed; commitment date set to 4/21; closing originally 4/23 then proposed 4/29", "source": "Email"},
+        {"date": "2026-04-07", "subject": "Title V report revised to 3 bedrooms and submitted to BOH", "source": "Email"}
+      ],
+      "action_items": [
+        "Send propane reading and last fill invoice to Burstein for adjustments",
+        "Complete smoke certificate inspection (part of building permit closeout this week)",
+        "Confirm closing date (originally 4/23, proposed 4/29)",
+        "Forward overage from escrow to seller after closing"
+      ]
+    },
+    {
+      "address": "21 Holly St, Greenfield, MA",
+      "current_milestone": "Under Contract",
+      "closing_date": null,
+      "sources": ["Email", "PDF"],
+      "contacts": [
+        {"name": "David Burstein", "role": "Attorney"}
+      ],
+      "financials": {},
+      "recent_updates": [
+        {"subject": "Sale initiated", "source": "Email"},
+        {"subject": "Draft PS sent", "source": "Email"}
+      ]
+    },
+    {
+      "address": "1874 Home Rd, Sheffield, MA",
+      "current_milestone": "Repairs / Rehab",
+      "closing_date": null,
+      "sources": ["Email", "PDF"],
+      "contacts": [
+        {"name": "Alice Kempf", "role": "Agent"},
+        {"name": "Mahari Miller", "role": "Contractor"}
+      ],
+      "financials": {"wire_amount": "34355", "potential_arv": "600000"},
+      "recent_updates": [
+        {"subject": "Refinance HUD-1", "source": "PDF"},
+        {"subject": "Scope sent to contractor", "source": "Email"}
+      ]
+    },
+    {
+      "address": "40 Roland St, Pittsfield, MA 01201",
+      "current_milestone": "Repairs / Rehab",
+      "closing_date": null,
+      "sources": ["Email"],
+      "contacts": [
+        {"name": "Alice Kempf", "role": "Agent"},
+        {"name": "Jessica Sicard", "role": "Project Manager"},
+        {"name": "Chris Keniley", "role": "Accounting"},
+        {"name": "Gabby Voorhies", "role": "Operations"},
+        {"name": "Cavalier", "role": "Property Manager"},
+        {"name": "Jesse (Premiere Home MA)", "role": "Contractor"}
+      ],
+      "financials": {},
+      "recent_updates": [
+        {"date": "2026-04-20", "subject": "Jesse (Premiere Home) confirmed sink leak & shower mixer already fixed; will coordinate remaining repairs with subcontractors", "source": "Email"},
+        {"date": "2026-04-20", "subject": "Jessica forwarded 7-item inspection repair list to Jesse for execution", "source": "Email"},
+        {"date": "2026-04-18", "subject": "Daily brief: Review SD/LMR security deposit report with Chris Keniley", "source": "Email"},
+        {"date": "2026-04-17", "subject": "SD/LMR escrow discussion - $2,900 LMR moved to Master Escrow from closings (Ferry $950, Carmon $850, Nyamekeh $1,100)", "source": "Email"},
+        {"date": "2026-04-17", "subject": "LMRs must be held in escrow or 5% interest applies; Chris adding to UDFs", "source": "Email"},
+        {"date": "2026-04-17", "subject": "Cavalier does not want to handle LMR escrow forms - team must collect signatures", "source": "Email"},
+        {"date": "2026-04-16", "subject": "Missing escrow deposit forms for Pittsfield properties (Cavalier mgmt)", "source": "Email"}
+      ],
+      "action_items": [
+        "Jesse to reach out to Forrest & Mike, Jeff, and United Rooter for remaining repairs",
+        "Complete 7 inspection addendum repairs (plumbing, drain, sewer, electrical)",
+        "Review SD/LMR report with Chris Keniley by Mon 4/20",
+        "Get escrow forms signed for tenant deposits",
+        "Discuss with Cavalier about handling LMRs",
+        "Chris to update UDFs with LMR amounts"
+      ]
+    },
+    {
+      "address": "1 Richmond Ln, Pittsfield, MA",
+      "current_milestone": "Repairs / Rehab",
+      "closing_date": null,
+      "sources": ["Email"],
+      "contacts": [
+        {"name": "J.M. Koenig", "role": "Contractor"},
+        {"name": "Chris Keniley", "role": "Accounting"},
+        {"name": "Gabby Voorhies", "role": "Operations"},
+        {"name": "Cavalier", "role": "Property Manager"}
+      ],
+      "financials": {"repair_budget": "4000"},
+      "recent_updates": [
+        {"date": "2026-04-17", "subject": "SD/LMR escrow discussion - LMRs added in Jan (Akroman $1,100, Haugh $650, Negri $800, Otoole $1,250, Vogel $750, Williams $900)", "source": "Email"},
+        {"date": "2026-04-17", "subject": "Chris billed Will for SD/LMR + 4 months rent to fund Miguels SD/LMR and repay YBP", "source": "Email"},
+        {"date": "2026-04-16", "subject": "Missing escrow deposit forms for Pittsfield properties (Cavalier mgmt)", "source": "Email"},
+        {"subject": "Electrical pending", "source": "Email"}
+      ],
+      "action_items": [
+        "Get escrow forms signed for tenant deposits",
+        "Cavalier to handle LMR collection at move-in/ownership change",
+        "Complete electrical work"
+      ]
+    },
+    {
+      "address": "583 Hawks Spur",
+      "current_milestone": "Repairs / Rehab",
+      "closing_date": null,
+      "sources": ["Email", "Venmo"],
+      "contacts": [
+        {"name": "Jessica Sicard", "role": "Pa"}
+      ],
+      "financials": {"repair_budget": "5460"},
+      "recent_updates": [
+        {"subject": "Reimbursement", "source": "Email"}
+      ]
+    },
+    {
+      "address": "83 Rolf Ave, Chicopee, MA",
+      "current_milestone": "Repairs / Rehab",
+      "closing_date": null,
+      "sources": ["Email"],
+      "contacts": [
+        {"name": "Jessica Sicard", "role": "Project Manager"},
+        {"name": "Chris Keniley", "role": "Accounting"},
+        {"name": "David Munoz", "role": "Contractor"},
+        {"name": "Ryan Moran (Timbers Landscaping)", "role": "Retaining Wall Contractor"}
+      ],
+      "financials": {"capx_loan": "15000"},
+      "recent_updates": [
+        {"date": "2026-04-17", "subject": "Matt & Kev Capital lending Exchange Assets LLC $15,000 for CapX at 83 Rolf", "source": "Email"},
+        {"date": "2026-04-17", "subject": "Chris confirmed YBP 30k ongoing expense at 24 East, Exchange 15k ongoing at 83 Rolf", "source": "Email"},
+        {"date": "2026-04-16", "subject": "Jessica reviewing window specs with Dave before ordering", "source": "Email"},
+        {"date": "2026-04-12", "subject": "Ryan Moran (Timbers) sent retaining wall quote: 70ft long, 32in tall, goshen stone", "source": "Email"},
+        {"date": "2026-04-02", "subject": "Jessica forwarded contractor extras list - $8,700 left on original contract, $4k payment requested", "source": "Email"}
+      ],
+      "action_items": [
+        "Confirm window order specs with Dave",
+        "Review retaining wall quote from Timbers Landscaping",
+        "Track CapX spend against $15k loan from Matt & Kev Capital"
+      ]
+    },
+    {
+      "address": "939 East Columbus Ave, Springfield, MA",
+      "current_milestone": "Under Contract",
+      "closing_date": null,
+      "sources": ["Email", "dotloop"],
+      "contacts": [
+        {"name": "Daniel Lavitman", "role": "SR Commercial RE"},
+        {"name": "Jeremy", "role": "SR Commercial RE"},
+        {"name": "Richard Borsari", "role": "SR Commercial RE"},
+        {"name": "David Burstein", "role": "Attorney"},
+        {"name": "Jessica Sicard", "role": "Project Manager"}
+      ],
+      "financials": {},
+      "recent_updates": [
+        {"date": "2026-04-20", "subject": "Work order 42807 assigned to Victor at 939 E Columbus", "source": "Email"},
+        {"date": "2026-04-16", "subject": "Matt sent work order: clean toilets, mud back 2nd floor bathroom wall from water damage, prime", "source": "Email"},
+        {"date": "2026-04-13", "subject": "Matt asked Jessica to send Barry to 939 East Columbus", "source": "Email"},
+        {"date": "2026-04-08", "subject": "Matt visited - water was off, found pipe burst, turning on water", "source": "Email"},
+        {"date": "2026-04-06", "subject": "Gandara LOI signed via dotloop", "source": "dotloop"},
+        {"date": "2026-03-31", "subject": "Richard Borsari following up on insurance & tax rates for potential buyer", "source": "Email"}
+      ],
+      "action_items": [
+        "Complete interior repairs (toilets, bathroom wall, priming)",
+        "Follow up on Gandara LOI next steps",
+        "Provide insurance and tax rate info to Richard Borsari for buyer"
+      ]
+    },
+    {
+      "address": "42 Washington St, Monson, MA 01057",
+      "current_milestone": "Inspections",
+      "closing_date": null,
+      "sources": ["Email"],
+      "contacts": [
+        {"name": "Antonio Cucciniello", "role": "Partner (House Hack Helpers)"},
+        {"name": "William McGuire", "role": "Investors & Team Ops"},
+        {"name": "Kevin Shippee", "role": "Partner"},
+        {"name": "Jessica Sicard", "role": "Project Manager"}
+      ],
+      "financials": {"owed_to_yb": "8670.50"},
+      "recent_updates": [
+        {"date": "2026-04-16", "subject": "HHH Investor Update: Matt visited 42 Washington this week, photos shared via Google Drive", "source": "Email"},
+        {"date": "2026-04-01", "subject": "HHH owes YB/BIR $8,670.50 for 42 Washington", "source": "Email"},
+        {"date": "2026-03-25", "subject": "Jessica forwarded 42 Washington update", "source": "Email"}
+      ],
+      "action_items": [
+        "Review site visit photos from Matt's visit",
+        "Settle $8,670.50 owed from HHH to YB/BIR",
+        "Determine next steps post-inspection"
+      ]
+    },
+    {
+      "address": "54 Seckar Rd, Ashford, CT 06278",
+      "current_milestone": "Under Contract",
+      "closing_date": null,
+      "sources": ["Email", "PDF"],
+      "contacts": [
+        {"name": "David Burstein", "role": "Attorney"},
+        {"name": "Mark DiFranco", "role": "Agent"},
+        {"name": "Russell Cable", "role": "Partner"},
+        {"name": "Paul Kaplan", "role": "Buyer's Attorney"},
+        {"name": "Tamara Joynes Ketchian", "role": "Buyer"},
+        {"name": "Tom Woodward", "role": "Buyer's Agent (Colonial Properties)"}
+      ],
+      "financials": {"deposit": "60000"},
+      "recent_updates": [
+        {"date": "2026-03-31", "subject": "Burstein asked if Notice to Quit delivered to tenants - Matt confirmed yes", "source": "Email"},
+        {"date": "2026-03-27", "subject": "Matt sent repair request list to Jessica for discussion", "source": "Email"},
+        {"date": "2026-03-27", "subject": "Mark confirmed all inspection items resolved; kitchen equipment will be moved, vent hood stays", "source": "Email"},
+        {"date": "2026-03-25", "subject": "Buyer signed contract; Burstein holding fully executed contract until $10k deposit wired", "source": "Email"},
+        {"date": "2026-03-24", "subject": "Drainage Experts appointment scheduled for 54 Seckar", "source": "Email"},
+        {"date": "2026-03-17", "subject": "P&S Agreement with riders sent to buyer's attorney Paul Kaplan", "source": "Email"}
+      ],
+      "action_items": [
+        "Confirm $60,000 total deposit received by Burstein",
+        "Track tenant Notice to Quit process",
+        "Coordinate closing timeline with buyer's attorney"
+      ]
+    },
+    {
+      "address": "282-284 Suffolk Street, Holyoke, MA",
+      "current_milestone": "Prospecting",
+      "closing_date": null,
+      "sources": ["Email"],
+      "contacts": [
+        {"name": "Peter Houser", "role": "Partner"},
+        {"name": "Jonathan Little", "role": "Listing Agent (Jennings RE)"}
+      ],
+      "financials": {},
+      "recent_updates": [
+        {"date": "2026-04-20", "subject": "NEW LEAD: Peter Houser forwarded listing - 11-unit apartment building with 4-bay garage, mostly leased to CHD", "source": "Email"},
+        {"date": "2026-04-20", "subject": "Matt interested; Peter running numbers; plan to drive by property", "source": "Email"}
+      ],
+      "action_items": [
+        "Peter to run numbers on the deal",
+        "Matt to drive by property",
+        "Review marketing brochure, rent roll, and income/expense from seller"
+      ]
+    },
+    {
+      "address": "Egremont Project, Egremont, MA",
+      "current_milestone": "Prospecting",
+      "closing_date": null,
+      "sources": ["Email"],
+      "contacts": [
+        {"name": "Jacob Trudeau", "role": "Contractor / Project Lead"}
+      ],
+      "financials": {
+        "purchase_price": "175000",
+        "rehab_budget": "200000",
+        "total_investment": "450000",
+        "potential_arv": "600000"
+      },
+      "recent_updates": [
+        {"date": "2026-04-22", "subject": "Matt followed up with Jacob requesting more photos and slab foundation confirmation", "source": "Email"},
+        {"date": "2026-04-16", "subject": "Matt questioned budget numbers - thinks rehab may be high; asked about slab foundation", "source": "Email"},
+        {"date": "2026-04-15", "subject": "Jacob Trudeau sent rough rehab budget: $200K rehab, $175K purchase, $600K ARV", "source": "Email"}
+      ],
+      "action_items": [
+        "Jacob to send more property photos",
+        "Confirm slab foundation (affects scope and budget)",
+        "Reassess rehab budget once foundation type confirmed",
+        "Review detailed scope before committing"
+      ]
+    }
+  ]
+};
+
+function sortProps(a, b) {
+  const order = {"Final Walkthrough":0,"Closing":1,"Financing":2,"Inspections":3,"Appraisal":4,"Title & Escrow":5,"Under Contract":6,"Repairs / Rehab":7,"Offer Made":8,"Prospecting":9,"Closed":10};
+  const oa = order[a.current_milestone] ?? 8;
+  const ob = order[b.current_milestone] ?? 8;
+  if (oa !== ob) return oa - ob;
+  if (a.closing_date && b.closing_date) return daysUntil(a.closing_date) - daysUntil(b.closing_date);
+  if (a.closing_date) return -1;
+  return 1;
+}
+
+data.properties.sort(sortProps);
+
+const container = document.getElementById('cards');
+data.properties.forEach(p => {
+  const mi = getMilestoneIndex(p.current_milestone);
+  const isProspecting = p.current_milestone === "Prospecting";
+  let timelineDots = '';
+  if (!isProspecting) {
+    for (let i = 0; i < 10; i++) {
+      const cls = i < mi ? 'completed' : i === mi ? 'active' : 'pending';
+      timelineDots += '<div class="dot ' + cls + '" title="' + MILESTONES[i] + '"></div>';
+      if (i < 9) timelineDots += '<div class="line"></div>';
+    }
+  }
+  const days = daysUntil(p.closing_date);
+  let countdownHtml = '';
+  if (days !== null && p.current_milestone !== "Closed") {
+    if (days < 0) countdownHtml = '<div class="countdown" style="color:var(--red)">Closing was ' + Math.abs(days) + ' days ago!</div>';
+    else if (days === 0) countdownHtml = '<div class="countdown" style="color:var(--red)">CLOSING TODAY!</div>';
+    else countdownHtml = '<div class="countdown">' + days + ' days to closing (' + p.closing_date + ')</div>';
+  }
+  let financialsHtml = '';
+  const f = p.financials || {};
+  const fKeys = Object.keys(f);
+  if (fKeys.length > 0) {
+    financialsHtml = '<div class="section-title">Financials</div><div class="info-grid">';
+    const labels = {purchase_price:'Purchase',rehab_budget:'Rehab Budget',total_loan:'Total Loan',funds_at_closing:'At Closing',construction_advances:'Construction $',points:'Points',rate:'Rate',term:'Term',deposit:'Deposit',lender_fees:'Lender Fees',closing_costs:'Closing Costs',wire_amount:'Wire Amount',potential_arv:'ARV',repair_budget:'Repair Budget',capx_loan:'CapX Loan',owed_to_yb:'Owed to YB',total_investment:'Total Investment'};
+    fKeys.forEach(k => {
+      const label = labels[k] || k;
+      const val = ['rate','term'].includes(k) ? f[k] : fmt(f[k]);
+      financialsHtml += '<div class="info-item"><span class="label">' + label + ':</span> <span class="value">' + val + '</span></div>';
+    });
+    financialsHtml += '</div>';
+  }
+  let contactsHtml = '';
+  if (p.contacts && p.contacts.length) {
+    contactsHtml = '<div class="section-title">Key Contacts</div><ul class="contact-list">';
+    p.contacts.slice(0,5).forEach(c => {
+      contactsHtml += '<li><strong>' + c.name + '</strong> <span style="color:var(--text-muted)">â ' + c.role + '</span></li>';
+    });
+    if (p.contacts.length > 5) contactsHtml += '<li style="color:var(--text-muted)">+ ' + (p.contacts.length - 5) + ' more</li>';
+    contactsHtml += '</ul>';
+  }
+  let updatesHtml = '';
+  if (p.recent_updates && p.recent_updates.length) {
+    updatesHtml = '<div class="section-title">Recent Updates</div><ul class="update-list">';
+    p.recent_updates.slice(0,4).forEach(u => {
+      const dateTag = u.date ? '<span class="update-date">' + u.date + '</span>' : '';
+      updatesHtml += '<li>' + dateTag + u.subject + ' <span class="update-source">[' + u.source + ']</span></li>';
+    });
+    if (p.recent_updates.length > 4) updatesHtml += '<li style="color:var(--text-muted)">+ ' + (p.recent_updates.length - 4) + ' more updates</li>';
+    updatesHtml += '</ul>';
+  }
+  let actionsHtml = '';
+  if (p.action_items && p.action_items.length) {
+    actionsHtml = '<div class="section-title">Action Items</div><ul class="action-list">';
+    p.action_items.slice(0,4).forEach(a => { actionsHtml += '<li>' + a + '</li>'; });
+    if (p.action_items.length > 4) actionsHtml += '<li style="color:var(--text-muted)">+ ' + (p.action_items.length - 4) + ' more</li>';
+    actionsHtml += '</ul>';
+  }
+  let sourceBadges = '';
+  if (p.sources && p.sources.length) {
+    sourceBadges = '<div class="source-badges">';
+    p.sources.forEach(s => { sourceBadges += '<span class="source-badge">' + s + '</span>'; });
+    sourceBadges += '</div>';
+  }
+  container.innerHTML += '<div class="card"><div class="card-header"><h2>' + p.address + '</h2><span class="badge ' + getBadgeClass(p.current_milestone) + '">' + p.current_milestone + '</span></div>' + sourceBadges + countdownHtml + (timelineDots ? '<div class="timeline">' + timelineDots + '</div>' : '') + financialsHtml + contactsHtml + updatesHtml + actionsHtml + '</div>';
+});
+</script>
+</body>
+</html>
