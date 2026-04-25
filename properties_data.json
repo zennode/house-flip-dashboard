@@ -1,5 +1,5 @@
-{xTEST
-  "last_updated": "2026-04-24T18:35:00-04:00",
+{
+  "last_updated": "2026-04-25T08:01:00-04:00",
   "properties": [
     {
       "address": "297 Breckwood Blvd, Springfield, MA 01109",
@@ -7,7 +7,7 @@
       "closing_date": "4/13/2026",
       "sources": [
         "dotloop",
-        "Email" 
+        "Email"
       ],
       "contacts": [
         {
@@ -75,7 +75,7 @@
           "source": "Email"
         },
         {
-          "subject": "PSA signed via dotloop",
+          "subject": "ASA signed via dotloop",
           "source": "dotloop"
         },
         {
@@ -369,7 +369,7 @@
       "action_items": [
         "Send propane reading and last fill invoice to Burstein for adjustments",
         "Complete smoke certificate inspection (part of building permit closeout this week)",
-        "Closing date confirmed 4/29 - 6 days away",
+        "Closing date confirmed 4/29 - 4 days away",
         "Forward overage from escrow to seller after closing"
       ]
     },
@@ -393,6 +393,11 @@
       ],
       "financials": {},
       "recent_updates": [
+        {
+          "date": "2026-04-25",
+          "subject": "Jessica confirmed sale closed; dashboard corrected to reflect Closed status",
+          "source": "Email"
+        },
         {
           "date": "2026-04-21",
           "subject": "Sale completed per Burstein; HUD-1 and recorded deed sent; holdback pending final water/sewer figures due Monday",
@@ -1119,7 +1124,7 @@
         "Confirm entity docs (TCI Holdings LLC) - reusing from 121 Edward deal",
         "Obtain COI naming Freedom Credit Union as mortgagee",
         "Fund loan then get FCU to refund",
-        "Closing target: April 30 (7 days)"
+        "Closing target: April 30 (5 days)"
       ]
     }
   ]
