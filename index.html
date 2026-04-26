@@ -62,12 +62,14 @@ function renderMilestones(stage){
 function renderCard(p){
   const days=daysTo(p.closing_date);
   const daysColor=days!==null&&days<=7?'#ef4444':days!==null&&days<=14?'#f59e0b':'#94a3b8';
-  const badgeColor=STAGE_COLORS[p.current_stage]||'#60a5fa';
-  let html=`<div class="card"><div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px"><div><h2>${p.address}</h2><span class="badge" style="background:${badgeColor}">${p.current_stage}</span> `;
-  if(p.data_sources)p.data_sources.forEach(s=>{html+=`<span class="src-badge">${s}</span> `});
+  const stage=p.current_milestone||p.current_stage||'Unknown';
+  const badgeColor=STAGE_COLORS[stage]||'#60a5fa';
+  let html=`<div class="card"><div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px"><div><h2>${p.address}</h2><span class="badge" style="background:${badgeColor}">${stage}</span> `;
+  const srcs=p.sources||p.data_sources||[];
+  if(srcs.length)srcs.forEach(s=>{html+=`<span class="src-badge">${s}</span> `});
   html+=`</div></div>`;
   if(days!==null)html+=`<div class="countdown" style="color:${daysColor}">â± ${days} days to closing (${new Date(p.closing_date).toLocaleDateString()})</div>`;
-  html+=`<div style="margin:12px 0 8px;padding:8px 0">${renderMilestones(p.current_stage)}</div>`;
+  html+=`<div style="margin:12px 0 8px;padding:8px 0">${renderMilestones(stage)}</div>`;
   html+=`<div class="grid">`;
   if(p.financials&&Object.keys(p.financials).length){
     html+=`<div class="section"><div class="section-title">ð° FINANCIALS</div>`;
@@ -82,15 +84,17 @@ function renderCard(p){
     html+=`</div>`;
   }
   html+=`</div>`;
-  if(p.action_items&&p.action_items.length){
+  const actions=p.action_items||[];
+  if(actions.length){
     html+=`<div class="section"><div class="section-title">ð ACTION ITEMS</div>`;
-    p.action_items.forEach(a=>{html+=`<div class="item">${a}</div>`});
+    actions.forEach(a=>{html+=`<div class="item">${a}</div>`});
     html+=`</div>`;
   }
-  if(p.updates&&p.updates.length){
-    const show=p.updates.slice(0,4),more=p.updates.length-4;
+  const updates=p.recent_updates||p.updates||[];
+  if(updates.length){
+    const show=updates.slice(0,4),more=updates.length-4;
     html+=`<div class="section"><div class="section-title">ð¬ RECENT UPDATES</div>`;
-    show.forEach(u=>{html+=`<div class="update"><span class="update-date">${u.date} [${u.source||'Email'}]</span><br><span class="update-text">${u.summary}</span></div>`});
+    show.forEach(u=>{html+=`<div class="update"><span class="update-date">${u.date} [${u.source||'Email'}]</span><br><span class="update-text">${u.summary||u.subject||''}</span></div>`});
     if(more>0)html+=`<div class="muted" style="padding-left:16px">+${more} more updates</div>`;
     html+=`</div>`;
   }
@@ -99,10 +103,11 @@ function renderCard(p){
 }
 fetch('properties_data.json').then(r=>r.json()).then(data=>{
   document.getElementById('subtitle').textContent=`Last updated: ${data.last_updated} | ${data.properties.length} properties tracked`;
-  const active=data.properties.filter(p=>p.current_stage!=='Closed');
-  const closing=active.filter(p=>['Final Walkthrough','Closing'].includes(p.current_stage));
-  const rehab=active.filter(p=>p.current_stage==='Repairs / Rehab');
-  const closed=data.properties.filter(p=>p.current_stage==='Closed');
+  const ms=p=>p.current_milestone||p.current_stage||'';
+  const active=data.properties.filter(p=>ms(p)!=='Closed');
+  const closing=active.filter(p=>['Final Walkthrough','Closing'].includes(ms(p)));
+  const rehab=active.filter(p=>ms(p)==='Repairs / Rehab');
+  const closed=data.properties.filter(p=>ms(p)==='Closed');
   document.getElementById('stats').innerHTML=
     `<div class="stat"><div class="num">${active.length}</div><div class="label">Active</div></div>`+
     `<div class="stat"><div class="num" style="color:#14b8a6">${closing.length}</div><div class="label">At Closing</div></div>`+
