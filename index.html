@@ -5,738 +5,115 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>House Flip Closing Coordinator</title>
 <style>
-* { margin:0; padding:0; box-sizing:border-box; }
-body { background:#0f1117; color:#e2e8f0; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; }
-.header { background:#1a1d27; border-bottom:1px solid #2d3040; padding:16px 24px; position:sticky; top:0; z-index:100; }
-.header h1 { color:#f1f5f9; font-size:22px; }
-.header .meta { color:#6b7280; font-size:13px; margin-top:4px; }
-.stats { display:flex; gap:16px; margin-top:10px; flex-wrap:wrap; }
-.stat { background:#0f1117; padding:8px 16px; border-radius:8px; text-align:center; }
-.stat .num { font-size:24px; font-weight:700; color:#60a5fa; }
-.stat .lbl { font-size:11px; color:#9ca3af; }
-.container { max-width:1100px; margin:0 auto; padding:20px; }
-@media (max-width:768px) {
-    .header h1 { font-size:18px; }
-    div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns:1fr !important; }
-}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0f1117;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+.header{position:sticky;top:0;z-index:100;background:#0f1117;border-bottom:1px solid #2a2d37;padding:16px 24px}
+.header h1{font-size:22px;color:#f1f5f9}
+.subtitle{color:#64748b;font-size:13px;margin-top:4px}
+.stats{display:flex;gap:16px;margin-top:12px;flex-wrap:wrap}
+.stat{background:#1a1d27;padding:8px 16px;border-radius:8px;text-align:center;min-width:100px}
+.stat .num{font-size:24px;font-weight:700;color:#60a5fa}
+.stat .label{font-size:11px;color:#94a3b8;text-transform:uppercase;letter-spacing:0.5px}
+.container{max-width:1000px;margin:0 auto;padding:20px}
+.card{background:#1a1d27;border-radius:12px;padding:20px;margin-bottom:20px;border:1px solid #2a2d37}
+.card h2{color:#f1f5f9;font-size:18px;margin:0 0 4px 0}
+.badge{display:inline-block;color:white;padding:3px 12px;border-radius:20px;font-size:12px;font-weight:600}
+.src-badge{display:inline-block;background:#1e293b;color:#94a3b8;padding:2px 8px;border-radius:4px;font-size:11px;margin-right:4px}
+.countdown{font-size:14px;font-weight:600;margin-top:4px}
+.section{background:#0f1117;padding:10px;border-radius:6px;margin-top:8px}
+.section-title{color:#60a5fa;font-size:12px;font-weight:600;margin-bottom:6px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:8px}
+.milestone{display:inline-block;width:12px;height:12px;border-radius:50%;margin:0 3px}
+.milestone-legend{color:#64748b;font-size:10px;margin-top:4px}
+.item{margin-bottom:4px;padding-left:16px;position:relative}
+.item::before{position:absolute;left:0;color:#f59e0b;content:"â¸"}
+.update{margin-bottom:6px;padding-left:16px;position:relative}
+.update::before{position:absolute;left:0;color:#3b82f6;content:"â¢"}
+.update-date{color:#64748b;font-size:11px}
+.update-text{color:#cbd5e1;font-size:13px}
+.contact{margin-bottom:3px}
+.contact-name{color:#e2e8f0}
+.contact-role{color:#64748b}
+.fin-row{margin-bottom:4px}
+.fin-label{color:#94a3b8}
+.fin-value{color:#e2e8f0}
+.muted{color:#64748b}
+@media(max-width:768px){.header h1{font-size:18px}.grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <div class="header">
-    <h1>House Flip Closing Coordinator</h1>
-    <div class="meta">Last updated: 2026-04-26T08:01:00-04:00 | 18 properties tracked</div>
-    <div class="stats">
-        <div class="stat"><div class="num">13</div><div class="lbl">Active</div></div>
-        <div class="stat"><div class="num" style="color:#22c55e">1</div><div class="lbl">Near Closing</div></div>
-        <div class="stat"><div class="num" style="color:#eab308">7</div><div class="lbl">In Rehab</div></div>
-        <div class="stat"><div class="num" style="color:#6b7280">3</div><div class="lbl">Closed</div></div>
-        <div class="stat"><div class="num" style="color:#a855f7">2</div><div class="lbl">Prospecting</div></div>
-    </div>
+<h1>ð  House Flip Closing Coordinator</h1>
+<div class="subtitle" id="subtitle">Loading...</div>
+<div class="stats" id="stats"></div>
 </div>
-<div class="container">
-
-    <div style="background:#1a1d27;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid #2d3040">
-        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
-            <div>
-                <h2 style="color:#f1f5f9;font-size:18px;margin:0">70 Town Hill Road, Middlefield, MA 01243</h2>
-                <div style="margin-top:6px"><span style="background:#3b82f6;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;margin-right:4px">Email</span></div>
-            </div>
-            <div><span style="background:#22c55e;color:#fff;padding:4px 12px;border-radius:12px;font-size:12px;font-weight:600">Final Walkthrough</span></div>
-        </div>
-        <div style="background:#b91c1c;color:#fff;padding:8px 12px;border-radius:8px;text-align:center;font-weight:600;margin:8px 0">⏰ 3 days to closing (4/29/2026)</div>
-        <div style="display:flex;align-items:flex-start;gap:2px;margin:12px 0"><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Offer</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Contract</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Title</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Inspect</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Appraise</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Finance</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Rehab</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#3b82f6;border:2px solid #60a5fa;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Walkthru</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Closing</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Closed</div>
-        </div></div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px"><div style="margin-top:12px"><div style="color:#60a5fa;font-size:12px;font-weight:600;margin-bottom:6px">KEY CONTACTS</div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">David Burstein</span> <span style="color:#6b7280">— Attorney (Seller)</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Alice Kempf</span> <span style="color:#6b7280">— Listing Agent (KVR Team)</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Sarah Catapano Friedman</span> <span style="color:#6b7280">— Buyer's Attorney (Crowley & Cummings)</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Megan Houatchanthara</span> <span style="color:#6b7280">— Buyer's Agent (Compass)</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Alexandra Fazzi</span> <span style="color:#6b7280">— KVR Team</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Melissa Vanderburgh</span> <span style="color:#6b7280">— KVR Team</span></div><div style="color:#6b7280;font-size:11px">+1 more</div></div><div style="margin-top:12px"><div style="color:#f59e0b;font-size:12px;font-weight:600;margin-bottom:6px">ACTION ITEMS</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Send propane reading and last fill invoice to Burstein for adjustments</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Complete smoke certificate inspection (part of building permit closeout this week)</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Closing date confirmed 4/29 - 4 days away</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Forward overage from escrow to seller after closing</div></div><div style="margin-top:12px"><div style="color:#60a5fa;font-size:12px;font-weight:600;margin-bottom:6px">RECENT UPDATES</div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-04-20</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Burstein requesting propane reading and last fill invoice for closing adjustments</span></div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-04-20</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Alice confirmed smoke certs part of building permit closeout this week; will provide propane reading</span></div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-04-20</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Alexandra sent listing commission bill; buyer agent paid at closing</span></div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-04-18</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Burstein requested commission invoices from both brokers and smoke certificate status</span></div></div></div>
-    </div>
-    <div style="background:#1a1d27;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid #2d3040">
-        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
-            <div>
-                <h2 style="color:#f1f5f9;font-size:18px;margin:0">213 Brodie Mountain Rd, Hancock, MA 01237</h2>
-                <div style="margin-top:6px"><span style="background:#3b82f6;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;margin-right:4px">Email</span><span style="background:#ef4444;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;margin-right:4px">PDF</span></div>
-            </div>
-            <div><span style="background:#8b5cf6;color:#fff;padding:4px 12px;border-radius:12px;font-size:12px;font-weight:600">Title & Escrow</span></div>
-        </div>
-        <div style="background:#b91c1c;color:#fff;padding:8px 12px;border-radius:8px;text-align:center;font-weight:600;margin:8px 0">⏰ 4 days to closing (4/30/2026)</div>
-        <div style="display:flex;align-items:flex-start;gap:2px;margin:12px 0"><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Offer</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Contract</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#3b82f6;border:2px solid #60a5fa;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Title</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Inspect</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Appraise</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Finance</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Rehab</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Walkthru</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Closing</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Closed</div>
-        </div></div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px"><div style="margin-top:12px"><div style="color:#60a5fa;font-size:12px;font-weight:600;margin-bottom:6px">FINANCIALS</div><div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #2d3040"><span style="color:#9ca3af">Purchase Price</span><span style="color:#e2e8f0">$200,000</span></div><div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #2d3040"><span style="color:#9ca3af">Rehab Budget</span><span style="color:#e2e8f0">$50,000</span></div><div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #2d3040"><span style="color:#9ca3af">Total Loan</span><span style="color:#e2e8f0">$250,000</span></div><div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #2d3040"><span style="color:#9ca3af">Rate</span><span style="color:#e2e8f0">12%</span></div><div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #2d3040"><span style="color:#9ca3af">Points</span><span style="color:#e2e8f0">$3</span></div><div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #2d3040"><span style="color:#9ca3af">Lender Fees</span><span style="color:#e2e8f0">$3,000</span></div></div><div style="margin-top:12px"><div style="color:#60a5fa;font-size:12px;font-weight:600;margin-bottom:6px">KEY CONTACTS</div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">David Burstein</span> <span style="color:#6b7280">— Attorney</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Tori LaValla</span> <span style="color:#6b7280">— Seller's Paralegal (MHC Attorneys)</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Thomas Martin</span> <span style="color:#6b7280">— Seller's Attorney (MHC Attorneys)</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Shamikka Andrews</span> <span style="color:#6b7280">— Burstein Law Office</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Jeff Burstein</span> <span style="color:#6b7280">— Burstein Law Office</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Chris Keniley</span> <span style="color:#6b7280">— Accounting</span></div><div style="color:#6b7280;font-size:11px">+3 more</div></div><div style="margin-top:12px"><div style="color:#f59e0b;font-size:12px;font-weight:600;margin-bottom:6px">ACTION ITEMS</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Burstein preparing closing package</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Confirm entity docs (TCI Holdings LLC) - reusing from 121 Edward deal</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Obtain COI naming Freedom Credit Union as mortgagee</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Fund loan then get FCU to refund</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Closing target: April 30 (5 days)</div></div><div style="margin-top:12px"><div style="color:#60a5fa;font-size:12px;font-weight:600;margin-bottom:6px">RECENT UPDATES</div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-04-23</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">NEW PROPERTY: TCI Holdings LLC purchasing via Ruby Lending $250K loan ($200K purchase + $50K rehab)</span></div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-04-23</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Burstein beginning closing package; P&S sent by Tori LaValla (MHC Attorneys)</span></div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-04-23</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Thomas Martin sent Certificate of Good Standing from recent deal</span></div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-04-23</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Closing next Thursday April 30; 12% rate, 3 points, $3K fee</span></div></div></div>
-    </div>
-    <div style="background:#1a1d27;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid #2d3040">
-        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
-            <div>
-                <h2 style="color:#f1f5f9;font-size:18px;margin:0">167 East Park Terrace, Pittsfield, MA 01201</h2>
-                <div style="margin-top:6px"><span style="background:#3b82f6;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;margin-right:4px">Email</span><span style="background:#ef4444;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;margin-right:4px">PDF</span></div>
-            </div>
-            <div><span style="background:#06b6d4;color:#fff;padding:4px 12px;border-radius:12px;font-size:12px;font-weight:600">Financing</span></div>
-        </div>
-        <div style="background:#1e3a5f;color:#60a5fa;padding:8px 12px;border-radius:8px;text-align:center;margin:8px 0">12 days to closing (5/8/2026)</div>
-        <div style="display:flex;align-items:flex-start;gap:2px;margin:12px 0"><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Offer</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Contract</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Title</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Inspect</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Appraise</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#3b82f6;border:2px solid #60a5fa;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Finance</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Rehab</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Walkthru</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Closing</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Closed</div>
-        </div></div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px"><div style="margin-top:12px"><div style="color:#60a5fa;font-size:12px;font-weight:600;margin-bottom:6px">FINANCIALS</div><div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #2d3040"><span style="color:#9ca3af">Purchase Price</span><span style="color:#e2e8f0">$145,000</span></div><div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #2d3040"><span style="color:#9ca3af">Assignment Fee</span><span style="color:#e2e8f0">$5,000</span></div><div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #2d3040"><span style="color:#9ca3af">Rehab Budget</span><span style="color:#e2e8f0">$50,000</span></div><div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #2d3040"><span style="color:#9ca3af">Total Loan</span><span style="color:#e2e8f0">$166,000</span></div><div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #2d3040"><span style="color:#9ca3af">Funds At Closing</span><span style="color:#e2e8f0">$116,000</span></div><div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #2d3040"><span style="color:#9ca3af">Construction Advances</span><span style="color:#e2e8f0">$50,000</span></div><div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #2d3040"><span style="color:#9ca3af">Points</span><span style="color:#e2e8f0">$4,980</span></div><div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #2d3040"><span style="color:#9ca3af">Rate</span><span style="color:#e2e8f0">12%</span></div><div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #2d3040"><span style="color:#9ca3af">Term</span><span style="color:#e2e8f0">12 months</span></div><div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #2d3040"><span style="color:#9ca3af">Deposit</span><span style="color:#e2e8f0">$500</span></div><div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #2d3040"><span style="color:#9ca3af">Lender Fees</span><span style="color:#e2e8f0">$570</span></div></div><div style="margin-top:12px"><div style="color:#60a5fa;font-size:12px;font-weight:600;margin-bottom:6px">KEY CONTACTS</div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Antonio Cucciniello</span> <span style="color:#6b7280">— Partner (House Hack Helpers)</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">William McGuire</span> <span style="color:#6b7280">— Investors & Team Ops</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">David Burstein</span> <span style="color:#6b7280">— Attorney</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Linda Duverger</span> <span style="color:#6b7280">— Lender (Pinnacle Financial)</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Kelcey Rogers</span> <span style="color:#6b7280">— Lender (Pinnacle Financial)</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Lauren Whalen</span> <span style="color:#6b7280">— Lender Contact (Pinnacle Financial)</span></div><div style="color:#6b7280;font-size:11px">+5 more</div></div><div style="margin-top:12px"><div style="color:#f59e0b;font-size:12px;font-weight:600;margin-bottom:6px">ACTION ITEMS</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Antonio to amend Assignment Agreement to show $5K assignment fee</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Miles to provide signed W-9 for assignment fee payment</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Provide property insurance binder naming Pinnacle as mortgagee before closing</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Confirm LLC docs (Articles of Organization / Operating Agreement) with Pinnacle</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Provide bank account info for monthly payments and construction draws</div><div style="color:#6b7280;font-size:11px">+3 more</div></div><div style="margin-top:12px"><div style="color:#60a5fa;font-size:12px;font-weight:600;margin-bottom:6px">RECENT UPDATES</div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-04-23</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Burstein still needs amended Assignment Agreement showing $5K assignment fee + W-9 from Miles; Matt asked Antonio to handle</span></div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-04-23</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Seller contact info provided: David Brunk (413-441-1937, dbrunk57@aol.com)</span></div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-04-22</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Matt sent insurance application details to Adina Edgett</span></div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-04-21</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Pinnacle Financial sent financing term sheet: $166K total loan, 12% rate, 3 points, closing May 8</span></div></div></div>
-    </div>
-    <div style="background:#1a1d27;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid #2d3040">
-        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
-            <div>
-                <h2 style="color:#f1f5f9;font-size:18px;margin:0">1874 Home Rd, Sheffield, MA</h2>
-                <div style="margin-top:6px"><span style="background:#3b82f6;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;margin-right:4px">Email</span><span style="background:#ef4444;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;margin-right:4px">PDF</span></div>
-            </div>
-            <div><span style="background:#eab308;color:#fff;padding:4px 12px;border-radius:12px;font-size:12px;font-weight:600">Repairs / Rehab</span></div>
-        </div>
-        
-        <div style="display:flex;align-items:flex-start;gap:2px;margin:12px 0"><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Offer</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Contract</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Title</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Inspect</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Appraise</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Finance</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#3b82f6;border:2px solid #60a5fa;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Rehab</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Walkthru</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Closing</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Closed</div>
-        </div></div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px"><div style="margin-top:12px"><div style="color:#60a5fa;font-size:12px;font-weight:600;margin-bottom:6px">FINANCIALS</div><div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #2d3040"><span style="color:#9ca3af">Wire Amount</span><span style="color:#e2e8f0">$34,355</span></div><div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #2d3040"><span style="color:#9ca3af">Potential Arv</span><span style="color:#e2e8f0">$600,000</span></div></div><div style="margin-top:12px"><div style="color:#60a5fa;font-size:12px;font-weight:600;margin-bottom:6px">KEY CONTACTS</div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Alice Kempf</span> <span style="color:#6b7280">— Agent</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Mahari Miller</span> <span style="color:#6b7280">— Contractor</span></div></div><div style="margin-top:12px"><div style="color:#f59e0b;font-size:12px;font-weight:600;margin-bottom:6px">ACTION ITEMS</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Review and approve Mahari Miller Invoice #394</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Track rehab progress against scope</div></div><div style="margin-top:12px"><div style="color:#60a5fa;font-size:12px;font-weight:600;margin-bottom:6px">RECENT UPDATES</div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-04-23</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Jessica forwarded Invoice #394 from Mahari Miller to Matt for review</span></div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#ef4444;font-size:10px">[PDF]</span> <span style="color:#cbd5e1">Refinance HUD-1</span></div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Scope sent to contractor</span></div></div></div>
-    </div>
-    <div style="background:#1a1d27;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid #2d3040">
-        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
-            <div>
-                <h2 style="color:#f1f5f9;font-size:18px;margin:0">40 Roland St, Pittsfield, MA 01201</h2>
-                <div style="margin-top:6px"><span style="background:#3b82f6;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;margin-right:4px">Email</span></div>
-            </div>
-            <div><span style="background:#eab308;color:#fff;padding:4px 12px;border-radius:12px;font-size:12px;font-weight:600">Repairs / Rehab</span></div>
-        </div>
-        
-        <div style="display:flex;align-items:flex-start;gap:2px;margin:12px 0"><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Offer</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Contract</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Title</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Inspect</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Appraise</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Finance</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#3b82f6;border:2px solid #60a5fa;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Rehab</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Walkthru</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Closing</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Closed</div>
-        </div></div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px"><div style="margin-top:12px"><div style="color:#60a5fa;font-size:12px;font-weight:600;margin-bottom:6px">KEY CONTACTS</div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Alice Kempf</span> <span style="color:#6b7280">— Agent</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Jessica Sicard</span> <span style="color:#6b7280">— Project Manager</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Chris Keniley</span> <span style="color:#6b7280">— Accounting</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Gabby Voorhies</span> <span style="color:#6b7280">— Operations</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Cavalier</span> <span style="color:#6b7280">— Property Manager</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Jesse (Premiere Home MA)</span> <span style="color:#6b7280">— Contractor</span></div></div><div style="margin-top:12px"><div style="color:#f59e0b;font-size:12px;font-weight:600;margin-bottom:6px">ACTION ITEMS</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Jesse to reach out to Forrest & Mike, Jeff, and United Rooter for remaining repairs</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Complete 7 inspection addendum repairs (plumbing, drain, sewer, electrical)</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Get escrow forms signed for tenant deposits</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Chris to update UDFs with LMR amounts</div></div><div style="margin-top:12px"><div style="color:#60a5fa;font-size:12px;font-weight:600;margin-bottom:6px">RECENT UPDATES</div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-04-20</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Jesse (Premiere Home) confirmed sink leak & shower mixer already fixed; will coordinate remaining repairs with subcontractors</span></div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-04-20</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Jessica forwarded 7-item inspection repair list to Jesse for execution</span></div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-04-17</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">SD/LMR escrow discussion - $2,900 LMR moved to Master Escrow from closings</span></div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-04-16</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Missing escrow deposit forms for Pittsfield properties (Cavalier mgmt)</span></div></div></div>
-    </div>
-    <div style="background:#1a1d27;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid #2d3040">
-        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
-            <div>
-                <h2 style="color:#f1f5f9;font-size:18px;margin:0">1 Richmond Ln, Pittsfield, MA</h2>
-                <div style="margin-top:6px"><span style="background:#3b82f6;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;margin-right:4px">Email</span></div>
-            </div>
-            <div><span style="background:#eab308;color:#fff;padding:4px 12px;border-radius:12px;font-size:12px;font-weight:600">Repairs / Rehab</span></div>
-        </div>
-        
-        <div style="display:flex;align-items:flex-start;gap:2px;margin:12px 0"><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Offer</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Contract</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Title</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Inspect</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Appraise</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Finance</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#3b82f6;border:2px solid #60a5fa;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Rehab</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Walkthru</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Closing</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Closed</div>
-        </div></div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px"><div style="margin-top:12px"><div style="color:#60a5fa;font-size:12px;font-weight:600;margin-bottom:6px">FINANCIALS</div><div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #2d3040"><span style="color:#9ca3af">Repair Budget</span><span style="color:#e2e8f0">$4,000</span></div></div><div style="margin-top:12px"><div style="color:#60a5fa;font-size:12px;font-weight:600;margin-bottom:6px">KEY CONTACTS</div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Alice Kempf</span> <span style="color:#6b7280">— Agent</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Jesse (Premiere Home MA)</span> <span style="color:#6b7280">— Contractor</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Jeff</span> <span style="color:#6b7280">— Electrician</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Chris Keniley</span> <span style="color:#6b7280">— Accounting</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Gabby Voorhies</span> <span style="color:#6b7280">— Operations</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Cavalier</span> <span style="color:#6b7280">— Property Manager</span></div></div><div style="margin-top:12px"><div style="color:#f59e0b;font-size:12px;font-weight:600;margin-bottom:6px">ACTION ITEMS</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Jeff to complete final electrical work (vanity light, etc.)</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Pull demolition permit for shed</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Get 2 shed demolition estimates and confirm contractor</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Asbestos check on shed before demo</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Address embankment integrity during demo</div><div style="color:#6b7280;font-size:11px">+3 more</div></div><div style="margin-top:12px"><div style="color:#60a5fa;font-size:12px;font-weight:600;margin-bottom:6px">RECENT UPDATES</div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-04-22</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Near tail end of rehab; 2 estimates coming for shed demolition; permit needed for demo; asbestos check required</span></div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-04-22</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Alice dropping off staging furniture Saturday; Jeff completing final electrical; nearly ready for market</span></div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-04-22</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Vanity light location question being resolved with Jeff tomorrow</span></div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-04-17</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">SD/LMR escrow discussion - LMRs added in Jan</span></div></div></div>
-    </div>
-    <div style="background:#1a1d27;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid #2d3040">
-        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
-            <div>
-                <h2 style="color:#f1f5f9;font-size:18px;margin:0">53.5 Orchard St, Pittsfield, MA</h2>
-                <div style="margin-top:6px"><span style="background:#3b82f6;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;margin-right:4px">Email</span></div>
-            </div>
-            <div><span style="background:#eab308;color:#fff;padding:4px 12px;border-radius:12px;font-size:12px;font-weight:600">Repairs / Rehab</span></div>
-        </div>
-        
-        <div style="display:flex;align-items:flex-start;gap:2px;margin:12px 0"><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Offer</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Contract</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Title</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Inspect</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Appraise</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Finance</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#3b82f6;border:2px solid #60a5fa;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Rehab</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Walkthru</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Closing</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Closed</div>
-        </div></div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px"><div style="margin-top:12px"><div style="color:#60a5fa;font-size:12px;font-weight:600;margin-bottom:6px">FINANCIALS</div><div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #2d3040"><span style="color:#9ca3af">Contract Total</span><span style="color:#e2e8f0">$18,928</span></div><div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #2d3040"><span style="color:#9ca3af">Paid To Date</span><span style="color:#e2e8f0">$8,786</span></div><div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #2d3040"><span style="color:#9ca3af">Remaining On Contract</span><span style="color:#e2e8f0">$10,143</span></div><div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #2d3040"><span style="color:#9ca3af">Pending Draw</span><span style="color:#e2e8f0">$5,000</span></div></div><div style="margin-top:12px"><div style="color:#60a5fa;font-size:12px;font-weight:600;margin-bottom:6px">KEY CONTACTS</div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Jessica Sicard</span> <span style="color:#6b7280">— Project Manager</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Jesse (Premiere Home MA)</span> <span style="color:#6b7280">— Contractor</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Jeff</span> <span style="color:#6b7280">— Electrician</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Ruben</span> <span style="color:#6b7280">— Granite Installer</span></div></div><div style="margin-top:12px"><div style="color:#f59e0b;font-size:12px;font-weight:600;margin-bottom:6px">ACTION ITEMS</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Approve $5,000 draw request from Premiere Home</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Pull permit for deck repair (Pittsfield)</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Snake wiring around front door into wall</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Resolve basement plumbing issues</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Finalize unit 1 rehab plan (paint + light fixtures)</div><div style="color:#6b7280;font-size:11px">+2 more</div></div><div style="margin-top:12px"><div style="color:#60a5fa;font-size:12px;font-weight:600;margin-bottom:6px">RECENT UPDATES</div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-04-23</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Unit 1 photos submitted - needs paint and light fixtures, similar scope to units 2 & 3</span></div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-04-22</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">$5,000 draw requested; units 2,3 & common-way nearly done; Ruben measuring granite tomorrow</span></div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-04-22</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Plumbing mess in basement - waiting on plumber solution</span></div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-04-22</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Deck repair permit needed; wiring around front door needs to be snaked in wall</span></div></div></div>
-    </div>
-    <div style="background:#1a1d27;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid #2d3040">
-        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
-            <div>
-                <h2 style="color:#f1f5f9;font-size:18px;margin:0">583 Hawks Spur</h2>
-                <div style="margin-top:6px"><span style="background:#3b82f6;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;margin-right:4px">Email</span><span style="background:#008cff;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;margin-right:4px">Venmo</span></div>
-            </div>
-            <div><span style="background:#eab308;color:#fff;padding:4px 12px;border-radius:12px;font-size:12px;font-weight:600">Repairs / Rehab</span></div>
-        </div>
-        
-        <div style="display:flex;align-items:flex-start;gap:2px;margin:12px 0"><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Offer</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Contract</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Title</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Inspect</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Appraise</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Finance</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#3b82f6;border:2px solid #60a5fa;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Rehab</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Walkthru</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Closing</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Closed</div>
-        </div></div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px"><div style="margin-top:12px"><div style="color:#60a5fa;font-size:12px;font-weight:600;margin-bottom:6px">FINANCIALS</div><div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #2d3040"><span style="color:#9ca3af">Repair Budget</span><span style="color:#e2e8f0">$5,460</span></div></div><div style="margin-top:12px"><div style="color:#60a5fa;font-size:12px;font-weight:600;margin-bottom:6px">KEY CONTACTS</div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Jessica Sicard</span> <span style="color:#6b7280">— PM</span></div></div><div style="margin-top:12px"><div style="color:#60a5fa;font-size:12px;font-weight:600;margin-bottom:6px">RECENT UPDATES</div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Reimbursement</span></div></div></div>
-    </div>
-    <div style="background:#1a1d27;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid #2d3040">
-        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
-            <div>
-                <h2 style="color:#f1f5f9;font-size:18px;margin:0">83 Rolf Ave, Chicopee, MA</h2>
-                <div style="margin-top:6px"><span style="background:#3b82f6;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;margin-right:4px">Email</span></div>
-            </div>
-            <div><span style="background:#eab308;color:#fff;padding:4px 12px;border-radius:12px;font-size:12px;font-weight:600">Repairs / Rehab</span></div>
-        </div>
-        
-        <div style="display:flex;align-items:flex-start;gap:2px;margin:12px 0"><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Offer</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Contract</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Title</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Inspect</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Appraise</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Finance</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#3b82f6;border:2px solid #60a5fa;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Rehab</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Walkthru</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Closing</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Closed</div>
-        </div></div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px"><div style="margin-top:12px"><div style="color:#60a5fa;font-size:12px;font-weight:600;margin-bottom:6px">FINANCIALS</div><div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #2d3040"><span style="color:#9ca3af">Capx Loan</span><span style="color:#e2e8f0">$15,000</span></div></div><div style="margin-top:12px"><div style="color:#60a5fa;font-size:12px;font-weight:600;margin-bottom:6px">KEY CONTACTS</div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Jessica Sicard</span> <span style="color:#6b7280">— Project Manager</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Chris Keniley</span> <span style="color:#6b7280">— Accounting</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">David Munoz</span> <span style="color:#6b7280">— Contractor</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Ryan Moran (Timbers Landscaping)</span> <span style="color:#6b7280">— Retaining Wall Contractor</span></div></div><div style="margin-top:12px"><div style="color:#f59e0b;font-size:12px;font-weight:600;margin-bottom:6px">ACTION ITEMS</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Confirm window order specs with Dave</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Review retaining wall quote from Timbers Landscaping</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Track CapX spend against $15k loan from Matt & Kev Capital</div></div><div style="margin-top:12px"><div style="color:#60a5fa;font-size:12px;font-weight:600;margin-bottom:6px">RECENT UPDATES</div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-04-17</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Matt & Kev Capital lending Exchange Assets LLC $15,000 for CapX at 83 Rolf</span></div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-04-16</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Jessica reviewing window specs with Dave before ordering</span></div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-04-12</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Ryan Moran (Timbers) sent retaining wall quote: 70ft long, 32in tall, goshen stone</span></div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-04-02</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Jessica forwarded contractor extras list - $8,700 left on original contract, $4k payment requested</span></div></div></div>
-    </div>
-    <div style="background:#1a1d27;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid #2d3040">
-        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
-            <div>
-                <h2 style="color:#f1f5f9;font-size:18px;margin:0">42 Washington St, Monson, MA 01057</h2>
-                <div style="margin-top:6px"><span style="background:#3b82f6;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;margin-right:4px">Email</span></div>
-            </div>
-            <div><span style="background:#eab308;color:#fff;padding:4px 12px;border-radius:12px;font-size:12px;font-weight:600">Repairs / Rehab</span></div>
-        </div>
-        
-        <div style="display:flex;align-items:flex-start;gap:2px;margin:12px 0"><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Offer</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Contract</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Title</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Inspect</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Appraise</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Appraise</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Finance</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Finance</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#3b82f6;border:2px solid #60a5fa;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Rehab</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Walkthru</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Closing</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Closed</div>
-        </div></div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px"><div style="margin-top:12px"><div style="color:#60a5fa;font-size:12px;font-weight:600;margin-bottom:6px">FINANCIALS</div><div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #2d3040"><span style="color:#9ca3af">Owed To Yb</span><span style="color:#e2e8f0">$8,670</span></div><div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #2d3040"><span style="color:#9ca3af">Arv</span><span style="color:#e2e8f0">$334,900</span></div><div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #2d3040"><span style="color:#9ca3af">Final Bill</span><span style="color:#e2e8f0">$12,388</span></div></div><div style="margin-top:12px"><div style="color:#60a5fa;font-size:12px;font-weight:600;margin-bottom:6px">KEY CONTACTS</div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Alice Kempf</span> <span style="color:#6b7280">— Agent (KVR Team)</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Antonio Cucciniello</span> <span style="color:#6b7280">— Partner (House Hack Helpers)</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">William McGuire</span> <span style="color:#6b7280">— Investors & Team Ops</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Kevin Shippee</span> <span style="color:#6b7280">— Partner</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Jessica Sicard</span> <span style="color:#6b7280">— Project Manager</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Chris Keniley</span> <span style="color:#6b7280">— Accounting</span></div></div><div style="margin-top:12px"><div style="color:#f59e0b;font-size:12px;font-weight:600;margin-bottom:6px">ACTION ITEMS</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Approve $12,387.50 final bill payment</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Listing photos - backup photographer coordinating this week</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Target listing date: Tuesday Apr 28</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Settle $8,670.50 owed from HHH to YB/BIR</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Final prep for listing</div></div><div style="margin-top:12px"><div style="color:#60a5fa;font-size:12px;font-weight:600;margin-bottom:6px">RECENT UPDATES</div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-04-23</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Chris Keniley requesting approval to move $12,387.50 to pay final bill for 42 Washington</span></div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-04-22</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Alice Kempf confirms ARV at $334,900; listing targeted for Tuesday Apr 28</span></div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-04-22</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Photographer backup arranged (primary in surgery); CMA reports shared</span></div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-04-22</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Forwarded to Antonio (partner) who approved ARV and listing plan</span></div></div></div>
-    </div>
-    <div style="background:#1a1d27;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid #2d3040">
-        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
-            <div>
-                <h2 style="color:#f1f5f9;font-size:18px;margin:0">4 School St, Ware, MA 01082</h2>
-                <div style="margin-top:6px"><span style="background:#3b82f6;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;margin-right:4px">Email</span><span style="background:#ef4444;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;margin-right:4px">PDF</span></div>
-            </div>
-            <div><span style="background:#06b6d4;color:#fff;padding:4px 12px;border-radius:12px;font-size:12px;font-weight:600">Financing</span></div>
-        </div>
-        
-        <div style="display:flex;align-items:flex-start;gap:2px;margin:12px 0"><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Offer</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Contract</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Title</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Inspect</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Appraise</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#3b82f6;border:2px solid #60a5fa;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Finance</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Rehab</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Walkthru</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Closing</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Closed</div>
-        </div></div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px"><div style="margin-top:12px"><div style="color:#60a5fa;font-size:12px;font-weight:600;margin-bottom:6px">FINANCIALS</div><div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #2d3040"><span style="color:#9ca3af">Closing Costs</span><span style="color:#e2e8f0">$34,355</span></div></div><div style="margin-top:12px"><div style="color:#60a5fa;font-size:12px;font-weight:600;margin-bottom:6px">KEY CONTACTS</div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">David Burstein</span> <span style="color:#6b7280">— Attorney</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">David Chase</span> <span style="color:#6b7280">— Lender</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Michelle Fama</span> <span style="color:#6b7280">— Loan Processing</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Ruby Lending LLC</span> <span style="color:#6b7280">— Lender</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Freedom Credit Union</span> <span style="color:#6b7280">— Lender (FCU)</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Gregory</span> <span style="color:#6b7280">— FCU Contact</span></div><div style="color:#6b7280;font-size:11px">+2 more</div></div><div style="margin-top:12px"><div style="color:#f59e0b;font-size:12px;font-weight:600;margin-bottom:6px">ACTION ITEMS</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Ruby Lending loan confirmed added - awaiting final funding/closing date</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Michelle to add Ruby Lending loan with Freedom CU funds - DONE</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Awaiting final funding confirmation from FCU</div></div><div style="margin-top:12px"><div style="color:#60a5fa;font-size:12px;font-weight:600;margin-bottom:6px">RECENT UPDATES</div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-04-23</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Michelle confirmed Ruby Lending loan added to system using Freedom Credit Union funds</span></div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-04-17</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">FCU confirmed funding request package looks good</span></div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-04-17</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Burstein sent loan packages (Freedom CU & Ruby Lending) for funding request</span></div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-04-17</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Matt forwarded to Michelle - will use Freedom Credit Union funds</span></div></div></div>
-    </div>
-    <div style="background:#1a1d27;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid #2d3040">
-        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
-            <div>
-                <h2 style="color:#f1f5f9;font-size:18px;margin:0">939 East Columbus Ave, Springfield, MA</h2>
-                <div style="margin-top:6px"><span style="background:#3b82f6;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;margin-right:4px">Email</span><span style="background:#6366f1;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;margin-right:4px">dotloop</span></div>
-            </div>
-            <div><span style="background:#3b82f6;color:#fff;padding:4px 12px;border-radius:12px;font-size:12px;font-weight:600">Under Contract</span></div>
-        </div>
-        
-        <div style="display:flex;align-items:flex-start;gap:2px;margin:12px 0"><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Offer</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#3b82f6;border:2px solid #60a5fa;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Contract</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Title</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Inspect</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Appraise</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Finance</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Rehab</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Walkthru</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Closing</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Closed</div>
-        </div></div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px"><div style="margin-top:12px"><div style="color:#60a5fa;font-size:12px;font-weight:600;margin-bottom:6px">KEY CONTACTS</div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Daniel Lavitman</span> <span style="color:#6b7280">— SR Commercial RE</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Jeremy</span> <span style="color:#6b7280">— SR Commercial RE</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Richard Borsari</span> <span style="color:#6b7280">— SR Commercial RE</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">David Burstein</span> <span style="color:#6b7280">— Attorney</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Jessica Sicard</span> <span style="color:#6b7280">— Project Manager</span></div></div><div style="margin-top:12px"><div style="color:#f59e0b;font-size:12px;font-weight:600;margin-bottom:6px">ACTION ITEMS</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Complete interior repairs (toilets, bathroom wall, priming)</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Follow up on Gandara LOI next steps</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Provide insurance and tax rate info to Richard Borsari for buyer</div></div><div style="margin-top:12px"><div style="color:#60a5fa;font-size:12px;font-weight:600;margin-bottom:6px">RECENT UPDATES</div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-04-22</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Richard Borsari following up on plumber connection for tenant at 55 White</span></div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-04-20</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Work order 42807 assigned to Victor at 939 E Columbus</span></div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-04-16</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Matt sent work order: clean toilets, mud back 2nd floor bathroom wall from water damage, prime</span></div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-04-08</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Matt visited - water was off, found pipe burst, turning on water</span></div></div></div>
-    </div>
-    <div style="background:#1a1d27;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid #2d3040">
-        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
-            <div>
-                <h2 style="color:#f1f5f9;font-size:18px;margin:0">54 Seckar Rd, Ashford, CT 06278</h2>
-                <div style="margin-top:6px"><span style="background:#3b82f6;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;margin-right:4px">Email</span><span style="background:#ef4444;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;margin-right:4px">PDF</span></div>
-            </div>
-            <div><span style="background:#3b82f6;color:#fff;padding:4px 12px;border-radius:12px;font-size:12px;font-weight:600">Under Contract</span></div>
-        </div>
-        
-        <div style="display:flex;align-items:flex-start;gap:2px;margin:12px 0"><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Offer</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#3b82f6;border:2px solid #60a5fa;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Contract</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Title</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Inspect</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Appraise</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Finance</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Rehab</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Walkthru</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Closing</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#374151;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Closed</div>
-        </div></div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px"><div style="margin-top:12px"><div style="color:#60a5fa;font-size:12px;font-weight:600;margin-bottom:6px">FINANCIALS</div><div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #2d3040"><span style="color:#9ca3af">Deposit</span><span style="color:#e2e8f0">$60,000</span></div></div><div style="margin-top:12px"><div style="color:#60a5fa;font-size:12px;font-weight:600;margin-bottom:6px">KEY CONTACTS</div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">David Burstein</span> <span style="color:#6b7280">— Attorney</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Mark DiFranco</span> <span style="color:#6b7280">— Agent</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Russell Cable</span> <span style="color:#6b7280">— Partner</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Paul Kaplan</span> <span style="color:#6b7280">— Buyer's Attorney</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Tamara Joynes Ketchian</span> <span style="color:#6b7280">— Buyer</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Tom Woodward</span> <span style="color:#6b7280">— Buyer's Agent (Colonial Properties)</span></div></div><div style="margin-top:12px"><div style="color:#f59e0b;font-size:12px;font-weight:600;margin-bottom:6px">ACTION ITEMS</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Confirm $60,000 total deposit received by Burstein</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Track tenant Notice to Quit process</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Coordinate closing timeline with buyer's attorney</div></div><div style="margin-top:12px"><div style="color:#60a5fa;font-size:12px;font-weight:600;margin-bottom:6px">RECENT UPDATES</div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-03-31</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Burstein asked if Notice to Quit delivered to tenants - Matt confirmed yes</span></div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-03-27</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Mark confirmed all inspection items resolved; kitchen equipment will be moved, vent hood stays</span></div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-03-25</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Buyer signed contract; Burstein holding fully executed contract until $10k deposit wired</span></div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-03-17</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">P&S Agreement with riders sent to buyer's attorney Paul Kaplan</span></div></div></div>
-    </div>
-    <div style="background:#1a1d27;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid #2d3040">
-        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
-            <div>
-                <h2 style="color:#f1f5f9;font-size:18px;margin:0">297 Breckwood Blvd, Springfield, MA 01109</h2>
-                <div style="margin-top:6px"><span style="background:#6366f1;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;margin-right:4px">dotloop</span><span style="background:#3b82f6;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;margin-right:4px">Email</span></div>
-            </div>
-            <div><span style="background:#6b7280;color:#fff;padding:4px 12px;border-radius:12px;font-size:12px;font-weight:600">Closed</span></div>
-        </div>
-        <div style="background:#1a2e1a;color:#4ade80;padding:8px 12px;border-radius:8px;text-align:center;margin:8px 0">✓ Closed 4/13/2026</div>
-        <div style="display:flex;align-items:flex-start;gap:2px;margin:12px 0"><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Offer</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Contract</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Title</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Inspect</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Appraise</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Finance</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Rehab</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Walkthru</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Closing</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#3b82f6;border:2px solid #60a5fa;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Closed</div>
-        </div></div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px"><div style="margin-top:12px"><div style="color:#60a5fa;font-size:12px;font-weight:600;margin-bottom:6px">KEY CONTACTS</div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Alice Kempf</span> <span style="color:#6b7280">— Agent</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">David Burstein</span> <span style="color:#6b7280">— Attorney</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Jessica Sicard</span> <span style="color:#6b7280">— Project Manager</span></div></div><div style="margin-top:12px"><div style="color:#60a5fa;font-size:12px;font-weight:600;margin-bottom:6px">RECENT UPDATES</div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-04-13</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Closing date reached</span></div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Repairs priority</span></div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6366f1;font-size:10px">[dotloop]</span> <span style="color:#cbd5e1">FHA Amendatory signed</span></div></div></div>
-    </div>
-    <div style="background:#1a1d27;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid #2d3040">
-        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
-            <div>
-                <h2 style="color:#f1f5f9;font-size:18px;margin:0">29 Chestnut Dr, Belchertown, MA 01007</h2>
-                <div style="margin-top:6px"><span style="background:#6366f1;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;margin-right:4px">dotloop</span><span style="background:#3b82f6;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;margin-right:4px">Email</span></div>
-            </div>
-            <div><span style="background:#6b7280;color:#fff;padding:4px 12px;border-radius:12px;font-size:12px;font-weight:600">Closed</span></div>
-        </div>
-        <div style="background:#1a2e1a;color:#4ade80;padding:8px 12px;border-radius:8px;text-align:center;margin:8px 0">✓ Closed 4/14/2026</div>
-        <div style="display:flex;align-items:flex-start;gap:2px;margin:12px 0"><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Offer</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Contract</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Title</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Inspect</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Appraise</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Finance</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Rehab</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Walkthru</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Closing</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#3b82f6;border:2px solid #60a5fa;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Closed</div>
-        </div></div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px"><div style="margin-top:12px"><div style="color:#60a5fa;font-size:12px;font-weight:600;margin-bottom:6px">KEY CONTACTS</div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Alice Kempf</span> <span style="color:#6b7280">— Agent</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">David Burstein</span> <span style="color:#6b7280">— Attorney</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Jessica Sicard</span> <span style="color:#6b7280">— Project Manager</span></div></div><div style="margin-top:12px"><div style="color:#60a5fa;font-size:12px;font-weight:600;margin-bottom:6px">RECENT UPDATES</div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-04-22</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Oil autofill not removed after sale; Alice asking buyer to reimburse Pioneer Valley Oil invoice</span></div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-04-14</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Closing date reached</span></div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6366f1;font-size:10px">[dotloop]</span> <span style="color:#cbd5e1">PSA signed via dotloop</span></div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Pioneer Valley Oil invoice</span></div></div></div>
-    </div>
-    <div style="background:#1a1d27;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid #2d3040">
-        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
-            <div>
-                <h2 style="color:#f1f5f9;font-size:18px;margin:0">21 Holly St, Greenfield, MA</h2>
-                <div style="margin-top:6px"><span style="background:#3b82f6;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;margin-right:4px">Email</span><span style="background:#ef4444;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;margin-right:4px">PDF</span></div>
-            </div>
-            <div><span style="background:#6b7280;color:#fff;padding:4px 12px;border-radius:12px;font-size:12px;font-weight:600">Closed</span></div>
-        </div>
-        <div style="background:#1a2e1a;color:#4ade80;padding:8px 12px;border-radius:8px;text-align:center;margin:8px 0">✓ Closed 4/21/2026</div>
-        <div style="display:flex;align-items:flex-start;gap:2px;margin:12px 0"><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Offer</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Contract</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Title</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Inspect</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Appraise</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Finance</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Rehab</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Walkthru</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#22c55e;border:none;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Closing</div>
-        </div><div style="text-align:center;flex:1">
-            <div style="width:14px;height:14px;border-radius:50%;background:#3b82f6;border:2px solid #60a5fa;margin:0 auto"></div>
-            <div style="font-size:9px;color:#9ca3af;margin-top:3px">Closed</div>
-        </div></div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px"><div style="margin-top:12px"><div style="color:#60a5fa;font-size:12px;font-weight:600;margin-bottom:6px">KEY CONTACTS</div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">David Burstein</span> <span style="color:#6b7280">— Attorney</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Adina Edgett</span> <span style="color:#6b7280">— Insurance (Webber & Grinnell)</span></div></div><div style="margin-top:12px"><div style="color:#f59e0b;font-size:12px;font-weight:600;margin-bottom:6px">ACTION ITEMS</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Follow up on holdback - Burstein getting final water/sewer figures by Monday</div></div><div style="margin-top:12px"><div style="color:#60a5fa;font-size:12px;font-weight:600;margin-bottom:6px">RECENT UPDATES</div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-04-25</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Jessica confirmed sale closed; dashboard corrected to reflect Closed status</span></div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-04-21</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Sale completed per Burstein; HUD-1 and recorded deed sent; holdback pending final water/sewer figures due Monday</span></div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Sale initiated</span></div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Draft PS sent</span></div></div></div>
-    </div>
-    <div style="background:#1a1d27;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid #2d3040">
-        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
-            <div>
-                <h2 style="color:#f1f5f9;font-size:18px;margin:0">282-284 Suffolk Street, Holyoke, MA</h2>
-                <div style="margin-top:6px"><span style="background:#3b82f6;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;margin-right:4px">Email</span></div>
-            </div>
-            <div><span style="background:#a855f7;color:#fff;padding:4px 12px;border-radius:12px;font-size:12px;font-weight:600">Prospecting</span></div>
-        </div>
-        
-        
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px"><div style="margin-top:12px"><div style="color:#60a5fa;font-size:12px;font-weight:600;margin-bottom:6px">KEY CONTACTS</div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Peter Houser</span> <span style="color:#6b7280">— Partner</span></div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Jonathan Little</span> <span style="color:#6b7280">— Listing Agent (Jennings RE)</span></div></div><div style="margin-top:12px"><div style="color:#f59e0b;font-size:12px;font-weight:600;margin-bottom:6px">ACTION ITEMS</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Peter to run numbers on the deal</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Matt to drive by property</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Review marketing brochure, rent roll, and income/expense from seller</div></div><div style="margin-top:12px"><div style="color:#60a5fa;font-size:12px;font-weight:600;margin-bottom:6px">RECENT UPDATES</div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-04-20</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">NEW LEAD: Peter Houser forwarded listing - 11-unit apartment building with 4-bay garage, mostly leased to CHD</span></div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-04-20</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Matt interested; Peter running numbers; plan to drive by property</span></div></div></div>
-    </div>
-    <div style="background:#1a1d27;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid #2d3040">
-        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
-            <div>
-                <h2 style="color:#f1f5f9;font-size:18px;margin:0">Egremont Project, Egremont, MA</h2>
-                <div style="margin-top:6px"><span style="background:#3b82f6;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;margin-right:4px">Email</span></div>
-            </div>
-            <div><span style="background:#a855f7;color:#fff;padding:4px 12px;border-radius:12px;font-size:12px;font-weight:600">Prospecting</span></div>
-        </div>
-        
-        
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px"><div style="margin-top:12px"><div style="color:#60a5fa;font-size:12px;font-weight:600;margin-bottom:6px">FINANCIALS</div><div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #2d3040"><span style="color:#9ca3af">Purchase Price</span><span style="color:#e2e8f0">$175,000</span></div><div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #2d3040"><span style="color:#9ca3af">Rehab Budget</span><span style="color:#e2e8f0">$200,000</span></div><div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #2d3040"><span style="color:#9ca3af">Total Investment</span><span style="color:#e2e8f0">$450,000</span></div><div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #2d3040"><span style="color:#9ca3af">Potential Arv</span><span style="color:#e2e8f0">$600,000</span></div></div><div style="margin-top:12px"><div style="color:#60a5fa;font-size:12px;font-weight:600;margin-bottom:6px">KEY CONTACTS</div><div style="padding:2px 0;font-size:12px"><span style="color:#e2e8f0">Jacob Trudeau</span> <span style="color:#6b7280">— Contractor / Project Lead</span></div></div><div style="margin-top:12px"><div style="color:#f59e0b;font-size:12px;font-weight:600;margin-bottom:6px">ACTION ITEMS</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Jacob to send more property photos</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Confirm slab foundation (affects scope and budget)</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Reassess rehab budget once foundation type confirmed</div><div style="padding:3px 0;font-size:12px;color:#fbbf24">• Review detailed scope before committing</div></div><div style="margin-top:12px"><div style="color:#60a5fa;font-size:12px;font-weight:600;margin-bottom:6px">RECENT UPDATES</div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-04-22</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Matt followed up with Jacob requesting more photos and slab foundation confirmation</span></div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-04-16</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Matt questioned budget numbers - thinks rehab may be high; asked about slab foundation</span></div><div style="padding:3px 0;font-size:12px;border-bottom:1px solid #2d3040"><span style="color:#6b7280;font-size:11px">2026-04-15</span> <span style="color:#3b82f6;font-size:10px">[Email]</span> <span style="color:#cbd5e1">Jacob Trudeau sent rough rehab budget: $200K rehab, $175K purchase, $600K ARV</span></div></div></div>
-    </div>
-</div>
+<div class="container" id="container">Loading properties...</div>
+<script>
+const STAGES=['Offer Made','Under Contract','Title & Escrow','Inspections','Appraisal','Financing','Repairs / Rehab','Final Walkthrough','Closing','Closed'];
+const STAGE_COLORS={'Offer Made':'#f59e0b','Under Contract':'#f59e0b','Title & Escrow':'#a78bfa','Inspections':'#60a5fa','Appraisal':'#60a5fa','Financing':'#ef4444','Repairs / Rehab':'#22c55e','Final Walkthrough':'#14b8a6','Closing':'#14b8a6','Closed':'#64748b'};
+function daysTo(d){if(!d)return null;const t=new Date(d),n=new Date();return Math.ceil((t-n)/(1000*60*60*24))}
+function renderMilestones(stage){
+  const idx=STAGES.indexOf(stage);
+  return STAGES.map((s,i)=>{
+    const c=i<idx?'#22c55e':i===idx?'#3b82f6':'#374151';
+    return `<span title="${s}" class="milestone" style="background:${c}"></span>`;
+  }).join('')+`<div class="milestone-legend">${STAGES.map(s=>s.replace('Repairs / Rehab','Rehab').replace('Final Walkthrough','Walkthrough')).join(' â ')}</div>`;
+}
+function renderCard(p){
+  const days=daysTo(p.closing_date);
+  const daysColor=days!==null&&days<=7?'#ef4444':days!==null&&days<=14?'#f59e0b':'#94a3b8';
+  const badgeColor=STAGE_COLORS[p.current_stage]||'#60a5fa';
+  let html=`<div class="card"><div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px"><div><h2>${p.address}</h2><span class="badge" style="background:${badgeColor}">${p.current_stage}</span> `;
+  if(p.data_sources)p.data_sources.forEach(s=>{html+=`<span class="src-badge">${s}</span> `});
+  html+=`</div></div>`;
+  if(days!==null)html+=`<div class="countdown" style="color:${daysColor}">â± ${days} days to closing (${new Date(p.closing_date).toLocaleDateString()})</div>`;
+  html+=`<div style="margin:12px 0 8px;padding:8px 0">${renderMilestones(p.current_stage)}</div>`;
+  html+=`<div class="grid">`;
+  if(p.financials&&Object.keys(p.financials).length){
+    html+=`<div class="section"><div class="section-title">ð° FINANCIALS</div>`;
+    for(const[k,v]of Object.entries(p.financials))html+=`<div class="fin-row"><span class="fin-label">${k}:</span> <span class="fin-value">${v}</span></div>`;
+    html+=`</div>`;
+  }
+  if(p.contacts&&p.contacts.length){
+    const show=p.contacts.slice(0,6),more=p.contacts.length-6;
+    html+=`<div class="section"><div class="section-title">ð¥ KEY CONTACTS</div>`;
+    show.forEach(c=>{html+=`<div class="contact"><span class="contact-name">${c.name}</span> <span class="contact-role">â ${c.role}</span></div>`});
+    if(more>0)html+=`<div class="muted">+${more} more</div>`;
+    html+=`</div>`;
+  }
+  html+=`</div>`;
+  if(p.action_items&&p.action_items.length){
+    html+=`<div class="section"><div class="section-title">ð ACTION ITEMS</div>`;
+    p.action_items.forEach(a=>{html+=`<div class="item">${a}</div>`});
+    html+=`</div>`;
+  }
+  if(p.updates&&p.updates.length){
+    const show=p.updates.slice(0,4),more=p.updates.length-4;
+    html+=`<div class="section"><div class="section-title">ð¬ RECENT UPDATES</div>`;
+    show.forEach(u=>{html+=`<div class="update"><span class="update-date">${u.date} [${u.source||'Email'}]</span><br><span class="update-text">${u.summary}</span></div>`});
+    if(more>0)html+=`<div class="muted" style="padding-left:16px">+${more} more updates</div>`;
+    html+=`</div>`;
+  }
+  html+=`</div>`;
+  return html;
+}
+fetch('properties_data.json').then(r=>r.json()).then(data=>{
+  document.getElementById('subtitle').textContent=`Last updated: ${data.last_updated} | ${data.properties.length} properties tracked`;
+  const active=data.properties.filter(p=>p.current_stage!=='Closed');
+  const closing=active.filter(p=>['Final Walkthrough','Closing'].includes(p.current_stage));
+  const rehab=active.filter(p=>p.current_stage==='Repairs / Rehab');
+  const closed=data.properties.filter(p=>p.current_stage==='Closed');
+  document.getElementById('stats').innerHTML=
+    `<div class="stat"><div class="num">${active.length}</div><div class="label">Active</div></div>`+
+    `<div class="stat"><div class="num" style="color:#14b8a6">${closing.length}</div><div class="label">At Closing</div></div>`+
+    `<div class="stat"><div class="num" style="color:#22c55e">${rehab.length}</div><div class="label">In Rehab</div></div>`+
+    `<div class="stat"><div class="num" style="color:#64748b">${closed.length}</div><div class="label">Closed</div></div>`;
+  const sorted=[...data.properties].sort((a,b)=>{
+    if(!a.closing_date)return 1;if(!b.closing_date)return -1;
+    return new Date(a.closing_date)-new Date(b.closing_date);
+  });
+  document.getElementById('container').innerHTML=sorted.map(renderCard).join('');
+}).catch(e=>{document.getElementById('container').innerHTML=`<div style="color:#ef4444;padding:20px">Error loading data: ${e.message}</div>`});
+</script>
 </body>
 </html>
