@@ -101,7 +101,7 @@ function renderCard(p){
   html+=`</div>`;
   return html;
 }
-fetch('properties_data.json').then(r=>r.json()).then(data=>{
+fetch('properties_data.json?v='+Date.now()).then(r=>r.json()).then(data=>{
   document.getElementById('subtitle').textContent=`Last updated: ${data.last_updated} | ${data.properties.length} properties tracked`;
   const ms=p=>p.current_milestone||p.current_stage||'';
   const active=data.properties.filter(p=>ms(p)!=='Closed');
