@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-26T08:01:00-04:00",
+  "last_updated": "2026-04-26T18:01:00-04:00",
   "properties": [
     {
       "address": "297 Breckwood Blvd, Springfield, MA 01109",
@@ -7,7 +7,7 @@
       "closing_date": "4/13/2026",
       "sources": [
         "dotloop",
-        "Email"h
+        "Email"
       ],
       "contacts": [
         {
@@ -369,7 +369,1101 @@
       "action_items": [
         "Send propane reading and last fill invoice to Burstein for adjustments",
         "Complete smoke certificate inspection (part of building permit closeout this week)",
-        "Closing date confirmed 4/29 - 4 days away",
+        "Closing date confirmed 4/29 - 3 days away",
+        "Forward overage from escrow to seller after closing"
+      ]
+    },
+    {
+      "address": "21 Holly St, Greenfield, MA",
+      "current_milestone": "Closed",
+      "closing_date": "4/21/2026",
+      "sources": [
+        "Email",
+        "PDF"
+      ],
+      "contacts": [
+        {
+          "name": "David Burstein",
+          "role": "Attorney"
+        },
+        {
+          "name": "Adina Edgett",
+          "role": "Insurance (Webber & Grinnell)"
+        }
+      ],
+      "financials": {},
+      "recent_updates": [
+        {
+          "date": "2026-04-25",
+          "subject": "Jessica confirmed sale closed; dashboard corrected to reflect Closed status",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-21",
+          "subject": "Sale completed per Burstein; HUD-1 and recorded deed sent; holdback pending final water/sewer figures due Monday",
+          "source": "Email"
+        },
+        {
+          "subject": "Sale initiated",
+          "source": "Email"
+        },
+        {
+          "subject": "Draft PS sent",
+          "source": "Email"
+        }
+      ],
+      "action_items": [
+        "Follow up on holdback - Burstein getting final water/sewer figures by Monday"
+      ]
+    },
+    {
+      "address": "1874 Home Rd, Sheffield, MA",
+      "current_milestone": "Repairs / Rehab",
+      "closing_date": null,
+      "sources": [
+        "Email",
+        "PDF"
+      ],
+      "contacts": [
+        {
+          "name": "Alice Kempf",
+          "role": "Agent"
+        },
+        {
+          "name": "Mahari Miller",
+          "role": "Contractor"
+        }
+      ],
+      "financials": {
+        "wire_amount": "34355",
+        "potential_arv": "600000"
+      },
+      "recent_updates": [
+        {
+          "date": "2026-04-23",
+          "subject": "Jessica forwarded Invoice #394 from Mahari Miller to Matt for review",
+          "source": "Email"
+        },
+        {
+          "subject": "Refinance HUD-1",
+          "source": "PDF"
+        },
+        {
+          "subject": "Scope sent to contractor",
+          "source": "Email"
+        }
+      ],
+      "action_items": [
+        "Review and approve Mahari Miller Invoice #394",
+        "Track rehab progress against scope"
+      ]
+    },
+    {
+      "address": "40 Roland St, Pittsfield, MA 01201",
+      "current_milestone": "Repairs / Rehab",
+      "closing_date": null,
+      "sources": [
+        "Email"
+      ],
+      "contacts": [
+        {
+          "name": "Alice Kempf",
+          "role": "Agent"
+        },
+        {
+          "name": "Jessica Sicard",
+          "role": "Project Manager"
+        },
+        {
+          "name": "Chris Keniley",
+          "role": "Accounting"
+        },
+        {
+          "name": "Gabby Voorhies",
+          "role": "Operations"
+        },
+        {
+          "name": "Cavalier",
+          "role": "Property Manager"
+        },
+        {
+          "name": "Jesse (Premiere Home MA)",
+          "role": "Contractor"
+        }
+      ],
+      "financials": {},
+      "recent_updates": [
+        {
+          "date": "2026-04-20",
+          "subject": "Jesse (Premiere Home) confirmed sink leak & shower mixer already fixed; will coordinate remaining repairs with subcontractors",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-20",
+          "subject": "Jessica forwarded 7-item inspection repair list to Jesse for execution",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-17",
+          "subject": "SD/LMR escrow discussion - $2,900 LMR moved to Master Escrow from closings",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-16",
+          "subject": "Missing escrow deposit forms for Pittsfield properties (Cavalier mgmt)",
+          "source": "Email"
+        }
+      ],
+      "action_items": [
+        "Jesse to reach out to Forrest & Mike, Jeff, and United Rooter for remaining repairs",
+        "Complete 7 inspection addendum repairs (plumbing, drain, sewer, electrical)",
+        "Get escrow forms signed for tenant deposits",
+        "Chris to update UDFs with LMR amounts"
+      ]
+    },
+    {
+      "address": "1 Richmond Ln, Pittsfield, MA",
+      "current_milestone": "Repairs / Rehab",
+      "closing_date": null,
+      "sources": [
+        "Email"
+      ],
+      "contacts": [
+        {
+          "name": "Alice Kempf",
+          "role": "Agent"
+        },
+        {
+          "name": "Jesse (Premiere Home MA)",
+          "role": "Contractor"
+        },
+        {
+          "name": "Jeff",
+          "role": "Electrician"
+        },
+        {
+          "name": "Chris Keniley",
+          "role": "Accounting"
+        },
+        {
+          "name": "Gabby Voorhies",
+          "role": "Operations"
+        },
+        {
+          "name": "Cavalier",
+          "role": "Property Manager"
+        }
+      ],
+      "financials": {
+        "repair_budget": "4000"
+      },
+      "recent_updates": [
+        {
+          "date": "2026-04-22",
+          "subject": "Near tail end of rehab; 2 estimates coming for shed demolition; permit needed for demo; asbestos check required",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-22",
+          "subject": "Alice dropping off staging furniture Saturday; Jeff completing final electrical; nearly ready for market",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-22",
+          "subject": "Vanity light location question being resolved with Jeff tomorrow",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-17",
+          "subject": "SD/LMR escrow discussion - LMRs added in Jan",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-16",
+          "subject": "Missing escrow deposit forms for Pittsfield properties (Cavalier mgmt)",
+          "source": "Email"
+        },
+        {
+          "subject": "Electrical pending",
+          "source": "Email"
+        }
+      ],
+      "action_items": [
+        "Jeff to complete final electrical work (vanity light, etc.)",
+        "Pull demolition permit for shed",
+        "Get 2 shed demolition estimates and confirm contractor",
+        "Asbestos check on shed before demo",
+        "Address embankment integrity during demo",
+        "Alice staging furniture delivery Saturday",
+        "Get escrow forms signed for tenant deposits",
+        "List property once staging complete"
+      ]
+    },
+    {
+      "address": "53.5 Orchard St, Pittsfield, MA",
+      "current_milestone": "Repairs / Rehab",
+      "closing_date": null,
+      "sources": [
+        "Email"
+      ],
+      "contacts": [
+        {
+          "name": "Jessica Sicard",
+          "role": "Project Manager"
+        },
+        {
+          "name": "Jesse (Premiere Home MA)",
+          "role": "Contractor"
+        },
+        {
+          "name": "Jeff",
+          "role": "Electrician"
+        },
+        {
+          "name": "Ruben",
+          "role": "Granite Installer"
+        }
+      ],
+      "financials": {
+        "contract_total": "18928",
+        "paid_to_date": "8785.60",
+        "remaining_on_contract": "10143",
+        "pending_draw": "5000"
+      },
+      "recent_updates": [
+        {
+          "date": "2026-04-23",
+          "subject": "Unit 1 photos submitted - needs paint and light fixtures, similar scope to units 2 & 3",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-22",
+          "subject": "$5,000 draw requested; units 2,3 & common-way nearly done; Ruben measuring granite tomorrow",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-22",
+          "subject": "Plumbing mess in basement - waiting on plumber solution",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-22",
+          "subject": "Deck repair permit needed; wiring around front door needs to be snaked in wall",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-22",
+          "subject": "Contract total $18,928; paid to date $8,785.60 (20% + 1st draw); remaining $10,143",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-22",
+          "subject": "All locks on unit 1 changed and secured; keys labeled in lock box",
+          "source": "Email"
+        }
+      ],
+      "action_items": [
+        "Approve $5,000 draw request from Premiere Home",
+        "Pull permit for deck repair (Pittsfield)",
+        "Snake wiring around front door into wall",
+        "Resolve basement plumbing issues",
+        "Finalize unit 1 rehab plan (paint + light fixtures)",
+        "Granite install for unit 2 after Ruben measures",
+        "Jeff to check outlet in unit 2 and basement electrical"
+      ]
+    },
+    {
+      "address": "583 Hawks Spur",
+      "current_milestone": "Repairs / Rehab",
+      "closing_date": null,
+      "sources": [
+        "Email",
+        "Venmo"
+      ],
+      "contacts": [
+        {
+          "name": "Jessica Sicard",
+          "role": "PM"
+        }
+      ],
+      "financials": {
+        "repair_budget": "5460"
+      },
+      "recent_updates": [
+        {
+          "subject": "Reimbursement",
+          "source": "Email"
+        }
+      ]
+    },
+    {
+      "address": "83 Rolf Ave, Chicopee, MA",
+      "current_milestone": "Repairs / Rehab",
+      "closing_date": null,
+      "sources": [
+        "Email"
+      ],
+      "contacts": [
+        {
+          "name": "Jessica Sicard",
+          "role": "Project Manager"
+        },
+        {
+          "name": "Chris Keniley",
+          "role": "Accounting"
+        },
+        {
+          "name": "David Munoz",
+          "role": "Contractor"
+        },
+        {
+          "name": "Ryan Moran (Timbers Landscaping)",
+          "role": "Retaining Wall Contractor"
+        }
+      ],
+      "financials": {
+        "capx_loan": "15000"
+      },
+      "recent_updates": [
+        {
+          "date": "2026-04-17",
+          "subject": "Matt & Kev Capital lending Exchange Assets LLC $15,000 for CapX at 83 Rolf",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-16",
+          "subject": "Jessica reviewing window specs with Dave before ordering",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-12",
+          "subject": "Ryan Moran (Timbers) sent retaining wall quote: 70ft long, 32in tall, goshen stone",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-02",
+          "subject": "Jessica forwarded contractor extras list - $8,700 left on original contract, $4k payment requested",
+          "source": "Email"
+        }
+      ],
+      "action_items": [
+        "Confirm window order specs with Dave",
+        "Review retaining wall quote from Timbers Landscaping",
+        "Track CapX spend against $15k loan from Matt & Kev Capital"
+      ]
+    },
+    {
+      "address": "939 East Columbus Ave, Springfield, MA",
+      "current_milestone": "Under Contract",
+      "closing_date": null,
+      "sources": [
+        "Email",
+        "dotloop"
+      ],
+      "contacts": [
+        {
+          "name": "Daniel Lavitman",
+          "role": "SR Commercial RE"
+        },
+        {
+          "name": "Jeremy",
+          "role": "SR Commercial RE"
+        },
+        {
+          "name": "Richard Borsari",
+          "role": "SR Commercial RE"
+        },
+        {
+          "name": "David Burstein",
+          "role": "Attorney"
+        },
+        {
+          "name": "Jessica Sicard",
+          "role": "Project Manager"
+        }
+      ],
+      "financials": {},
+      "recent_updates": [
+        {
+          "date": "2026-04-22",
+          "subject": "Richard Borsari following up on plumber connection for tenant at 55 White",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-20",
+          "subject": "Work order 42807 assigned to Victor at 939 E Columbus",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-16",
+          "subject": "Matt sent work order: clean toilets, mud back 2nd floor bathroom wall from water damage, prime",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-08",
+          "subject": "Matt visited - water was off, found pipe burst, turning on water",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-06",
+          "subject": "Gandara LOI signed via dotloop",
+          "source": "dotloop"
+        }
+      ],
+      "action_items": [
+        "Complete interior repairs (toilets, bathroom wall, priming)",
+        "Follow up on Gandara LOI next steps",
+        "Provide insurance and tax rate info to Richard Borsari for buyer"
+      ]
+    },
+    {
+      "address": "42 Washington St, Monson, MA 01057",
+      "current_milestone": "Repairs / Rehab",
+      "closing_date": null,
+      "sources": [
+        "Email"
+      ],
+      "contacts": [
+        {
+          "name": "Alice Kempf",
+          "role": "Agent (KVR Team)"
+        },
+        {
+          "name": "Antonio Cucciniello",
+          "role": "Partner (House Hack Helpers)"
+        },
+        {
+          "name": "William McGuire",
+          "role": "Investors & Team Ops"
+        },
+        {
+          "name": "Kevin Shippee",
+          "role": "Partner"
+        },
+        {
+          "name": "Jessica Sicard",
+          "role": "Project Manager"
+        },
+        {
+          "name": "Chris Keniley",
+          "role": "Accounting"
+        }
+      ],
+      "financials": {
+        "owed_to_yb": "8670.50",
+        "arv": "334900",
+        "final_bill": "12387.50"
+      },
+      "recent_updates": [
+        {
+          "date": "2026-04-23",
+          "subject": "Chris Keniley requesting approval to move $12,387.50 to pay final bill for 42 Washington",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-22",
+          "subject": "Alice Kempf confirms ARV at $334,900; listing targeted for Tuesday Apr 28",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-22",
+          "subject": "Photographer backup arranged (primary in surgery); CMA reports shared",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-22",
+          "subject": "Forwarded to Antonio (partner) who approved ARV and listing plan",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-16",
+          "subject": "HHH Investor Update: Matt visited 42 Washington this week, photos shared via Google Drive",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-01",
+          "subject": "HHH owes YB/BIR $8,670.50 for 42 Washington",
+          "source": "Email"
+        }
+      ],
+      "action_items": [
+        "Approve $12,387.50 final bill payment",
+        "Listing photos - backup photographer coordinating this week",
+        "Target listing date: Tuesday Apr 28",
+        "Settle $8,670.50 owed from HHH to YB/BIR",
+        "Final prep for listing"
+      ]
+    },
+    {
+      "address": "54 Seckar Rd, Ashford, CT 06278",
+      "current_milestone": "Under Contract",
+      "closing_date": null,
+      "sources": [
+        "Email",
+        "PDF"
+      ],
+      "contacts": [
+        {
+          "name": "David Burstein",
+          "role": "Attorney"
+        },
+        {
+          "name": "Mark DiFranco",
+          "role": "Agent"
+        },
+        {
+          "name": "Russell Cable",
+          "role": "Partner"
+        },
+        {
+          "name": "Paul Kaplan",
+          "role": "Buyer's Attorney"
+        },
+        {
+          "name": "Tamara Joynes Ketchian",
+          "role": "Buyer"
+        },
+        {
+          "name": "Tom Woodward",
+          "role": "Buyer's Agent (Colonial Properties)"
+        }
+      ],
+      "financials": {
+        "deposit": "60000"
+      },
+      "recent_updates": [
+        {
+          "date": "2026-03-31",
+          "subject": "Burstein asked if Notice to Quit delivered to tenants - Matt confirmed yes",
+          "source": "Email"
+        },
+        {
+          "date": "2026-03-27",
+          "subject": "Mark confirmed all inspection items resolved; kitchen equipment will be moved, vent hood stays",
+          "source": "Email"
+        },
+        {
+          "date": "2026-03-25",
+          "subject": "Buyer signed contract; Burstein holding fully executed contract until $10k deposit wired",
+          "source": "Email"
+        },
+        {
+          "date": "2026-03-17",
+          "subject": "P&S Agreement with riders sent to buyer's attorney Paul Kaplan",
+          "source": "Email"
+        }
+      ],
+      "action_items": [
+        "Confirm $60,000 total deposit received by Burstein",
+        "Track tenant Notice to Quit process",
+        "Coordinate closing timeline with buyer's attorney"
+      ]
+    },
+    {
+      "address": "282-284 Suffolk Street, Holyoke, MA",
+      "current_milestone": "Prospecting",
+      "closing_date": null,
+      "sources": [
+        "Email"
+      ],
+      "contacts": [
+        {
+          "name": "Peter Houser",
+          "role": "Partner"
+        },
+        {
+          "name": "Jonathan Little",
+          "role": "Listing Agent (Jennings RE)"
+        }
+      ],
+      "financials": {},
+      "recent_updates": [
+        {
+          "date": "2026-04-20",
+          "subject": "NEW LEAD: Peter Houser forwarded listing - 11-unit apartment building with 4-bay garage, mostly leased to CHD",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-20",
+          "subject": "Matt interested; Peter running numbers; plan to drive by property",
+          "source": "Email"
+        }
+      ],
+      "action_items": [
+        "Peter to run numbers on the deal",
+        "Matt to drive by property",
+        "Review marketing brochure, rent roll, and income/expense from seller"
+      ]
+    },
+    {
+      "address": "Egremont Project, Egremont, MA",
+      "current_milestone": "Prospecting",
+      "closing_date": null,
+      "sources": [
+        "Email"
+      ],
+      "contacts": [
+        {
+          "name": "Jacob Trudeau",
+          "role": "Contractor / Project Lead"
+        }
+      ],
+      "financials": {
+        "purchase_price": "175000",
+        "rehab_budget": "200000",
+        "total_investment": "450000",
+        "potential_arv": "600000"
+      },
+      "recent_updates": [
+        {
+          "date": "2026-04-22",
+          "subject": "Matt followed up with Jacob requesting more photos and slab foundation confirmation",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-16",
+          "subject": "Matt questioned budget numbers - thinks rehab may be high; asked about slab foundation",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-15",
+          "subject": "Jacob Trudeau sent rough rehab budget: $200K rehab, $175K purchase, $600K ARV",
+          "source": "Email"
+        }
+      ],
+      "action_items": [
+        "Jacob to send more property photos",
+        "Confirm slab foundation (affects scope and budget)",
+        "Reassess rehab budget once foundation type confirmed",
+        "Review detailed scope before committing"
+      ]
+    },
+    {
+      "address": "213 Brodie Mountain Rd, Hancock, MA 01237",
+      "current_milestone": "Title & Escrow",
+      "closing_date": "4/30/2026",
+      "sources": [
+        "Email",
+        "PDF"
+      ],
+      "contacts": [
+        {
+          "name": "David Burstein",
+          "role": "Attorney"
+        },
+        {
+          "name": "Tori LaValla",
+          "role": "Seller's Paralegal (MHC Attorneys)"
+        },
+        {
+          "name": "Thomas Martin",
+          "role": "Seller's Attorney (MHC Attorneys)"
+        },
+        {
+          "name": "Shamikka Andrews",
+          "role": "Burstein Law Office"
+        },
+        {
+          "name": "Jeff Burstein",
+          "role": "Burstein Law Office"
+        },
+        {
+          "name": "Chris Keniley",
+          "role": "Accounting"
+        },
+        {
+          "name": "David Chase",
+          "role": "Lender"
+        },
+        {
+          "name": "Ruby Lending LLC",
+          "role": "Lender"
+        },
+        {
+          "name": "Freedom Credit Union",
+          "role": "Lender (FCU)"
+        }
+      ],
+      "financials": {
+        "purchase_price": "200000",
+        "rehab_budget": "50000",
+        "total_loan": "250000",
+        "rate": "12%",
+        "points": "3",
+        "lender_fees": "3000"
+      },
+      "recent_updates": [
+  "last_updated": "2026-04-26T18:01:00-04:00",
+  "properties": [
+    {
+      "address": "297 Breckwood Blvd, Springfield, MA 01109",
+      "current_milestone": "Closed",
+      "closing_date": "4/13/2026",
+      "sources": [
+        "dotloop",
+        "Email"
+      ],
+      "contacts": [
+        {
+          "name": "Alice Kempf",
+          "role": "Agent"
+        },
+        {
+          "name": "David Burstein",
+          "role": "Attorney"
+        },
+        {
+          "name": "Jessica Sicard",
+          "role": "Project Manager"
+        }
+      ],
+      "financials": {},
+      "recent_updates": [
+        {
+          "date": "2026-04-13",
+          "subject": "Closing date reached",
+          "source": "Email"
+        },
+        {
+          "subject": "Repairs priority",
+          "source": "Email"
+        },
+        {
+          "subject": "FHA Amendatory signed",
+          "source": "dotloop"
+        }
+      ]
+    },
+    {
+      "address": "29 Chestnut Dr, Belchertown, MA 01007",
+      "current_milestone": "Closed",
+      "closing_date": "4/14/2026",
+      "sources": [
+        "dotloop",
+        "Email"
+      ],
+      "contacts": [
+        {
+          "name": "Alice Kempf",
+          "role": "Agent"
+        },
+        {
+          "name": "David Burstein",
+          "role": "Attorney"
+        },
+        {
+          "name": "Jessica Sicard",
+          "role": "Project Manager"
+        }
+      ],
+      "financials": {},
+      "recent_updates": [
+        {
+          "date": "2026-04-22",
+          "subject": "Oil autofill not removed after sale; Alice asking buyer to reimburse Pioneer Valley Oil invoice",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-14",
+          "subject": "Closing date reached",
+          "source": "Email"
+        },
+        {
+          "subject": "ASA signed via dotloop",
+          "source": "dotloop"
+        },
+        {
+          "subject": "Pioneer Valley Oil invoice",
+          "source": "Email"
+        }
+      ]
+    },
+    {
+      "address": "4 School St, Ware, MA 01082",
+      "current_milestone": "Financing",
+      "closing_date": null,
+      "sources": [
+        "Email",
+        "PDF"
+      ],
+      "contacts": [
+        {
+          "name": "David Burstein",
+          "role": "Attorney"
+        },
+        {
+          "name": "David Chase",
+          "role": "Lender"
+        },
+        {
+          "name": "Michelle Fama",
+          "role": "Loan Processing"
+        },
+        {
+          "name": "Ruby Lending LLC",
+          "role": "Lender"
+        },
+        {
+          "name": "Freedom Credit Union",
+          "role": "Lender (FCU)"
+        },
+        {
+          "name": "Gregory",
+          "role": "FCU Contact"
+        },
+        {
+          "name": "Camille",
+          "role": "FCU Contact"
+        },
+        {
+          "name": "Shamikka",
+          "role": "FCU Contact"
+        }
+      ],
+      "financials": {
+        "closing_costs": "34355"
+      },
+      "recent_updates": [
+        {
+          "date": "2026-04-23",
+          "subject": "Michelle confirmed Ruby Lending loan added to system using Freedom Credit Union funds",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-17",
+          "subject": "FCU confirmed funding request package looks good",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-17",
+          "subject": "Burstein sent loan packages (Freedom CU & Ruby Lending) for funding request",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-17",
+          "subject": "Matt forwarded to Michelle - will use Freedom Credit Union funds",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-17",
+          "subject": "Originals to be dropped off at FCU next week",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-16",
+          "subject": "Original closing date 4/16",
+          "source": "Email"
+        },
+        {
+          "subject": "Loan documents from Freedom CU",
+          "source": "PDF"
+        }
+      ],
+      "action_items": [
+        "Ruby Lending loan confirmed added - awaiting final funding/closing date",
+        "Michelle to add Ruby Lending loan with Freedom CU funds - DONE",
+        "Awaiting final funding confirmation from FCU"
+      ]
+    },
+    {
+      "address": "167 East Park Terrace, Pittsfield, MA 01201",
+      "current_milestone": "Financing",
+      "closing_date": "5/8/2026",
+      "sources": [
+        "Email",
+        "PDF"
+      ],
+      "contacts": [
+        {
+          "name": "Antonio Cucciniello",
+          "role": "Partner (House Hack Helpers)"
+        },
+        {
+          "name": "William McGuire",
+          "role": "Investors & Team Ops"
+        },
+        {
+          "name": "David Burstein",
+          "role": "Attorney"
+        },
+        {
+          "name": "Linda Duverger",
+          "role": "Lender (Pinnacle Financial)"
+        },
+        {
+          "name": "Kelcey Rogers",
+          "role": "Lender (Pinnacle Financial)"
+        },
+        {
+          "name": "Lauren Whalen",
+          "role": "Lender Contact (Pinnacle Financial)"
+        },
+        {
+          "name": "Adina Edgett",
+          "role": "Insurance (Webber & Grinnell / Alera Group)"
+        },
+        {
+          "name": "Kevin Shippee",
+          "role": "Partner"
+        },
+        {
+          "name": "Miles Jiles",
+          "role": "Assignor (Miles Buys Homes LLC)"
+        },
+        {
+          "name": "Shamikka",
+          "role": "Burstein Law Office"
+        },
+        {
+          "name": "David Brunk",
+          "role": "Seller"
+        }
+      ],
+      "financials": {
+        "purchase_price": "145000",
+        "assignment_fee": "5000",
+        "rehab_budget": "50000",
+        "total_loan": "166000",
+        "funds_at_closing": "116000",
+        "construction_advances": "50000",
+        "points": "4980",
+        "rate": "12%",
+        "term": "12 months",
+        "deposit": "500",
+        "lender_fees": "570"
+      },
+      "recent_updates": [
+        {
+          "date": "2026-04-23",
+          "subject": "Burstein still needs amended Assignment Agreement showing $5K assignment fee + W-9 from Miles; Matt asked Antonio to handle",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-23",
+          "subject": "Seller contact info provided: David Brunk (413-441-1937, dbrunk57@aol.com)",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-22",
+          "subject": "Matt sent insurance application details to Adina Edgett",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-21",
+          "subject": "Pinnacle Financial sent financing term sheet: $166K total loan, 12% rate, 3 points, closing May 8",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-21",
+          "subject": "Adina Edgett (insurance) requesting details on the application",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-18",
+          "subject": "Antonio sent escrow addendum to work with Burstein's office",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-17",
+          "subject": "Burstein still looking for underlying contract",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-16",
+          "subject": "NEW: Under contract via assignment from Miles Buys Homes LLC",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-16",
+          "subject": "Assignment contract PDF attached",
+          "source": "PDF"
+        }
+      ],
+      "action_items": [
+        "Antonio to amend Assignment Agreement to show $5K assignment fee",
+        "Miles to provide signed W-9 for assignment fee payment",
+        "Provide property insurance binder naming Pinnacle as mortgagee before closing",
+        "Confirm LLC docs (Articles of Organization / Operating Agreement) with Pinnacle",
+        "Provide bank account info for monthly payments and construction draws",
+        "Confirm tax IDs for borrower and all guarantors",
+        "Provide renovation budget breakdown and ARV to Pinnacle",
+        "Coordinate walkthrough for next week"
+      ]
+    },
+    {
+      "address": "70 Town Hill Road, Middlefield, MA 01243",
+      "current_milestone": "Final Walkthrough",
+      "closing_date": "4/29/2026",
+      "sources": [
+        "Email"
+      ],
+      "contacts": [
+        {
+          "name": "David Burstein",
+          "role": "Attorney (Seller)"
+        },
+        {
+          "name": "Alice Kempf",
+          "role": "Listing Agent (KVR Team)"
+        },
+        {
+          "name": "Sarah Catapano Friedman",
+          "role": "Buyer's Attorney (Crowley & Cummings)"
+        },
+        {
+          "name": "Megan Houatchanthara",
+          "role": "Buyer's Agent (Compass)"
+        },
+        {
+          "name": "Alexandra Fazzi",
+          "role": "KVR Team"
+        },
+        {
+          "name": "Melissa Vanderburgh",
+          "role": "KVR Team"
+        },
+        {
+          "name": "Riley Brennan",
+          "role": "KVR Team"
+        }
+      ],
+      "financials": {},
+      "recent_updates": [
+        {
+          "date": "2026-04-20",
+          "subject": "Burstein requesting propane reading and last fill invoice for closing adjustments",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-20",
+          "subject": "Alice confirmed smoke certs part of building permit closeout this week; will provide propane reading",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-20",
+          "subject": "Alexandra sent listing commission bill; buyer agent paid at closing",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-18",
+          "subject": "Burstein requested commission invoices from both brokers and smoke certificate status",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-09",
+          "subject": "Alice sent fully executed P&S with riders and separate repair rider",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-07",
+          "subject": "P&S signed; commitment date set to 4/21; closing originally 4/23 then proposed 4/29",
+          "source": "Email"
+        }
+      ],
+      "action_items": [
+        "Send propane reading and last fill invoice to Burstein for adjustments",
+        "Complete smoke certificate inspection (part of building permit closeout this week)",
+        "Closing date confirmed 4/29 - 3 days away",
         "Forward overage from escrow to seller after closing"
       ]
     },
@@ -1124,8 +2218,8 @@
         "Confirm entity docs (TCI Holdings LLC) - reusing from 121 Edward deal",
         "Obtain COI naming Freedom Credit Union as mortgagee",
         "Fund loan then get FCU to refund",
-        "Closing target: April 30 (5 days)"
+        "Closing target: April 30 (4 days)"
       ]
     }
   ]
-}
+        }
