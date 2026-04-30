@@ -2,453 +2,70 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>House Flip Closing Coordinator</title>
 <style>
-* { margin:0; padding:0; box-sizing:border-box; }
-body { background:#0f1117; color:#e5e7eb; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; }
-.header { position:sticky; top:0; z-index:100; background:linear-gradient(135deg,#1a1d27 0%,#0f1117 100%); border-bottom:1px solid #2d3748; padding:16px 24px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
-.header h1 { font-size:1.4rem; color:#f9fafb; }
-.header .subtitle { color:#9ca3af; font-size:0.85rem; }
-.stats { display:flex; gap:16px; flex-wrap:wrap; }
-.stat { text-align:center; padding:8px 16px; background:#1a1d27; border-radius:8px; border:1px solid #2d3748; }
-.stat .num { font-size:1.5rem; font-weight:700; }
-.stat .lbl { font-size:0.7rem; color:#9ca3af; text-transform:uppercase; letter-spacing:1px; }
-.stat.active .num { color:#3b82f6; }
-.stat.closing .num { color:#ef4444; }
-.stat.rehab .num { color:#eab308; }
-.stat.closed .num { color:#22c55e; }
-.container { max-width:1200px; margin:0 auto; padding:24px; display:flex; flex-direction:column; gap:20px; }
-.card { background:#1a1d27; border-radius:12px; border:1px solid #2d3748; overflow:hidden; transition:border-color 0.2s; }
-.card:hover { border-color:#4b5563; }
-.card-header { padding:16px 20px; border-bottom:1px solid #2d3748; }
-.card-title { display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:8px; }
-.card-title h3 { font-size:1.15rem; color:#f9fafb; }
-.badges { display:flex; gap:6px; flex-wrap:wrap; align-items:center; }
-.phase-badge { padding:3px 10px; border-radius:12px; font-size:0.75rem; font-weight:600; color:#fff; }
-.source-badge { padding:2px 8px; border-radius:10px; font-size:0.65rem; background:#374151; color:#9ca3af; }
-.countdown { margin-top:8px; font-size:0.85rem; color:#9ca3af; }
-.countdown.urgent { color:#ef4444; font-weight:700; font-size:0.95rem; }
-.countdown.overdue { color:#f59e0b; }
-.timeline { display:flex; justify-content:space-between; padding:12px 20px; background:#111318; gap:2px; }
-.dot-wrap { display:flex; flex-direction:column; align-items:center; gap:4px; flex:1; }
-.dot { width:12px; height:12px; border-radius:50%; }
-.dot-label { font-size:0.55rem; color:#6b7280; text-align:center; }
-.card-body { padding:16px 20px; }
-.section { margin-bottom:16px; }
-.section h4 { font-size:0.85rem; color:#9ca3af; margin-bottom:8px; border-bottom:1px solid #2d3748; padding-bottom:4px; }
-.grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:8px; }
-.grid-item { display:flex; flex-direction:column; }
-.grid-item .label { font-size:0.7rem; color:#6b7280; }
-.grid-item .value { font-size:0.85rem; color:#e5e7eb; }
-ul { list-style:none; padding:0; }
-ul li { padding:4px 0; font-size:0.82rem; color:#d1d5db; position:relative; padding-left:16px; }
-ul li:before { content:"•"; position:absolute; left:0; color:#3b82f6; font-weight:bold; }
-.update-item { padding:4px 0; font-size:0.8rem; color:#d1d5db; border-bottom:1px solid #1f2937; }
-.update-item:last-child { border-bottom:none; }
-.update-date { color:#6b7280; margin-right:6px; font-size:0.75rem; }
-.update-src { color:#4b5563; font-size:0.7rem; margin-right:4px; }
-@media(max-width:768px) {
-    .header { flex-direction:column; align-items:flex-start; }
-    .grid { grid-template-columns:1fr; }
-    .timeline { overflow-x:auto; }
-}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0f1117;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;min-height:100vh}
+.header{background:#1a1d27;border-bottom:1px solid #2d3348;padding:16px 24px;position:sticky;top:0;z-index:100}
+.header h1{font-size:22px;color:#f1f5f9;font-weight:800}
+.header .sub{color:#6b7280;font-size:13px;margin-top:4px}
+.stats{display:flex;gap:16px;margin-top:10px;flex-wrap:wrap}
+.stat{background:#0f1117;padding:8px 16px;border-radius:8px;border:1px solid #2d3348}
+.stat .num{font-size:24px;font-weight:800}
+.stat .label{font-size:11px;color:#6b7280;text-transform:uppercase;letter-spacing:.5px}
+.container{max-width:1200px;margin:0 auto;padding:20px}
+.card{background:#1a1d27;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid #2d3348}
+.card-header{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px}
+.card h2{color:#f1f5f9;font-size:18px;margin:0;font-weight:700}
+.badge{padding:4px 12px;border-radius:9999px;font-size:12px;font-weight:600;color:#fff;white-space:nowrap}
+.src-badge{padding:2px 8px;border-radius:9999px;font-size:11px;margin-right:4px;color:#fff}
+.countdown{padding:6px 12px;border-radius:8px;font-weight:700;font-size:14px;display:inline-block;margin:8px 0}
+.timeline{display:flex;align-items:flex-start;gap:2px;margin:12px 0}
+.tl-dot{display:flex;flex-direction:column;align-items:center;flex:1;min-width:0}
+.tl-dot .dot{width:14px;height:14px;border-radius:50%;margin-bottom:4px;flex-shrink:0}
+.tl-dot span{font-size:9px;color:#9ca3af;text-align:center;line-height:1.1;word-break:break-word}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.section-title{color:#cbd5e1;font-weight:700;font-size:13px;margin-bottom:6px}
+.fin-row{display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #1e293b}
+.fin-label{color:#9ca3af;font-size:12px}
+.fin-val{color:#e2e8f0;font-size:12px;font-weight:600}
+.contact{font-size:12px;color:#d1d5db;padding:2px 0}
+.contact strong{color:#e2e8f0}
+.contact .role{color:#6b7280}
+.action{font-size:12px;color:#fbbf24;padding:3px 0 3px 12px;position:relative}
+.action::before{content:'\u26A1';position:absolute;left:0}
+.update{font-size:12px;color:#94a3b8;padding:3px 0;border-left:2px solid #374151;padding-left:8px;margin-bottom:4px}
+.update .date{color:#6b7280}
+.update .src{color:#4b5563;font-size:10px}
+.loading{text-align:center;padding:40px;color:#6b7280;font-size:16px}
 </style>
 </head>
 <body>
 <div class="header">
-    <div>
-        <h1>🏠 House Flip Closing Coordinator</h1>
-        <div class="subtitle">Last updated: 2026-04-30T08:01:00-04:00</div>
-    </div>
-    <div class="stats">
-        <div class="stat active"><div class="num">13</div><div class="lbl">Active</div></div>
-        <div class="stat closing"><div class="num">1</div><div class="lbl">At Closing</div></div>
-        <div class="stat rehab"><div class="num">8</div><div class="lbl">In Rehab</div></div>
-        <div class="stat closed"><div class="num">5</div><div class="lbl">Closed</div></div>
-    </div>
+<h1>House Flip Closing Coordinator</h1>
+<div class="sub" id="lastUpdated">Loading...</div>
+<div class="stats" id="stats"></div>
 </div>
-<div class="container">
-<div class="card">
-        <div class="card-header">
-            <div class="card-title">
-                <h3>213 Brodie Mountain Rd, Hancock, MA 01237</h3>
-                <div class="badges">
-                    <span class="phase-badge" style="background:#ef4444">Closing</span>
-                    <span class="source-badge">Email</span><span class="source-badge">PDF</span>
-                </div>
-            </div>
-            <div class="countdown urgent">🔥 CLOSING TODAY</div>
-        </div>
-        <div class="timeline"><div class="dot-wrap" title="Offer Made"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Off</div></div><div class="dot-wrap" title="Under Contract"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Und</div></div><div class="dot-wrap" title="Title & Escrow"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Tit</div></div><div class="dot-wrap" title="Inspections"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Ins</div></div><div class="dot-wrap" title="Appraisal"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">App</div></div><div class="dot-wrap" title="Financing"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Fin</div></div><div class="dot-wrap" title="Repairs / Rehab"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Rep</div></div><div class="dot-wrap" title="Final Walkthrough"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Fin</div></div><div class="dot-wrap" title="Closing"><div class="dot" style="background:#3b82f6;"></div><div class="dot-label">Clo</div></div><div class="dot-wrap" title="Closed"><div class="dot" style="background:#374151;"></div><div class="dot-label">Clo</div></div></div>
-        <div class="card-body">
-            <div class="section"><h4>💰 Financials</h4><div class="grid"><div class="grid-item"><span class="label">Purchase Price</span><span class="value">$200,000</span></div><div class="grid-item"><span class="label">Rehab Budget</span><span class="value">$50,000</span></div><div class="grid-item"><span class="label">Total Loan</span><span class="value">$250,000</span></div><div class="grid-item"><span class="label">Rate</span><span class="value">12%</span></div><div class="grid-item"><span class="label">Points</span><span class="value">$3</span></div><div class="grid-item"><span class="label">Lender Fees</span><span class="value">$3,000</span></div></div></div>
-            <div class="section"><h4>👥 Key Contacts</h4><div class="grid"><div class="grid-item"><span class="label">David Burstein</span><span class="value">Attorney</span></div><div class="grid-item"><span class="label">Tori LaValla</span><span class="value">Seller's Paralegal (MHC Attorneys)</span></div><div class="grid-item"><span class="label">Thomas Martin</span><span class="value">Seller's Attorney (MHC Attorneys)</span></div><div class="grid-item"><span class="label">Shamikka Andrews</span><span class="value">Burstein Law Office</span></div><div class="grid-item"><span class="label">Jeff Burstein</span><span class="value">Burstein Law Office</span></div><div class="grid-item"><span class="label">Chris Keniley</span><span class="value">Accounting</span></div></div></div>
-            <div class="section"><h4>📋 Action Items</h4><ul><li>CLOSING TODAY 4/30 - wire funded, closing on track</li><li>Confirm entity docs (TCI Holdings LLC) - reusing from 121 Edward deal</li><li>Obtain COI naming Freedom Credit Union as mortgagee</li></ul></div>
-            <div class="section"><h4>📰 Recent Updates</h4><div class="update-item"><span class="update-date">2026-04-30</span><span class="update-src">[Email]</span> CLOSING TODAY - wire funded, all parties confirmed ready to close</div><div class="update-item"><span class="update-date">2026-04-29</span><span class="update-src">[Email]</span> Wire sent by Chris Keniley to Burstein to fund Ruby Lending loan; closing Thursday 4/30 confirmed</div><div class="update-item"><span class="update-date">2026-04-29</span><span class="update-src">[Email]</span> Burstein confirmed receipt of wire - closing on track for tomorrow</div><div class="update-item"><span class="update-date">2026-04-23</span><span class="update-src">[Email]</span> NEW PROPERTY: TCI Holdings LLC purchasing via Ruby Lending $250K loan ($200K purchase + $50K rehab)</div><div class="update-item"><span class="update-date">2026-04-23</span><span class="update-src">[Email]</span> Burstein beginning closing package; P&S sent by Tori LaValla (MHC Attorneys)</div></div>
-        </div>
-    </div>
-<div class="card">
-        <div class="card-header">
-            <div class="card-title">
-                <h3>1874 Home Rd, Sheffield, MA</h3>
-                <div class="badges">
-                    <span class="phase-badge" style="background:#eab308">Repairs / Rehab</span>
-                    <span class="source-badge">Email</span><span class="source-badge">PDF</span>
-                </div>
-            </div>
-            
-        </div>
-        <div class="timeline"><div class="dot-wrap" title="Offer Made"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Off</div></div><div class="dot-wrap" title="Under Contract"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Und</div></div><div class="dot-wrap" title="Title & Escrow"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Tit</div></div><div class="dot-wrap" title="Inspections"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Ins</div></div><div class="dot-wrap" title="Appraisal"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">App</div></div><div class="dot-wrap" title="Financing"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Fin</div></div><div class="dot-wrap" title="Repairs / Rehab"><div class="dot" style="background:#3b82f6;"></div><div class="dot-label">Rep</div></div><div class="dot-wrap" title="Final Walkthrough"><div class="dot" style="background:#374151;"></div><div class="dot-label">Fin</div></div><div class="dot-wrap" title="Closing"><div class="dot" style="background:#374151;"></div><div class="dot-label">Clo</div></div><div class="dot-wrap" title="Closed"><div class="dot" style="background:#374151;"></div><div class="dot-label">Clo</div></div></div>
-        <div class="card-body">
-            <div class="section"><h4>💰 Financials</h4><div class="grid"><div class="grid-item"><span class="label">Wire Amount</span><span class="value">$34,355</span></div><div class="grid-item"><span class="label">Potential ARV</span><span class="value">$600,000</span></div></div></div>
-            <div class="section"><h4>👥 Key Contacts</h4><div class="grid"><div class="grid-item"><span class="label">Alice Kempf</span><span class="value">Agent</span></div><div class="grid-item"><span class="label">Mahari Miller</span><span class="value">Contractor</span></div></div></div>
-            <div class="section"><h4>📋 Action Items</h4><ul><li>Review and approve Mahari Miller Invoice #394</li><li>Track rehab progress against scope</li></ul></div>
-            <div class="section"><h4>📰 Recent Updates</h4><div class="update-item"><span class="update-date">2026-04-23</span><span class="update-src">[Email]</span> Jessica forwarded Invoice #394 from Mahari Miller to Matt for review</div><div class="update-item"><span class="update-date"></span><span class="update-src">[PDF]</span> Refinance HUD-1</div><div class="update-item"><span class="update-date"></span><span class="update-src">[Email]</span> Scope sent to contractor</div></div>
-        </div>
-    </div>
-<div class="card">
-        <div class="card-header">
-            <div class="card-title">
-                <h3>40 Roland St, Pittsfield, MA 01201</h3>
-                <div class="badges">
-                    <span class="phase-badge" style="background:#eab308">Repairs / Rehab</span>
-                    <span class="source-badge">Email</span>
-                </div>
-            </div>
-            
-        </div>
-        <div class="timeline"><div class="dot-wrap" title="Offer Made"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Off</div></div><div class="dot-wrap" title="Under Contract"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Und</div></div><div class="dot-wrap" title="Title & Escrow"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Tit</div></div><div class="dot-wrap" title="Inspections"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Ins</div></div><div class="dot-wrap" title="Appraisal"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">App</div></div><div class="dot-wrap" title="Financing"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Fin</div></div><div class="dot-wrap" title="Repairs / Rehab"><div class="dot" style="background:#3b82f6;"></div><div class="dot-label">Rep</div></div><div class="dot-wrap" title="Final Walkthrough"><div class="dot" style="background:#374151;"></div><div class="dot-label">Fin</div></div><div class="dot-wrap" title="Closing"><div class="dot" style="background:#374151;"></div><div class="dot-label">Clo</div></div><div class="dot-wrap" title="Closed"><div class="dot" style="background:#374151;"></div><div class="dot-label">Clo</div></div></div>
-        <div class="card-body">
-            
-            <div class="section"><h4>👥 Key Contacts</h4><div class="grid"><div class="grid-item"><span class="label">Alice Kempf</span><span class="value">Agent</span></div><div class="grid-item"><span class="label">Jessica Sicard</span><span class="value">Project Manager</span></div><div class="grid-item"><span class="label">Chris Keniley</span><span class="value">Accounting</span></div><div class="grid-item"><span class="label">Gabby Voorhies</span><span class="value">Operations</span></div><div class="grid-item"><span class="label">Cavalier</span><span class="value">Property Manager</span></div><div class="grid-item"><span class="label">Jesse (Premiere Home MA)</span><span class="value">Contractor</span></div></div></div>
-            <div class="section"><h4>📋 Action Items</h4><ul><li>Jesse to reach out to Forrest & Mike, Jeff, and United Rooter for remaining repairs</li><li>Complete 7 inspection addendum repairs (plumbing, drain, sewer, electrical)</li><li>Get escrow forms signed for tenant deposits</li><li>Chris to update UDFs with LMR amounts</li></ul></div>
-            <div class="section"><h4>📰 Recent Updates</h4><div class="update-item"><span class="update-date">2026-04-20</span><span class="update-src">[Email]</span> Jesse (Premiere Home) confirmed sink leak & shower mixer already fixed; will coordinate remaining repairs with subcontractors</div><div class="update-item"><span class="update-date">2026-04-20</span><span class="update-src">[Email]</span> Jessica forwarded 7-item inspection repair list to Jesse for execution</div><div class="update-item"><span class="update-date">2026-04-17</span><span class="update-src">[Email]</span> SD/LMR escrow discussion - $2,900 LMR moved to Master Escrow from closings</div><div class="update-item"><span class="update-date">2026-04-16</span><span class="update-src">[Email]</span> Missing escrow deposit forms for Pittsfield properties (Cavalier mgmt)</div></div>
-        </div>
-    </div>
-<div class="card">
-        <div class="card-header">
-            <div class="card-title">
-                <h3>1 Richmond Ln, Pittsfield, MA</h3>
-                <div class="badges">
-                    <span class="phase-badge" style="background:#eab308">Repairs / Rehab</span>
-                    <span class="source-badge">Email</span>
-                </div>
-            </div>
-            
-        </div>
-        <div class="timeline"><div class="dot-wrap" title="Offer Made"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Off</div></div><div class="dot-wrap" title="Under Contract"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Und</div></div><div class="dot-wrap" title="Title & Escrow"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Tit</div></div><div class="dot-wrap" title="Inspections"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Ins</div></div><div class="dot-wrap" title="Appraisal"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">App</div></div><div class="dot-wrap" title="Financing"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Fin</div></div><div class="dot-wrap" title="Repairs / Rehab"><div class="dot" style="background:#3b82f6;"></div><div class="dot-label">Rep</div></div><div class="dot-wrap" title="Final Walkthrough"><div class="dot" style="background:#374151;"></div><div class="dot-label">Fin</div></div><div class="dot-wrap" title="Closing"><div class="dot" style="background:#374151;"></div><div class="dot-label">Clo</div></div><div class="dot-wrap" title="Closed"><div class="dot" style="background:#374151;"></div><div class="dot-label">Clo</div></div></div>
-        <div class="card-body">
-            <div class="section"><h4>💰 Financials</h4><div class="grid"><div class="grid-item"><span class="label">Repair Budget</span><span class="value">$4,000</span></div></div></div>
-            <div class="section"><h4>👥 Key Contacts</h4><div class="grid"><div class="grid-item"><span class="label">Alice Kempf</span><span class="value">Agent</span></div><div class="grid-item"><span class="label">Jesse (Premiere Home MA)</span><span class="value">Contractor</span></div><div class="grid-item"><span class="label">Jeff</span><span class="value">Electrician</span></div><div class="grid-item"><span class="label">Chris Keniley</span><span class="value">Accounting</span></div><div class="grid-item"><span class="label">Gabby Voorhies</span><span class="value">Operations</span></div><div class="grid-item"><span class="label">Cavalier</span><span class="value">Property Manager</span></div></div></div>
-            <div class="section"><h4>📋 Action Items</h4><ul><li>Jeff to complete final electrical work (vanity light, etc.)</li><li>Pull demolition permit for shed</li><li>Get 2 shed demolition estimates and confirm contractor</li><li>Asbestos check on shed before demo</li><li>Address embankment integrity during demo</li><li>Alice staging furniture delivery Saturday</li><li>Get escrow forms signed for tenant deposits</li><li>List property once staging complete</li></ul></div>
-            <div class="section"><h4>📰 Recent Updates</h4><div class="update-item"><span class="update-date">2026-04-22</span><span class="update-src">[Email]</span> Near tail end of rehab; 2 estimates coming for shed demolition; permit needed for demo; asbestos check required</div><div class="update-item"><span class="update-date">2026-04-22</span><span class="update-src">[Email]</span> Alice dropping off staging furniture Saturday; Jeff completing final electrical; nearly ready for market</div><div class="update-item"><span class="update-date">2026-04-22</span><span class="update-src">[Email]</span> Vanity light location question being resolved with Jeff tomorrow</div><div class="update-item"><span class="update-date">2026-04-17</span><span class="update-src">[Email]</span> SD/LMR escrow discussion - LMRs added in Jan</div><div class="update-item"><span class="update-date">2026-04-16</span><span class="update-src">[Email]</span> Missing escrow deposit forms for Pittsfield properties (Cavalier mgmt)</div></div>
-        </div>
-    </div>
-<div class="card">
-        <div class="card-header">
-            <div class="card-title">
-                <h3>53.5 Orchard St, Pittsfield, MA</h3>
-                <div class="badges">
-                    <span class="phase-badge" style="background:#eab308">Repairs / Rehab</span>
-                    <span class="source-badge">Email</span>
-                </div>
-            </div>
-            
-        </div>
-        <div class="timeline"><div class="dot-wrap" title="Offer Made"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Off</div></div><div class="dot-wrap" title="Under Contract"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Und</div></div><div class="dot-wrap" title="Title & Escrow"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Tit</div></div><div class="dot-wrap" title="Inspections"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Ins</div></div><div class="dot-wrap" title="Appraisal"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">App</div></div><div class="dot-wrap" title="Financing"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Fin</div></div><div class="dot-wrap" title="Repairs / Rehab"><div class="dot" style="background:#3b82f6;"></div><div class="dot-label">Rep</div></div><div class="dot-wrap" title="Final Walkthrough"><div class="dot" style="background:#374151;"></div><div class="dot-label">Fin</div></div><div class="dot-wrap" title="Closing"><div class="dot" style="background:#374151;"></div><div class="dot-label">Clo</div></div><div class="dot-wrap" title="Closed"><div class="dot" style="background:#374151;"></div><div class="dot-label">Clo</div></div></div>
-        <div class="card-body">
-            <div class="section"><h4>💰 Financials</h4><div class="grid"><div class="grid-item"><span class="label">Contract Total</span><span class="value">$18,928</span></div><div class="grid-item"><span class="label">Paid to Date</span><span class="value">$8,785.60</span></div><div class="grid-item"><span class="label">Remaining</span><span class="value">$10,143</span></div><div class="grid-item"><span class="label">Pending Draw</span><span class="value">$5,000</span></div></div></div>
-            <div class="section"><h4>👥 Key Contacts</h4><div class="grid"><div class="grid-item"><span class="label">Jessica Sicard</span><span class="value">Project Manager</span></div><div class="grid-item"><span class="label">Jesse (Premiere Home MA)</span><span class="value">Contractor</span></div><div class="grid-item"><span class="label">Jeff</span><span class="value">Electrician</span></div><div class="grid-item"><span class="label">Ruben</span><span class="value">Granite Installer</span></div></div></div>
-            <div class="section"><h4>📋 Action Items</h4><ul><li>Approve $5,000 draw request from Premiere Home</li><li>Pull permit for deck repair (Pittsfield)</li><li>Snake wiring around front door into wall</li><li>Resolve basement plumbing issues</li><li>Finalize unit 1 rehab plan (paint + light fixtures)</li><li>Granite install for unit 2 after Ruben measures</li><li>Jeff to check outlet in unit 2 and basement electrical</li></ul></div>
-            <div class="section"><h4>📰 Recent Updates</h4><div class="update-item"><span class="update-date">2026-04-23</span><span class="update-src">[Email]</span> Unit 1 photos submitted - needs paint and light fixtures, similar scope to units 2 & 3</div><div class="update-item"><span class="update-date">2026-04-22</span><span class="update-src">[Email]</span> $5,000 draw requested; units 2,3 & common-way nearly done; Ruben measuring granite tomorrow</div><div class="update-item"><span class="update-date">2026-04-22</span><span class="update-src">[Email]</span> Plumbing mess in basement - waiting on plumber solution</div><div class="update-item"><span class="update-date">2026-04-22</span><span class="update-src">[Email]</span> Deck repair permit needed; wiring around front door needs to be snaked in wall</div><div class="update-item"><span class="update-date">2026-04-22</span><span class="update-src">[Email]</span> Contract total $18,928; paid to date $8,785.60 (20% + 1st draw); remaining $10,143</div></div>
-        </div>
-    </div>
-<div class="card">
-        <div class="card-header">
-            <div class="card-title">
-                <h3>583 Hawks Spur</h3>
-                <div class="badges">
-                    <span class="phase-badge" style="background:#eab308">Repairs / Rehab</span>
-                    <span class="source-badge">Email</span><span class="source-badge">Venmo</span>
-                </div>
-            </div>
-            
-        </div>
-        <div class="timeline"><div class="dot-wrap" title="Offer Made"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Off</div></div><div class="dot-wrap" title="Under Contract"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Und</div></div><div class="dot-wrap" title="Title & Escrow"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Tit</div></div><div class="dot-wrap" title="Inspections"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Ins</div></div><div class="dot-wrap" title="Appraisal"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">App</div></div><div class="dot-wrap" title="Financing"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Fin</div></div><div class="dot-wrap" title="Repairs / Rehab"><div class="dot" style="background:#3b82f6;"></div><div class="dot-label">Rep</div></div><div class="dot-wrap" title="Final Walkthrough"><div class="dot" style="background:#374151;"></div><div class="dot-label">Fin</div></div><div class="dot-wrap" title="Closing"><div class="dot" style="background:#374151;"></div><div class="dot-label">Clo</div></div><div class="dot-wrap" title="Closed"><div class="dot" style="background:#374151;"></div><div class="dot-label">Clo</div></div></div>
-        <div class="card-body">
-            <div class="section"><h4>💰 Financials</h4><div class="grid"><div class="grid-item"><span class="label">Repair Budget</span><span class="value">$5,460</span></div></div></div>
-            <div class="section"><h4>👥 Key Contacts</h4><div class="grid"><div class="grid-item"><span class="label">Jessica Sicard</span><span class="value">PQ</span></div></div></div>
-            
-            <div class="section"><h4>📰 Recent Updates</h4><div class="update-item"><span class="update-date"></span><span class="update-src">[Email]</span> Reimbursement</div></div>
-        </div>
-    </div>
-<div class="card">
-        <div class="card-header">
-            <div class="card-title">
-                <h3>83 Rolf Ave, Chicopee, MA</h3>
-                <div class="badges">
-                    <span class="phase-badge" style="background:#eab308">Repairs / Rehab</span>
-                    <span class="source-badge">Email</span>
-                </div>
-            </div>
-            
-        </div>
-        <div class="timeline"><div class="dot-wrap" title="Offer Made"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Off</div></div><div class="dot-wrap" title="Under Contract"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Und</div></div><div class="dot-wrap" title="Title & Escrow"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Tit</div></div><div class="dot-wrap" title="Inspections"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Ins</div></div><div class="dot-wrap" title="Appraisal"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">App</div></div><div class="dot-wrap" title="Financing"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Fin</div></div><div class="dot-wrap" title="Repairs / Rehab"><div class="dot" style="background:#3b82f6;"></div><div class="dot-label">Rep</div></div><div class="dot-wrap" title="Final Walkthrough"><div class="dot" style="background:#374151;"></div><div class="dot-label">Fin</div></div><div class="dot-wrap" title="Closing"><div class="dot" style="background:#374151;"></div><div class="dot-label">Clo</div></div><div class="dot-wrap" title="Closed"><div class="dot" style="background:#374151;"></div><div class="dot-label">Clo</div></div></div>
-        <div class="card-body">
-            <div class="section"><h4>💰 Financials</h4><div class="grid"><div class="grid-item"><span class="label">CapX Loan</span><span class="value">$15,000</span></div></div></div>
-            <div class="section"><h4>👥 Key Contacts</h4><div class="grid"><div class="grid-item"><span class="label">Jessica Sicard</span><span class="value">Project Manager</span></div><div class="grid-item"><span class="label">Chris Keniley</span><span class="value">Accounting</span></div><div class="grid-item"><span class="label">David Munoz</span><span class="value">Contractor</span></div><div class="grid-item"><span class="label">Ryan Moran (Timbers Landscaping)</span><span class="value">Retaining Wall Contractor</span></div></div></div>
-            <div class="section"><h4>📋 Action Items</h4><ul><li>Confirm window order specs with Dave</li><li>Review retaining wall quote from Timbers Landscaping</li><li>Track CapX spend against $15k loan from Matt & Kev Capital</li></ul></div>
-            <div class="section"><h4>📰 Recent Updates</h4><div class="update-item"><span class="update-date">2026-04-17</span><span class="update-src">[Email]</span> Matt & Kev Capital lending Exchange Assets LLC $15,000 for CapX at 83 Rolf</div><div class="update-item"><span class="update-date">2026-04-16</span><span class="update-src">[Email]</span> Jessica reviewing window specs with Dave before ordering</div><div class="update-item"><span class="update-date">2026-04-12</span><span class="update-src">[Email]</span> Ryan Moran (Timbers) sent retaining wall quote: 70ft long, 32in tall, goshen stone</div><div class="update-item"><span class="update-date">2026-04-02</span><span class="update-src">[Email]</span> Jessica forwarded contractor extras list - $8,700 left on original contract, $4k payment requested</div></div>
-        </div>
-    </div>
-<div class="card">
-        <div class="card-header">
-            <div class="card-title">
-                <h3>42 Washington St, Monson, MA 01057</h3>
-                <div class="badges">
-                    <span class="phase-badge" style="background:#eab308">Repairs / Rehab</span>
-                    <span class="source-badge">Email</span>
-                </div>
-            </div>
-            
-        </div>
-        <div class="timeline"><div class="dot-wrap" title="Offer Made"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Off</div></div><div class="dot-wrap" title="Under Contract"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Und</div></div><div class="dot-wrap" title="Title & Escrow"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Tit</div></div><div class="dot-wrap" title="Inspections"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Ins</div></div><div class="dot-wrap" title="Appraisal"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">App</div></div><div class="dot-wrap" title="Financing"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Fin</div></div><div class="dot-wrap" title="Repairs / Rehab"><div class="dot" style="background:#3b82f6;"></div><div class="dot-label">Rep</div></div><div class="dot-wrap" title="Final Walkthrough"><div class="dot" style="background:#374151;"></div><div class="dot-label">Fin</div></div><div class="dot-wrap" title="Closing"><div class="dot" style="background:#374151;"></div><div class="dot-label">Clo</div></div><div class="dot-wrap" title="Closed"><div class="dot" style="background:#374151;"></div><div class="dot-label">Clo</div></div></div>
-        <div class="card-body">
-            <div class="section"><h4>💰 Financials</h4><div class="grid"><div class="grid-item"><span class="label">Owed to YB</span><span class="value">$8,670.50</span></div><div class="grid-item"><span class="label">ARV</span><span class="value">$334,900</span></div><div class="grid-item"><span class="label">Final Bill</span><span class="value">$12,387.50</span></div></div></div>
-            <div class="section"><h4>👥 Key Contacts</h4><div class="grid"><div class="grid-item"><span class="label">Alice Kempf</span><span class="value">Agent (KVR Team)</span></div><div class="grid-item"><span class="label">Antonio Cucciniello</span><span class="value">Partner (House Hack Helpers)</span></div><div class="grid-item"><span class="label">William McGuire</span><span class="value">Investors & Team Ops</span></div><div class="grid-item"><span class="label">Kevin Shippee</span><span class="value">Partner</span></div><div class="grid-item"><span class="label">Jessica Sicard</span><span class="value">Project Manager</span></div><div class="grid-item"><span class="label">Chris Keniley</span><span class="value">Accounting</span></div></div></div>
-            <div class="section"><h4>📋 Action Items</h4><ul><li>Approve $12,387.50 final bill payment</li><li>Listing photos - backup photographer coordinating this week</li><li>Target listing date: TODAY Apr 28</li><li>Settle $8,670.50 owed from HHH to YB/BIR</li><li>Final prep for listing</li></ul></div>
-            <div class="section"><h4>📰 Recent Updates</h4><div class="update-item"><span class="update-date">2026-04-23</span><span class="update-src">[Email]</span> Chris Keniley requesting approval to move $12,387.50 to pay final bill for 42 Washington</div><div class="update-item"><span class="update-date">2026-04-22</span><span class="update-src">[Email]</span> Alice Kempf confirms ARV at $334,900; listing targeted for Tuesday Apr 28</div><div class="update-item"><span class="update-date">2026-04-22</span><span class="update-src">[Email]</span> Photographer backup arranged (primary in surgery); CMA reports shared</div><div class="update-item"><span class="update-date">2026-04-22</span><span class="update-src">[Email]</span> Forwarded to Antonio (partner) who approved ARV and listing plan</div><div class="update-item"><span class="update-date">2026-04-16</span><span class="update-src">[Email]</span> HHH Investor Update: Matt visited 42 Washington this week, photos shared via Google Drive</div></div>
-        </div>
-    </div>
-<div class="card">
-        <div class="card-header">
-            <div class="card-title">
-                <h3>100 Central St (New Property)</h3>
-                <div class="badges">
-                    <span class="phase-badge" style="background:#eab308">Repairs / Rehab</span>
-                    <span class="source-badge">Email</span>
-                </div>
-            </div>
-            
-        </div>
-        <div class="timeline"><div class="dot-wrap" title="Offer Made"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Off</div></div><div class="dot-wrap" title="Under Contract"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Und</div></div><div class="dot-wrap" title="Title & Escrow"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Tit</div></div><div class="dot-wrap" title="Inspections"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Ins</div></div><div class="dot-wrap" title="Appraisal"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">App</div></div><div class="dot-wrap" title="Financing"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Fin</div></div><div class="dot-wrap" title="Repairs / Rehab"><div class="dot" style="background:#3b82f6;"></div><div class="dot-label">Rep</div></div><div class="dot-wrap" title="Final Walkthrough"><div class="dot" style="background:#374151;"></div><div class="dot-label">Fin</div></div><div class="dot-wrap" title="Closing"><div class="dot" style="background:#374151;"></div><div class="dot-label">Clo</div></div><div class="dot-wrap" title="Closed"><div class="dot" style="background:#374151;"></div><div class="dot-label">Clo</div></div></div>
-        <div class="card-body">
-            
-            <div class="section"><h4>👥 Key Contacts</h4><div class="grid"><div class="grid-item"><span class="label">Jessica Sicard</span><span class="value">Project Manager</span></div><div class="grid-item"><span class="label">David Burstein</span><span class="value">Attorney (Rehab Bid)</span></div><div class="grid-item"><span class="label">Dilayla</span><span class="value">Trashout Contractor</span></div></div></div>
-            <div class="section"><h4>📋 Action Items</h4><ul><li>Trashout in progress (Dilayla)</li><li>Rehab bid walkthrough with Dave scheduled May 1</li><li>Get rehab scope and budget after walkthrough</li></ul></div>
-            <div class="section"><h4>📰 Recent Updates</h4><div class="update-item"><span class="update-date">2026-04-30</span><span class="update-src">[Email]</span> NEW PROPERTY: Jessica reached out to Dilayla for trashout; team spread thin</div><div class="update-item"><span class="update-date">2026-04-30</span><span class="update-src">[Email]</span> Jessica meeting Dave tomorrow (May 1) for rehab bid walkthrough</div></div>
-        </div>
-    </div>
-<div class="card">
-        <div class="card-header">
-            <div class="card-title">
-                <h3>4 School St, Ware, MA 01082</h3>
-                <div class="badges">
-                    <span class="phase-badge" style="background:#f97316">Financing</span>
-                    <span class="source-badge">Email</span><span class="source-badge">PDF</span>
-                </div>
-            </div>
-            
-        </div>
-        <div class="timeline"><div class="dot-wrap" title="Offer Made"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Off</div></div><div class="dot-wrap" title="Under Contract"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Und</div></div><div class="dot-wrap" title="Title & Escrow"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Tit</div></div><div class="dot-wrap" title="Inspections"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Ins</div></div><div class="dot-wrap" title="Appraisal"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">App</div></div><div class="dot-wrap" title="Financing"><div class="dot" style="background:#3b82f6;"></div><div class="dot-label">Fin</div></div><div class="dot-wrap" title="Repairs / Rehab"><div class="dot" style="background:#374151;"></div><div class="dot-label">Rep</div></div><div class="dot-wrap" title="Final Walkthrough"><div class="dot" style="background:#374151;"></div><div class="dot-label">Fin</div></div><div class="dot-wrap" title="Closing"><div class="dot" style="background:#374151;"></div><div class="dot-label">Clo</div></div><div class="dot-wrap" title="Closed"><div class="dot" style="background:#374151;"></div><div class="dot-label">Clo</div></div></div>
-        <div class="card-body">
-            <div class="section"><h4>💰 Financials</h4><div class="grid"><div class="grid-item"><span class="label">Closing Costs</span><span class="value">$34,355</span></div></div></div>
-            <div class="section"><h4>👥 Key Contacts</h4><div class="grid"><div class="grid-item"><span class="label">David Burstein</span><span class="value">Attorney</span></div><div class="grid-item"><span class="label">David Chase</span><span class="value">Lender</span></div><div class="grid-item"><span class="label">Michelle Fama</span><span class="value">Loan Processing</span></div><div class="grid-item"><span class="label">Ruby Lending LLC</span><span class="value">Lender</span></div><div class="grid-item"><span class="label">Freedom Credit Union</span><span class="value">Lender (FCU)</span></div><div class="grid-item"><span class="label">Gregory</span><span class="value">FCU Contact</span></div></div></div>
-            <div class="section"><h4>📋 Action Items</h4><ul><li>Ruby Lending loan confirmed added - awaiting final funding/closing date</li><li>Michelle to add Ruby Lending loan with Freedom CU funds - DONE</li><li>Awaiting final funding confirmation from FCU</li></ul></div>
-            <div class="section"><h4>📰 Recent Updates</h4><div class="update-item"><span class="update-date">2026-04-23</span><span class="update-src">[Email]</span> Michelle confirmed Ruby Lending loan added to system using Freedom Credit Union funds</div><div class="update-item"><span class="update-date">2026-04-17</span><span class="update-src">[Email]</span> FCU confirmed funding request package looks good</div><div class="update-item"><span class="update-date">2026-04-17</span><span class="update-src">[Email]</span> Burstein sent loan packages (Freedom CU & Ruby Lending) for funding request</div><div class="update-item"><span class="update-date">2026-04-17</span><span class="update-src">[Email]</span> Matt forwarded to Michelle - will use Freedom Credit Union funds</div><div class="update-item"><span class="update-date">2026-04-17</span><span class="update-src">[Email]</span> Originals to be dropped off at FCU next week</div></div>
-        </div>
-    </div>
-<div class="card">
-        <div class="card-header">
-            <div class="card-title">
-                <h3>167 East Park Terrace, Pittsfield, MA 01201</h3>
-                <div class="badges">
-                    <span class="phase-badge" style="background:#f97316">Financing</span>
-                    <span class="source-badge">Email</span><span class="source-badge">PDF</span>
-                </div>
-            </div>
-            <div class="countdown">8 days to closing (5/8/2026)</div>
-        </div>
-        <div class="timeline"><div class="dot-wrap" title="Offer Made"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Off</div></div><div class="dot-wrap" title="Under Contract"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Und</div></div><div class="dot-wrap" title="Title & Escrow"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Tit</div></div><div class="dot-wrap" title="Inspections"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Ins</div></div><div class="dot-wrap" title="Appraisal"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">App</div></div><div class="dot-wrap" title="Financing"><div class="dot" style="background:#3b82f6;"></div><div class="dot-label">Fin</div></div><div class="dot-wrap" title="Repairs / Rehab"><div class="dot" style="background:#374151;"></div><div class="dot-label">Rep</div></div><div class="dot-wrap" title="Final Walkthrough"><div class="dot" style="background:#374151;"></div><div class="dot-label">Fin</div></div><div class="dot-wrap" title="Closing"><div class="dot" style="background:#374151;"></div><div class="dot-label">Clo</div></div><div class="dot-wrap" title="Closed"><div class="dot" style="background:#374151;"></div><div class="dot-label">Clo</div></div></div>
-        <div class="card-body">
-            <div class="section"><h4>💰 Financials</h4><div class="grid"><div class="grid-item"><span class="label">Purchase Price</span><span class="value">$145,000</span></div><div class="grid-item"><span class="label">Assignment Fee</span><span class="value">$5,000</span></div><div class="grid-item"><span class="label">Rehab Budget</span><span class="value">$50,000</span></div><div class="grid-item"><span class="label">Total Loan</span><span class="value">$166,000</span></div><div class="grid-item"><span class="label">Funds at Closing</span><span class="value">$116,000</span></div><div class="grid-item"><span class="label">Construction Advances</span><span class="value">$50,000</span></div><div class="grid-item"><span class="label">Points</span><span class="value">$4,980</span></div><div class="grid-item"><span class="label">Rate</span><span class="value">12%</span></div><div class="grid-item"><span class="label">Term</span><span class="value">12 months</span></div><div class="grid-item"><span class="label">Deposit</span><span class="value">$500</span></div><div class="grid-item"><span class="label">Lender Fees</span><span class="value">$570</span></div></div></div>
-            <div class="section"><h4>👥 Key Contacts</h4><div class="grid"><div class="grid-item"><span class="label">Antonio Cucciniello</span><span class="value">Partner (House Hack Helpers)</span></div><div class="grid-item"><span class="label">William McGuire</span><span class="value">Investors & Team Ops</span></div><div class="grid-item"><span class="label">David Burstein</span><span class="value">Attorney</span></div><div class="grid-item"><span class="label">Linda Duverger</span><span class="value">Lender (Pinnacle Financial)</span></div><div class="grid-item"><span class="label">Kasia Wneta</span><span class="value">Lender (Pinnacle Financial)</span></div><div class="grid-item"><span class="label">Kelcey Rogers</span><span class="value">Lender (Pinnacle Financial)</span></div></div></div>
-            <div class="section"><h4>📋 Action Items</h4><ul><li>Provide property insurance binder naming Pinnacle as mortgagee BEFORE closing (REQUIRED)</li><li>Submit LLC docs (Articles of Organization / Operating Agreement) to Pinnacle</li><li>Provide bank account info for monthly payments and construction draws</li><li>Confirm tax IDs for borrower and all guarantors</li><li>Provide driver's licenses for borrower and all guarantors</li><li>Antonio to amend Assignment Agreement to show $5K assignment fee</li><li>Miles to provide signed W-9 for assignment fee payment</li><li>Coordinate walkthrough for next week</li><li>HUD-1 settlement statement to be prepared by Burstein (commercial loan, not TRID)</li></ul></div>
-            <div class="section"><h4>📰 Recent Updates</h4><div class="update-item"><span class="update-date">2026-04-29</span><span class="update-src">[Email]</span> FINANCING APPROVED by Pinnacle Financial; checklist and funding sheet sent to attorney for closing prep</div><div class="update-item"><span class="update-date">2026-04-23</span><span class="update-src">[Email]</span> Burstein still needs amended Assignment Agreement showing $5K assignment fee + W-9 from Miles; Matt asked Antonio to handle</div><div class="update-item"><span class="update-date">2026-04-23</span><span class="update-src">[Email]</span> Seller contact info provided: David Brunk (413-441-1937, dbrunk57@aol.com)</div><div class="update-item"><span class="update-date">2026-04-22</span><span class="update-src">[Email]</span> Matt sent insurance application details to Adina Edgett</div><div class="update-item"><span class="update-date">2026-04-21</span><span class="update-src">[Email]</span> Pinnacle Financial sent financing term sheet: $166K total loan, 12% rate, 3 points, closing May 8</div></div>
-        </div>
-    </div>
-<div class="card">
-        <div class="card-header">
-            <div class="card-title">
-                <h3>939 East Columbus Ave, Springfield, MA</h3>
-                <div class="badges">
-                    <span class="phase-badge" style="background:#3b82f6">Under Contract</span>
-                    <span class="source-badge">Email</span><span class="source-badge">dotloop</span>
-                </div>
-            </div>
-            
-        </div>
-        <div class="timeline"><div class="dot-wrap" title="Offer Made"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Off</div></div><div class="dot-wrap" title="Under Contract"><div class="dot" style="background:#3b82f6;"></div><div class="dot-label">Und</div></div><div class="dot-wrap" title="Title & Escrow"><div class="dot" style="background:#374151;"></div><div class="dot-label">Tit</div></div><div class="dot-wrap" title="Inspections"><div class="dot" style="background:#374151;"></div><div class="dot-label">Ins</div></div><div class="dot-wrap" title="Appraisal"><div class="dot" style="background:#374151;"></div><div class="dot-label">App</div></div><div class="dot-wrap" title="Financing"><div class="dot" style="background:#374151;"></div><div class="dot-label">Fin</div></div><div class="dot-wrap" title="Repairs / Rehab"><div class="dot" style="background:#374151;"></div><div class="dot-label">Rep</div></div><div class="dot-wrap" title="Final Walkthrough"><div class="dot" style="background:#374151;"></div><div class="dot-label">Fin</div></div><div class="dot-wrap" title="Closing"><div class="dot" style="background:#374151;"></div><div class="dot-label">Clo</div></div><div class="dot-wrap" title="Closed"><div class="dot" style="background:#374151;"></div><div class="dot-label">Clo</div></div></div>
-        <div class="card-body">
-            
-            <div class="section"><h4>👥 Key Contacts</h4><div class="grid"><div class="grid-item"><span class="label">Daniel Lavitman</span><span class="value">SR Commercial RE</span></div><div class="grid-item"><span class="label">Jeremy</span><span class="value">SR Commercial RE</span></div><div class="grid-item"><span class="label">Richard Borsari</span><span class="value">SR Commercial RE</span></div><div class="grid-item"><span class="label">David Burstein</span><span class="value">Attorney</span></div><div class="grid-item"><span class="label">Jessica Sicard</span><span class="value">Project Manager</span></div></div></div>
-            <div class="section"><h4>📋 Action Items</h4><ul><li>Complete interior repairs (toilets, bathroom wall, priming)</li><li>Follow up on Gandara LOI next steps</li><li>Provide insurance and tax rate info to Richard Borsari for buyer</li></ul></div>
-            <div class="section"><h4>📰 Recent Updates</h4><div class="update-item"><span class="update-date">2026-04-22</span><span class="update-src">[Email]</span> Richard Borsari following up on plumber connection for tenant at 55 White</div><div class="update-item"><span class="update-date">2026-04-20</span><span class="update-src">[Email]</span> Work order 42807 assigned to Victor at 939 E Columbus</div><div class="update-item"><span class="update-date">2026-04-16</span><span class="update-src">[Email]</span> Matt sent work order: clean toilets, mud back 2nd floor bathroom wall from water damage, prime</div><div class="update-item"><span class="update-date">2026-04-08</span><span class="update-src">[Email]</span> Matt visited - water was off, found pipe burst, turning on water</div><div class="update-item"><span class="update-date">2026-04-06</span><span class="update-src">[dotloop]</span> Gandara LOI signed via dotloop</div></div>
-        </div>
-    </div>
-<div class="card">
-        <div class="card-header">
-            <div class="card-title">
-                <h3>54 Seckar Rd, Ashford, CT 06278</h3>
-                <div class="badges">
-                    <span class="phase-badge" style="background:#3b82f6">Under Contract</span>
-                    <span class="source-badge">Email</span><span class="source-badge">PDF</span>
-                </div>
-            </div>
-            
-        </div>
-        <div class="timeline"><div class="dot-wrap" title="Offer Made"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Off</div></div><div class="dot-wrap" title="Under Contract"><div class="dot" style="background:#3b82f6;"></div><div class="dot-label">Und</div></div><div class="dot-wrap" title="Title & Escrow"><div class="dot" style="background:#374151;"></div><div class="dot-label">Tit</div></div><div class="dot-wrap" title="Inspections"><div class="dot" style="background:#374151;"></div><div class="dot-label">Ins</div></div><div class="dot-wrap" title="Appraisal"><div class="dot" style="background:#374151;"></div><div class="dot-label">App</div></div><div class="dot-wrap" title="Financing"><div class="dot" style="background:#374151;"></div><div class="dot-label">Fin</div></div><div class="dot-wrap" title="Repairs / Rehab"><div class="dot" style="background:#374151;"></div><div class="dot-label">Rep</div></div><div class="dot-wrap" title="Final Walkthrough"><div class="dot" style="background:#374151;"></div><div class="dot-label">Fin</div></div><div class="dot-wrap" title="Closing"><div class="dot" style="background:#374151;"></div><div class="dot-label">Clo</div></div><div class="dot-wrap" title="Closed"><div class="dot" style="background:#374151;"></div><div class="dot-label">Clo</div></div></div>
-        <div class="card-body">
-            <div class="section"><h4>💰 Financials</h4><div class="grid"><div class="grid-item"><span class="label">Deposit</span><span class="value">$60,000</span></div></div></div>
-            <div class="section"><h4>👥 Key Contacts</h4><div class="grid"><div class="grid-item"><span class="label">David Burstein</span><span class="value">Attorney</span></div><div class="grid-item"><span class="label">Mark DiFranco</span><span class="value">Agent</span></div><div class="grid-item"><span class="label">Russell Cable</span><span class="value">Partner</span></div><div class="grid-item"><span class="label">Paul Kaplan</span><span class="value">Buyer's Attorney</span></div><div class="grid-item"><span class="label">Tamara Joynes Ketchian</span><span class="value">Buyer</span></div><div class="grid-item"><span class="label">Tom Woodward</span><span class="value">Buyer's Agent (Colonial Properties)</span></div></div></div>
-            <div class="section"><h4>📋 Action Items</h4><ul><li>Confirm $60,000 total deposit received by Burstein</li><li>Track tenant Notice to Quit process</li><li>Coordinate closing timeline with buyer's attorney</li></ul></div>
-            <div class="section"><h4>📰 Recent Updates</h4><div class="update-item"><span class="update-date">2026-03-31</span><span class="update-src">[Email]</span> Burstein asked if Notice to Quit delivered to tenants - Matt confirmed yes</div><div class="update-item"><span class="update-date">2026-03-27</span><span class="update-src">[Email]</span> Mark confirmed all inspection items resolved; kitchen equipment will be moved, vent hood stays</div><div class="update-item"><span class="update-date">2026-03-25</span><span class="update-src">[Email]</span> Buyer signed contract; Burstein holding fully executed contract until $10k deposit wired</div><div class="update-item"><span class="update-date">2026-03-17</span><span class="update-src">[Email]</span> P&S Agreement with riders sent to buyer's attorney Paul Kaplan</div></div>
-        </div>
-    </div>
-<div class="card">
-        <div class="card-header">
-            <div class="card-title">
-                <h3>282-284 Suffolk Street, Holyoke, MA</h3>
-                <div class="badges">
-                    <span class="phase-badge" style="background:#6b7280">Prospecting</span>
-                    <span class="source-badge">Email</span>
-                </div>
-            </div>
-            
-        </div>
-        <div class="timeline"><div class="dot-wrap" title="Offer Made"><div class="dot" style="background:#374151;"></div><div class="dot-label">Off</div></div><div class="dot-wrap" title="Under Contract"><div class="dot" style="background:#374151;"></div><div class="dot-label">Und</div></div><div class="dot-wrap" title="Title & Escrow"><div class="dot" style="background:#374151;"></div><div class="dot-label">Tit</div></div><div class="dot-wrap" title="Inspections"><div class="dot" style="background:#374151;"></div><div class="dot-label">Ins</div></div><div class="dot-wrap" title="Appraisal"><div class="dot" style="background:#374151;"></div><div class="dot-label">App</div></div><div class="dot-wrap" title="Financing"><div class="dot" style="background:#374151;"></div><div class="dot-label">Fin</div></div><div class="dot-wrap" title="Repairs / Rehab"><div class="dot" style="background:#374151;"></div><div class="dot-label">Rep</div></div><div class="dot-wrap" title="Final Walkthrough"><div class="dot" style="background:#374151;"></div><div class="dot-label">Fin</div></div><div class="dot-wrap" title="Closing"><div class="dot" style="background:#374151;"></div><div class="dot-label">Clo</div></div><div class="dot-wrap" title="Closed"><div class="dot" style="background:#374151;"></div><div class="dot-label">Clo</div></div></div>
-        <div class="card-body">
-            
-            <div class="section"><h4>👥 Key Contacts</h4><div class="grid"><div class="grid-item"><span class="label">Peter Houser</span><span class="value">Partner</span></div><div class="grid-item"><span class="label">Jonathan Little</span><span class="value">Listing Agent (Jennings RE)</span></div></div></div>
-            <div class="section"><h4>📋 Action Items</h4><ul><li>Peter to run numbers on the deal</li><li>Matt to drive by property</li><li>Review marketing brochure, rent roll, and income/expense from seller</li></ul></div>
-            <div class="section"><h4>📰 Recent Updates</h4><div class="update-item"><span class="update-date">2026-04-20</span><span class="update-src">[Email]</span> NEW LEAD: Peter Houser forwarded listing - 11-unit apartment building with 4-bay garage, mostly leased to CHD</div><div class="update-item"><span class="update-date">2026-04-20</span><span class="update-src">[Email]</span> Matt interested; Peter running numbers; plan to drive by property</div></div>
-        </div>
-    </div>
-<div class="card">
-        <div class="card-header">
-            <div class="card-title">
-                <h3>Egremont Project, Egremont, MA</h3>
-                <div class="badges">
-                    <span class="phase-badge" style="background:#6b7280">Prospecting</span>
-                    <span class="source-badge">Email</span>
-                </div>
-            </div>
-            
-        </div>
-        <div class="timeline"><div class="dot-wrap" title="Offer Made"><div class="dot" style="background:#374151;"></div><div class="dot-label">Off</div></div><div class="dot-wrap" title="Under Contract"><div class="dot" style="background:#374151;"></div><div class="dot-label">Und</div></div><div class="dot-wrap" title="Title & Escrow"><div class="dot" style="background:#374151;"></div><div class="dot-label">Tit</div></div><div class="dot-wrap" title="Inspections"><div class="dot" style="background:#374151;"></div><div class="dot-label">Ins</div></div><div class="dot-wrap" title="Appraisal"><div class="dot" style="background:#374151;"></div><div class="dot-label">App</div></div><div class="dot-wrap" title="Financing"><div class="dot" style="background:#374151;"></div><div class="dot-label">Fin</div></div><div class="dot-wrap" title="Repairs / Rehab"><div class="dot" style="background:#374151;"></div><div class="dot-label">Rep</div></div><div class="dot-wrap" title="Final Walkthrough"><div class="dot" style="background:#374151;"></div><div class="dot-label">Fin</div></div><div class="dot-wrap" title="Closing"><div class="dot" style="background:#374151;"></div><div class="dot-label">Clo</div></div><div class="dot-wrap" title="Closed"><div class="dot" style="background:#374151;"></div><div class="dot-label">Clo</div></div></div>
-        <div class="card-body">
-            <div class="section"><h4>💰 Financials</h4><div class="grid"><div class="grid-item"><span class="label">Purchase Price</span><span class="value">$175,000</span></div><div class="grid-item"><span class="label">Rehab Budget</span><span class="value">$200,000</span></div><div class="grid-item"><span class="label">Total Investment</span><span class="value">$450,000</span></div><div class="grid-item"><span class="label">Potential ARV</span><span class="value">$600,000</span></div></div></div>
-            <div class="section"><h4>👥 Key Contacts</h4><div class="grid"><div class="grid-item"><span class="label">Jacob Trudeau</span><span class="value">Contractor / Project Lead</span></div></div></div>
-            <div class="section"><h4>📋 Action Items</h4><ul><li>Jacob to send more property photos</li><li>Confirm slab foundation (affects scope and budget)</li><li>Reassess rehab budget once foundation type confirmed</li><li>Review detailed scope before committing</li></ul></div>
-            <div class="section"><h4>📰 Recent Updates</h4><div class="update-item"><span class="update-date">2026-04-22</span><span class="update-src">[Email]</span> Matt followed up with Jacob requesting more photos and slab foundation confirmation</div><div class="update-item"><span class="update-date">2026-04-16</span><span class="update-src">[Email]</span> Matt questioned budget numbers - thinks rehab may be high; asked about slab foundation</div><div class="update-item"><span class="update-date">2026-04-15</span><span class="update-src">[Email]</span> Jacob Trudeau sent rough rehab budget: $200K rehab, $175K purchase, $600K ARV</div></div>
-        </div>
-    </div>
-<div class="card">
-        <div class="card-header">
-            <div class="card-title">
-                <h3>297 Breckwood Blvd, Springfield, MA 01109</h3>
-                <div class="badges">
-                    <span class="phase-badge" style="background:#22c55e">Closed</span>
-                    <span class="source-badge">dotloop</span><span class="source-badge">Email</span>
-                </div>
-            </div>
-            
-        </div>
-        <div class="timeline"><div class="dot-wrap" title="Offer Made"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Off</div></div><div class="dot-wrap" title="Under Contract"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Und</div></div><div class="dot-wrap" title="Title & Escrow"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Tit</div></div><div class="dot-wrap" title="Inspections"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Ins</div></div><div class="dot-wrap" title="Appraisal"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">App</div></div><div class="dot-wrap" title="Financing"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Fin</div></div><div class="dot-wrap" title="Repairs / Rehab"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Rep</div></div><div class="dot-wrap" title="Final Walkthrough"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Fin</div></div><div class="dot-wrap" title="Closing"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Clo</div></div><div class="dot-wrap" title="Closed"><div class="dot" style="background:#3b82f6;"></div><div class="dot-label">Clo</div></div></div>
-        <div class="card-body">
-            
-            <div class="section"><h4>👥 Key Contacts</h4><div class="grid"><div class="grid-item"><span class="label">Alice Kempf</span><span class="value">Agent</span></div><div class="grid-item"><span class="label">David Burstein</span><span class="value">Attorney</span></div><div class="grid-item"><span class="label">Jessica Sicard</span><span class="value">Project Manager</span></div></div></div>
-            
-            <div class="section"><h4>📰 Recent Updates</h4><div class="update-item"><span class="update-date">2026-04-13</span><span class="update-src">[Email]</span> Closing date reached</div><div class="update-item"><span class="update-date"></span><span class="update-src">[Email]</span> Repairs priority</div><div class="update-item"><span class="update-date"></span><span class="update-src">[dotloop]</span> FHA Amendatory signed</div></div>
-        </div>
-    </div>
-<div class="card">
-        <div class="card-header">
-            <div class="card-title">
-                <h3>29 Chestnut Dr, Belchertown, MA 01007</h3>
-                <div class="badges">
-                    <span class="phase-badge" style="background:#22c55e">Closed</span>
-                    <span class="source-badge">dotloop</span><span class="source-badge">Email</span>
-                </div>
-            </div>
-            
-        </div>
-        <div class="timeline"><div class="dot-wrap" title="Offer Made"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Off</div></div><div class="dot-wrap" title="Under Contract"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Und</div></div><div class="dot-wrap" title="Title & Escrow"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Tit</div></div><div class="dot-wrap" title="Inspections"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Ins</div></div><div class="dot-wrap" title="Appraisal"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">App</div></div><div class="dot-wrap" title="Financing"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Fin</div></div><div class="dot-wrap" title="Repairs / Rehab"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Rep</div></div><div class="dot-wrap" title="Final Walkthrough"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Fin</div></div><div class="dot-wrap" title="Closing"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Clo</div></div><div class="dot-wrap" title="Closed"><div class="dot" style="background:#3b82f6;"></div><div class="dot-label">Clo</div></div></div>
-        <div class="card-body">
-            
-            <div class="section"><h4>👥 Key Contacts</h4><div class="grid"><div class="grid-item"><span class="label">Alice Kempf</span><span class="value">Agent</span></div><div class="grid-item"><span class="label">David Burstein</span><span class="value">Attorney</span></div><div class="grid-item"><span class="label">Jessica Sicard</span><span class="value">Project Manager</span></div></div></div>
-            
-            <div class="section"><h4>📰 Recent Updates</h4><div class="update-item"><span class="update-date">2026-04-22</span><span class="update-src">[Email]</span> Oil autofill not removed after sale; Alice asking buyer to reimburse Pioneer Valley Oil invoice</div><div class="update-item"><span class="update-date">2026-04-14</span><span class="update-src">[Email]</span> Closing date reached</div><div class="update-item"><span class="update-date"></span><span class="update-src">[dotloop]</span> ASA signed via dotloop</div><div class="update-item"><span class="update-date"></span><span class="update-src">[Email]</span> Pioneer Valley Oil invoice</div></div>
-        </div>
-    </div>
-<div class="card">
-        <div class="card-header">
-            <div class="card-title">
-                <h3>70 Town Hill Road, Middlefield, MA 01243</h3>
-                <div class="badges">
-                    <span class="phase-badge" style="background:#22c55e">Closed</span>
-                    <span class="source-badge">Email</span>
-                </div>
-            </div>
-            
-        </div>
-        <div class="timeline"><div class="dot-wrap" title="Offer Made"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Off</div></div><div class="dot-wrap" title="Under Contract"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Und</div></div><div class="dot-wrap" title="Title & Escrow"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Tit</div></div><div class="dot-wrap" title="Inspections"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Ins</div></div><div class="dot-wrap" title="Appraisal"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">App</div></div><div class="dot-wrap" title="Financing"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Fin</div></div><div class="dot-wrap" title="Repairs / Rehab"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Rep</div></div><div class="dot-wrap" title="Final Walkthrough"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Fin</div></div><div class="dot-wrap" title="Closing"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Clo</div></div><div class="dot-wrap" title="Closed"><div class="dot" style="background:#3b82f6;"></div><div class="dot-label">Clo</div></div></div>
-        <div class="card-body">
-            
-            <div class="section"><h4>👥 Key Contacts</h4><div class="grid"><div class="grid-item"><span class="label">David Burstein</span><span class="value">Attorney (Seller)</span></div><div class="grid-item"><span class="label">Alice Kempf</span><span class="value">Listing Agent (KVR Team)</span></div><div class="grid-item"><span class="label">Sarah Catapano Friedman</span><span class="value">Buyer's Attorney (Crowley & Cummings)</span></div><div class="grid-item"><span class="label">Megan Houatchanthara</span><span class="value">Buyer's Agent (Compass)</span></div><div class="grid-item"><span class="label">Alexandra Fazzi</span><span class="value">KVR Team</span></div><div class="grid-item"><span class="label">Melissa Vanderburgh</span><span class="value">KVR Team</span></div></div></div>
-            <div class="section"><h4>📋 Action Items</h4><ul><li>Forward overage from escrow to seller after closing</li></ul></div>
-            <div class="section"><h4>📰 Recent Updates</h4><div class="update-item"><span class="update-date">2026-04-30</span><span class="update-src">[Email]</span> Closing completed yesterday 4/29 - property now Closed</div><div class="update-item"><span class="update-date">2026-04-29</span><span class="update-src">[Email]</span> CLOSING DAY - closing scheduled for today</div><div class="update-item"><span class="update-date">2026-04-20</span><span class="update-src">[Email]</span> Burstein requesting propane reading and last fill invoice for closing adjustments</div><div class="update-item"><span class="update-date">2026-04-20</span><span class="update-src">[Email]</span> Alice confirmed smoke certs part of building permit closeout this week; will provide propane reading</div><div class="update-item"><span class="update-date">2026-04-20</span><span class="update-src">[Email]</span> Alexandra sent listing commission bill; buyer agent paid at closing</div></div>
-        </div>
-    </div>
-<div class="card">
-        <div class="card-header">
-            <div class="card-title">
-                <h3>21 Holly St, Greenfield, MA</h3>
-                <div class="badges">
-                    <span class="phase-badge" style="background:#22c55e">Closed</span>
-                    <span class="source-badge">Email</span><span class="source-badge">PDF</span>
-                </div>
-            </div>
-            
-        </div>
-        <div class="timeline"><div class="dot-wrap" title="Offer Made"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Off</div></div><div class="dot-wrap" title="Under Contract"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Und</div></div><div class="dot-wrap" title="Title & Escrow"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Tit</div></div><div class="dot-wrap" title="Inspections"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Ins</div></div><div class="dot-wrap" title="Appraisal"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">App</div></div><div class="dot-wrap" title="Financing"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Fin</div></div><div class="dot-wrap" title="Repairs / Rehab"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Rep</div></div><div class="dot-wrap" title="Final Walkthrough"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Fin</div></div><div class="dot-wrap" title="Closing"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Clo</div></div><div class="dot-wrap" title="Closed"><div class="dot" style="background:#3b82f6;"></div><div class="dot-label">Clo</div></div></div>
-        <div class="card-body">
-            
-            <div class="section"><h4>👥 Key Contacts</h4><div class="grid"><div class="grid-item"><span class="label">David Burstein</span><span class="value">Attorney</span></div><div class="grid-item"><span class="label">Adina Edgett</span><span class="value">Insurance (Webber & Grinnell)</span></div></div></div>
-            <div class="section"><h4>📋 Action Items</h4><ul><li>Follow up on holdback - Burstein getting final water/sewer figures by Monday</li></ul></div>
-            <div class="section"><h4>📰 Recent Updates</h4><div class="update-item"><span class="update-date">2026-04-25</span><span class="update-src">[Email]</span> Jessica confirmed sale closed; dashboard corrected to reflect Closed status</div><div class="update-item"><span class="update-date">2026-04-21</span><span class="update-src">[Email]</span> Sale completed per Burstein; HUD-1 and recorded deed sent; holdback pending final water/sewer figures due Monday</div><div class="update-item"><span class="update-date"></span><span class="update-src">[Email]</span> Sale initiated</div><div class="update-item"><span class="update-date"></span><span class="update-src">[Email]</span> Draft PS sent</div></div>
-        </div>
-    </div>
-<div class="card">
-        <div class="card-header">
-            <div class="card-title">
-                <h3>11 Bryant St, Springfield, MA</h3>
-                <div class="badges">
-                    <span class="phase-badge" style="background:#22c55e">Closed</span>
-                    <span class="source-badge">Email</span>
-                </div>
-            </div>
-            
-        </div>
-        <div class="timeline"><div class="dot-wrap" title="Offer Made"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Off</div></div><div class="dot-wrap" title="Under Contract"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Und</div></div><div class="dot-wrap" title="Title & Escrow"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Tit</div></div><div class="dot-wrap" title="Inspections"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Ins</div></div><div class="dot-wrap" title="Appraisal"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">App</div></div><div class="dot-wrap" title="Financing"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Fin</div></div><div class="dot-wrap" title="Repairs / Rehab"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Rep</div></div><div class="dot-wrap" title="Final Walkthrough"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Fin</div></div><div class="dot-wrap" title="Closing"><div class="dot" style="background:#22c55e;"></div><div class="dot-label">Clo</div></div><div class="dot-wrap" title="Closed"><div class="dot" style="background:#3b82f6;"></div><div class="dot-label">Clo</div></div></div>
-        <div class="card-body">
-            
-            <div class="section"><h4>👥 Key Contacts</h4><div class="grid"><div class="grid-item"><span class="label">Ryan O'Hara</span><span class="value">Attorney (Bacon Wilson)</span></div><div class="grid-item"><span class="label">Jessica Sicard</span><span class="value">Project Manager</span></div><div class="grid-item"><span class="label">Kevin Shippee</span><span class="value">Partner</span></div><div class="grid-item"><span class="label">Tessa Permar</span><span class="value">Done Right Chimney</span></div></div></div>
-            <div class="section"><h4>📋 Action Items</h4><ul><li>Review Jessica's edits to legal response (Google Doc shared)</li><li>Finalize and send legal response to O'Hara</li><li>Decide on settlement offer amount (attorney recommends $50,000)</li><li>Follow up on Drain Defense $1,500 holdback</li></ul></div>
-            <div class="section"><h4>📰 Recent Updates</h4><div class="update-item"><span class="update-date">2026-04-29</span><span class="update-src">[Email]</span> Jessica forwarded original Done Right Chimney inspection thread to attorney O'Hara for legal case reference</div><div class="update-item"><span class="update-date">2026-04-29</span><span class="update-src">[Email]</span> Jessica sent edits on legal response via Google Doc; feedback on mason selection language and electrical claims</div><div class="update-item"><span class="update-date">2026-04-29</span><span class="update-src">[Email]</span> Matt provided details: Drain Defense paid $7,485 but $1,500 holdback never returned; chimney clean-out dispute</div><div class="update-item"><span class="update-date">2026-04-28</span><span class="update-src">[Email]</span> Attorney O'Hara sent draft response for review; recommends offering $50,000 to resolve</div><div class="update-item"><span class="update-date">2026-04-27</span><span class="update-src">[Email]</span> O'Hara working on draft legal response; expects completion by Wednesday</div></div>
-        </div>
-    </div>
-</div>
+<div class="container" id="container"><div class="loading">Loading dashboard data...</div></div>
+<script>
+const MS=['Offer Made','Under Contract','Title & Escrow','Inspections','Appraisal','Financing','Repairs / Rehab','Final Walkthrough','Closing','Closed'];
+const PC={'Prospecting':'#6b7280','Offer Made':'#f59e0b','Under Contract':'#f97316','Title & Escrow':'#8b5cf6','Inspections':'#06b6d4','Appraisal':'#3b82f6','Financing':'#6366f1','Repairs / Rehab':'#eab308','Final Walkthrough':'#f472b6','Closing':'#ef4444','Closed':'#22c55e'};
+const SC={'dotloop':'#4f46e5','DocuSign':'#f59e0b','Email':'#6b7280','PDF':'#ef4444','Venmo':'#3b82f6'};
+function mi(m){if(m==='Prospecting')return -1;const i=MS.indexOf(m);return i>=0?i:-1;}
+function dtc(cd){if(!cd)return null;try{const parts=cd.split('/');if(parts.length===3){const d=new Date(parts[2],parts[0]-1,parts[1]);const now=new Date(2026,3,30);return Math.round((d-now)/86400000);}return null;}catch(e){return null;}}
+function sortProps(props){return props.sort((a,b)=>{const ma=a.current_milestone,mb=b.current_milestone;const da=dtc(a.closing_date),db=dtc(b.closing_date);if(ma==='Closed'&&mb!=='Closed')return 1;if(mb==='Closed'&&ma!=='Closed')return -1;if(ma==='Prospecting'&&mb!=='Prospecting')return 1;if(mb==='Prospecting'&&ma!=='Prospecting')return -1;if(da!==null&&db!==null)return da-db;if(da!==null)return -1;if(db!==null)return 1;return mi(mb)-mi(ma);});}
+function renderTimeline(current){const idx=mi(current);return '<div class="timeline">'+MS.map((m,i)=>{const c=i<idx?'#22c55e':i===idx?'#3b82f6':'#374151';return '<div class="tl-dot"><div class="dot" style="background:'+c+'"></div><span>'+m+'</span></div>';}).join('')+'</div>';}
+function renderCard(p){const phase=p.current_milestone;const pc=PC[phase]||'#6b7280';const sources=(p.sources||[]).map(s=>'<span class="src-badge" style="background:'+(SC[s]||'#6b7280')+'">'+s+'</span>').join('');
+let countdown='';const d=dtc(p.closing_date);if(d!==null){if(d===0)countdown='<div class="countdown" style="background:#ef4444;color:#fff">CLOSING TODAY</div>';else if(d<0)countdown='<div class="countdown" style="background:#22c55e;color:#fff">CLOSED '+Math.abs(d)+'d ago</div>';else if(d<=7)countdown='<div class="countdown" style="background:#f59e0b;color:#000">'+d+' days to closing</div>';else countdown='<div class="countdown" style="background:#1e293b;color:#94a3b8">'+d+' days to closing</div>';}
+const fin=p.financials||{};let finH='';if(Object.keys(fin).length){finH='<div style="margin-top:8px"><div class="section-title">Financials</div>'+Object.entries(fin).map(([k,v])=>'<div class="fin-row"><span class="fin-label">'+k.replace(/_/g,' ').replace(/\b\w/g,c=>c.toUpperCase())+'</span><span class="fin-val">'+v+'</span></div>').join('')+'</div>';}
+const contacts=p.contacts||[];let conH='';if(contacts.length){conH='<div style="margin-top:8px"><div class="section-title">Key Contacts</div>'+contacts.slice(0,6).map(c=>'<div class="contact"><strong>'+c.name+'</strong> <span class="role">\u2014 '+c.role+'</span></div>').join('')+(contacts.length>6?'<div style="font-size:11px;color:#6b7280">+'+(contacts.length-6)+' more</div>':'')+'</div>';}
+let dateH='';if(p.closing_date)dateH='<div style="margin-top:8px"><div class="section-title">Important Dates</div><div style="font-size:12px;color:#d1d5db">Closing: '+p.closing_date+'</div></div>';
+const actions=p.action_items||[];let actH='';if(actions.length){actH='<div style="margin-top:8px"><div class="section-title">Action Items</div>'+actions.slice(0,5).map(a=>'<div class="action">'+a+'</div>').join('')+(actions.length>5?'<div style="font-size:11px;color:#6b7280;padding-left:12px">+'+(actions.length-5)+' more</div>':'')+'</div>';}
+const updates=p.recent_updates||[];let updH='';if(updates.length){updH='<div style="margin-top:8px"><div class="section-title">Recent Updates</div>'+updates.slice(0,4).map(u=>'<div class="update"><span class="date">'+(u.date||'')+' </span>'+u.subject+' <span class="src">('+u.source+')</span></div>').join('')+'</div>';}
+return '<div class="card"><div class="card-header"><h2>'+p.address+'</h2><span class="badge" style="background:'+pc+'">'+phase+'</span></div><div style="margin-top:6px">'+sources+'</div>'+countdown+renderTimeline(phase)+'<div class="grid"><div>'+finH+conH+dateH+'</div><div>'+actH+updH+'</div></div></div>';}
+async function init(){try{const r=await fetch('properties_data.json?t='+Date.now());const data=await r.json();document.getElementById('lastUpdated').textContent='Last updated: '+data.last_updated+' | Dashboard auto-refreshes twice daily';const props=data.properties;const active=props.filter(p=>!['Closed','Prospecting'].includes(p.current_milestone));const closing=props.filter(p=>['Closing','Final Walkthrough'].includes(p.current_milestone));const rehab=props.filter(p=>p.current_milestone==='Repairs / Rehab');const closed=props.filter(p=>p.current_milestone==='Closed');const prospect=props.filter(p=>p.current_milestone==='Prospecting');document.getElementById('stats').innerHTML='<div class="stat"><div class="num" style="color:#3b82f6">'+active.length+'</div><div class="label">Active</div></div><div class="stat"><div class="num" style="color:#ef4444">'+closing.length+'</div><div class="label">At Closing</div></div><div class="stat"><div class="num" style="color:#eab308">'+rehab.length+'</div><div class="label">In Rehab</div></div><div class="stat"><div class="num" style="color:#22c55e">'+closed.length+'</div><div class="label">Closed</div></div><div class="stat"><div class="num" style="color:#6b7280">'+prospect.length+'</div><div class="label">Prospecting</div></div><div class="stat"><div class="num" style="color:#f1f5f9">'+props.length+'</div><div class="label">Total</div></div>';const sorted=sortProps([...props]);document.getElementById('container').innerHTML=sorted.map(renderCard).join('');}catch(e){document.getElementById('container').innerHTML='<div class="loading">Error loading data: '+e.message+'</div>';}}
+init();
+</script>
 </body>
 </html>
