@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-03T08:01:00-04:00",
+  "last_updated": "2026-05-03T18:01:00-04:00",
   "properties": [
     {
       "address": "297 Breckwood Blvd, Springfield, MA 01109",
@@ -127,7 +127,7 @@
     {
       "address": "167 East Park Terrace, Pittsfield, MA 01201",
       "current_milestone": "Financing",
-      "closing_date": "5/8/2026",
+      "closing_date": "5/7/2026",
       "sources": [
         "Email",
         "PDF"
@@ -138,7 +138,11 @@
           "role": "Attorney"
         },
         {
-          "name": "John Nowakowski",
+          "name": "Linda Duverger",
+          "role": "Lender (Pinnacle Financial)"
+        },
+        {
+          "name": "Kasia Wneta",
           "role": "Lender (Pinnacle Financial)"
         },
         {
@@ -148,24 +152,54 @@
         {
           "name": "Kevin Bruyette",
           "role": "Contact"
+        },
+        {
+          "name": "Jeffrey Burstein",
+          "role": "Attorney (Burstein Law)"
+        },
+        {
+          "name": "Shamikka Burstein",
+          "role": "Attorney (Burstein Law)"
         }
       ],
-      "financials": {},
+      "financials": {
+        "purchase_price": "145000",
+        "rehab_budget": "50000",
+        "total_loan": "166000",
+        "funds_at_closing": "116000",
+        "construction_advance": "50000",
+        "points": "4980",
+        "rate": "12.00%",
+        "term": "12 months",
+        "lender_fees": "570"
+      },
       "recent_updates": [
+        {
+          "date": "2026-05-03",
+          "subject": "David Burstein sent preliminary closing docs to Pinnacle; closing moved up to May 7; waiting on insurance binder and tax info; Will McGuire to sign remotely",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-29",
+          "subject": "Pinnacle Financial approved financing; checklist and funding sheet sent",
+          "source": "Email"
+        },
         {
           "date": "2026-04-25",
           "subject": "Insurance binder and financing docs in progress",
           "source": "Email"
         },
         {
-          "date": "2026-04-23",
-          "subject": "Closing date set for May 8",
+          "date": "2026-04-21",
+          "subject": "Pinnacle received financing request; proposed terms shared",
           "source": "Email"
         }
       ],
       "action_items": [
-        "Confirm closing May 8",
-        "Finalize insurance binder"
+        "GET INSURANCE BINDER TO PINNACLE ASAP - closing May 7",
+        "Provide tax identification numbers for borrower and guarantors",
+        "Will McGuire needs to sign loan package remotely",
+        "Overnight signed documents back to Burstein office"
       ]
     },
     {
