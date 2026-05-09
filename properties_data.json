@@ -1,166 +1,71 @@
 {
-  "last_updated": "2026-05-04T08:01:00-04:00",
+  "last_updated": "2026-05-09T15:24:27-04:00",
   "properties": [
     {
       "address": "297 Breckwood Blvd, Springfield, MA 01109",
       "current_milestone": "Closed",
       "closing_date": "4/13/2026",
-      "sources": [
-        "dotloop",
-        "Email"
-      ],
+      "sources": ["dotloop", "Email"],
       "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Agent"
-        },
-        {
-          "name": "David Burstein",
-          "role": "Attorney"
-        },
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        }
+        {"name": "Alice Kempf", "role": "Agent"},
+        {"name": "David Burstein", "role": "Attorney"},
+        {"name": "Jessica Sicard", "role": "Project Manager"}
       ],
       "financials": {},
       "recent_updates": [
-        {
-          "date": "2026-04-13",
-          "subject": "Closing date reached",
-          "source": "Email"
-        },
-        {
-          "subject": "Repairs priority",
-          "source": "Email"
-        },
-        {
-          "subject": "FHA Amendatory signed",
-          "source": "dotloop"
-        }
+        {"date": "2026-04-13", "subject": "Closing date reached", "source": "Email"},
+        {"subject": "Repairs priority", "source": "Email"},
+        {"subject": "FHA Amendatory signed", "source": "dotloop"}
       ]
     },
     {
       "address": "29 Chestnut Dr, Belchertown, MA 01007",
       "current_milestone": "Closed",
       "closing_date": "4/14/2026",
-      "sources": [
-        "dotloop",
-        "Email"
-      ],
+      "sources": ["dotloop", "Email"],
       "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Agent"
-        },
-        {
-          "name": "David Burstein",
-          "role": "Attorney"
-        },
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        }
+        {"name": "Alice Kempf", "role": "Agent"},
+        {"name": "David Burstein", "role": "Attorney"},
+        {"name": "Jessica Sicard", "role": "Project Manager"}
       ],
       "financials": {},
       "recent_updates": [
-        {
-          "date": "2026-04-14",
-          "subject": "Closing completed",
-          "source": "Email"
-        }
+        {"date": "2026-04-14", "subject": "Closing completed", "source": "Email"}
       ]
     },
     {
       "address": "4 School St, Ware, MA 01082",
       "current_milestone": "Financing",
       "closing_date": null,
-      "sources": [
-        "Email",
-        "PDF"
-      ],
+      "sources": ["Email", "PDF"],
       "contacts": [
-        {
-          "name": "David Burstein",
-          "role": "Attorney"
-        },
-        {
-          "name": "David Chase",
-          "role": "Lender"
-        },
-        {
-          "name": "Michelle Fama",
-          "role": "Loan Processing"
-        },
-        {
-          "name": "Ruby Lending LLC",
-          "role": "Lender"
-        },
-        {
-          "name": "Freedom Credit Union",
-          "role": "Lender (FCU)"
-        }
+        {"name": "David Burstein", "role": "Attorney"},
+        {"name": "David Chase", "role": "Lender"},
+        {"name": "Michelle Fama", "role": "Loan Processing"},
+        {"name": "Ruby Lending LLC", "role": "Lender"},
+        {"name": "Freedom Credit Union", "role": "Lender (FCU)"}
       ],
-      "financials": {
-        "closing_costs": "34355"
-      },
+      "financials": {"closing_costs": "34355"},
       "recent_updates": [
-        {
-          "date": "2026-04-23",
-          "subject": "Loan documents and closing costs under review",
-          "source": "Email"
-        },
-        {
-          "date": "2026-04-22",
-          "subject": "FCU loan payoff and settlement figures shared",
-          "source": "PDF"
-        },
-        {
-          "subject": "Ruby Lending LLC financing docs reviewed",
-          "source": "Email"
-        }
+        {"date": "2026-04-23", "subject": "Loan documents and closing costs under review", "source": "Email"},
+        {"date": "2026-04-22", "subject": "FCU loan payoff and settlement figures shared", "source": "PDF"},
+        {"subject": "Ruby Lending LLC financing docs reviewed", "source": "Email"}
       ],
-      "action_items": [
-        "Follow up on closing date once financing finalizes"
-      ]
+      "action_items": ["Follow up on closing date once financing finalizes"]
     },
     {
       "address": "167 East Park Terrace, Pittsfield, MA 01201",
       "current_milestone": "Financing",
       "closing_date": "5/7/2026",
-      "sources": [
-        "Email",
-        "PDF"
-      ],
+      "sources": ["Email", "PDF"],
       "contacts": [
-        {
-          "name": "David Burstein",
-          "role": "Attorney"
-        },
-        {
-          "name": "Linda Duverger",
-          "role": "Lender (Pinnacle Financial)"
-        },
-        {
-          "name": "Kasia Wneta",
-          "role": "Lender (Pinnacle Financial)"
-        },
-        {
-          "name": "Adina Edgett",
-          "role": "Insurance"
-        },
-        {
-          "name": "Kevin Bruyette",
-          "role": "Contact"
-        },
-        {
-          "name": "Jeffrey Burstein",
-          "role": "Attorney (Burstein Law)"
-        },
-        {
-          "name": "Shamikka Burstein",
-          "role": "Attorney (Burstein Law)"
-        }
+        {"name": "David Burstein", "role": "Attorney"},
+        {"name": "Linda Duverger", "role": "Lender (Pinnacle Financial)"},
+        {"name": "Kasia Wneta", "role": "Lender (Pinnacle Financial)"},
+        {"name": "Adina Edgett", "role": "Insurance"},
+        {"name": "Kevin Bruyette", "role": "Contact"},
+        {"name": "Jeffrey Burstein", "role": "Attorney (Burstein Law)"},
+        {"name": "Shamikka Burstein", "role": "Attorney (Burstein Law)"}
       ],
       "financials": {
         "purchase_price": "145000",
@@ -174,26 +79,10 @@
         "lender_fees": "570"
       },
       "recent_updates": [
-        {
-          "date": "2026-05-03",
-          "subject": "David Burstein sent preliminary closing docs to Pinnacle; closing moved up to May 7; waiting on insurance binder and tax info; Will McGuire to sign remotely",
-          "source": "Email"
-        },
-        {
-          "date": "2026-04-29",
-          "subject": "Pinnacle Financial approved financing; checklist and funding sheet sent",
-          "source": "Email"
-        },
-        {
-          "date": "2026-04-25",
-          "subject": "Insurance binder and financing docs in progress",
-          "source": "Email"
-        },
-        {
-          "date": "2026-04-21",
-          "subject": "Pinnacle received financing request; proposed terms shared",
-          "source": "Email"
-        }
+        {"date": "2026-05-03", "subject": "David Burstein sent preliminary closing docs to Pinnacle; closing moved up to May 7; waiting on insurance binder and tax info; Will McGuire to sign remotely", "source": "Email"},
+        {"date": "2026-04-29", "subject": "Pinnacle Financial approved financing; checklist and funding sheet sent", "source": "Email"},
+        {"date": "2026-04-25", "subject": "Insurance binder and financing docs in progress", "source": "Email"},
+        {"date": "2026-04-21", "subject": "Pinnacle received financing request; proposed terms shared", "source": "Email"}
       ],
       "action_items": [
         "GET INSURANCE BINDER TO PINNACLE ASAP - closing May 7",
@@ -206,426 +95,209 @@
       "address": "70 Town Hill Road, Middlefield, MA 01243",
       "current_milestone": "Closed",
       "closing_date": "4/29/2026",
-      "sources": [
-        "Email"
-      ],
-      "contacts": [
-        {
-          "name": "David Burstein",
-          "role": "Attorney"
-        }
-      ],
+      "sources": ["Email"],
+      "contacts": [{"name": "David Burstein", "role": "Attorney"}],
       "financials": {},
       "recent_updates": [
-        {
-          "date": "2026-04-29",
-          "subject": "Closing completed",
-          "source": "Email"
-        }
+        {"date": "2026-04-29", "subject": "Closing completed", "source": "Email"}
       ]
     },
     {
       "address": "40 Roland St, Pittsfield, MA 01201",
       "current_milestone": "Closing",
       "closing_date": null,
-      "sources": [
-        "dotloop",
-        "Email"
-      ],
+      "sources": ["dotloop", "Email"],
       "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Agent"
-        },
-        {
-          "name": "David Burstein",
-          "role": "Attorney"
-        },
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        }
+        {"name": "Alice Kempf", "role": "Agent"},
+        {"name": "David Burstein", "role": "Attorney"},
+        {"name": "Jessica Sicard", "role": "Project Manager"}
       ],
       "financials": {},
       "recent_updates": [
-        {
-          "date": "2026-05-01",
-          "subject": "Closing Date Addendum signed via dotloop by Alice Kempf",
-          "source": "dotloop"
-        },
-        {
-          "date": "2026-04-29",
-          "subject": "Closing preparations underway",
-          "source": "Email"
-        },
-        {
-          "subject": "Title search completed",
-          "source": "Email"
-        }
+        {"date": "2026-05-01", "subject": "Closing Date Addendum signed via dotloop by Alice Kempf", "source": "dotloop"},
+        {"date": "2026-04-29", "subject": "Closing preparations underway", "source": "Email"},
+        {"subject": "Title search completed", "source": "Email"}
       ],
-      "action_items": [
-        "Confirm new closing date from addendum",
-        "Coordinate final walkthrough"
-      ]
+      "action_items": ["Confirm new closing date from addendum", "Coordinate final walkthrough"]
     },
     {
       "address": "21 Holly St, Greenfield, MA",
       "current_milestone": "Repairs / Rehab",
       "closing_date": null,
-      "sources": [
-        "Email"
-      ],
-      "contacts": [
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        }
-      ],
+      "sources": ["Email"],
+      "contacts": [{"name": "Jessica Sicard", "role": "Project Manager"}],
       "financials": {},
       "recent_updates": [
-        {
-          "date": "2026-04-22",
-          "subject": "Rehab work in progress",
-          "source": "Email"
-        }
+        {"date": "2026-04-22", "subject": "Rehab work in progress", "source": "Email"}
       ]
     },
     {
       "address": "1874 Home Rd, Sheffield, MA",
       "current_milestone": "Repairs / Rehab",
       "closing_date": null,
-      "sources": [
-        "Email"
-      ],
-      "contacts": [
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        }
-      ],
+      "sources": ["Email"],
+      "contacts": [{"name": "Jessica Sicard", "role": "Project Manager"}],
       "financials": {},
       "recent_updates": [
-        {
-          "date": "2026-04-22",
-          "subject": "Rehab work in progress",
-          "source": "Email"
-        }
+        {"date": "2026-04-22", "subject": "Rehab work in progress", "source": "Email"}
       ]
     },
     {
       "address": "1 Richmond Ln, Pittsfield, MA",
       "current_milestone": "Repairs / Rehab",
       "closing_date": null,
-      "sources": [
-        "Email"
-      ],
-      "contacts": [
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        }
-      ],
+      "sources": ["Email"],
+      "contacts": [{"name": "Jessica Sicard", "role": "Project Manager"}],
       "financials": {},
       "recent_updates": [
-        {
-          "date": "2026-04-22",
-          "subject": "Rehab work in progress",
-          "source": "Email"
-        }
+        {"date": "2026-04-22", "subject": "Rehab work in progress", "source": "Email"}
       ]
     },
     {
       "address": "42 Washington St, Monson, MA 01057",
       "current_milestone": "Repairs / Rehab",
       "closing_date": null,
-      "sources": [
-        "dotloop",
-        "Email"
-      ],
+      "sources": ["dotloop", "Email"],
       "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Agent"
-        },
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        }
+        {"name": "Alice Kempf", "role": "Agent"},
+        {"name": "Jessica Sicard", "role": "Project Manager"}
       ],
       "financials": {},
       "recent_updates": [
-        {
-          "date": "2026-05-01",
-          "subject": "6 listing documents signed via dotloop: Exclusive Right to Sell, Lead Paint Notification, Inspection Disclosure, Licensee-Consumer Disclosure, Buyer Broker Compensation Auth, Deferral of Showings",
-          "source": "dotloop"
-        },
-        {
-          "date": "2026-04-22",
-          "subject": "Rehab work in progress",
-          "source": "Email"
-        }
+        {"date": "2026-05-01", "subject": "6 listing documents signed via dotloop: Exclusive Right to Sell, Lead Paint Notification, Inspection Disclosure, Licensee-Consumer Disclosure, Buyer Broker Compensation Auth, Deferral of Showings", "source": "dotloop"},
+        {"date": "2026-04-22", "subject": "Rehab work in progress", "source": "Email"}
       ],
-      "action_items": [
-        "Property listing docs signed - confirm listing go-live date with Alice Kempf"
-      ]
+      "action_items": ["Property listing docs signed - confirm listing go-live date with Alice Kempf"]
     },
     {
       "address": "54 Sectar Rd, Ashford, CT 06278",
       "current_milestone": "Under Contract",
       "closing_date": null,
-      "sources": [
-        "Email"
-      ],
+      "sources": ["Email"],
       "contacts": [
-        {
-          "name": "Russell Cable",
-          "role": "Partner (Wicked Deals LLC)"
-        },
-        {
-          "name": "Kevin Shippee",
-          "role": "Partner"
-        }
+        {"name": "Russell Cable", "role": "Partner (Wicked Deals LLC)"},
+        {"name": "Kevin Shippee", "role": "Partner"}
       ],
       "financials": {},
       "recent_updates": [
-        {
-          "date": "2026-04-22",
-          "subject": "Property under contract; team coordinating next steps",
-          "source": "Email"
-        }
+        {"date": "2026-04-22", "subject": "Property under contract; team coordinating next steps", "source": "Email"}
       ],
-      "action_items": [
-        "Schedule inspection",
-        "Coordinate title search"
-      ]
+      "action_items": ["Schedule inspection", "Coordinate title search"]
     },
     {
       "address": "282-284 Suffolk Street, Holyoke, MA",
       "current_milestone": "Prospecting",
       "closing_date": null,
-      "sources": [
-        "Email"
-      ],
+      "sources": ["Email"],
       "contacts": [],
       "financials": {},
       "recent_updates": [
-        {
-          "date": "2026-04-22",
-          "subject": "Property identified as potential acquisition",
-          "source": "Email"
-        }
+        {"date": "2026-04-22", "subject": "Property identified as potential acquisition", "source": "Email"}
       ]
     },
     {
       "address": "Egremont Project, Egremont, MA",
       "current_milestone": "Prospecting",
       "closing_date": null,
-      "sources": [
-        "Email"
-      ],
+      "sources": ["Email"],
       "contacts": [],
       "financials": {},
       "recent_updates": [
-        {
-          "date": "2026-04-22",
-          "subject": "Project in early prospecting phase",
-          "source": "Email"
-        }
+        {"date": "2026-04-22", "subject": "Project in early prospecting phase", "source": "Email"}
       ]
     },
     {
       "address": "213 Brodie Mountain Rd, Hancock, MA 01237",
       "current_milestone": "Closed",
       "closing_date": "4/30/2026",
-      "sources": [
-        "Email"
-      ],
-      "contacts": [
-        {
-          "name": "David Burstein",
-          "role": "Attorney"
-        }
-      ],
+      "sources": ["Email"],
+      "contacts": [{"name": "David Burstein", "role": "Attorney"}],
       "financials": {},
       "recent_updates": [
-        {
-          "date": "2026-04-30",
-          "subject": "Closing completed",
-          "source": "Email"
-        }
+        {"date": "2026-04-30", "subject": "Closing completed", "source": "Email"}
       ]
     },
     {
       "address": "11 Bryant St, Springfield, MA",
       "current_milestone": "Closed",
       "closing_date": null,
-      "sources": [
-        "Email"
-      ],
-      "contacts": [
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        }
-      ],
+      "sources": ["Email"],
+      "contacts": [{"name": "Jessica Sicard", "role": "Project Manager"}],
       "financials": {},
       "recent_updates": [
-        {
-          "date": "2026-04-29",
-          "subject": "Detailed financial breakdown: YB owed $8,670.50 after settlement",
-          "source": "Email"
-        }
+        {"date": "2026-04-29", "subject": "Detailed financial breakdown: YB owed $8,670.50 after settlement", "source": "Email"}
       ],
-      "action_items": [
-        "Final payment approved; confirm listing date",
-        "Track YB settlement amount"
-      ]
+      "action_items": ["Final payment approved; confirm listing date", "Track YB settlement amount"]
     },
     {
       "address": "100 Central St (New Property)",
       "current_milestone": "Repairs / Rehab",
       "closing_date": null,
-      "sources": [
-        "Email"
-      ],
+      "sources": ["Email"],
       "contacts": [],
       "financials": {},
       "recent_updates": [
-        {
-          "date": "2026-04-24",
-          "subject": "New property acquired; rehab planning",
-          "source": "Email"
-        }
+        {"date": "2026-04-24", "subject": "New property acquired; rehab planning", "source": "Email"}
       ]
     },
     {
       "address": "300 Tyler St, Pittsfield, MA 01201",
       "current_milestone": "Title & Escrow",
       "closing_date": null,
-      "sources": [
-        "Email",
-        "PDF"
-      ],
+      "sources": ["Email", "PDF"],
       "contacts": [
-        {
-          "name": "William Martin",
-          "role": "Attorney (Martin Law Offices)"
-        },
-        {
-          "name": "Tina Radke",
-          "role": "Paralegal (Martin Law Offices)"
-        }
+        {"name": "William Martin", "role": "Attorney (Martin Law Offices)"},
+        {"name": "Tina Radke", "role": "Paralegal (Martin Law Offices)"}
       ],
       "financials": {},
       "recent_updates": [
-        {
-          "date": "2026-04-30",
-          "subject": "Appraisal received from attorney William Martin; review and call requested",
-          "source": "Email"
-        },
-        {
-          "date": "2026-04-30",
-          "subject": "Matt sent signed documents back to attorney",
-          "source": "Email"
-        },
-        {
-          "date": "2026-04-28",
-          "subject": "Payoff statement draft received - more fees/costs to be added",
-          "source": "Email"
-        },
-        {
-          "date": "2026-04-27",
-          "subject": "Environmental report came back clean; documents for countersigning by Yellow Brick Property LLC",
-          "source": "Email"
-        }
+        {"date": "2026-04-30", "subject": "Appraisal received from attorney William Martin; review and call requested", "source": "Email"},
+        {"date": "2026-04-30", "subject": "Matt sent signed documents back to attorney", "source": "Email"},
+        {"date": "2026-04-28", "subject": "Payoff statement draft received - more fees/costs to be added", "source": "Email"},
+        {"date": "2026-04-27", "subject": "Environmental report came back clean; documents for countersigning by Yellow Brick Property LLC", "source": "Email"}
       ],
-      "action_items": [
-        "Call William Martin re: appraisal and final payoff figures",
-        "Review payoff statement once fees/costs finalized"
-      ]
+      "action_items": ["Call William Martin re: appraisal and final payoff figures", "Review payoff statement once fees/costs finalized"]
     },
     {
       "address": "166 East St, Stafford, CT 06076",
       "current_milestone": "Under Contract",
       "closing_date": null,
-      "sources": [
-        "Email"
-      ],
+      "sources": ["Email"],
       "contacts": [],
       "financials": {},
       "recent_updates": [
-        {
-          "date": "2026-04-25",
-          "subject": "Property under contract",
-          "source": "Email"
-        }
+        {"date": "2026-04-25", "subject": "Property under contract", "source": "Email"}
       ]
     },
     {
       "address": "583 Hawks Spur Rd, Plymouth, VT",
       "current_milestone": "Prospecting",
       "closing_date": null,
-      "sources": [
-        "Email"
-      ],
+      "sources": ["Email"],
       "contacts": [],
       "financials": {},
       "recent_updates": [
-        {
-          "date": "2026-04-25",
-          "subject": "Property in prospecting phase",
-          "source": "Email"
-        }
+        {"date": "2026-04-25", "subject": "Property in prospecting phase", "source": "Email"}
       ]
     },
     {
       "address": "103 Prospect St (Potential Sale)",
       "current_milestone": "Inspections",
       "closing_date": null,
-      "sources": [
-        "Email"
-      ],
+      "sources": ["Email"],
       "contacts": [
-        {
-          "name": "Ryan O'Hara",
-          "role": "Attorney (Bacon Wilson)"
-        },
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        },
-        {
-          "name": "Hunter Foote",
-          "role": "Buyer (Vanderburgh Sober Living)"
-        }
+        {"name": "Ryan O'Hara", "role": "Attorney (Bacon Wilson)"},
+        {"name": "Jessica Sicard", "role": "Project Manager"},
+        {"name": "Hunter Foote", "role": "Buyer (Vanderburgh Sober Living)"}
       ],
       "financials": {},
       "recent_updates": [
-        {
-          "date": "2026-05-01",
-          "subject": "Attorney Ryan O'Hara shared code violations with buyer Hunter Foote (Vanderburgh Sober Living); Matt approved sharing",
-          "source": "Email"
-        },
-        {
-          "date": "2026-05-01",
-          "subject": "Hunter Foote requested all notices of violation; will purchase as-is condition",
-          "source": "Email"
-        },
-        {
-          "date": "2026-04-30",
-          "subject": "Jessica confirmed last violations notice was Nov 2025; many items corrected since",
-          "source": "Email"
-        },
-        {
-          "date": "2026-04-28",
-          "subject": "Potential buyer Hunter Foote in discussions",
-          "source": "Email"
-        }
+        {"date": "2026-05-01", "subject": "Attorney Ryan O'Hara shared code violations with buyer Hunter Foote (Vanderburgh Sober Living); Matt approved sharing", "source": "Email"},
+        {"date": "2026-05-01", "subject": "Hunter Foote requested all notices of violation; will purchase as-is condition", "source": "Email"},
+        {"date": "2026-04-30", "subject": "Jessica confirmed last violations notice was Nov 2025; many items corrected since", "source": "Email"},
+        {"date": "2026-04-28", "subject": "Potential buyer Hunter Foote in discussions", "source": "Email"}
       ],
-      "action_items": [
-        "Await Hunter Foote settlement offer from Vanderburgh",
-        "Do NOT contact Code Enforcement - avoid prompting closer attention"
-      ]
+      "action_items": ["Await Hunter Foote settlement offer from Vanderburgh", "Do NOT contact Code Enforcement - avoid prompting closer attention"]
     }
   ]
 }
