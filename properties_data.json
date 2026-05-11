@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-10T18:01:00-04:00",
+  "last_updated": "2026-05-11T08:03:03-04:00",
   "properties": [
     {
       "address": "297 Breckwood Blvd, Springfield, MA 01109",
@@ -7,7 +7,7 @@
       "closing_date": "4/13/2026",
       "sources": [
         "dotloop",
-        "Email"
+        "Email"h
       ],
       "contacts": [
         {
