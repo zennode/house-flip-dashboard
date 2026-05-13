@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-12T08:01:37-04:00",
+  "last_updated": "2026-05-13T18:00:00-04:00",
   "properties": [
     {
       "address": "297 Breckwood Blvd, Springfield, MA 01109",
@@ -98,8 +98,8 @@
       "sources": ["dotloop", "Email"],
       "contacts": [{"name": "Alice Kempf", "role": "Agent"}, {"name": "Jessica Sicard", "role": "Project Manager"}],
       "financials": {},
-      "recent_updates": [{"date": "2026-05-01", "subject": "6 listing documents signed via dotloop", "source": "dotloop"}],
-      "action_items": []
+      "recent_updates": [{"date": "2026-05-13", "subject": "Alice Kempf shared Contract To Purchase Real Estate (Offer #501) via Dotloop for review", "source": "dotloop"}, {"date": "2026-05-01", "subject": "6 listing documents signed via dotloop", "source": "dotloop"}],
+      "action_items": ["Review and sign Contract To Purchase Real Estate (Offer #501) in Dotloop"]
     },
     {
       "address": "54 Sectar Rd, Ashford, CT 06278",
@@ -196,10 +196,10 @@
       "current_milestone": "Inspections",
       "closing_date": null,
       "sources": ["Email"],
-      "contacts": [],
+      "contacts": [{"name": "Ryan O'Hara", "role": "Attorney (Bacon Wilson)"}, {"name": "Hunter Foote", "role": "Prospective Buyer (Vanderburgh)"}],
       "financials": {},
-      "recent_updates": [{"date": "2026-05-08", "subject": "Potential buyer Hunter Foote in discussions", "source": "Email"}],
-      "action_items": ["Await Hunter Foote settlement offer from Vanderburgh", "Do NOT contact Code Enforcement - avoid prompting closer attention"]
+      "recent_updates": [{"date": "2026-05-13", "subject": "Hunter Foote submitted new lower offer via attorney; Matt rejected as going backwards. O'Hara notes buyer banking on immediate close as incentive", "source": "Email"}, {"date": "2026-05-13", "subject": "Eviction court first tier event scheduled for May 28", "source": "Email"}, {"date": "2026-05-08", "subject": "Potential buyer Hunter Foote in discussions", "source": "Email"}],
+      "action_items": ["Eviction court first tier event May 28", "Await revised offer from Hunter Foote / Vanderburgh", "Do NOT contact Code Enforcement - avoid prompting closer attention"]
     }
   ]
 }
