@@ -308,18 +308,24 @@ function renderCard(p){
   let html = '<div class="card">';
   html += '<div class="card-header"><div class="card-address">'+p.address+'</div>';
   html += '<span class="badge '+getBadgeClass(p.current_milestone)+'">'+p.current_milestone+'</span></div>';
+  
   if(p.sources && p.sources.length){
     html += '<div class="source-badges">';
     p.sources.forEach(s=>html+='<span class="src-badge">'+s+'</span>');
     html += '</div>';
   }
+  
   if(days!==null){
     if(days>0) html += '<div class="countdown">ð '+days+' day'+(days!==1?'s':'')+' to closing ('+p.closing_date+')</div>';
     else if(days===0) html += '<div class="countdown" style="color:var(--red)">ð´ CLOSING TODAY ('+p.closing_date+')</div>';
     else html += '<div class="countdown" style="color:var(--text-muted)">Closed '+Math.abs(days)+' days ago ('+p.closing_date+')</div>';
   }
+  
   if(p.current_milestone!=='Prospecting') html += renderTimeline(p.current_milestone);
+  
   html += '<div class="sections">';
+  
+  // Financials
   if(p.financials && Object.keys(p.financials).length){
     html += '<div class="section"><div class="section-title">Financials</div>';
     Object.entries(p.financials).forEach(([k,v])=>{
@@ -328,24 +334,32 @@ function renderCard(p){
     });
     html += '</div>';
   }
+  
+  // Contacts
   if(p.contacts && p.contacts.length){
     html += '<div class="section"><div class="section-title">Key Contacts</div>';
     p.contacts.forEach(c=>html+='<div class="section-item">'+c.name+' <span class="section-item-label">('+c.role+')</span></div>');
     html += '</div>';
   }
+  
+  // Dates
   if(p.closing_date){
     html += '<div class="section"><div class="section-title">Important Dates</div>';
     html += '<div class="section-item"><span class="section-item-label">Closing:</span> '+p.closing_date+'</div>';
     html += '</div>';
   }
+  
+  // Action Items
   if(p.action_items && p.action_items.length){
     html += '<div class="section"><div class="section-title">Action Items</div>';
     p.action_items.forEach(a=>html+='<div class="action-item">'+a+'</div>');
     html += '</div>';
   }
+  
+  // Recent Updates
   if(p.recent_updates && p.recent_updates.length){
     html += '<div class="section full-width"><div class="section-title">Recent Updates</div>';
-    p.recent_updates.slice(0,3).forEach(u=>{
+    p.recent_updates.slice(0,4).forEach(u=>{
       html += '<div class="section-item">';
       if(u.date) html += '<span class="update-date">'+u.date+'</span>';
       html += u.subject;
@@ -354,17 +368,41 @@ function renderCard(p){
     });
     html += '</div>';
   }
+  
   html += '</div></div>';
   return html;
 }
+
 function render(){
   const props = DATA.properties;
   const active = props.filter(p=>p.current_milestone!=='Closed'&&p.current_milestone!=='Prospecting');
   const atClosing = props.filter(p=>p.current_milestone==='Closing');
   const inRehab = props.filter(p=>p.current_milestone==='Repairs / Rehab');
+  
   const updated = new Date(DATA.last_updated);
-  const timeStr = updated.toLocaleString('en-US',{month:'short',day:'numeric',year:'numeric'+hour:'numeric",minute:'2-digit',timeZoneName:'short'});
-  document.body.innerHTML = `<div class="header"><div><h1>ð  House Flip Closing Coordinator</h1><div class="header-meta">Last updated: ${timeStr}</div></div><div class="stats"><div class="stat"><div class="stat-num">${active.length}</div><div class="stat-label">Active Properties</div></div><div class="stat"><div class="stat-num">${atClosing.length}</div><div class="stat-label">At Closing</div></div><div class="stat"><div class="stat-num">${inRehab.length}</div><div class="stat-label">In Rehab</div></div></div></div><div class="container"><div class="cards">${props.filter(p=>p.current_milestone!=='Closed'&&p.current_milestone!=='Prospecting').map(renderCard).join('')}${props.filter(p=>p.current_milestone==='Prospecting').map(renderCard).join('')}${props.filter(p=>p.current_milestone==='Closed').map(renderCard).join('')}</div></div>`;}
+  const timeStr = updated.toLocaleString('en-US',{month:'short',day:'numeric',year:'numeric',hour:'numeric',minute:'2-digit',timeZoneName:'short'});
+  
+  document.body.innerHTML = `
+    <div class="header">
+      <div>
+        <h1>ð  House Flip Closing Coordinator</h1>
+        <div class="header-meta">Last updated: ${timeStr}</div>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="stat-num">${active.length}</div><div class="stat-label">Active Properties</div></div>
+        <div class="stat"><div class="stat-num">${atClosing.length}</div><div class="stat-label">At Closing</div></div>
+        <div class="stat"><div class="stat-num">${inRehab.length}</div><div class="stat-label">In Rehab</div></div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="cards">
+        ${props.filter(p=>p.current_milestone!=='Closed'&&p.current_milestone!=='Prospecting').map(renderCard).join('')}
+        ${props.filter(p=>p.current_milestone==='Prospecting').map(renderCard).join('')}
+        ${props.filter(p=>p.current_milestone==='Closed').map(renderCard).join('')}
+      </div>
+    </div>
+  `;
+}
 render();
 </script>
 </body>
