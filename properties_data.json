@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-13T18:18:00-04:00",
+  "last_updated": "2026-05-14T08:02:00-04:00",
   "properties": [
     {
       "address": "297 Breckwood Blvd, Springfield, MA 01109",
@@ -93,13 +93,13 @@
     },
     {
       "address": "42 Washington St, Monson, MA 01057",
-      "current_milestone": "Repairs / Rehab",
+      "current_milestone": "Closing",
       "closing_date": null,
       "sources": ["dotloop", "Email"],
       "contacts": [{"name": "Alice Kempf", "role": "Agent"}, {"name": "Jessica Sicard", "role": "Project Manager"}],
       "financials": {},
-      "recent_updates": [{"date": "2026-05-13", "subject": "Alice Kempf shared Contract To Purchase Real Estate (Offer #501, revision 7) via Dotloop for review â active buyer negotiation", "source": "dotloop"}, {"date": "2026-05-01", "subject": "6 listing documents signed via dotloop", "source": "dotloop"}],
-      "action_items": ["Review and sign Contract To Purchase Real Estate (Offer #501, rev 7) in Dotloop"]
+      "recent_updates": [{"date": "2026-05-13", "subject": "Contract To Purchase Real Estate (Offer #501, rev 7) signed in dotloop; property now under contract for sale", "source": "dotloop"}, {"date": "2026-05-13", "subject": "Matt notified Jessica: 42 Washington under contract", "source": "Email"}, {"date": "2026-05-13", "subject": "Alice Kempf shared Contract To Purchase Real Estate (Offer #501, revision 7) via Dotloop for review", "source": "dotloop"}, {"date": "2026-05-01", "subject": "6 listing documents signed via dotloop", "source": "dotloop"}],
+      "action_items": ["Await buyer inspection and title work", "Follow up on closing date"]
     },
     {
       "address": "54 Sectar Rd, Ashford, CT 06278",
