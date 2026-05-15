@@ -1,5 +1,5 @@
 {
-"last_updated": "2026-05-15T08:01:00-04:00",
+"last_updated": "2026-05-15T18:01:00-04:00",
 "properties": [
 {
 "address": "297 Breckwood Blvd, Springfield, MA 01109",
@@ -210,6 +210,16 @@
 "financials": {"arv_2br": "379900", "arv_3br": "439900-480000"},
 "recent_updates": [{"date": "2026-05-15", "subject": "Alice Kempf sent CMA: 2BR ARV $379,900; 3BR ARV $439,900-$480,000. Previous listing PDF attached. Room with fireplace could be converted to MBR suite. Full bath on each floor confirmed.", "source": "Email"}, {"date": "2026-05-15", "subject": "Matt forwarded CMA to Antonio at Investarters for review", "source": "Email"}],
 "action_items": ["Evaluate whether room can be converted to MBR suite for 3BR pricing", "Await Antonio's feedback on deal viability", "Review previous listing details from PDF"]
+},
+{
+"address": "26 Old Putnam Rd Ext, Plainfield, CT 06239",
+"current_milestone": "Prospecting",
+"closing_date": null,
+"sources": ["Email", "PDF"],
+"contacts": [{"name": "Alice Kempf", "role": "Agent"}],
+"financials": {"arv_estimate": "429000"},
+"recent_updates": [{"date": "2026-05-15", "subject": "Alice Kempf sent CMA with ARV ~$429k. Sloping backyard noted from previous listing may reduce value. Two PDF reports attached (CMA and previous listing).", "source": "Email"}, {"date": "2026-05-15", "subject": "Matt acknowledged receipt of CMA", "source": "Email"}],
+"action_items": ["Review CMA reports for pricing accuracy", "Assess impact of sloping backyard on value", "Determine offer strategy"]
 }
 ]
 }
