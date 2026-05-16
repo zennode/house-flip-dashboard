@@ -1,631 +1,225 @@
 {
-  "last_updated": "2026-05-16T08:03:36-04:00",
-  "properties": [
-    {
-      "address": "297 Breckwood Blvd, Springfield, MA 01109",
-      "current_milestone": "Closed",
-      "closing_date": "4/13/2026",
-      "sources": [
-        "dotloop",
-        "Email"
-      ],
-      "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Agent"
-        },
-        {
-          "name": "David Burstein",
-          "role": "Attorney"
-        },
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        }
-      ],
-      "financials": {},
-      "recent_updates": [
-        {
-          "date": "2026-04-13",
-          "subject": "Closing date reached",
-          "source": "Email"
-        },
-        {
-          "subject": "Repairs priority",
-          "source": "Email"
-        },
-        {
-          "subject": "FHA Amendatory signed",
-          "source": "dotloop"
-        }
-      ],
-      "action_items": []
-    },
-    {
-      "address": "29 Chestnut Dr, Belchertown, MA 01007",
-      "current_milestone": "Closed",
-      "closing_date": "4/14/2026",
-      "sources": [
-        "dotloop",
-        "Email"
-      ],
-      "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Agent"
-        },
-        {
-          "name": "David Burstein",
-          "role": "Attorney"
-        },
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        }
-      ],
-      "financials": {},
-      "recent_updates": [
-        {
-          "date": "2026-04-14",
-          "subject": "Closing date reached",
-          "source": "Email"
-        }
-      ],
-      "action_items": []
-    },
-    {
-      "address": "4 School St, Ware, MA 01082",
-      "current_milestone": "Financing",
-      "closing_date": null,
-      "sources": [
-        "Email",
-        "PDF"
-      ],
-      "contacts": [
-        {
-          "name": "David Burstein",
-          "role": "Attorney"
-        },
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        }
-      ],
-      "financials": {},
-      "recent_updates": [
-        {
-          "date": "2026-04-28",
-          "subject": "Financing stage updates",
-          "source": "Email"
-        }
-      ],
-      "action_items": [
-        "Follow up on closing date once financing finalizes"
-      ]
-    },
-    {
-      "address": "167 East Park Terrace, Pittsfield, MA 01201",
-      "current_milestone": "Financing",
-      "closing_date": "5/7/2026",
-      "sources": [
-        "Email",
-        "PDF"
-      ],
-      "contacts": [
-        {
-          "name": "David Burstein",
-          "role": "Attorney"
-        },
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        },
-        {
-          "name": "Will McGuire",
-          "role": "Borrower/Signer"
-        }
-      ],
-      "financials": {
-        "purchase_price": "166000",
-        "construction_advance": "50000",
-        "points": "4980",
-        "rate": "12.00%",
-        "term": "12 months",
-        "lender_fees": "570"
-      },
-      "recent_updates": [
-        {
-          "date": "2026-05-03",
-          "subject": "David Burstein sent preliminary closing docs to Pinnacle; closing moved up to May 7",
-          "source": "Email"
-        },
-        {
-          "date": "2026-04-29",
-          "subject": "Pinnacle Financial approved financing; checklist and funding sheet sent",
-          "source": "Email"
-        },
-        {
-          "date": "2026-04-25",
-          "subject": "Insurance binder and financing docs in progress",
-          "source": "Email"
-        },
-        {
-          "date": "2026-04-21",
-          "subject": "Pinnacle received financing request; proposed terms shared",
-          "source": "Email"
-        }
-      ],
-      "action_items": [
-        "GET INSURANCE BINDER TO PINNACLE ASAP - closing May 7",
-        "Provide tax identification numbers for borrower and guarantors",
-        "Will McGuire needs to sign loan package remotely",
-        "Overnight signed documents back to Burstein office"
-      ]
-    },
-    {
-      "address": "70 Town Hill Road, Middlefield, MA 01243",
-      "current_milestone": "Closed",
-      "closing_date": null,
-      "sources": [
-        "Email"
-      ],
-      "contacts": [
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        }
-      ],
-      "financials": {},
-      "recent_updates": [
-        {
-          "date": "2026-04-20",
-          "subject": "Property closed",
-          "source": "Email"
-        }
-      ],
-      "action_items": []
-    },
-    {
-      "address": "40 Roland St, Pittsfield, MA 01201",
-      "current_milestone": "Closing",
-      "closing_date": null,
-      "sources": [
-        "Email",
-        "dotloop"
-      ],
-      "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Agent"
-        },
-        {
-          "name": "David Burstein",
-          "role": "Attorney"
-        },
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        }
-      ],
-      "financials": {},
-      "recent_updates": [
-        {
-          "date": "2026-05-09",
-          "subject": "Confirm new closing date",
-          "source": "Email"
-        }
-      ],
-      "action_items": [
-        "Confirm new closing date"
-      ]
-    },
-    {
-      "address": "21 Holly St, Greenfield, MA",
-      "current_milestone": "Repairs / Rehab",
-      "closing_date": null,
-      "sources": [
-        "Email"
-      ],
-      "contacts": [
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        }
-      ],
-      "financials": {},
-      "recent_updates": [
-        {
-          "date": "2026-04-22",
-          "subject": "Rehab work in progress",
-          "source": "Email"
-        }
-      ],
-      "action_items": []
-    },
-    {
-      "address": "1874 Home Rd, Sheffield, MA",
-      "current_milestone": "Repairs / Rehab",
-      "closing_date": null,
-      "sources": [
-        "Email"
-      ],
-      "contacts": [
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        }
-      ],
-      "financials": {},
-      "recent_updates": [
-        {
-          "date": "2026-04-22",
-          "subject": "Rehab work in progress",
-          "source": "Email"
-        }
-      ],
-      "action_items": []
-    },
-    {
-      "address": "1 Richmond Ln, Pittsfield, MA",
-      "current_milestone": "Repairs / Rehab",
-      "closing_date": null,
-      "sources": [
-        "Email"
-      ],
-      "contacts": [
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        }
-      ],
-      "financials": {},
-      "recent_updates": [
-        {
-          "date": "2026-04-22",
-          "subject": "Rehab work in progress",
-          "source": "Email"
-        }
-      ],
-      "action_items": []
-    },
-    {
-      "address": "42 Washington St, Monson, MA 01057",
-      "current_milestone": "Closing",
-      "closing_date": null,
-      "sources": [
-        "dotloop",
-        "Email"
-      ],
-      "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Agent"
-        },
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        }
-      ],
-      "financials": {},
-      "recent_updates": [
-        {
-          "date": "2026-05-14",
-          "subject": "Jessica confirmed under contract status",
-          "source": "Email"
-        },
-        {
-          "date": "2026-05-13",
-          "subject": "Contract To Purchase Real Estate (Offer #501, rev 7) signed in dotloop; property now under contract for sale",
-          "source": "dotloop"
-        },
-        {
-          "date": "2026-05-13",
-          "subject": "Matt notified Jessica: 42 Washington under contract",
-          "source": "Email"
-        },
-        {
-          "date": "2026-05-13",
-          "subject": "Alice Kempf shared Contract To Purchase Real Estate (Offer #501, revision 7) via Dotloop for review",
-          "source": "dotloop"
-        },
-        {
-          "date": "2026-05-01",
-          "subject": "6 listing documents signed via dotloop",
-          "source": "dotloop"
-        }
-      ],
-      "action_items": [
-        "Await buyer inspection and title work",
-        "Follow up on closing date"
-      ]
-    },
-    {
-      "address": "54 Sectar Rd, Ashford, CT 06278",
-      "current_milestone": "Under Contract",
-      "closing_date": null,
-      "sources": [
-        "dotloop",
-        "Email"
-      ],
-      "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Agent"
-        },
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        }
-      ],
-      "financials": {},
-      "recent_updates": [
-        {
-          "date": "2026-05-01",
-          "subject": "Under contract; docs in dotloop",
-          "source": "dotloop"
-        }
-      ],
-      "action_items": []
-    },
-    {
-      "address": "282-284 Suffolk Street, Holyoke, MA",
-      "current_milestone": "Prospecting",
-      "closing_date": null,
-      "sources": [
-        "Email"
-      ],
-      "contacts": [],
-      "financials": {},
-      "recent_updates": [],
-      "action_items": []
-    },
-    {
-      "address": "Egremont Project, Egremont, MA",
-      "current_milestone": "Prospecting",
-      "closing_date": null,
-      "sources": [
-        "Email"
-      ],
-      "contacts": [],
-      "financials": {},
-      "recent_updates": [],
-      "action_items": []
-    },
-    {
-      "address": "213 Brodie Mountain Rd, Hancock, MA 01237",
-      "current_milestone": "Closed",
-      "closing_date": null,
-      "sources": [
-        "Email"
-      ],
-      "contacts": [],
-      "financials": {},
-      "recent_updates": [],
-      "action_items": []
-    },
-    {
-      "address": "11 Bryant St, Springfield, MA",
-      "current_milestone": "Closed",
-      "closing_date": null,
-      "sources": [
-        "Email"
-      ],
-      "contacts": [
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        }
-      ],
-      "financials": {},
-      "recent_updates": [
-        {
-          "date": "2026-04-29",
-          "subject": "Detailed financial breakdown: YB owed $8,670.50 after settlement",
-          "source": "Email"
-        }
-      ],
-      "action_items": [
-        "Final payment approved; confirm listing date",
-        "Track YB settlement amount"
-      ]
-    },
-    {
-      "address": "100 Central St (New Property)",
-      "current_milestone": "Repairs / Rehab",
-      "closing_date": null,
-      "sources": [
-        "Email"
-      ],
-      "contacts": [],
-      "financials": {},
-      "recent_updates": [
-        {
-          "date": "2026-04-24",
-          "subject": "New property acquired; rehab planning",
-          "source": "Email"
-        }
-      ],
-      "action_items": []
-    },
-    {
-      "address": "300 Tyler St, Pittsfield, MA 01201",
-      "current_milestone": "Title & Escrow",
-      "closing_date": null,
-      "sources": [
-        "Email",
-        "PDF"
-      ],
-      "contacts": [
-        {
-          "name": "David Burstein",
-          "role": "Attorney"
-        },
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        }
-      ],
-      "financials": {},
-      "recent_updates": [
-        {
-          "date": "2026-05-05",
-          "subject": "Title work in progress",
-          "source": "Email"
-        }
-      ],
-      "action_items": []
-    },
-    {
-      "address": "166 East St, Stafford, CT 06076",
-      "current_milestone": "Under Contract",
-      "closing_date": null,
-      "sources": [
-        "dotloop",
-        "Email"
-      ],
-      "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Agent"
-        }
-      ],
-      "financials": {},
-      "recent_updates": [
-        {
-          "date": "2026-05-08",
-          "subject": "Under contract; awaiting inspections",
-          "source": "Email"
-        }
-      ],
-      "action_items": []
-    },
-    {
-      "address": "583 Hawks Spur Rd, Plymouth, VT",
-      "current_milestone": "Prospecting",
-      "closing_date": null,
-      "sources": [
-        "Email"
-      ],
-      "contacts": [],
-      "financials": {},
-      "recent_updates": [],
-      "action_items": []
-    },
-    {
-      "address": "103 Prospect St (Potential Sale)",
-      "current_milestone": "Inspections",
-      "closing_date": null,
-      "sources": [
-        "Email"
-      ],
-      "contacts": [
-        {
-          "name": "Ryan O'Hara",
-          "role": "Attorney (Bacon Wilson)"
-        },
-        {
-          "name": "Hunter Foote",
-          "role": "Prospective Buyer (Vanderburgh)"
-        }
-      ],
-      "financials": {},
-      "recent_updates": [
-        {
-          "date": "2026-05-13",
-          "subject": "Hunter Foote submitted new lower offer via attorney; Matt rejected as going backwards. O'Hara notes buyer banking on immediate close as incentive",
-          "source": "Email"
-        },
-        {
-          "date": "2026-05-13",
-          "subject": "Eviction court first tier event scheduled for May 28",
-          "source": "Email"
-        },
-        {
-          "date": "2026-05-08",
-          "subject": "Potential buyer Hunter Foote in discussions",
-          "source": "Email"
-        }
-      ],
-      "action_items": [
-        "Eviction court first tier event May 28",
-        "Await revised offer from Hunter Foote / Vanderburgh",
-        "Do NOT contact Code Enforcement - avoid prompting closer attention"
-      ]
-    },
-    {
-      "address": "172 Fiske St, Southbridge, MA",
-      "current_milestone": "Prospecting",
-      "closing_date": null,
-      "sources": [
-        "Email",
-        "PDF"
-      ],
-      "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Agent"
-        },
-        {
-          "name": "Antonio",
-          "role": "Partner (Investarters)"
-        }
-      ],
-      "financials": {
-        "arv_2br": "379900",
-        "arv_3br": "439900-480000"
-      },
-      "recent_updates": [
-        {
-          "date": "2026-05-15",
-          "subject": "Alice Kempf sent CMA: 2BR ARV $379,900; 3BR ARV $439,900-$480,000. Previous listing PDF attached. Room with fireplace could be converted to MBR suite. Full bath on each floor confirmed.",
-          "source": "Email"
-        },
-        {
-          "date": "2026-05-15",
-          "subject": "Matt forwarded CMA to Antonio at Investarters for review",
-          "source": "Email"
-        }
-      ],
-      "action_items": [
-        "Evaluate whether room can be converted to MBR suite for 3BR pricing",
-        "Await Antonio's feedback on deal viability",
-        "Review previous listing details from PDF"
-      ]
-    },
-    {
-      "address": "26 Old Putnam Rd Ext, Plainfield, CT 06239",
-      "current_milestone": "Prospecting",
-      "closing_date": null,
-      "sources": [
-        "Email",
-        "PDF"
-      ],
-      "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Agent"
-        }
-      ],
-      "financials": {
-        "arv_estimate": "429000"
-      },
-      "recent_updates": [
-        {
-          "date": "2026-05-15",
-          "subject": "Alice Kempf sent CMA with ARV ~$429k. Sloping backyard noted from previous listing may reduce value. Two PDF reports attached (CMA and previous listing).",
-          "source": "Email"
-        },
-        {
-          "date": "2026-05-15",
-          "subject": "Matt acknowledged receipt of CMA",
-          "source": "Email"
-        }
-      ],
-      "action_items": [
-        "Review CMA reports for pricing accuracy",
-        "Assess impact of sloping backyard on value",
-        "Determine offer strategy"
-      ]
-    }
-  ]
+"last_updated": "2026-05-16T18:02:01-04:00",
+"properties": [
+{
+"address": "297 Breckwood Blvd, Springfield, MA 01109",
+"current_milestone": "Closed",
+"closing_date": "4/13/2026",
+"sources": ["dotloop", "Email"],
+"contacts": [{"name": "Alice Kempf", "role": "Agent"}, {"name": "David Burstein", "role": "Attorney"}, {"name": "Jessica Sicard", "role": "Project Manager"}],
+"financials": {},
+"recent_updates": [{"date": "2026-04-13", "subject": "Closing date reached", "source": "Email"}, {"subject": "Repairs priority", "source": "Email"}, {"subject": "FHA Amendatory signed", "source": "dotloop"}],
+"action_items": []
+},
+{
+"address": "29 Chestnut Dr, Belchertown, MA 01007",
+"current_milestone": "Closed",
+"closing_date": "4/14/2026",
+"sources": ["dotloop", "Email"],
+"contacts": [{"name": "Alice Kempf", "role": "Agent"}, {"name": "David Burstein", "role": "Attorney"}, {"name": "Jessica Sicard", "role": "Project Manager"}],
+"financials": {},
+"recent_updates": [{"date": "2026-04-14", "subject": "Closing date reached", "source": "Email"}],
+"action_items": []
+},
+{
+"address": "4 School St, Ware, MA 01082",
+"current_milestone": "Financing",
+"closing_date": null,
+"sources": ["Email", "PDF"],
+"contacts": [{"name": "David Burstein", "role": "Attorney"}, {"name": "Jessica Sicard", "role": "Project Manager"}],
+"financials": {},
+"recent_updates": [{"date": "2026-04-28", "subject": "Financing stage updates", "source": "Email"}],
+"action_items": ["Follow up on closing date once financing finalizes"]
+},
+{
+"address": "167 East Park Terrace, Pittsfield, MA 01201",
+"current_milestone": "Financing",
+"closing_date": "5/7/2026",
+"sources": ["Email", "PDF"],
+"contacts": [{"name": "David Burstein", "role": "Attorney"}, {"name": "Jessica Sicard", "role": "Project Manager"}, {"name": "Will McGuire", "role": "Borrower/Signer"}],
+"financials": {"purchase_price": "166000", "construction_advance": "50000", "points": "4980", "rate": "12.00%", "term": "12 months", "lender_fees": "570"},
+"recent_updates": [{"date": "2026-05-03", "subject": "David Burstein sent preliminary closing docs to Pinnacle; closing moved up to May 7", "source": "Email"}, {"date": "2026-04-29", "subject": "Pinnacle Financial approved financing; checklist and funding sheet sent", "source": "Email"}, {"date": "2026-04-25", "subject": "Insurance binder and financing docs in progress", "source": "Email"}, {"date": "2026-04-21", "subject": "Pinnacle received financing request; proposed terms shared", "source": "Email"}],
+"action_items": ["GET INSURANCE BINDER TO PINNACLE ASAP - closing May 7", "Provide tax identification numbers for borrower and guarantors", "Will McGuire needs to sign loan package remotely", "Overnight signed documents back to Burstein office"]
+},
+{
+"address": "70 Town Hill Road, Middlefield, MA 01243",
+"current_milestone": "Closed",
+"closing_date": null,
+"sources": ["Email"],
+"contacts": [{"name": "Jessica Sicard", "role": "Project Manager"}],
+"financials": {},
+"recent_updates": [{"date": "2026-04-20", "subject": "Property closed", "source": "Email"}],
+"action_items": []
+},
+{
+"address": "40 Roland St, Pittsfield, MA 01201",
+"current_milestone": "Closing",
+"closing_date": null,
+"sources": ["Email", "dotloop"],
+"contacts": [{"name": "Alice Kempf", "role": "Agent"}, {"name": "David Burstein", "role": "Attorney"}, {"name": "Jessica Sicard", "role": "Project Manager"}],
+"financials": {},
+"recent_updates": [{"date": "2026-05-09", "subject": "Confirm new closing date", "source": "Email"}],
+"action_items": ["Confirm new closing date"]
+},
+{
+"address": "21 Holly St, Greenfield, MA",
+"current_milestone": "Repairs / Rehab",
+"closing_date": null,
+"sources": ["Email"],
+"contacts": [{"name": "Jessica Sicard", "role": "Project Manager"}],
+"financials": {},
+"recent_updates": [{"date": "2026-04-22", "subject": "Rehab work in progress", "source": "Email"}],
+"action_items": []
+},
+{
+"address": "1874 Home Rd, Sheffield, MA",
+"current_milestone": "Repairs / Rehab",
+"closing_date": null,
+"sources": ["Email"],
+"contacts": [{"name": "Jessica Sicard", "role": "Project Manager"}],
+"financials": {},
+"recent_updates": [{"date": "2026-04-22", "subject": "Rehab work in progress", "source": "Email"}],
+"action_items": []
+},
+{
+"address": "1 Richmond Ln, Pittsfield, MA",
+"current_milestone": "Repairs / Rehab",
+"closing_date": null,
+"sources": ["Email"],
+"contacts": [{"name": "Jessica Sicard", "role": "Project Manager"}],
+"financials": {},
+"recent_updates": [{"date": "2026-04-22", "subject": "Rehab work in progress", "source": "Email"}],
+"action_items": []
+},
+{
+"address": "42 Washington St, Monson, MA 01057",
+"current_milestone": "Closing",
+"closing_date": null,
+"sources": ["dotloop", "Email"],
+"contacts": [{"name": "Alice Kempf", "role": "Agent"}, {"name": "Jessica Sicard", "role": "Project Manager"}],
+"financials": {},
+"recent_updates": [{"date": "2026-05-14", "subject": "Jessica confirmed under contract status", "source": "Email"}, {"date": "2026-05-13", "subject": "Contract To Purchase Real Estate (Offer #501, rev 7) signed in dotloop; property now under contract for sale", "source": "dotloop"}, {"date": "2026-05-13", "subject": "Matt notified Jessica: 42 Washington under contract", "source": "Email"}, {"date": "2026-05-13", "subject": "Alice Kempf shared Contract To Purchase Real Estate (Offer #501, revision 7) via Dotloop for review", "source": "dotloop"}, {"date": "2026-05-01", "subject": "6 listing documents signed via dotloop", "source": "dotloop"}],
+"action_items": ["Await buyer inspection and title work", "Follow up on closing date"]
+},
+{
+"address": "54 Sectar Rd, Ashford, CT 06278",
+"current_milestone": "Under Contract",
+"closing_date": null,
+"sources": ["dotloop", "Email"],
+"contacts": [{"name": "Alice Kempf", "role": "Agent"}, {"name": "Jessica Sicard", "role": "Project Manager"}],
+"financials": {},
+"recent_updates": [{"date": "2026-05-01", "subject": "Under contract; docs in dotloop", "source": "dotloop"}],
+"action_items": []
+},
+{
+"address": "282-284 Suffolk Street, Holyoke, MA",
+"current_milestone": "Prospecting",
+"closing_date": null,
+"sources": ["Email"],
+"contacts": [],
+"financials": {},
+"recent_updates": [],
+"action_items": []
+},
+{
+"address": "Egremont Project, Egremont, MA",
+"current_milestone": "Prospecting",
+"closing_date": null,
+"sources": ["Email"],
+"contacts": [],
+"financials": {},
+"recent_updates": [],
+"action_items": []
+},
+{
+"address": "213 Brodie Mountain Rd, Hancock, MA 01237",
+"current_milestone": "Closed",
+"closing_date": null,
+"sources": ["Email"],
+"contacts": [],
+"financials": {},
+"recent_updates": [],
+"action_items": []
+},
+{
+"address": "11 Bryant St, Springfield, MA",
+"current_milestone": "Closed",
+"closing_date": null,
+"sources": ["Email"],
+"contacts": [{"name": "Jessica Sicard", "role": "Project Manager"}],
+"financials": {},
+"recent_updates": [{"date": "2026-04-29", "subject": "Detailed financial breakdown: YB owed $8,670.50 after settlement", "source": "Email"}],
+"action_items": ["Final payment approved; confirm listing date", "Track YB settlement amount"]
+},
+{
+"address": "100 Central St (New Property)",
+"current_milestone": "Repairs / Rehab",
+"closing_date": null,
+"sources": ["Email"],
+"contacts": [],
+"financials": {},
+"recent_updates": [{"date": "2026-04-24", "subject": "New property acquired; rehab planning", "source": "Email"}],
+"action_items": []
+},
+{
+"address": "300 Tyler St, Pittsfield, MA 01201",
+"current_milestone": "Title & Escrow",
+"closing_date": null,
+"sources": ["Email", "PDF"],
+"contacts": [{"name": "David Burstein", "role": "Attorney"}, {"name": "Jessica Sicard", "role": "Project Manager"}],
+"financials": {},
+"recent_updates": [{"date": "2026-05-05", "subject": "Title work in progress", "source": "Email"}],
+"action_items": []
+},
+{
+"address": "166 East St, Stafford, CT 06076",
+"current_milestone": "Under Contract",
+"closing_date": null,
+"sources": ["dotloop", "Email"],
+"contacts": [{"name": "Alice Kempf", "role": "Agent"}],
+"financials": {},
+"recent_updates": [{"date": "2026-05-08", "subject": "Under contract; awaiting inspections", "source": "Email"}],
+"action_items": []
+},
+{
+"address": "583 Hawks Spur Rd, Plymouth, VT",
+"current_milestone": "Prospecting",
+"closing_date": null,
+"sources": ["Email"],
+"contacts": [],
+"financials": {},
+"recent_updates": [],
+"action_items": []
+},
+{
+"address": "103 Prospect St (Potential Sale)",
+"current_milestone": "Inspections",
+"closing_date": null,
+"sources": ["Email"],
+"contacts": [{"name": "Ryan O'Hara", "role": "Attorney (Bacon Wilson)"}, {"name": "Hunter Foote", "role": "Prospective Buyer (Vanderburgh)"}],
+"financials": {},
+"recent_updates": [{"date": "2026-05-13", "subject": "Hunter Foote submitted new lower offer via attorney; Matt rejected as going backwards. O'Hara notes buyer banking on immediate close as incentive", "source": "Email"}, {"date": "2026-05-13", "subject": "Eviction court first tier event scheduled for May 28", "source": "Email"}, {"date": "2026-05-08", "subject": "Potential buyer Hunter Foote in discussions", "source": "Email"}],
+"action_items": ["Eviction court first tier event May 28", "Await revised offer from Hunter Foote / Vanderburgh", "Do NOT contact Code Enforcement - avoid prompting closer attention"]
+},
+{
+"address": "172 Fiske St, Southbridge, MA",
+"current_milestone": "Prospecting",
+"closing_date": null,
+"sources": ["Email", "PDF"],
+"contacts": [{"name": "Alice Kempf", "role": "Agent"}, {"name": "Antonio", "role": "Partner (Investarters)"}],
+"financials": {"arv_2br": "379900", "arv_3br": "439900-480000"},
+"recent_updates": [{"date": "2026-05-15", "subject": "Alice Kempf sent CMA: 2BR ARV $379,900; 3BR ARV $439,900-$480,000. Previous listing PDF attached. Room with fireplace could be converted to MBR suite. Full bath on each floor confirmed.", "source": "Email"}, {"date": "2026-05-15", "subject": "Matt forwarded CMA to Antonio at Investarters for review", "source": "Email"}],
+"action_items": ["Evaluate whether room can be converted to MBR suite for 3BR pricing", "Await Antonio's feedback on deal viability", "Review previous listing details from PDF"]
+},
+{
+"address": "26 Old Putnam Rd Ext, Plainfield, CT 06239",
+"current_milestone": "Prospecting",
+"closing_date": null,
+"sources": ["Email", "PDF"],
+"contacts": [{"name": "Alice Kempf", "role": "Agent"}],
+"financials": {"arv_estimate": "429000"},
+"recent_updates": [{"date": "2026-05-15", "subject": "Alice Kempf sent CMA with ARV ~$429k. Sloping backyard noted from previous listing may reduce value. Two PDF reports attached (CMA and previous listing).", "source": "Email"}, {"date": "2026-05-15", "subject": "Matt acknowledged receipt of CMA", "source": "Email"}],
+"action_items": ["Review CMA reports for pricing accuracy", "Assess impact of sloping backyard on value", "Determine offer strategy"]
+}
+]
 }
