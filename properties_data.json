@@ -1,14 +1,14 @@
 {
-"last_updated": "2026-05-17T08:01:22-04:00",
+"last_updated": "2026-05-17T18:02:00-04:00",
 "properties": [
 {
 "address": "297 Breckwood Blvd, Springfield, MA 01109",
 "current_milestone": "Closed",
 "closing_date": "4/13/2026",
 "sources": ["dotloop", "Email"],
-"contacts": [{"name": "Alice Kempf", "role": "Agent"}, {"name": "David Burstein", "role": "Attorney"}, {"name": "Jessica Sicard", "role": "Project Manager"}],
-"financials": {},
-"recent_updates": [{"date": "2026-04-13", "subject": "Closing date reached", "source": "Email"}, {"subject": "Repairs priority", "source": "Email"}, {"subject": "FHA Amendatory signed", "source": "dotloop"}],
+"contacts": [{"name": "Alice Kempf", "role": "Agent"}, {"name": "David Burstein", "role": "Attorney"}, {"name": "Jessica Sicard", "role": "Project Manager"}, {"name": "Chris Keniley", "role": "Accounting Manager"}],
+"financials": {"loan_repayment_gsb": "69322"},
+"recent_updates": [{"date": "2026-05-17", "subject": "Wicked account: $69,322 Reay Loan GSB LOC payment for Breckwood", "source": "Email"}, {"date": "2026-04-13", "subject": "Closing date reached", "source": "Email"}, {"subject": "Repairs priority", "source": "Email"}, {"subject": "FHA Amendatory signed", "source": "dotloop"}],
 "action_items": []
 },
 {
@@ -18,7 +18,7 @@
 "sources": ["dotloop", "Email"],
 "contacts": [{"name": "Alice Kempf", "role": "Agent"}, {"name": "David Burstein", "role": "Attorney"}, {"name": "Jessica Sicard", "role": "Project Manager"}],
 "financials": {},
-"recent_updates": [{"date": "2026-04-14", "subject": "Closing date reached", "source": "Email"}],
+"recent_updates": [{"date": "2026-04-24", "subject": "RE Tax payment $2,079.49 - Belchertown RealEstate", "source": "Email"}, {"date": "2026-04-14", "subject": "Closing date reached", "source": "Email"}],
 "action_items": []
 },
 {
@@ -76,9 +76,9 @@
 "current_milestone": "Repairs / Rehab",
 "closing_date": null,
 "sources": ["Email"],
-"contacts": [{"name": "Jessica Sicard", "role": "Project Manager"}],
-"financials": {},
-"recent_updates": [{"date": "2026-04-22", "subject": "Rehab work in progress", "source": "Email"}],
+"contacts": [{"name": "Jessica Sicard", "role": "Project Manager"}, {"name": "Mahari", "role": "Contractor"}],
+"financials": {"contractor_payments": "15750"},
+"recent_updates": [{"date": "2026-05-17", "subject": "Wicked account: $12,600 + $3,150 Mahari contractor payments for 1874 Home", "source": "Email"}, {"date": "2026-04-22", "subject": "Rehab work in progress", "source": "Email"}],
 "action_items": []
 },
 {
@@ -223,4 +223,3 @@
 }
 ]
 }
-
