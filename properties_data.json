@@ -1,5 +1,5 @@
 {
-"last_updated": "2026-05-18T08:02:00-04:00",
+"last_updated": "2026-05-19T08:03:00-04:00",
 "properties": [
 {
 "address": "297 Breckwood Blvd, Springfield, MA 01109",
@@ -56,10 +56,10 @@
 "current_milestone": "Closing",
 "closing_date": null,
 "sources": ["Email", "dotloop"],
-"contacts": [{"name": "Alice Kempf", "role": "Agent"}, {"name": "David Burstein", "role": "Attorney"}, {"name": "Jessica Sicard", "role": "Project Manager"}],
+"contacts": [{"name": "Alice Kempf", "role": "Agent"}, {"name": "David Burstein", "role": "Attorney"}, {"name": "Jessica Sicard", "role": "Project Manager"}, {"name": "Alexandra", "role": "Agent (KVR Team)"}],
 "financials": {},
-"recent_updates": [{"date": "2026-05-09", "subject": "Confirm new closing date", "source": "Email"}],
-"action_items": ["Confirm new closing date"]
+"recent_updates": [{"date": "2026-05-19", "subject": "Jessica sent electrical invoice (PDF) to Burstein, Alice, Matt, and Alexandra", "source": "Email"}, {"date": "2026-05-18", "subject": "Matt plans to use Roland sale funds for new acquisition instead of Russ project; David Burstein OOO traveling this week (Jeffrey Burstein or Shamikka Andrews handling urgent matters)", "source": "Email"}, {"date": "2026-05-18", "subject": "HD credit card replenishment for Roland & Richmond from HHH Florence Account approved by Will", "source": "Email"}, {"date": "2026-05-09", "subject": "Confirm new closing date", "source": "Email"}],
+"action_items": ["Confirm new closing date", "Follow up with Jeffrey Burstein while David is traveling", "Process electrical invoice"]
 },
 {
 "address": "21 Holly St, Greenfield, MA",
@@ -75,21 +75,21 @@
 "address": "1874 Home Rd, Sheffield, MA",
 "current_milestone": "Repairs / Rehab",
 "closing_date": null,
-"sources": ["Email"],
-"contacts": [{"name": "Jessica Sicard", "role": "Project Manager"}, {"name": "Mahari", "role": "Contractor"}],
+"sources": ["Email", "dotloop"],
+"contacts": [{"name": "Jessica Sicard", "role": "Project Manager"}, {"name": "Mahari", "role": "Contractor"}, {"name": "Alice Kempf", "role": "Agent"}, {"name": "Gabriela Dearstyne", "role": "Agent (KVR Team)"}],
 "financials": {"contractor_payments": "15750"},
-"recent_updates": [{"date": "2026-05-17", "subject": "Wicked account: $12,600 + $3,150 Mahari contractor payments for 1874 Home", "source": "Email"}, {"date": "2026-04-22", "subject": "Rehab work in progress", "source": "Email"}],
-"action_items": []
+"recent_updates": [{"date": "2026-05-17", "subject": "Wicked account: $12,600 + $3,150 Mahari contractor payments for 1874 Home", "source": "Email"}, {"date": "2026-05-12", "subject": "Listing docs signed in dotloop: Exclusive Right to Sell, ERTS Addendum Coming Soon, Licensee-Consumer Disclosure, Seller Consent to Dual Agency, Seller Consent to Designated Agency, Mass Inspection Disclosure", "source": "dotloop"}, {"date": "2026-04-22", "subject": "Rehab work in progress", "source": "Email"}],
+"action_items": ["Property being prepared for listing - monitor dotloop for buyer activity"]
 },
 {
 "address": "1 Richmond Ln, Pittsfield, MA",
 "current_milestone": "Repairs / Rehab",
 "closing_date": null,
 "sources": ["Email"],
-"contacts": [{"name": "Jessica Sicard", "role": "Project Manager"}],
+"contacts": [{"name": "Jessica Sicard", "role": "Project Manager"}, {"name": "Jesse Leydet", "role": "On-site Contact"}, {"name": "Premiere Home Solutions", "role": "Contractor"}, {"name": "Meredith Martin", "role": "HD Pro Support"}],
 "financials": {},
-"recent_updates": [{"date": "2026-04-22", "subject": "Rehab work in progress", "source": "Email"}],
-"action_items": []
+"recent_updates": [{"date": "2026-05-15", "subject": "Appliance order placed via Home Depot Pro: 30in electric stove, 24in dishwasher, fridge (73x36 opening), basic OTR microwave. Lockbox delivery scheduled 5/21.", "source": "Email"}, {"date": "2026-05-15", "subject": "Premiere Home Solutions confirmed appliance specs for Richmond", "source": "Email"}, {"date": "2026-04-22", "subject": "Rehab work in progress", "source": "Email"}],
+"action_items": ["Appliance delivery scheduled 5/21 - ensure lockbox access at 413-449-8997"]
 },
 {
 "address": "42 Washington St, Monson, MA 01057",
@@ -122,23 +122,23 @@
 "action_items": []
 },
 {
-"address": "Egremont Project, Egremont, MA",
+"address": "140 Egremont Plain Rd, Egremont, MA 01230",
 "current_milestone": "Prospecting",
 "closing_date": null,
-"sources": ["Email"],
-"contacts": [],
-"financials": {},
-"recent_updates": [],
-"action_items": []
+"sources": ["Email", "PDF"],
+"contacts": [{"name": "Alice Kempf", "role": "Agent"}, {"name": "Antonio", "role": "Partner (House Hack Helpers)"}],
+"financials": {"arv_estimate": "1200000-1300000"},
+"recent_updates": [{"date": "2026-05-18", "subject": "Alice sent CMA: ARV $1.2-1.3M. Comp reminds her of Richmond. Suggested fluff strategy (cleaning, staging, bank financing) for quick profit like Belchertown and Sheffield.", "source": "Email"}],
+"action_items": ["Review CMA and comp photos", "Evaluate fluff strategy vs full rehab", "Determine acquisition cost and offer"]
 },
 {
 "address": "213 Brodie Mountain Rd, Hancock, MA 01237",
 "current_milestone": "Closed",
 "closing_date": null,
 "sources": ["Email"],
-"contacts": [],
+"contacts": [{"name": "David Chase", "role": "VP, Freedom Credit Union"}],
 "financials": {},
-"recent_updates": [],
+"recent_updates": [{"date": "2026-05-14", "subject": "Appraisal received from David Chase at Freedom Credit Union", "source": "Email"}],
 "action_items": []
 },
 {
@@ -192,14 +192,14 @@
 "action_items": []
 },
 {
-"address": "103 Prospect St (Potential Sale)",
+"address": "103 Prospect St, Springfield, MA",
 "current_milestone": "Inspections",
 "closing_date": null,
 "sources": ["Email"],
 "contacts": [{"name": "Ryan O'Hara", "role": "Attorney (Bacon Wilson)"}, {"name": "Hunter Foote", "role": "Prospective Buyer (Vanderburgh)"}],
 "financials": {},
-"recent_updates": [{"date": "2026-05-13", "subject": "Hunter Foote submitted new lower offer via attorney; Matt rejected as going backwards. O'Hara notes buyer banking on immediate close as incentive", "source": "Email"}, {"date": "2026-05-13", "subject": "Eviction court first tier event scheduled for May 28", "source": "Email"}, {"date": "2026-05-08", "subject": "Potential buyer Hunter Foote in discussions", "source": "Email"}],
-"action_items": ["Eviction court first tier event May 28", "Await revised offer from Hunter Foote / Vanderburgh", "Do NOT contact Code Enforcement - avoid prompting closer attention"]
+"recent_updates": [{"date": "2026-05-18", "subject": "O'Hara forwarded buyer response re: violations. Basement stairs removed with door remaining and basement fireblocking noted as issues (p. 11-12 of inspection report). Attachments included.", "source": "Email"}, {"date": "2026-05-13", "subject": "Hunter Foote submitted new lower offer via attorney; Matt rejected as going backwards. O'Hara notes buyer banking on immediate close as incentive", "source": "Email"}, {"date": "2026-05-13", "subject": "Eviction court first tier event scheduled for May 28", "source": "Email"}, {"date": "2026-05-08", "subject": "Potential buyer Hunter Foote in discussions", "source": "Email"}],
+"action_items": ["Eviction court first tier event May 28", "Review inspection violations: basement stairs and fireblocking", "Await revised offer from Hunter Foote / Vanderburgh", "Do NOT contact Code Enforcement - avoid prompting closer attention"]
 },
 {
 "address": "172 Fiske St, Southbridge, MA",
@@ -209,7 +209,7 @@
 "contacts": [{"name": "Alice Kempf", "role": "Agent"}, {"name": "Antonio", "role": "Partner (Investarters)"}],
 "financials": {"arv_2br": "379900", "arv_3br": "439900-480000"},
 "recent_updates": [{"date": "2026-05-15", "subject": "Alice Kempf sent CMA: 2BR ARV $379,900; 3BR ARV $439,900-$480,000. Previous listing PDF attached. Room with fireplace could be converted to MBR suite. Full bath on each floor confirmed.", "source": "Email"}, {"date": "2026-05-15", "subject": "Matt forwarded CMA to Antonio at Investarters for review", "source": "Email"}],
-"action_items": ["Evaluate whether room can be converted to MBR suite for 3BR pricing", "Await Antonio's feedback on deal viability", "Review previous listing details from PDF"]
+"action_items": ["Evaluate whether room can be converted to MBR suite for 3BR pricing", "Await Antonios feedback on deal viability", "Review previous listing details from PDF"]
 },
 {
 "address": "26 Old Putnam Rd Ext, Plainfield, CT 06239",
