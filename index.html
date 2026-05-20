@@ -6,245 +6,386 @@
 <title>House Flip Closing Coordinator</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#0f1117;--card-bg:#1a1d27;--card-border:#2a2d3a;--text:#e0e0e0;--text-dim:#888;--accent:#4a9eff;--green:#22c55e;--yellow:#eab308;--red:#ef4444;--orange:#f97316;--purple:#a855f7}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
-.header{position:sticky;top:0;z-index:100;background:linear-gradient(135deg,#1a1d27 0%,#252838 100%);border-bottom:1px solid var(--card-border);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
-.header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,#4a9eff,#a855f7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.header-meta{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
-.stat-pill{background:rgba(74,158,255,0.1);border:1px solid rgba(74,158,255,0.2);border-radius:20px;padding:4px 14px;font-size:.82rem}
-.stat-pill b{color:var(--accent)}h
-.last-updated{font-size:.75rem;color:var(--text-dim)}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:20px;padding:24px;max-width:1800px;margin:0 auto}
-.card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:12px;overflow:hidden;transition:transform .15s,box-shadow .15s}
-.card:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,.3)}
-.card-header{padding:16px 18px 12px;border-bottom:1px solid var(--card-border)}
-.card-address{font-size:1.05rem;font-weight:600;margin-bottom:6px}
-.badges{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}
-.badge{font-size:.7rem;padding:2px 8px;border-radius:10px;font-weight:600;text-transform:uppercase}
-.badge-phase{background:rgba(74,158,255,0.15);color:var(--accent);border:1px solid rgba(74,158,255,0.3)}
-.badge-dotloop{background:rgba(168,85,247,0.15);color:var(--purple);border:1px solid rgba(168,85,247,0.3)}
-.badge-email{background:rgba(234,179,8,0.15);color:var(--yellow);border:1px solid rgba(234,179,8,0.3)}
-.badge-pdf{background:rgba(249,115,22,0.15);color:var(--orange);border:1px solid rgba(249,115,22,0.3)}
-.badge-docusign{background:rgba(34,197,94,0.15);color:var(--green);border:1px solid rgba(34,197,94,0.3)}
-.countdown{font-size:.8rem;color:var(--orange);margin-top:4px;font-weight:600}
-.milestone-track{display:flex;gap:0;align-items:center;padding:12px 18px;overflow-x:auto}
-.milestone-dot{width:18px;height:18px;border-radius:50%;flex-shrink:0;position:relative;cursor:default}
-.milestone-dot.completed{background:var(--green)}
-.milestone-dot.active{background:var(--accent);box-shadow:0 0 10px rgba(74,158,255,0.5);animation:pulse 2s infinite}
-.milestone-dot.pending{background:#333;border:2px solid #555}
-.milestone-line{height:2px;flex:1;min-width:6px}
-.milestone-line.completed{background:var(--green)}
-.milestone-line.pending{background:#333}
-.milestone-dot[data-tooltip]:hover::after{content:attr(data-tooltip);position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:#333;color:#fff;padding:3px 8px;border-radius:4px;font-size:.65rem;white-space:nowrap;z-index:10}
-@keyframes pulse{0%,100%{box-shadow:0 0 5px rgba(74,158,255,0.3)}50%{box-shadow:0 0 15px rgba(74,158,255,0.6)}}
-.card-body{padding:14px 18px}
-.section{margin-bottom:14px}
-.section-title{font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--text-dim);margin-bottom:6px;font-weight:600}
-.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px 16px;font-size:.82rem}
-.info-grid .label{color:var(--text-dim)}
-.info-grid .value{color:var(--text)}
-.contact-list,.update-list,.action-list{font-size:.82rem}
-.contact-list li,.update-list li,.action-list li{margin-bottom:3px;padding-left:0;list-style:none}
-.contact-list li::before{content:'\uD83D\uDC64 '}
-.update-list li::before{content:'\uD83D\uDCCB '}
-.update-list .date{color:var(--text-dim);font-size:.72rem}
-.action-list li{background:rgba(239,68,68,0.08);border-left:3px solid var(--red);padding:4px 8px;margin-bottom:4px;border-radius:0 4px 4px 0}
-.closed-card{opacity:.6}
-.closed-card:hover{opacity:.9}
-@media(max-width:500px){.grid{grid-template-columns:1fr;padding:12px}.header{padding:12px}.header h1{font-size:1.1rem}}
+:root{--bg:#0f1117;--card-bg:#1a1d27;--card-border:#2a2d37;--text:#e1e4ea;--text-muted:#8b8f9a;--accent:#4f8cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--blue:#60a5fa;--purple:#a78bfa;--orange:#fb923c}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.5}
+.header{position:sticky;top:0;z-index:100;background:linear-gradient(135deg,#1a1d27 0%,#252836 100%);border-bottom:1px solid var(--card-border);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.header-stats{display:flex;gap:16px;flex-wrap:wrap}
+.stat{background:rgba(79,140,255,0.1);border:1px solid rgba(79,140,255,0.2);border-radius:8px;padding:6px 14px;font-size:0.85rem}
+.stat strong{color:var(--accent)}
+.last-updated{font-size:0.75rem;color:var(--text-muted);width:100%;text-align:right}
+.container{max-width:1400px;margin:0 auto;padding:20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:20px}
+.card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:12px;padding:20px;transition:transform 0.2s}
+.card:hover{transform:translateY(-2px)}
+.card-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;gap:8px}
+.card-header h2{font-size:1rem;font-weight:600;flex:1}
+.phase-badge{font-size:0.7rem;padding:4px 10px;border-radius:20px;font-weight:600;white-space:nowrap}
+.phase-closed{background:rgba(52,211,153,0.15);color:var(--green);border:1px solid rgba(52,211,153,0.3)}
+.phase-closing{background:rgba(251,191,36,0.15);color:var(--yellow);border:1px solid rgba(251,191,36,0.3)}
+.phase-rehab{background:rgba(251,146,60,0.15);color:var(--orange);border:1px solid rgba(251,146,60,0.3)}
+.phase-financing{background:rgba(96,165,250,0.15);color:var(--blue);border:1px solid rgba(96,165,250,0.3)}
+.phase-inspections{background:rgba(167,139,250,0.15);color:var(--purple);border:1px solid rgba(167,139,250,0.3)}
+.phase-title{background:rgba(96,165,250,0.15);color:var(--blue);border:1px solid rgba(96,165,250,0.3)}
+.phase-contract{background:rgba(251,191,36,0.15);color:var(--yellow);border:1px solid rgba(251,191,36,0.3)}
+.phase-prospecting{background:rgba(139,143,154,0.15);color:var(--text-muted);border:1px solid rgba(139,143,154,0.3)}
+.source-badges{display:flex;gap:4px;margin-bottom:12px;flex-wrap:wrap}
+.source-badge{font-size:0.65rem;padding:2px 8px;border-radius:10px;background:rgba(79,140,255,0.1);color:var(--accent);border:1px solid rgba(79,140,255,0.2)}
+.countdown{font-size:0.8rem;color:var(--yellow);margin-bottom:12px;padding:6px 10px;background:rgba(251,191,36,0.08);border-radius:6px;text-align:center}
+.countdown.overdue{color:var(--red);background:rgba(248,113,113,0.08)}
+.timeline{display:flex;align-items:center;gap:0;margin:14px 0;justify-content:space-between;position:relative}
+.timeline::before{content:'';position:absolute;top:50%;left:8px;right:8px;height:2px;background:var(--card-border);transform:translateY(-50%);z-index:0}
+.dot{width:16px;height:16px;border-radius:50%;z-index:1;position:relative;flex-shrink:0}
+.dot.completed{background:var(--green)}
+.dot.active{background:var(--blue);box-shadow:0 0 8px rgba(96,165,250,0.5);animation:pulse 2s infinite}
+.dot.pending{background:var(--card-border)}
+@keyframes pulse{0%,100%{box-shadow:0 0 4px rgba(96,165,250,0.3)}50%{box-shadow:0 0 12px rgba(96,165,250,0.6)}}
+.timeline-labels{display:flex;justify-content:space-between;font-size:0.55rem;color:var(--text-muted);margin-bottom:14px;padding:0 2px}
+.section{margin-top:12px}
+.section-title{font-size:0.75rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px;border-bottom:1px solid var(--card-border);padding-bottom:4px}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.info-item{font-size:0.8rem}
+.info-item .label{color:var(--text-muted);font-size:0.7rem}
+.contacts-list,.updates-list,.actions-list{list-style:none;font-size:0.8rem}
+.contacts-list li,.updates-list li,.actions-list li{padding:3px 0;border-bottom:1px solid rgba(42,45,55,0.5)}
+.contacts-list li:last-child,.updates-list li:last-child,.actions-list li:last-child{border-bottom:none}
+.update-date{color:var(--accent);font-size:0.7rem;margin-right:6px}
+.update-source{font-size:0.65rem;padding:1px 6px;border-radius:8px;background:rgba(79,140,255,0.1);color:var(--text-muted);margin-left:4px}
+.action-item{color:var(--yellow);font-size:0.8rem}
+.contact-role{color:var(--text-muted);font-size:0.7rem}
+.no-data{color:var(--text-muted);font-size:0.8rem;font-style:italic}
+@media(max-width:500px){.grid{grid-template-columns:1fr}.header h1{font-size:1.1rem}}
 </style>
 </head>
 <body>
-<script>
-const DATA = {"last_updated":"2026-05-19T08:03:00-04:00","properties":[{"address":"297 Breckwood Blvd, Springfield, MA 01109","current_milestone":"Closed","closing_date":"4/13/2026","sources":["dotloop","Email"],"contacts":[{"name":"Alice Kempf","role":"Agent"},{"name":"David Burstein","role":"Attorney"},{"name":"Jessica Sicard","role":"Project Manager"},{"name":"Chris Keniley","role":"Accounting Manager"}],"financials":{"loan_repayment_gsb":"69322"},"recent_updates":[{"date":"2026-05-17","subject":"Wicked account: $69,322 Reay Loan GSB LOC payment for Breckwood","source":"Email"},{"date":"2026-04-13","subject":"Closing date reached","source":"Email"},{"subject":"Repairs priority","source":"Email"},{"subject":"FHA Amendatory signed","source":"dotloop"}],"action_items":[]},{"address":"29 Chestnut Dr, Belchertown, MA 01007","current_milestone":"Closed","closing_date":"4/14/2026","sources":["dotloop","Email"],"contacts":[{"name":"Alice Kempf","role":"Agent"},{"name":"David Burstein","role":"Attorney"},{"name":"Jessica Sicard","role":"Project Manager"}],"financials":{},"recent_updates":[{"date":"2026-04-24","subject":"RE Tax payment $2,079.49 - Belchertown RealEstate","source":"Email"},{"date":"2026-04-14","subject":"Closing date reached","source":"Email"}],"action_items":[]},{"address":"4 School St, Ware, MA 01082","current_milestone":"Financing","closing_date":null,"sources":["Email","PDF"],"contacts":[{"name":"David Burstein","role":"Attorney"},{"name":"Jessica Sicard","role":"Project Manager"}],"financials":{},"recent_updates":[{"date":"2026-04-28","subject":"Financing stage updates","source":"Email"}],"action_items":["Follow up on closing date once financing finalizes"]},{"address":"167 East Park Terrace, Pittsfield, MA 01201","current_milestone":"Financing","closing_date":"5/7/2026","sources":["Email","PDF"],"contacts":[{"name":"David Burstein","role":"Attorney"},{"name":"Jessica Sicard","role":"Project Manager"},{"name":"Will McGuire","role":"Borrower/Signer"}],"financials":{"purchase_price":"166000","construction_advance":"50000","points":"4980","rate":"12.00%","term":"12 months","lender_fees":"570"},"recent_updates":[{"date":"2026-05-03","subject":"David Burstein sent preliminary closing docs to Pinnacle; closing moved up to May 7","source":"Email"},{"date":"2026-04-29","subject":"Pinnacle Financial approved financing; checklist and funding sheet sent","source":"Email"},{"date":"2026-04-25","subject":"Insurance binder and financing docs in progress","source":"Email"},{"date":"2026-04-21","subject":"Pinnacle received financing request; proposed terms shared","source":"Email"}],"action_items":["GET INSURANCE BINDER TO PINNACLE ASAP - closing May 7","Provide tax identification numbers for borrower and guarantors","Will McGuire needs to sign loan package remotely","Overnight signed documents back to Burstein office"]},{"address":"70 Town Hill Road, Middlefield, MA 01243","current_milestone":"Closed","closing_date":null,"sources":["Email"],"contacts":[{"name":"Jessica Sicard","role":"Project Manager"}],"financials":{},"recent_updates":[{"date":"2026-04-20","subject":"Property closed","source":"Email"}],"action_items":[]},{"address":"40 Roland St, Pittsfield, MA 01201","current_milestone":"Closing","closing_date":null,"sources":["Email","dotloop"],"contacts":[{"name":"Alice Kempf","role":"Agent"},{"name":"David Burstein","role":"Attorney"},{"name":"Jessica Sicard","role":"Project Manager"},{"name":"Alexandra","role":"Agent (KVR Team)"}],"financials":{},"recent_updates":[{"date":"2026-05-19","subject":"Jessica sent electrical invoice (PDF) to Burstein, Alice, Matt, and Alexandra","source":"Email"},{"date":"2026-05-18","subject":"Matt plans to use Roland sale funds for new acquisition; David Burstein OOO traveling this week","source":"Email"},{"date":"2026-05-18","subject":"HD credit card replenishment for Roland and Richmond from HHH Florence Account approved by Will","source":"Email"},{"date":"2026-05-09","subject":"Confirm new closing date","source":"Email"}],"action_items":["Confirm new closing date","Follow up with Jeffrey Burstein while David is traveling","Process electrical invoice"]},{"address":"21 Holly St, Greenfield, MA","current_milestone":"Repairs / Rehab","closing_date":null,"sources":["Email"],"contacts":[{"name":"Jessica Sicard","role":"Project Manager"}],"financials":{},"recent_updates":[{"date":"2026-04-22","subject":"Rehab work in progress","source":"Email"}],"action_items":[]},{"address":"1874 Home Rd, Sheffield, MA","current_milestone":"Repairs / Rehab","closing_date":null,"sources":["Email","dotloop"],"contacts":[{"name":"Jessica Sicard","role":"Project Manager"},{"name":"Mahari","role":"Contractor"},{"name":"Alice Kempf","role":"Agent"},{"name":"Gabriela Dearstyne","role":"Agent (KVR Team)"}],"financials":{"contractor_payments":"15750"},"recent_updates":[{"date":"2026-05-17","subject":"Wicked account: $12,600 + $3,150 Mahari contractor payments for 1874 Home","source":"Email"},{"date":"2026-05-12","subject":"Listing docs signed in dotloop: Exclusive Right to Sell, ERTS Addendum, Licensee-Consumer Disclosure, Seller Consent to Dual Agency, Designated Agency, Mass Inspection Disclosure","source":"dotloop"},{"date":"2026-04-22","subject":"Rehab work in progress","source":"Email"}],"action_items":["Property being prepared for listing - monitor dotloop for buyer activity"]},{"address":"1 Richmond Ln, Pittsfield, MA","current_milestone":"Repairs / Rehab","closing_date":null,"sources":["Email"],"contacts":[{"name":"Jessica Sicard","role":"Project Manager"},{"name":"Jesse Leydet","role":"On-site Contact"},{"name":"Premiere Home Solutions","role":"Contractor"},{"name":"Meredith Martin","role":"HD Pro Support"}],"financials":{},"recent_updates":[{"date":"2026-05-15","subject":"Appliance order placed via Home Depot Pro: 30in electric stove, 24in dishwasher, fridge, basic OTR microwave. Lockbox delivery scheduled 5/21.","source":"Email"},{"date":"2026-05-15","subject":"Premiere Home Solutions confirmed appliance specs for Richmond","source":"Email"},{"date":"2026-04-22","subject":"Rehab work in progress","source":"Email"}],"action_items":["Appliance delivery scheduled 5/21 - ensure lockbox access at 413-449-8997"]},{"address":"42 Washington St, Monson, MA 01057","current_milestone":"Closing","closing_date":null,"sources":["dotloop","Email"],"contacts":[{"name":"Alice Kempf","role":"Agent"},{"name":"Jessica Sicard","role":"Project Manager"}],"financials":{},"recent_updates":[{"date":"2026-05-14","subject":"Jessica confirmed under contract status","source":"Email"},{"date":"2026-05-13","subject":"Contract To Purchase Real Estate signed in dotloop; property under contract for sale","source":"dotloop"},{"date":"2026-05-01","subject":"6 listing documents signed via dotloop","source":"dotloop"}],"action_items":["Await buyer inspection and title work","Follow up on closing date"]},{"address":"54 Sectar Rd, Ashford, CT 06278","current_milestone":"Under Contract","closing_date":null,"sources":["dotloop","Email"],"contacts":[{"name":"Alice Kempf","role":"Agent"},{"name":"Jessica Sicard","role":"Project Manager"}],"financials":{},"recent_updates":[{"date":"2026-05-01","subject":"Under contract; docs in dotloop","source":"dotloop"}],"action_items":[]},{"address":"282-284 Suffolk Street, Holyoke, MA","current_milestone":"Prospecting","closing_date":null,"sources":["Email"],"contacts":[],"financials":{},"recent_updates":[],"action_items":[]},{"address":"140 Egremont Plain Rd, Egremont, MA 01230","current_milestone":"Prospecting","closing_date":null,"sources":["Email","PDF"],"contacts":[{"name":"Alice Kempf","role":"Agent"},{"name":"Antonio","role":"Partner (House Hack Helpers)"}],"financials":{"arv_estimate":"1200000-1300000"},"recent_updates":[{"date":"2026-05-18","subject":"Alice sent CMA: ARV $1.2-1.3M. Suggested fluff strategy for quick profit like Belchertown and Sheffield.","source":"Email"}],"action_items":["Review CMA and comp photos","Evaluate fluff strategy vs full rehab","Determine acquisition cost and offer"]},{"address":"213 Brodie Mountain Rd, Hancock, MA 01237","current_milestone":"Closed","closing_date":null,"sources":["Email"],"contacts":[{"name":"David Chase","role":"VP, Freedom Credit Union"}],"financials":{},"recent_updates":[{"date":"2026-05-14","subject":"Appraisal received from David Chase at Freedom Credit Union","source":"Email"}],"action_items":[]},{"address":"11 Bryant St, Springfield, MA","current_milestone":"Closed","closing_date":null,"sources":["Email"],"contacts":[{"name":"Jessica Sicard","role":"Project Manager"}],"financials":{},"recent_updates":[{"date":"2026-04-29","subject":"Detailed financial breakdown: YB owed $8,670.50 after settlement","source":"Email"}],"action_items":["Final payment approved; confirm listing date","Track YB settlement amount"]},{"address":"100 Central St (New Property)","current_milestone":"Repairs / Rehab","closing_date":null,"sources":["Email"],"contacts":[],"financials":{},"recent_updates":[{"date":"2026-04-24","subject":"New property acquired; rehab planning","source":"Email"}],"action_items":[]},{"address":"300 Tyler St, Pittsfield, MA 01201","current_milestone":"Title & Escrow","closing_date":null,"sources":["Email","PDF"],"contacts":[{"name":"David Burstein","role":"Attorney"},{"name":"Jessica Sicard","role":"Project Manager"}],"financials":{},"recent_updates":[{"date":"2026-05-05","subject":"Title work in progress","source":"Email"}],"action_items":[]},{"address":"166 East St, Stafford, CT 06076","current_milestone":"Under Contract","closing_date":null,"sources":["dotloop","Email"],"contacts":[{"name":"Alice Kempf","role":"Agent"}],"financials":{},"recent_updates":[{"date":"2026-05-08","subject":"Under contract; awaiting inspections","source":"Email"}],"action_items":[]},{"address":"583 Hawks Spur Rd, Plymouth, VT","current_milestone":"Prospecting","closing_date":null,"sources":["Email"],"contacts":[],"financials":{},"recent_updates":[],"action_items":[]},{"address":"103 Prospect St, Springfield, MA","current_milestone":"Inspections","closing_date":null,"sources":["Email"],"contacts":[{"name":"Ryan O'Hara","role":"Attorney (Bacon Wilson)"},{"name":"Hunter Foote","role":"Prospective Buyer (Vanderburgh)"}],"financials":{},"recent_updates":[{"date":"2026-05-18","subject":"O'Hara forwarded buyer response re: violations. Basement stairs and fireblocking noted as issues.","source":"Email"},{"date":"2026-05-13","subject":"Hunter Foote submitted new lower offer; Matt rejected. Eviction court May 28","source":"Email"},{"date":"2026-05-08","subject":"Potential buyer Hunter Foote in discussions","source":"Email"}],"action_items":["Eviction court first tier event May 28","Review inspection violations: basement stairs and fireblocking","Await revised offer from Hunter Foote / Vanderburgh","Do NOT contact Code Enforcement"]},{"address":"172 Fiske St, Southbridge, MA","current_milestone":"Prospecting","closing_date":null,"sources":["Email","PDF"],"contacts":[{"name":"Alice Kempf","role":"Agent"},{"name":"Antonio","role":"Partner (Investarters)"}],"financials":{"arv_2br":"379900","arv_3br":"439900-480000"},"recent_updates":[{"date":"2026-05-15","subject":"Alice sent CMA: 2BR ARV $379,900; 3BR ARV $439,900-$480,000. Room with fireplace could be MBR suite.","source":"Email"}],"action_items":["Evaluate MBR suite conversion for 3BR pricing","Await Antonio feedback"]},{"address":"26 Old Putnam Rd Ext, Plainfield, CT 06239","current_milestone":"Prospecting","closing_date":null,"sources":["Email","PDF"],"contacts":[{"name":"Alice Kempf","role":"Agent"}],"financials":{"arv_estimate":"429000"},"recent_updates":[{"date":"2026-05-15","subject":"Alice sent CMA with ARV ~$429k. Sloping backyard may reduce value.","source":"Email"}],"action_items":["Review CMA reports","Assess sloping backyard impact","Determine offer strategy"]}]};
-const MILESTONES = ['Offer Made','Under Contract','Title & Escrow','Inspections','Appraisal','Financing','Repairs / Rehab','Final Walkthrough','Closing','Closed'];
-
-function getMilestoneIndex(m){
-  const i = MILESTONES.indexOf(m);
-  return i >= 0 ? i : -1;
-}
-
-function daysUntil(dateStr){
-  if(!dateStr) return null;
-  const parts = dateStr.split('/');
-  const d = new Date(parts[2], parts[0]-1, parts[1]);
-  const now = new Date(); now.setHours(0,0,0,0);
-  return Math.ceil((d - now)/(1000*60*60*24));
-}
-
-function formatDate(d){
-  const dt = new Date(d);
-  return dt.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
-}
-
-function sourceBadge(s){
-  const cls = s.toLowerCase().replace(/\s/g,'');
-  return '<span class="badge badge-' + (cls === 'dotloop' ? 'dotloop' : cls === 'pdf' ? 'pdf' : cls === 'docusign' ? 'docusign' : 'email') + '">' + s + '</span>';
-}
-
-function render(){
-  const props = DATA.properties;
-  const active = props.filter(p => p.current_milestone !== 'Closed' && p.current_milestone !== 'Prospecting');
-  const atClosing = props.filter(p => p.current_milestone === 'Closing');
-  const inRehab = props.filter(p => p.current_milestone === 'Repairs / Rehab');
-
-  document.getElementById('stats').innerHTML = '<span class="stat-pill"><b>' + active.length + '</b> Active</span><span class="stat-pill"><b>' + atClosing.length + '</b> At Closing</span><span class="stat-pill"><b>' + inRehab.length + '</b> In Rehab</span><span class="last-updated">Updated: ' + formatDate(DATA.last_updated) + '</span>';
-  const grid = document.getElementById('grid');
-  const order = {'Closing':0,'Financing':1,'Title & Escrow':2,'Inspections':3,'Appraisal':4,'Under Contract':5,'Repairs / Rehab':6,'Final Walkthrough':7,'Offer Made':8,'Prospecting':9,'Closed':10};
-  const sorted = [...props].sort((a,b) => (order[a.current_milestone]||99) - (order[b.current_milestone]||99));
-
-  grid.innerHTML = sorted.map(p => {
-    const mi = getMilestoneIndex(p.current_milestone);
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>House Flip Closing Coordinator</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#0f1117;--card-bg:#1a1d27;--card-border:#2a2d3a;--text:#e0e0e0;--text-dim:#888;--accent:#4a9eff;--green:#22c55e;--yellow:#eab308;--red:#ef4444;--orange:#f97316;--purple:#a855f7}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
-.header{position:sticky;top:0;z-index:100;background:linear-gradient(135deg,#1a1d27 0%,#252838 100%);border-bottom:1px solid var(--card-border);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
-.header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,#4a9eff,#a855f7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.header-meta{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
-.stat-pill{background:rgba(74,158,255,0.1);border:1px solid rgba(74,158,255,0.2);border-radius:20px;padding:4px 14px;font-size:.82rem}
-.stat-pill b{color:var(--accent)}
-.last-updated{font-size:.75rem;color:var(--text-dim)}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:20px;padding:24px;max-width:1800px;margin:0 auto}
-.card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:12px;overflow:hidden;transition:transform .15s,box-shadow .15s}
-.card:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,.3)}
-.card-header{padding:16px 18px 12px;border-bottom:1px solid var(--card-border)}
-.card-address{font-size:1.05rem;font-weight:600;margin-bottom:6px}
-.badges{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}
-.badge{font-size:.7rem;padding:2px 8px;border-radius:10px;font-weight:600;text-transform:uppercase}
-.badge-phase{background:rgba(74,158,255,0.15);color:var(--accent);border:1px solid rgba(74,158,255,0.3)}
-.badge-dotloop{background:rgba(168,85,247,0.15);color:var(--purple);border:1px solid rgba(168,85,247,0.3)}
-.badge-email{background:rgba(234,179,8,0.15);color:var(--yellow);border:1px solid rgba(234,179,8,0.3)}
-.badge-pdf{background:rgba(249,115,22,0.15);color:var(--orange);border:1px solid rgba(249,115,22,0.3)}
-.badge-docusign{background:rgba(34,197,94,0.15);color:var(--green);border:1px solid rgba(34,197,94,0.3)}
-.countdown{font-size:.8rem;color:var(--orange);margin-top:4px;font-weight:600}
-.milestone-track{display:flex;gap:0;align-items:center;padding:12px 18px;overflow-x:auto}
-.milestone-dot{width:18px;height:18px;border-radius:50%;flex-shrink:0;position:relative;cursor:default}
-.milestone-dot.completed{background:var(--green)}
-.milestone-dot.active{background:var(--accent);box-shadow:0 0 10px rgba(74,158,255,0.5);animation:pulse 2s infinite}
-.milestone-dot.pending{background:#333;border:2px solid #555}
-.milestone-line{height:2px;flex:1;min-width:6px}
-.milestone-line.completed{background:var(--green)}
-.milestone-line.pending{background:#333}
-.milestone-dot[data-tooltip]:hover::after{content:attr(data-tooltip);position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:#333;color:#fff;padding:3px 8px;border-radius:4px;font-size:.65rem;white-space:nowrap;z-index:10}
-@keyframes pulse{0%,100%{box-shadow:0 0 5px rgba(74,158,255,0.3)}50%{box-shadow:0 0 15px rgba(74,158,255,0.6)}}
-.card-body{padding:14px 18px}
-.section{margin-bottom:14px}
-.section-title{font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--text-dim);margin-bottom:6px;font-weight:600}
-.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px 16px;font-size:.82rem}
-.info-grid .label{color:var(--text-dim)}
-.info-grid .value{color:var(--text)}
-.contact-list,.update-list,.action-list{font-size:.82rem}
-.contact-list li,.update-list li,.action-list li{margin-bottom:3px;padding-left:0;list-style:none}
-.contact-list li::before{content:'\uD83D\uDC64 '}
-.update-list li::before{content:'\uD83D\uDCCB '}
-.update-list .date{color:var(--text-dim);font-size:.72rem}
-.action-list li{background:rgba(239,68,68,0.08);border-left:3px solid var(--red);padding:4px 8px;margin-bottom:4px;border-radius:0 4px 4px 0}
-.closed-card{opacity:.6}
-.closed-card:hover{opacity:.9}
-@media(max-width:500px){.grid{grid-template-columns:1fr;padding:12px}.header{padding:12px}.header h1{font-size:1.1rem}}
-</style>
-</head>
-<body>
-<script>
-const DATA = {"last_updated":"2026-05-19T08:03:00-04:00","properties":[{"address":"297 Breckwood Blvd, Springfield, MA 01109","current_milestone":"Closed","closing_date":"4/13/2026","sources":["dotloop","Email"],"contacts":[{"name":"Alice Kempf","role":"Agent"},{"name":"David Burstein","role":"Attorney"},{"name":"Jessica Sicard","role":"Project Manager"},{"name":"Chris Keniley","role":"Accounting Manager"}],"financials":{"loan_repayment_gsb":"69322"},"recent_updates":[{"date":"2026-05-17","subject":"Wicked account: $69,322 Reay Loan GSB LOC payment for Breckwood","source":"Email"},{"date":"2026-04-13","subject":"Closing date reached","source":"Email"},{"subject":"Repairs priority","source":"Email"},{"subject":"FHA Amendatory signed","source":"dotloop"}],"action_items":[]},{"address":"29 Chestnut Dr, Belchertown, MA 01007","current_milestone":"Closed","closing_date":"4/14/2026","sources":["dotloop","Email"],"contacts":[{"name":"Alice Kempf","role":"Agent"},{"name":"David Burstein","role":"Attorney"},{"name":"Jessica Sicard","role":"Project Manager"}],"financials":{},"recent_updates":[{"date":"2026-04-24","subject":"RE Tax payment $2,079.49 - Belchertown RealEstate","source":"Email"},{"date":"2026-04-14","subject":"Closing date reached","source":"Email"}],"action_items":[]},{"address":"4 School St, Ware, MA 01082","current_milestone":"Financing","closing_date":null,"sources":["Email","PDF"],"contacts":[{"name":"David Burstein","role":"Attorney"},{"name":"Jessica Sicard","role":"Project Manager"}],"financials":{},"recent_updates":[{"date":"2026-04-28","subject":"Financing stage updates","source":"Email"}],"action_items":["Follow up on closing date once financing finalizes"]},{"address":"167 East Park Terrace, Pittsfield, MA 01201","current_milestone":"Financing","closing_date":"5/7/2026","sources":["Email","PDF"],"contacts":[{"name":"David Burstein","role":"Attorney"},{"name":"Jessica Sicard","role":"Project Manager"},{"name":"Will McGuire","role":"Borrower/Signer"}],"financials":{"purchase_price":"166000","construction_advance":"50000","points":"4980","rate":"12.00%","term":"12 months","lender_fees":"570"},"recent_updates":[{"date":"2026-05-03","subject":"David Burstein sent preliminary closing docs to Pinnacle; closing moved up to May 7","source":"Email"},{"date":"2026-04-29","subject":"Pinnacle Financial approved financing; checklist and funding sheet sent","source":"Email"},{"date":"2026-04-25","subject":"Insurance binder and financing docs in progress","source":"Email"},{"date":"2026-04-21","subject":"Pinnacle received financing request; proposed terms shared","source":"Email"}],"action_items":["GET INSURANCE BINDER TO PINNACLE ASAP - closing May 7","Provide tax identification numbers for borrower and guarantors","Will McGuire needs to sign loan package remotely","Overnight signed documents back to Burstein office"]},{"address":"70 Town Hill Road, Middlefield, MA 01243","current_milestone":"Closed","closing_date":null,"sources":["Email"],"contacts":[{"name":"Jessica Sicard","role":"Project Manager"}],"financials":{},"recent_updates":[{"date":"2026-04-20","subject":"Property closed","source":"Email"}],"action_items":[]},{"address":"40 Roland St, Pittsfield, MA 01201","current_milestone":"Closing","closing_date":null,"sources":["Email","dotloop"],"contacts":[{"name":"Alice Kempf","role":"Agent"},{"name":"David Burstein","role":"Attorney"},{"name":"Jessica Sicard","role":"Project Manager"},{"name":"Alexandra","role":"Agent (KVR Team)"}],"financials":{},"recent_updates":[{"date":"2026-05-19","subject":"Jessica sent electrical invoice (PDF) to Burstein, Alice, Matt, and Alexandra","source":"Email"},{"date":"2026-05-18","subject":"Matt plans to use Roland sale funds for new acquisition; David Burstein OOO traveling this week","source":"Email"},{"date":"2026-05-18","subject":"HD credit card replenishment for Roland and Richmond from HHH Florence Account approved by Will","source":"Email"},{"date":"2026-05-09","subject":"Confirm new closing date","source":"Email"}],"action_items":["Confirm new closing date","Follow up with Jeffrey Burstein while David is traveling","Process electrical invoice"]},{"address":"21 Holly St, Greenfield, MA","current_milestone":"Repairs / Rehab","closing_date":null,"sources":["Email"],"contacts":[{"name":"Jessica Sicard","role":"Project Manager"}],"financials":{},"recent_updates":[{"date":"2026-04-22","subject":"Rehab work in progress","source":"Email"}],"action_items":[]},{"address":"1874 Home Rd, Sheffield, MA","current_milestone":"Repairs / Rehab","closing_date":null,"sources":["Email","dotloop"],"contacts":[{"name":"Jessica Sicard","role":"Project Manager"},{"name":"Mahari","role":"Contractor"},{"name":"Alice Kempf","role":"Agent"},{"name":"Gabriela Dearstyne","role":"Agent (KVR Team)"}],"financials":{"contractor_payments":"15750"},"recent_updates":[{"date":"2026-05-17","subject":"Wicked account: $12,600 + $3,150 Mahari contractor payments for 1874 Home","source":"Email"},{"date":"2026-05-12","subject":"Listing docs signed in dotloop: Exclusive Right to Sell, ERTS Addendum, Licensee-Consumer Disclosure, Seller Consent to Dual Agency, Designated Agency, Mass Inspection Disclosure","source":"dotloop"},{"date":"2026-04-22","subject":"Rehab work in progress","source":"Email"}],"action_items":["Property being prepared for listing - monitor dotloop for buyer activity"]},{"address":"1 Richmond Ln, Pittsfield, MA","current_milestone":"Repairs / Rehab","closing_date":null,"sources":["Email"],"contacts":[{"name":"Jessica Sicard","role":"Project Manager"},{"name":"Jesse Leydet","role":"On-site Contact"},{"name":"Premiere Home Solutions","role":"Contractor"},{"name":"Meredith Martin","role":"HD Pro Support"}],"financials":{},"recent_updates":[{"date":"2026-05-15","subject":"Appliance order placed via Home Depot Pro: 30in electric stove, 24in dishwasher, fridge, basic OTR microwave. Lockbox delivery scheduled 5/21.","source":"Email"},{"date":"2026-05-15","subject":"Premiere Home Solutions confirmed appliance specs for Richmond","source":"Email"},{"date":"2026-04-22","subject":"Rehab work in progress","source":"Email"}],"action_items":["Appliance delivery scheduled 5/21 - ensure lockbox access at 413-449-8997"]},{"address":"42 Washington St, Monson, MA 01057","current_milestone":"Closing","closing_date":null,"sources":["dotloop","Email"],"contacts":[{"name":"Alice Kempf","role":"Agent"},{"name":"Jessica Sicard","role":"Project Manager"}],"financials":{},"recent_updates":[{"date":"2026-05-14","subject":"Jessica confirmed under contract status","source":"Email"},{"date":"2026-05-13","subject":"Contract To Purchase Real Estate signed in dotloop; property under contract for sale","source":"dotloop"},{"date":"2026-05-01","subject":"6 listing documents signed via dotloop","source":"dotloop"}],"action_items":["Await buyer inspection and title work","Follow up on closing date"]},{"address":"54 Sectar Rd, Ashford, CT 06278","current_milestone":"Under Contract","closing_date":null,"sources":["dotloop","Email"],"contacts":[{"name":"Alice Kempf","role":"Agent"},{"name":"Jessica Sicard","role":"Project Manager"}],"financials":{},"recent_updates":[{"date":"2026-05-01","subject":"Under contract; docs in dotloop","source":"dotloop"}],"action_items":[]},{"address":"282-284 Suffolk Street, Holyoke, MA","current_milestone":"Prospecting","closing_date":null,"sources":["Email"],"contacts":[],"financials":{},"recent_updates":[],"action_items":[]},{"address":"140 Egremont Plain Rd, Egremont, MA 01230","current_milestone":"Prospecting","closing_date":null,"sources":["Email","PDF"],"contacts":[{"name":"Alice Kempf","role":"Agent"},{"name":"Antonio","role":"Partner (House Hack Helpers)"}],"financials":{"arv_estimate":"1200000-1300000"},"recent_updates":[{"date":"2026-05-18","subject":"Alice sent CMA: ARV $1.2-1.3M. Suggested fluff strategy for quick profit like Belchertown and Sheffield.","source":"Email"}],"action_items":["Review CMA and comp photos","Evaluate fluff strategy vs full rehab","Determine acquisition cost and offer"]},{"address":"213 Brodie Mountain Rd, Hancock, MA 01237","current_milestone":"Closed","closing_date":null,"sources":["Email"],"contacts":[{"name":"David Chase","role":"VP, Freedom Credit Union"}],"financials":{},"recent_updates":[{"date":"2026-05-14","subject":"Appraisal received from David Chase at Freedom Credit Union","source":"Email"}],"action_items":[]},{"address":"11 Bryant St, Springfield, MA","current_milestone":"Closed","closing_date":null,"sources":["Email"],"contacts":[{"name":"Jessica Sicard","role":"Project Manager"}],"financials":{},"recent_updates":[{"date":"2026-04-29","subject":"Detailed financial breakdown: YB owed $8,670.50 after settlement","source":"Email"}],"action_items":["Final payment approved; confirm listing date","Track YB settlement amount"]},{"address":"100 Central St (New Property)","current_milestone":"Repairs / Rehab","closing_date":null,"sources":["Email"],"contacts":[],"financials":{},"recent_updates":[{"date":"2026-04-24","subject":"New property acquired; rehab planning","source":"Email"}],"action_items":[]},{"address":"300 Tyler St, Pittsfield, MA 01201","current_milestone":"Title & Escrow","closing_date":null,"sources":["Email","PDF"],"contacts":[{"name":"David Burstein","role":"Attorney"},{"name":"Jessica Sicard","role":"Project Manager"}],"financials":{},"recent_updates":[{"date":"2026-05-05","subject":"Title work in progress","source":"Email"}],"action_items":[]},{"address":"166 East St, Stafford, CT 06076","current_milestone":"Under Contract","closing_date":null,"sources":["dotloop","Email"],"contacts":[{"name":"Alice Kempf","role":"Agent"}],"financials":{},"recent_updates":[{"date":"2026-05-08","subject":"Under contract; awaiting inspections","source":"Email"}],"action_items":[]},{"address":"583 Hawks Spur Rd, Plymouth, VT","current_milestone":"Prospecting","closing_date":null,"sources":["Email"],"contacts":[],"financials":{},"recent_updates":[],"action_items":[]},{"address":"103 Prospect St, Springfield, MA","current_milestone":"Inspections","closing_date":null,"sources":["Email"],"contacts":[{"name":"Ryan O'Hara","role":"Attorney (Bacon Wilson)"},{"name":"Hunter Foote","role":"Prospective Buyer (Vanderburgh)"}],"financials":{},"recent_updates":[{"date":"2026-05-18","subject":"O'Hara forwarded buyer response re: violations. Basement stairs and fireblocking noted as issues.","source":"Email"},{"date":"2026-05-13","subject":"Hunter Foote submitted new lower offer; Matt rejected. Eviction court May 28","source":"Email"},{"date":"2026-05-08","subject":"Potential buyer Hunter Foote in discussions","source":"Email"}],"action_items":["Eviction court first tier event May 28","Review inspection violations: basement stairs and fireblocking","Await revised offer from Hunter Foote / Vanderburgh","Do NOT contact Code Enforcement"]},{"address":"172 Fiske St, Southbridge, MA","current_milestone":"Prospecting","closing_date":null,"sources":["Email","PDF"],"contacts":[{"name":"Alice Kempf","role":"Agent"},{"name":"Antonio","role":"Partner (Investarters)"}],"financials":{"arv_2br":"379900","arv_3br":"439900-480000"},"recent_updates":[{"date":"2026-05-15","subject":"Alice sent CMA: 2BR ARV $379,900; 3BR ARV $439,900-$480,000. Room with fireplace could be MBR suite.","source":"Email"}],"action_items":["Evaluate MBR suite conversion for 3BR pricing","Await Antonio feedback"]},{"address":"26 Old Putnam Rd Ext, Plainfield, CT 06239","current_milestone":"Prospecting","closing_date":null,"sources":["Email","PDF"],"contacts":[{"name":"Alice Kempf","role":"Agent"}],"financials":{"arv_estimate":"429000"},"recent_updates":[{"date":"2026-05-15","subject":"Alice sent CMA with ARV ~$429k. Sloping backyard may reduce value.","source":"Email"}],"action_items":["Review CMA reports","Assess sloping backyard impact","Determine offer strategy"]}]};
-const MILESTONES = ['Offer Made','Under Contract','Title & Escrow','Inspections','Appraisal','Financing','Repairs / Rehab','Final Walkthrough','Closing','Closed'];
-
-function getMilestoneIndex(m){
-  const i = MILESTONES.indexOf(m);
-  return i >= 0 ? i : -1;
-}
-
-function daysUntil(dateStr){
-  if(!dateStr) return null;
-  const parts = dateStr.split('/');
-  const d = new Date(parts[2], parts[0]-1, parts[1]);
-  const now = new Date(); now.setHours(0,0,0,0);
-  return Math.ceil((d - now)/(1000*60*60*24));
-}
-
-function formatDate(d){
-  const dt = new Date(d);
-  return dt.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
-}
-
-function sourceBadge(s){
-  const cls = s.toLowerCase().replace(/\s/g,'');
-  return '<span class="badge badge-' + (cls === 'dotloop' ? 'dotloop' : cls === 'pdf' ? 'pdf' : cls === 'docusign' ? 'docusign' : 'email') + '">' + s + '</span>';
-}
-
-function render(){
-  const props = DATA.properties;
-  const active = props.filter(p => p.current_milestone !== 'Closed' && p.current_milestone !== 'Prospecting');
-  const atClosing = props.filter(p => p.current_milestone === 'Closing');
-  const inRehab = props.filter(p => p.current_milestone === 'Repairs / Rehab');
-
-  document.getElementById('stats').innerHTML = '<span class="stat-pill"><b>' + active.length + '</b> Active</span><span class="stat-pill"><b>' + atClosing.length + '</b> At Closing</span><span class="stat-pill"><b>' + inRehab.length + '</b> In Rehab</span><span class="last-updated">Updated: ' + formatDate(DATA.last_updated) + '</span>';
-  const grid = document.getElementById('grid');
-  const order = {'Closing':0,'Financing':1,'Title & Escrow':2,'Inspections':3,'Appraisal':4,'Under Contract':5,'Repairs / Rehab':6,'Final Walkthrough':7,'Offer Made':8,'Prospecting':9,'Closed':10};
-  const sorted = [...props].sort((a,b) => (order[a.current_milestone]||99) - (order[b.current_milestone]||99));
-
-  grid.innerHTML = sorted.map(p => {
-    const mi = getMilestoneIndex(p.current_milestone);
-    const isClosed = p.current_milestone === 'Closed';
-    const isProspecting = p.current_milestone === 'Prospecting';
-    const days = daysUntil(p.closing_date);
-
-    let milestoneHTML = '';
-    if(!isProspecting){
-      milestoneHTML = '<div class="milestone-track">';
-      MILESTONES.forEach((m, idx) => {
-        const state = idx < mi ? 'completed' : idx === mi ? 'active' : 'pending';
-        milestoneHTML += '<div class="milestone-dot ' + state + '" data-tooltip="' + m + '"></div>';
-        if(idx < MILESTONES.length - 1){
-          milestoneHTML += '<div class="milestone-line ' + (idx < mi ? 'completed' : 'pending') + '"></div>';
-        }
-      });
-      milestoneHTML += '</div>';
-    }
-
-    let countdownHTML = '';
-    if(days !== null && !isClosed){
-      if(days > 0) countdownHTML = '<div class="countdown">&#9201; ' + days + ' day' + (days!==1?'s':'') + ' to closing</div>';
-      else if(days === 0) countdownHTML = '<div class="countdown" style="color:var(--red)">&#128308; CLOSING TODAY</div>';
-      else countdownHTML = '<div class="countdown" style="color:var(--red)">&#9888;&#65039; ' + Math.abs(days) + ' day' + (Math.abs(days)!==1?'s':'') + ' past closing</div>';
-    }
-    const financials = p.financials && Object.keys(p.financials).length > 0 ?
-      '<div class="section"><div class="section-title">Financials</div><div class="info-grid">' +
-        Object.entries(p.financials).map(([k,v]) => '<span class="label">' + k.replace(/_/g,' ') + '</span><span class="value">$' + (typeof v === 'string' && v.includes('-') ? v.replace(/(\d+)/g, (m) => Number(m).toLocaleString()) : Number(v).toLocaleString()) + '</span>').join('') +
-      '</div></div>' : '';
-
-    const contacts = p.contacts && p.contacts.length > 0 ?
-      '<div class="section"><div class="section-title">Key Contacts</div><ul class="contact-list">' +
-        p.contacts.map(c => '<li>' + c.name + ' <span style="color:var(--text-dim)">(' + c.role + ')</span></li>').join('') +
-      '</ul></div>' : '';
-
-    const actions = p.action_items && p.action_items.length > 0 ?
-      '<div class="section"><div class="section-title">Action Items</div><ul class="action-list">' +
-        p.action_items.map(a => '<li>' + a + '</li>').join('') +
-      '</ul></div>' : '';
-
-    const updates = p.recent_updates && p.recent_updates.length > 0 ?
-      '<div class="section"><div class="section-title">Recent Updates</div><ul class="update-list">' +
-        p.recent_updates.slice(0,4).map(u => '<li>' + (u.date ? '<span class="date">' + u.date + '</span> ' : '') + u.subject + ' <span style="color:var(--text-dim);font-size:.7rem">[' + u.source + ']</span></li>').join('') +
-      '</ul></div>' : '';
-
-    return '<div class="card ' + (isClosed ? 'closed-card' : '') + '"><div class="card-header"><div class="card-address">' + p.address + '</div><div class="badges"><span class="badge badge-phase">' + p.current_milestone + '</span>' + (p.sources||[]).map(s => sourceBadge(s)).join('') + '</div>' + countdownHTML + '</div>' + milestoneHTML + '<div class="card-body">' + financials + contacts + actions + updates + '</div></div>';
-  }).join('');
-}
-
-document.addEventListener('DOMContentLoaded', render);
-</script>
-
 <div class="header">
-  <h1>&#127968; House Flip Closing Coordinator</h1>
-  <div class="header-meta" id="stats"></div>
+<h1>House Flip Closing Coordinator</h1>
+<div class="header-stats">
+<div class="stat">Active: <strong id="stat-active">0</strong></div>
+<div class="stat">At Closing: <strong id="stat-closing">0</strong></div>
+<div class="stat">In Rehab: <strong id="stat-rehab">0</strong></div>
+<div class="stat">Closed: <strong id="stat-closed">0</strong></div>
 </div>
-<div class="grid" id="grid"></div>
+<div class="last-updated">Last updated: <span id="last-updated"></span></div>
+</div>
+<div class="container">
+<div class="grid" id="cards"></div>
+</div>
+<script>
+const DATA = {
+"last_updated": "2026-05-20T08:02:15-04:00",
+"properties": [
+{
+"address": "297 Breckwood Blvd, Springfield, MA 01109",
+"current_milestone": "Closed",
+"closing_date": "4/13/2026",
+"sources": ["dotloop", "Email"],
+"contacts": [{"name": "Alice Kempf", "role": "Agent"}, {"name": "David Burstein", "role": "Attorney"}, {"name": "Jessica Sicard", "role": "Project Manager"}, {"name": "Chris Keniley", "role": "Accounting Manager"}],
+"financials": {"loan_repayment_gsb": "69322"},
+"recent_updates": [{"date": "2026-05-17", "subject": "Wicked account: $69,322 Reay Loan GSB LOC payment for Breckwood", "source": "Email"}, {"date": "2026-04-13", "subject": "Closing date reached", "source": "Email"}, {"subject": "Repairs priority", "source": "Email"}, {"subject": "FHA Amendatory signed", "source": "dotloop"}],
+"action_items": []
+},
+{
+"address": "29 Chestnut Dr, Belchertown, MA 01007",
+"current_milestone": "Closed",
+"closing_date": "4/14/2026",
+"sources": ["dotloop", "Email"],
+"contacts": [{"name": "Alice Kempf", "role": "Agent"}, {"name": "David Burstein", "role": "Attorney"}, {"name": "Jessica Sicard", "role": "Project Manager"}],
+"financials": {},
+"recent_updates": [{"date": "2026-04-24", "subject": "RE Tax payment $2,079.49 - Belchertown RealEstate", "source": "Email"}, {"date": "2026-04-14", "subject": "Closing date reached", "source": "Email"}],
+"action_items": []
+},
+{
+"address": "4 School St, Ware, MA 01082",
+"current_milestone": "Financing",
+"closing_date": null,
+"sources": ["Email", "PDF"],
+"contacts": [{"name": "David Burstein", "role": "Attorney"}, {"name": "Jessica Sicard", "role": "Project Manager"}],
+"financials": {},
+"recent_updates": [{"date": "2026-04-28", "subject": "Financing stage updates", "source": "Email"}],
+"action_items": ["Follow up on closing date once financing finalizes"]
+},
+{
+"address": "167 East Park Terrace, Pittsfield, MA 01201",
+"current_milestone": "Financing",
+"closing_date": "5/7/2026",
+"sources": ["Email", "PDF"],
+"contacts": [{"name": "David Burstein", "role": "Attorney"}, {"name": "Jessica Sicard", "role": "Project Manager"}, {"name": "Will McGuire", "role": "Borrower/Signer"}],
+"financials": {"purchase_price": "166000", "construction_advance": "50000", "points": "4980", "rate": "12.00%", "term": "12 months", "lender_fees": "570"},
+"recent_updates": [{"date": "2026-05-03", "subject": "David Burstein sent preliminary closing docs to Pinnacle; closing moved up to May 7", "source": "Email"}, {"date": "2026-04-29", "subject": "Pinnacle Financial approved financing; checklist and funding sheet sent", "source": "Email"}, {"date": "2026-04-25", "subject": "Insurance binder and financing docs in progress", "source": "Email"}, {"date": "2026-04-21", "subject": "Pinnacle received financing request; proposed terms shared", "source": "Email"}],
+"action_items": ["GET INSURANCE BINDER TO PINNACLE ASAP - closing May 7", "Provide tax identification numbers for borrower and guarantors", "Will McGuire needs to sign loan package remotely", "Overnight signed documents back to Burstein office"]
+},
+{
+"address": "70 Town Hill Road, Middlefield, MA 01243",
+"current_milestone": "Closed",
+"closing_date": null,
+"sources": ["Email"],
+"contacts": [{"name": "Jessica Sicard", "role": "Project Manager"}],
+"financials": {},
+"recent_updates": [{"date": "2026-04-20", "subject": "Property closed", "source": "Email"}],
+"action_items": []
+},
+{
+"address": "40 Roland St, Pittsfield, MA 01201",
+"current_milestone": "Closing",
+"closing_date": null,
+"sources": ["Email", "dotloop"],
+"contacts": [{"name": "Alice Kempf", "role": "Agent"}, {"name": "David Burstein", "role": "Attorney"}, {"name": "Jessica Sicard", "role": "Project Manager"}, {"name": "Alexandra", "role": "Agent (KVR Team)"}],
+"financials": {},
+"recent_updates": [{"date": "2026-05-19", "subject": "Jessica sent electrical invoice (PDF) to Burstein, Alice, Matt, and Alexandra", "source": "Email"}, {"date": "2026-05-18", "subject": "Matt plans to use Roland sale funds for new acquisition instead of Russ project; David Burstein OOO traveling this week (Jeffrey Burstein or Shamikka Andrews handling urgent matters)", "source": "Email"}, {"date": "2026-05-18", "subject": "HD credit card replenishment for Roland & Richmond from HHH Florence Account approved by Will", "source": "Email"}, {"date": "2026-05-09", "subject": "Confirm new closing date", "source": "Email"}],
+"action_items": ["Confirm new closing date", "Follow up with Jeffrey Burstein while David is traveling", "Process electrical invoice"]
+},
+{
+"address": "21 Holly St, Greenfield, MA",
+"current_milestone": "Repairs / Rehab",
+"closing_date": null,
+"sources": ["Email"],
+"contacts": [{"name": "Jessica Sicard", "role": "Project Manager"}],
+"financials": {},
+"recent_updates": [{"date": "2026-04-22", "subject": "Rehab work in progress", "source": "Email"}],
+"action_items": []
+},
+{
+"address": "1874 Home Rd, Sheffield, MA",
+"current_milestone": "Repairs / Rehab",
+"closing_date": null,
+"sources": ["Email", "dotloop"],
+"contacts": [{"name": "Jessica Sicard", "role": "Project Manager"}, {"name": "Mahari", "role": "Contractor"}, {"name": "Alice Kempf", "role": "Agent"}, {"name": "Gabriela Dearstyne", "role": "Agent (KVR Team)"}],
+"financials": {"contractor_payments": "15750"},
+"recent_updates": [{"date": "2026-05-17", "subject": "Wicked account: $12,600 + $3,150 Mahari contractor payments for 1874 Home", "source": "Email"}, {"date": "2026-05-12", "subject": "Listing docs signed in dotloop: Exclusive Right to Sell, ERTS Addendum Coming Soon, Licensee-Consumer Disclosure, Seller Consent to Dual Agency, Seller Consent to Designated Agency, Mass Inspection Disclosure", "source": "dotloop"}, {"date": "2026-04-22", "subject": "Rehab work in progress", "source": "Email"}],
+"action_items": ["Property being prepared for listing - monitor dotloop for buyer activity"]
+},
+{
+"address": "1 Richmond Ln, Pittsfield, MA",
+"current_milestone": "Repairs / Rehab",
+"closing_date": null,
+"sources": ["Email"],
+"contacts": [{"name": "Jessica Sicard", "role": "Project Manager"}, {"name": "Jesse Leydet", "role": "On-site Contact"}, {"name": "Premiere Home Solutions", "role": "Contractor"}, {"name": "Meredith Martin", "role": "HD Pro Support"}],
+"financials": {},
+"recent_updates": [{"date": "2026-05-15", "subject": "Appliance order placed via Home Depot Pro: 30in electric stove, 24in dishwasher, fridge (73x36 opening), basic OTR microwave. Lockbox delivery scheduled 5/21.", "source": "Email"}, {"date": "2026-05-15", "subject": "Premiere Home Solutions confirmed appliance specs for Richmond", "source": "Email"}, {"date": "2026-04-22", "subject": "Rehab work in progress", "source": "Email"}],
+"action_items": ["Appliance delivery scheduled 5/21 - ensure lockbox access at 413-449-8997"]
+},
+{
+"address": "42 Washington St, Monson, MA 01057",
+"current_milestone": "Closing",
+"closing_date": null,
+"sources": ["dotloop", "Email"],
+"contacts": [{"name": "Alice Kempf", "role": "Agent"}, {"name": "Jessica Sicard", "role": "Project Manager"}],
+"financials": {},
+"recent_updates": [{"date": "2026-05-14", "subject": "Jessica confirmed under contract status", "source": "Email"}, {"date": "2026-05-13", "subject": "Contract To Purchase Real Estate (Offer #501, rev 7) signed in dotloop; property now under contract for sale", "source": "dotloop"}, {"date": "2026-05-13", "subject": "Matt notified Jessica: 42 Washington under contract", "source": "Email"}, {"date": "2026-05-13", "subject": "Alice Kempf shared Contract To Purchase Real Estate (Offer #501, revision 7) via Dotloop for review", "source": "dotloop"}, {"date": "2026-05-01", "subject": "6 listing documents signed via dotloop", "source": "dotloop"}],
+"action_items": ["Await buyer inspection and title work", "Follow up on closing date"]
+},
+{
+"address": "54 Sectar Rd, Ashford, CT 06278",
+"current_milestone": "Under Contract",
+"closing_date": null,
+"sources": ["dotloop", "Email"],
+"contacts": [{"name": "Alice Kempf", "role": "Agent"}, {"name": "Jessica Sicard", "role": "Project Manager"}],
+"financials": {},
+"recent_updates": [{"date": "2026-05-01", "subject": "Under contract; docs in dotloop", "source": "dotloop"}],
+"action_items": []
+},
+{
+"address": "282-284 Suffolk Street, Holyoke, MA",
+"current_milestone": "Prospecting",
+"closing_date": null,
+"sources": ["Email"],
+"contacts": [],
+"financials": {},
+"recent_updates": [],
+"action_items": []
+},
+{
+"address": "140 Egremont Plain Rd, Egremont, MA 01230",
+"current_milestone": "Prospecting",
+"closing_date": null,
+"sources": ["Email", "PDF"],
+"contacts": [{"name": "Alice Kempf", "role": "Agent"}, {"name": "Antonio", "role": "Partner (House Hack Helpers)"}],
+"financials": {"arv_estimate": "1200000-1300000"},
+"recent_updates": [{"date": "2026-05-18", "subject": "Alice sent CMA: ARV $1.2-1.3M. Comp reminds her of Richmond. Suggested fluff strategy (cleaning, staging, bank financing) for quick profit like Belchertown and Sheffield.", "source": "Email"}],
+"action_items": ["Review CMA and comp photos", "Evaluate fluff strategy vs full rehab", "Determine acquisition cost and offer"]
+},
+{
+"address": "213 Brodie Mountain Rd, Hancock, MA 01237",
+"current_milestone": "Closed",
+"closing_date": null,
+"sources": ["Email"],
+"contacts": [{"name": "David Chase", "role": "VP, Freedom Credit Union"}],
+"financials": {},
+"recent_updates": [{"date": "2026-05-14", "subject": "Appraisal received from David Chase at Freedom Credit Union", "source": "Email"}],
+"action_items": []
+},
+{
+"address": "11 Bryant St, Springfield, MA",
+"current_milestone": "Closed",
+"closing_date": null,
+"sources": ["Email"],
+"contacts": [{"name": "Jessica Sicard", "role": "Project Manager"}],
+"financials": {},
+"recent_updates": [{"date": "2026-04-29", "subject": "Detailed financial breakdown: YB owed $8,670.50 after settlement", "source": "Email"}],
+"action_items": ["Final payment approved; confirm listing date", "Track YB settlement amount"]
+},
+{
+"address": "100 Central St (New Property)",
+"current_milestone": "Repairs / Rehab",
+"closing_date": null,
+"sources": ["Email"],
+"contacts": [],
+"financials": {},
+"recent_updates": [{"date": "2026-04-24", "subject": "New property acquired; rehab planning", "source": "Email"}],
+"action_items": []
+},
+{
+"address": "300 Tyler St, Pittsfield, MA 01201",
+"current_milestone": "Title & Escrow",
+"closing_date": null,
+"sources": ["Email", "PDF"],
+"contacts": [{"name": "David Burstein", "role": "Attorney"}, {"name": "Jessica Sicard", "role": "Project Manager"}],
+"financials": {},
+"recent_updates": [{"date": "2026-05-05", "subject": "Title work in progress", "source": "Email"}],
+"action_items": []
+},
+{
+"address": "166 East St, Stafford, CT 06076",
+"current_milestone": "Under Contract",
+"closing_date": null,
+"sources": ["dotloop", "Email"],
+"contacts": [{"name": "Alice Kempf", "role": "Agent"}],
+"financials": {},
+"recent_updates": [{"date": "2026-05-08", "subject": "Under contract; awaiting inspections", "source": "Email"}],
+"action_items": []
+},
+{
+"address": "583 Hawks Spur Rd, Plymouth, VT",
+"current_milestone": "Prospecting",
+"closing_date": null,
+"sources": ["Email"],
+"contacts": [],
+"financials": {},
+"recent_updates": [],
+"action_items": []
+},
+{
+"address": "103 Prospect St, Springfield, MA",
+"current_milestone": "Inspections",
+"closing_date": null,
+"sources": ["Email"],
+"contacts": [{"name": "Ryan O'Hara", "role": "Attorney (Bacon Wilson)"}, {"name": "Hunter Foote", "role": "Prospective Buyer (Vanderburgh)"}],
+"financials": {},
+"recent_updates": [{"date": "2026-05-18", "subject": "O'Hara forwarded buyer response re: violations. Basement stairs removed with door remaining and basement fireblocking noted as issues (p. 11-12 of inspection report). Attachments included.", "source": "Email"}, {"date": "2026-05-13", "subject": "Hunter Foote submitted new lower offer via attorney; Matt rejected as going backwards. O'Hara notes buyer banking on immediate close as incentive", "source": "Email"}, {"date": "2026-05-13", "subject": "Eviction court first tier event scheduled for May 28", "source": "Email"}, {"date": "2026-05-08", "subject": "Potential buyer Hunter Foote in discussions", "source": "Email"}],
+"action_items": ["Eviction court first tier event May 28", "Review inspection violations: basement stairs and fireblocking", "Await revised offer from Hunter Foote / Vanderburgh", "Do NOT contact Code Enforcement - avoid prompting closer attention"]
+},
+{
+"address": "172 Fiske St, Southbridge, MA",
+"current_milestone": "Prospecting",
+"closing_date": null,
+"sources": ["Email", "PDF"],
+"contacts": [{"name": "Alice Kempf", "role": "Agent"}, {"name": "Antonio", "role": "Partner (Investarters)"}],
+"financials": {"arv_2br": "379900", "arv_3br": "439900-480000"},
+"recent_updates": [{"date": "2026-05-15", "subject": "Alice Kempf sent CMA: 2BR ARV $379,900; 3BR ARV $439,900-$480,000. Previous listing PDF attached. Room with fireplace could be converted to MBR suite. Full bath on each floor confirmed.", "source": "Email"}, {"date": "2026-05-15", "subject": "Matt forwarded CMA to Antonio at Investarters for review", "source": "Email"}],
+"action_items": ["Evaluate whether room can be converted to MBR suite for 3BR pricing", "Await Antonios feedback on deal viability", "Review previous listing details from PDF"]
+},
+{
+"address": "26 Old Putnam Rd Ext, Plainfield, CT 06239",
+"current_milestone": "Prospecting",
+"closing_date": null,
+"sources": ["Email", "PDF"],
+"contacts": [{"name": "Alice Kempf", "role": "Agent"}],
+"financials": {"arv_estimate": "429000"},
+"recent_updates": [{"date": "2026-05-15", "subject": "Alice Kempf sent CMA with ARV ~$429k. Sloping backyard noted from previous listing may reduce value. Two PDF reports attached (CMA and previous listing).", "source": "Email"}, {"date": "2026-05-15", "subject": "Matt acknowledged receipt of CMA", "source": "Email"}],
+"action_items": ["Review CMA reports for pricing accuracy", "Assess impact of sloping backyard on value", "Determine offer strategy"]
+}
+]
+};
+
+const MILESTONES = ["Offer Made","Under Contract","Title & Escrow","Inspections","Appraisal","Financing","Repairs / Rehab","Final Walkthrough","Closing","Closed"];
+const MILESTONE_SHORT = ["Offer","Contract","Title","Inspect","Appraise","Finance","Rehab","Walk","Closing","Closed"];
+
+function getPhaseClass(m) {
+  if (m === "Closed") return "phase-closed";
+  if (m === "Closing") return "phase-closing";
+  if (m === "Repairs / Rehab") return "phase-rehab";
+  if (m === "Financing") return "phase-financing";
+  if (m === "Inspections") return "phase-inspections";
+  if (m === "Title & Escrow") return "phase-title";
+  if (m === "Under Contract") return "phase-contract";
+  if (m === "Prospecting") return "phase-prospecting";
+  return "phase-financing";
+}
+
+function daysUntil(dateStr) {
+  if (!dateStr) return null;
+  const parts = dateStr.split('/');
+  const d = new Date(parts[2], parts[0]-1, parts[1]);
+  const now = new Date();
+  now.setHours(0,0,0,0);
+  return Math.ceil((d - now) / (1000*60*60*24));
+}
+
+function formatFinancials(f) {
+  if (!f || Object.keys(f).length === 0) return '<span class="no-data">No financial data</span>';
+  let html = '<div class="info-grid">';
+  const labels = {purchase_price:"Purchase Price",arv:"ARV",arv_estimate:"Est. ARV",arv_2br:"ARV (2BR)",arv_3br:"ARV (3BR)",repair_budget:"Repair Budget",closing_costs:"Closing Costs",loan_repayment_gsb:"Loan Repay (GSB)",contractor_payments:"Contractor Payments",construction_advance:"Construction Advance",points:"Points",rate:"Rate",term:"Term",lender_fees:"Lender Fees"};
+  for (const [k,v] of Object.entries(f)) {
+    const label = labels[k] || k;
+    const val = typeof v === 'string' && /^\d+$/.test(v) ? '$'+Number(v).toLocaleString() : v;
+    html += `<div class="info-item"><div class="label">${label}</div>${val}</div>`;
+  }
+  return html + '</div>';
+}
+
+function renderCard(p) {
+  const mi = MILESTONES.indexOf(p.current_milestone);
+  const days = daysUntil(p.closing_date);
+  let countdown = '';
+  if (p.closing_date) {
+    if (days !== null) {
+      if (days > 0) countdown = `<div class="countdown">Closing in ${days} day${days!==1?'s':''} (${p.closing_date})</div>`;
+      else if (days === 0) countdown = `<div class="countdown">CLOSING TODAY (${p.closing_date})</div>`;
+      else countdown = `<div class="countdown overdue">Closing was ${Math.abs(days)} day${Math.abs(days)!==1?'s':''} ago (${p.closing_date})</div>`;
+    }
+  }
+  let dots = MILESTONES.map((m, i) => {
+    let cls = 'pending';
+    if (mi >= 0) {
+      if (i < mi) cls = 'completed';
+      else if (i === mi) cls = 'active';
+    }
+    return `<div class="dot ${cls}" title="${m}"></div>`;
+  }).join('');
+  let labels = MILESTONE_SHORT.map(s => `<span>${s}</span>`).join('');
+  let sources = p.sources.map(s => `<span class="source-badge">${s}</span>`).join('');
+  let contacts = p.contacts.length ? '<ul class="contacts-list">' + p.contacts.map(c => `<li>${c.name} <span class="contact-role">${c.role}</span></li>`).join('') + '</ul>' : '<span class="no-data">No contacts</span>';
+  let updates = p.recent_updates.length ? '<ul class="updates-list">' + p.recent_updates.slice(0,3).map(u => `<li>${u.date ? '<span class="update-date">'+u.date+'</span>' : ''}${u.subject}<span class="update-source">${u.source}</span></li>`).join('') + '</ul>' : '<span class="no-data">No recent updates</span>';
+  let actions = p.action_items.length ? '<ul class="actions-list">' + p.action_items.map(a => `<li class="action-item">${a}</li>`).join('') + '</ul>' : '<span class="no-data">No action items</span>';
+
+  return `<div class="card">
+    <div class="card-header"><h2>${p.address}</h2><span class="phase-badge ${getPhaseClass(p.current_milestone)}">${p.current_milestone}</span></div>
+    <div class="source-badges">${sources}</div>
+    ${countdown}
+    <div class="timeline">${dots}</div>
+    <div class="timeline-labels">${labels}</div>
+    <div class="section"><div class="section-title">Financials</div>${formatFinancials(p.financials)}</div>
+    <div class="section"><div class="section-title">Key Contacts</div>${contacts}</div>
+    <div class="section"><div class="section-title">Recent Updates</div>${updates}</div>
+    <div class="section"><div class="section-title">Action Items</div>${actions}</div>
+  </div>`;
+}
+
+function render() {
+  const props = DATA.properties;
+  document.getElementById('last-updated').textContent = new Date(DATA.last_updated).toLocaleString();
+  const active = props.filter(p => p.current_milestone !== 'Closed' && p.current_milestone !== 'Prospecting');
+  document.getElementById('stat-active').textContent = active.length;
+  document.getElementById('stat-closing').textContent = props.filter(p => p.current_milestone === 'Closing').length;
+  document.getElementById('stat-rehab').textContent = props.filter(p => p.current_milestone === 'Repairs / Rehab').length;
+  document.getElementById('stat-closed').textContent = props.filter(p => p.current_milestone === 'Closed').length;
+  // Sort: active first (by milestone progress desc), then prospecting, then closed
+  const order = {"Closing":0,"Final Walkthrough":1,"Financing":2,"Inspections":3,"Appraisal":4,"Title & Escrow":5,"Repairs / Rehab":6,"Under Contract":7,"Offer Made":8,"Prospecting":9,"Closed":10};
+  props.sort((a,b) => (order[a.current_milestone]||99) - (order[b.current_milestone]||99));
+  document.getElementById('cards').innerHTML = props.map(renderCard).join('');
+}
+render();
+</script>
 </body>
 </html>
