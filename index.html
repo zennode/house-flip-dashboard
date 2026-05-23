@@ -4,787 +4,919 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>House Flip Closing Coordinator</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #0f1117;
-  --card-bg: #1a1d27;
-  --text: #e4e4e7;
-  --text-muted: #9ca3af;
-  --accent: #3b82f6;
-  --accent-green: #22c55e;
-  --accent-yellow: #eab308;
-  --accent-red: #ef4444;
-  --border: #2d3140;
+--bg: #0f1117;
+--card-bg: #1a1d27;
+--text: #e2e8f0;
+--text-muted: #94a3b8;
+--accent: #3b82f6;
+--green: #22c55e;
+--yellow: #eab308;
+--red: #ef4444;
+--border: #2d3348;
 }
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
+* { margin: 0; padding: 0; box-sizing: border-box; }
 body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  font-size: 14px;
-  line-height: 1.5;
-  min-height: 100vh;
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+background: var(--bg);
+color: var(--text);
+line-height: 1.5;
 }
-
-/* âââ HEADER âââââââââââââââââââââââââââââââââââââââââââ */
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(15,17,23,0.96);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
-  padding: 14px 20px;
+header {
+position: sticky;
+top: 0;
+z-index: 100;
+background: rgba(15, 17, 23, 0.95);
+backdrop-filter: blur(10px);
+border-bottom: 1px solid var(--border);
+padding: 16px 24px;
 }
-.header-inner {
-  max-width: 1400px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 12px;
+.header-content {
+max-width: 1400px;
+margin: 0 auto;
+display: flex;
+flex-wrap: wrap;
+align-items: center;
+justify-content: space-between;
+gap: 12px;
 }
-.header-title {
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--text);
-  flex: 1;
-  min-width: 200px;
+.header-title h1 {
+font-size: 1.4rem;
+font-weight: 700;
+color: var(--text);
 }
-.header-title span {
-  color: var(--accent);
+.header-title .updated {
+font-size: 0.8rem;
+color: var(--text-muted);
 }
-.header-meta {
-  font-size: 12px;
-  color: var(--text-muted);
-}
-.header-badges {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  align-items: center;
+.stats-badges {
+display: flex;
+gap: 10px;
+flex-wrap: wrap;
 }
 .stat-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  padding: 4px 10px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 600;
-  border: 1px solid;
+padding: 6px 14px;
+border-radius: 20px;
+font-size: 0.8rem;
+font-weight: 600;
 }
-.stat-badge.blue { background: rgba(59,130,246,0.15); border-color: rgba(59,130,246,0.4); color: #93c5fd; }
-.stat-badge.green { background: rgba(34,197,94,0.15); border-color: rgba(34,197,94,0.4); color: #86efac; }
-.stat-badge.yellow { background: rgba(234,179,8,0.15); border-color: rgba(234,179,8,0.4); color: #fde047; }
-.stat-badge.red { background: rgba(239,68,68,0.15); border-color: rgba(239,68,68,0.4); color: #fca5a5; }
-.stat-dot { width: 7px; height: 7px; border-radius: 50%; }
-.stat-dot.blue { background: var(--accent); }
-.stat-dot.green { background: var(--accent-green); }
-.stat-dot.yellow { background: var(--accent-yellow); }
-.stat-dot.red { background: var(--accent-red); }
-
-/* âââ FILTER BAR ââââââââââââââââââââââââââââââââââââââââ */
-.filter-bar {
-  max-width: 1400px;
-  margin: 18px auto 0;
-  padding: 0 20px;
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
+.stat-badge.active { background: rgba(59,130,246,0.15); color: var(--accent); border: 1px solid rgba(59,130,246,0.3); }
+.stat-badge.closing { background: rgba(234,179,8,0.15); color: var(--yellow); border: 1px solid rgba(234,179,8,0.3); }
+.stat-badge.rehab { background: rgba(34,197,94,0.15); color: var(--green); border: 1px solid rgba(34,197,94,0.3); }
+main {
+max-width: 1400px;
+margin: 0 auto;
+padding: 24px;
+display: flex;
+flex-direction: column;
+gap: 16px;
 }
-.filter-btn {
-  padding: 6px 16px;
-  border-radius: 20px;
-  border: 1px solid var(--border);
-  background: var(--card-bg);
-  color: var(--text-muted);
-  font-size: 13px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.18s ease;
-  font-family: inherit;
+.section-label {
+font-size: 0.85rem;
+font-weight: 600;
+text-transform: uppercase;
+letter-spacing: 0.05em;
+color: var(--text-muted);
+margin-top: 8px;
+padding-bottom: 4px;
+border-bottom: 1px solid var(--border);
 }
-.filter-btn:hover {
-  border-color: var(--accent);
-  color: var(--text);
-}
-.filter-btn.active {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: #fff;
-}
-
-/* âââ GRID ââââââââââââââââââââââââââââââââââââââââââââââ */
-.grid {
-  max-width: 1400px;
-  margin: 20px auto 40px;
-  padding: 0 20px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-  gap: 16px;
-}
-
-/* âââ CARD ââââââââââââââââââââââââââââââââââââââââââââââ */
 .card {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  overflow: hidden;
-  transition: box-shadow 0.2s, border-color 0.2s;
-  display: flex;
-  flex-direction: column;
+background: var(--card-bg);
+border: 1px solid var(--border);
+border-radius: 12px;
+padding: 20px;
 }
-.card:hover { box-shadow: 0 4px 24px rgba(0,0,0,0.4); }
-.card.urgent { border-left: 3px solid var(--accent-red); }
-.card.hidden { display: none; }
-
 .card-header {
-  padding: 14px 16px 12px;
-  cursor: pointer;
-  user-select: none;
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
+display: flex;
+flex-wrap: wrap;
+align-items: flex-start;
+justify-content: space-between;
+gap: 8px;
+margin-bottom: 12px;
 }
-.card-header-left { flex: 1; min-width: 0; }
 .card-address {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--text);
-  line-height: 1.3;
-  margin-bottom: 6px;
+font-size: 1.15rem;
+font-weight: 700;
 }
-.card-badges { display: flex; flex-wrap: wrap; gap: 5px; }
-
-.phase-badge {
-  display: inline-block;
-  padding: 2px 9px;
-  border-radius: 12px;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
+.badges { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+.badge {
+padding: 3px 10px;
+border-radius: 12px;
+font-size: 0.7rem;
+font-weight: 600;
+text-transform: uppercase;
+letter-spacing: 0.03em;
 }
-.phase-green { background: rgba(34,197,94,0.2); color: #86efac; }
-.phase-blue { background: rgba(59,130,246,0.2); color: #93c5fd; }
-.phase-yellow { background: rgba(234,179,8,0.2); color: #fde047; }
-.phase-red { background: rgba(239,68,68,0.2); color: #fca5a5; }
-.phase-gray { background: rgba(156,163,175,0.15); color: #9ca3af; }
-
-.source-badge {
-  display: inline-block;
-  padding: 2px 7px;
-  border-radius: 10px;
-  font-size: 10px;
-  font-weight: 600;
-  border: 1px solid;
-}
-.src-dotloop { background: rgba(59,130,246,0.1); border-color: rgba(59,130,246,0.35); color: #93c5fd; }
-.src-docusign { background: rgba(251,191,36,0.1); border-color: rgba(251,191,36,0.35); color: #fde047; }
-.src-email { background: rgba(156,163,175,0.1); border-color: rgba(156,163,175,0.3); color: #d1d5db; }
-.src-pdf { background: rgba(239,68,68,0.1); border-color: rgba(239,68,68,0.3); color: #fca5a5; }
-
-.card-chevron {
-  color: var(--text-muted);
-  font-size: 16px;
-  transition: transform 0.25s ease;
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-.card.expanded .card-chevron { transform: rotate(180deg); }
-
+.badge-green { background: rgba(34,197,94,0.15); color: var(--green); }
+.badge-blue { background: rgba(59,130,246,0.15); color: var(--accent); }
+.badge-yellow { background: rgba(234,179,8,0.15); color: var(--yellow); }
+.badge-red { background: rgba(239,68,68,0.15); color: var(--red); }
+.badge-purple { background: rgba(168,85,247,0.15); color: #a855f7; }
+.badge-orange { background: rgba(249,115,22,0.15); color: #f97316; }
+.badge-gray { background: rgba(148,163,184,0.1); color: var(--text-muted); }
+.source-badges { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 12px; }
+.source-badge { padding: 2px 8px; border-radius: 8px; font-size: 0.65rem; font-weight: 600; }
 .countdown {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 11px;
-  font-weight: 600;
-  padding: 2px 8px;
-  border-radius: 10px;
-  margin-top: 4px;
+font-size: 0.85rem;
+font-weight: 600;
+margin-bottom: 12px;
 }
-.countdown.ok { background: rgba(59,130,246,0.15); color: #93c5fd; border: 1px solid rgba(59,130,246,0.3); }
-.countdown.soon { background: rgba(234,179,8,0.15); color: #fde047; border: 1px solid rgba(234,179,8,0.3); }
-.countdown.overdue { background: rgba(239,68,68,0.2); color: #fca5a5; border: 1px solid rgba(239,68,68,0.4); animation: pulse-red 1.5s infinite; }
-
-@keyframes pulse-red {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.6; }
+.countdown.urgent { color: var(--red); }
+.countdown.soon { color: var(--yellow); }
+.countdown.normal { color: var(--green); }
+.countdown.closed { color: var(--text-muted); }
+.milestone-timeline {
+display: flex;
+align-items: flex-start;
+gap: 0;
+margin-bottom: 16px;
+overflow-x: auto;
+padding-bottom: 4px;
 }
-
-/* âââ TIMELINE ââââââââââââââââââââââââââââââââââââââââââ */
-.milestone-bar {
-  padding: 10px 16px 12px;
-  border-top: 1px solid var(--border);
+.milestone-step {
+display: flex;
+flex-direction: column;
+align-items: center;
+flex: 1;
+min-width: 50px;
+position: relative;
 }
+.milestone-dot {
+width: 14px;
+height: 14px;
+border-radius: 50%;
+margin-bottom: 4px;
+flex-shrink: 0;
+position: relative;
+z-index: 2;
+}
+.milestone-dot.completed { background: var(--green); }
+.milestone-dot.current { background: var(--accent); box-shadow: 0 0 0 4px rgba(59,130,246,0.25); }
+.milestone-dot.future { background: var(--border); }
 .milestone-label {
-  font-size: 10px;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-bottom: 8px;
-  font-weight: 500;
+font-size: 0.55rem;
+color: var(--text-muted);
+text-align: center;
+line-height: 1.2;
+max-width: 60px;
 }
-.milestone-track {
-  display: flex;
-  align-items: center;
-  gap: 3px;
-  flex-wrap: nowrap;
-  overflow: visible;
+.milestone-step:not(:last-child)::after {
+content: '';
+position: absolute;
+top: 7px;
+left: calc(50% + 7px);
+right: calc(-50% + 7px);
+height: 2px;
+z-index: 1;
 }
-.ms-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex: 1;
-  gap: 4px;
-  min-width: 0;
+.milestone-step.step-completed:not(:last-child)::after { background: var(--green); }
+.milestone-step.step-current:not(:last-child)::after { background: var(--border); }
+.milestone-step.step-future:not(:last-child)::after { background: var(--border); }
+.card-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+gap: 16px;
 }
-.ms-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  flex-shrink: 0;
+.card-section h3 {
+font-size: 0.75rem;
+font-weight: 600;
+text-transform: uppercase;
+letter-spacing: 0.05em;
+color: var(--text-muted);
+margin-bottom: 8px;
 }
-.ms-dot.done { background: var(--accent-green); }
-.ms-dot.active {
-  background: var(--accent);
-  box-shadow: 0 0 0 3px rgba(59,130,246,0.3);
-  animation: pulse-blue 1.8s ease-in-out infinite;
+.card-section { margin-bottom: 4px; }
+.contact-item, .financial-item, .date-item {
+font-size: 0.8rem;
+padding: 3px 0;
+color: var(--text);
 }
-.ms-dot.pending { background: #374151; }
-.ms-dot.prospecting-dot { background: var(--accent-yellow); }
-
-@keyframes pulse-blue {
-  0%, 100% { box-shadow: 0 0 0 3px rgba(59,130,246,0.3); }
-  50% { box-shadow: 0 0 0 5px rgba(59,130,246,0.15); }
-}
-.ms-connector {
-  height: 2px;
-  flex: 1;
-  min-width: 4px;
-  border-radius: 1px;
-}
-.ms-connector.done { background: var(--accent-green); }
-.ms-connector.pending { background: #2d3140; }
-
-/* âââ CARD BODY âââââââââââââââââââââââââââââââââââââââââ */
-.card-body {
-  display: none;
-  border-top: 1px solid var(--border);
-  padding: 0;
-}
-.card.expanded .card-body { display: block; }
-
-.card-section {
-  padding: 12px 16px;
-  border-bottom: 1px solid var(--border);
-}
-.card-section:last-child { border-bottom: none; }
-.section-title {
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--text-muted);
-  margin-bottom: 8px;
-}
-
-/* financials */
-.financials-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 6px 12px;
-}
-.fin-item { }
-.fin-key { font-size: 11px; color: var(--text-muted); }
-.fin-val { font-size: 13px; font-weight: 500; color: var(--text); }
-
-/* contacts */
-.contacts-list { display: flex; flex-direction: column; gap: 5px; }
-.contact-item { display: flex; align-items: baseline; gap: 6px; }
-.contact-name { font-size: 13px; font-weight: 500; }
-.contact-role { font-size: 11px; color: var(--text-muted); }
-
-/* dates */
-.dates-list { display: flex; flex-direction: column; gap: 5px; }
-.date-item { display: flex; gap: 8px; font-size: 13px; }
-.date-label { color: var(--text-muted); min-width: 90px; }
-
-/* action items */
-.action-list { display: flex; flex-direction: column; gap: 5px; }
+.contact-role { color: var(--text-muted); font-size: 0.75rem; }
 .action-item {
-  display: flex;
-  gap: 7px;
-  align-items: flex-start;
-  font-size: 13px;
-  color: var(--text);
-  padding: 5px 8px;
-  background: rgba(239,68,68,0.07);
-  border-radius: 6px;
-  border-left: 2px solid var(--accent-red);
+font-size: 0.8rem;
+padding: 6px 10px;
+margin-bottom: 4px;
+background: rgba(234,179,8,0.08);
+border-left: 3px solid var(--yellow);
+border-radius: 0 6px 6px 0;
 }
-.action-icon { color: var(--accent-yellow); font-size: 12px; margin-top: 1px; flex-shrink: 0; }
-
-/* updates */
-.updates-list { display: flex; flex-direction: column; gap: 8px; }
 .update-item {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid var(--border);
+font-size: 0.78rem;
+padding: 6px 0;
+border-bottom: 1px solid rgba(45,51,72,0.5);
 }
-.update-item:last-child { border-bottom: none; padding-bottom: 0; }
-.update-meta { display: flex; align-items: center; gap: 6px; }
-.update-date { font-size: 11px; color: var(--text-muted); }
-.update-subject {
-  font-size: 12px;
-  color: var(--text);
-  line-height: 1.4;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+.update-item:last-child { border-bottom: none; }
+.update-date {
+font-size: 0.7rem;
+color: var(--text-muted);
 }
-
-/* âââ RESPONSIVE ââââââââââââââââââââââââââââââââââââââââ */
-@media (max-width: 600px) {
-  .grid { grid-template-columns: 1fr; padding: 0 12px; }
-  .header-inner { gap: 8px; }
-  .header-title { font-size: 15px; }
-  .filter-bar { padding: 0 12px; }
+.update-source {
+font-size: 0.6rem;
+padding: 1px 6px;
+border-radius: 6px;
+margin-left: 6px;
 }
-
-/* âââ EMPTY STATE âââââââââââââââââââââââââââââââââââââââ */
-.empty-state {
-  grid-column: 1 / -1;
-  text-align: center;
-  padding: 60px 20px;
-  color: var(--text-muted);
-  font-size: 15px;
-  display: none;
+.financial-key { color: var(--text-muted); font-size: 0.75rem; }
+.financial-value { color: var(--text); font-weight: 600; }
+@media (max-width: 768px) {
+header { padding: 12px 16px; }
+main { padding: 16px; }
+.header-content { flex-direction: column; align-items: flex-start; }
+.card-grid { grid-template-columns: 1fr; }
+.card-address { font-size: 1rem; }
+.milestone-label { font-size: 0.5rem; }
 }
-.empty-state.visible { display: block; }
 </style>
 </head>
 <body>
 
-<header class="site-header">
-  <div class="header-inner">
-    <div class="header-title"><span>&#8962;</span> House Flip Closing Coordinator</div>
-    <div class="header-meta" id="last-updated"></div>
-    <div class="header-badges" id="header-badges"></div>
-  </div>
+<header>
+<div class="header-content">
+<div class="header-title">
+<h1>House Flip Closing Coordinator</h1>
+<div class="updated" id="lastUpdated"></div>
+</div>
+<div class="stats-badges" id="statsBadges"></div>
+</div>
 </header>
 
-<div class="filter-bar" id="filter-bar"></div>
-
-<div class="grid" id="grid">
-  <div class="empty-state" id="empty-state">No properties match this filter.</div>
-</div>
+<main id="main"></main>
 
 <script>
-// âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
-// DATA
-// âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
-const DATA = {"last_updated":"2026-05-22T18:02:00-04:00","properties":[{"address":"297 Breckwood Blvd, Springfield, MA 01109","current_milestone":"Closed","closing_date":"4/13/2026","sources":["dotloop","Email"],"contacts":[{"name":"Alice Kempf","role":"Agent"},{"name":"David Burstein","role":"Attorney"},{"name":"Jessica Sicard","role":"Project Manager"},{"name":"Chris Keniley","role":"Accounting Manager"}],"financials":{"loan_repayment_gsb":"69322"},"recent_updates":[{"date":"2026-05-17","subject":"Wicked account: $69,322 Reay Loan GSB LOC payment for Breckwood","source":"Email"},{"date":"2026-04-13","subject":"Closing date reached","source":"Email"},{"subject":"Repairs priority","source":"Email"},{"subject":"FHA Amendatory signed","source":"dotloop"}],"action_items":[]},{"address":"29 Chestnut Dr, Belchertown, MA 01007","current_milestone":"Closed","closing_date":"4/14/2026","sources":["dotloop","Email"],"contacts":[{"name":"Alice Kempf","role":"Agent"},{"name":"David Burstein","role":"Attorney"},{"name":"Jessica Sicard","role":"Project Manager"}],"financials":{},"recent_updates":[{"date":"2026-04-24","subject":"RE Tax payment $2,079.49 - Belchertown RealEstate","source":"Email"},{"date":"2026-04-14","subject":"Closing date reached","source":"Email"}],"action_items":[]},{"address":"4 School St, Ware, MA 01082","current_milestone":"Financing","closing_date":null,"sources":["Email","PDF"],"contacts":[{"name":"David Burstein","role":"Attorney"},{"name":"Jessica Sicard","role":"Project Manager"}],"financials":{},"recent_updates":[{"date":"2026-04-28","subject":"Financing stage updates","source":"Email"}],"action_items":["Follow up on closing date once financing finalizes"]},{"address":"167 East Park Terrace, Pittsfield, MA 01201","current_milestone":"Repairs / Rehab","closing_date":"5/7/2026","sources":["Email","PDF"],"contacts":[{"name":"David Burstein","role":"Attorney"},{"name":"Jessica Sicard","role":"Project Manager"},{"name":"Will McGuire","role":"Borrower/Signer"},{"name":"Pinnacle Financial","role":"Lender"},{"name":"Premiere Home Solutions","role":"Contractor"}],"financials":{"purchase_price":"166000","construction_advance":"50000","points":"4980","rate":"12.00%","term":"12 months","lender_fees":"570","rehab_budget_cap":"50000","boiler_estimate":"5500-6000"},"recent_updates":[{"date":"2026-05-22","subject":"REMINDER: Pinnacle billing statement (Acct #45006) - 6 days away","source":"Email"},{"date":"2026-05-20","subject":"Pinnacle Financial billing statement received (Acct #45006) - PDF attached","source":"Email"},{"date":"2026-05-19","subject":"Premiere Home Solutions revised rehab estimate; boiler $5,500-6k installed. Matt insists total budget stay under $50k including labor, boiler, and supplies.","source":"Email"},{"date":"2026-05-18","subject":"Premiere Home Solutions submitted initial rehab estimate via Joist app. Original scope: 3 men, 5 weeks, ~$25k labor + $8k boiler + $15k supplies approaching $50k.","source":"Email"},{"date":"2026-05-03","subject":"David Burstein sent preliminary closing docs to Pinnacle; closing moved up to May 7","source":"Email"},{"date":"2026-04-29","subject":"Pinnacle Financial approved financing; checklist and funding sheet sent","source":"Email"},{"date":"2026-04-25","subject":"Insurance binder and financing docs in progress","source":"Email"},{"date":"2026-04-21","subject":"Pinnacle received financing request; proposed terms shared","source":"Email"}],"action_items":["Review Pinnacle billing statement for Acct #45006","Finalize rehab scope with Premiere Home Solutions under $50k cap","Confirm boiler installation timeline"]},{"address":"70 Town Hill Road, Middlefield, MA 01243","current_milestone":"Closed","closing_date":null,"sources":["Email"],"contacts":[{"name":"Jessica Sicard","role":"Project Manager"}],"financials":{},"recent_updates":[{"date":"2026-04-20","subject":"Property closed","source":"Email"}],"action_items":[]},{"address":"40 Roland St, Pittsfield, MA 01201","current_milestone":"Closing","closing_date":null,"sources":["Email","dotloop"],"contacts":[{"name":"Alice Kempf","role":"Agent"},{"name":"David Burstein","role":"Attorney"},{"name":"Jessica Sicard","role":"Project Manager"},{"name":"Alexandra","role":"Agent (KVR Team)"}],"financials":{},"recent_updates":[{"date":"2026-05-19","subject":"Jessica sent electrical invoice (PDF) to Burstein, Alice, Matt, and Alexandra","source":"Email"},{"date":"2026-05-18","subject":"Matt plans to use Roland sale funds for new acquisition instead of Russ project; David Burstein OOO traveling this week (Jeffrey Burstein or Shamikka Andrews handling urgent matters)","source":"Email"},{"date":"2026-05-18","subject":"HD credit card replenishment for Roland & Richmond from HHH Florence Account approved by Will","source":"Email"},{"date":"2026-05-09","subject":"Confirm new closing date","source":"Email"}],"action_items":["Confirm new closing date","Follow up with Jeffrey Burstein while David is traveling","Process electrical invoice"]},{"address":"21 Holly St, Greenfield, MA","current_milestone":"Repairs / Rehab","closing_date":null,"sources":["Email"],"contacts":[{"name":"Jessica Sicard","role":"Project Manager"},{"name":"Chris Keniley","role":"Accounting Manager"},{"name":"Shamikka Andrews","role":"Legal Assistant (Burstein Law)"}],"financials":{},"recent_updates":[{"date":"2026-05-20","subject":"Misplaced check issue: 21 Holly check recovered, 3 Evergreen check still missing. Shamikka contacting other attorney to reissue.","source":"Email"},{"date":"2026-04-22","subject":"Rehab work in progress","source":"Email"}],"action_items":["Follow up on reissued check for 3 Evergreen (Shamikka handling)"]},{"address":"1874 Home Rd, Sheffield, MA","current_milestone":"Repairs / Rehab","closing_date":null,"sources":["Email","dotloop"],"contacts":[{"name":"Jessica Sicard","role":"Project Manager"},{"name":"Mahari","role":"Contractor"},{"name":"Alice Kempf","role":"Agent"},{"name":"Gabriela Dearstyne","role":"Agent (KVR Team)"}],"financials":{"contractor_payments":"15750"},"recent_updates":[{"date":"2026-05-17","subject":"Wicked account: $12,600 + $3,150 Mahari contractor payments for 1874 Home","source":"Email"},{"date":"2026-05-12","subject":"Listing docs signed in dotloop: Exclusive Right to Sell, ERTS Addendum Coming Soon, Licensee-Consumer Disclosure, Seller Consent to Dual Agency, Seller Consent to Designated Agency, Mass Inspection Disclosure","source":"dotloop"},{"date":"2026-04-22","subject":"Rehab work in progress","source":"Email"}],"action_items":["Property being prepared for listing - monitor dotloop for buyer activity"]},{"address":"1 Richmond Ln, Pittsfield, MA","current_milestone":"Repairs / Rehab","closing_date":null,"sources":["Email","PDF"],"contacts":[{"name":"Jessica Sicard","role":"Project Manager"},{"name":"Jesse Leydet","role":"On-site Contact"},{"name":"Premiere Home Solutions","role":"Contractor"},{"name":"Meredith Martin","role":"HD Pro Support"}],"financials":{},"recent_updates":[{"date":"2026-05-20","subject":"Demo permit sent by Jessica to Premiere Home Solutions; contractor acknowledged receipt","source":"Email"},{"date":"2026-05-20","subject":"Permit R-26-0069 issued for demolition of detached shed at 1 Richmond. Matt forwarded to Jessica.","source":"Email"},{"date":"2026-05-15","subject":"Appliance order placed via Home Depot Pro: 30in electric stove, 24in dishwasher, fridge (73x36 opening), basic OTR microwave. Lockbox delivery scheduled 5/21.","source":"Email"},{"date":"2026-05-15","subject":"Premiere Home Solutions confirmed appliance specs for Richmond","source":"Email"},{"date":"2026-04-22","subject":"Rehab work in progress","source":"Email"}],"action_items":["Confirm appliance delivery completed (was scheduled 5/21)","Demolition of detached shed can proceed - permit issued"]},{"address":"42 Washington St, Monson, MA 01057","current_milestone":"Inspections","closing_date":"6/29/2026","sources":["dotloop","Email"],"contacts":[{"name":"Alice Kempf","role":"Agent"},{"name":"Jessica Sicard","role":"Project Manager"},{"name":"David Burstein","role":"Seller's Attorney"},{"name":"Vasilios Papastathopoulos","role":"Buyer's Agent"},{"name":"Melissa A. Gaboury","role":"Buyer's Attorney - Hornung and Scimone P.C."},{"name":"Riley Brennan","role":"KVR Team"}],"financials":{"purchase_price":"335000","loan_type":"FHA","seller_concessions":"Yes"},"recent_updates":[{"date":"2026-05-22","note":"Buyer's inspection found multiple issues: mold in attic/basement, sistered joists, sagging floors, deteriorated roof ridge vent, powder post beetles, sagging roof structure","source":"Email"},{"date":"2026-05-22","note":"Matt responded to inspection findings: will treat mold, no knowledge of structural history, will replace roof ridge, will treat beetles, suggests collar ties for roof sag. Asked Melissa for input on crawl space support.","source":"Email"},{"date":"2026-05-14","subject":"Jessica confirmed under contract status","source":"Email"},{"date":"2026-05-13","subject":"Contract To Purchase Real Estate (Offer #501, rev 7) signed in dotloop; property now under contract for sale","source":"dotloop"},{"date":"2026-05-13","subject":"Matt notified Jessica: 42 Washington under contract","source":"Email"},{"date":"2026-05-13","subject":"Alice Kempf shared Contract To Purchase Real Estate (Offer #501, revision 7) via Dotloop for review","source":"dotloop"},{"date":"2026-05-01","subject":"6 listing documents signed via dotloop","source":"dotloop"}],"action_items":["Negotiate inspection repair concessions with buyer","Treat mold in attic and basement","Replace roof ridge vent","Treat powder post beetles","Add collar ties to roof structure","Get Melissa's input on crawl space support","Confirm closing date 6/29"]},{"address":"54 Sectar Rd, Ashford, CT 06278","current_milestone":"Under Contract","closing_date":null,"sources":["dotloop","Email"],"contacts":[{"name":"Alice Kempf","role":"Agent"},{"name":"Jessica Sicard","role":"Project Manager"}],"financials":{},"recent_updates":[{"date":"2026-05-01","subject":"Under contract; docs in dotloop","source":"dotloop"}],"action_items":[]},{"address":"282-284 Suffolk Street, Holyoke, MA","current_milestone":"Prospecting","closing_date":null,"sources":["Email"],"contacts":[],"financials":{},"recent_updates":[],"action_items":[]},{"address":"140 Egremont Plain Rd, Egremont, MA 01230","current_milestone":"Prospecting","closing_date":null,"sources":["Email","PDF"],"contacts":[{"name":"Alice Kempf","role":"Agent"},{"name":"Antonio","role":"Partner (House Hack Helpers)"}],"financials":{"arv_estimate":"1200000-1300000"},"recent_updates":[{"date":"2026-05-18","subject":"Alice sent CMA: ARV $1.2-1.3M. Comp reminds her of Richmond. Suggested fluff strategy (cleaning, staging, bank financing) for quick profit like Belchertown and Sheffield.","source":"Email"}],"action_items":["Review CMA and comp photos","Evaluate fluff strategy vs full rehab","Determine acquisition cost and offer"]},{"address":"213 Brodie Mountain Rd, Hancock, MA 01237","current_milestone":"Closed","closing_date":null,"sources":["Email"],"contacts":[{"name":"David Chase","role":"VP, Freedom Credit Union"}],"financials":{},"recent_updates":[{"date":"2026-05-14","subject":"Appraisal received from David Chase at Freedom Credit Union","source":"Email"}],"action_items":[]},{"address":"11 Bryant St, Springfield, MA","current_milestone":"Closed","closing_date":null,"sources":["Email"],"contacts":[{"name":"Jessica Sicard","role":"Project Manager"}],"financials":{},"recent_updates":[{"date":"2026-04-29","subject":"Detailed financial breakdown: YB owed $8,670.50 after settlement","source":"Email"}],"action_items":["Final payment approved; confirm listing date","Track YB settlement amount"]},{"address":"100 Central St (New Property)","current_milestone":"Repairs / Rehab","closing_date":null,"sources":["Email"],"contacts":[],"financials":{},"recent_updates":[{"date":"2026-04-24","subject":"New property acquired; rehab planning","source":"Email"}],"action_items":[]},{"address":"300 Tyler St, Pittsfield, MA 01201","current_milestone":"Title & Escrow","closing_date":null,"sources":["Email","PDF"],"contacts":[{"name":"David Burstein","role":"Attorney"},{"name":"Jessica Sicard","role":"Project Manager"}],"financials":{},"recent_updates":[{"date":"2026-05-05","subject":"Title work in progress","source":"Email"}],"action_items":[]},{"address":"166 East St, Stafford, CT 06076","current_milestone":"Under Contract","closing_date":null,"sources":["dotloop","Email"],"contacts":[{"name":"Alice Kempf","role":"Agent"}],"financials":{},"recent_updates":[{"date":"2026-05-08","subject":"Under contract; awaiting inspections","source":"Email"}],"action_items":[]},{"address":"583 Hawks Spur Rd, Plymouth, VT","current_milestone":"Prospecting","closing_date":null,"sources":["Email"],"contacts":[],"financials":{},"recent_updates":[],"action_items":[]},{"address":"103 Prospect St, Springfield, MA","current_milestone":"Inspections","closing_date":null,"sources":["Email"],"contacts":[{"name":"Ryan O'Hara","role":"Attorney (Bacon Wilson)"},{"name":"Hunter Foote","role":"Prospective Buyer (Vanderburgh)"}],"financials":{},"recent_updates":[{"date":"2026-05-22","subject":"REMINDER: Eviction court first tier event - 6 days away","source":"Email"},{"date":"2026-05-19","subject":"Matt rejected Hunter Foote's latest offer. O'Hara acknowledged, noted duty to forward offers but agrees serious offer must be higher.","source":"Email"},{"date":"2026-05-18","subject":"O'Hara forwarded buyer response re: violations. Basement stairs removed with door remaining and basement fireblocking noted as issues (p. 11-12 of inspection report). Attachments included.","source":"Email"},{"date":"2026-05-13","subject":"Hunter Foote submitted new lower offer via attorney; Matt rejected as going backwards. O'Hara notes buyer banking on immediate close as incentive","source":"Email"},{"date":"2026-05-13","subject":"Eviction court first tier event scheduled for May 28","source":"Email"},{"date":"2026-05-08","subject":"Potential buyer Hunter Foote in discussions","source":"Email"}],"action_items":["Eviction court first tier event May 28 (6 DAYS AWAY)","Review inspection violations: basement stairs and fireblocking","Await revised offer from Hunter Foote / Vanderburgh","Do NOT contact Code Enforcement - avoid prompting closer attention"]},{"address":"172 Fiske St, Southbridge, MA","current_milestone":"Prospecting","closing_date":null,"sources":["Email","PDF"],"contacts":[{"name":"Alice Kempf","role":"Agent"},{"name":"Antonio","role":"Partner (Investarters)"}],"financials":{"arv_2br":"379900","arv_3br":"439900-480000"},"recent_updates":[{"date":"2026-05-15","subject":"Alice Kempf sent CMA: 2BR ARV $379,900; 3BR ARV $439,900-$480,000. Previous listing PDF attached. Room with fireplace could be converted to MBR suite. Full bath on each floor confirmed.","source":"Email"},{"date":"2026-05-15","subject":"Matt forwarded CMA to Antonio at Investarters for review","source":"Email"}],"action_items":["Evaluate whether room can be converted to MBR suite for 3BR pricing","Await Antonios feedback on deal viability","Review previous listing details from PDF"]},{"address":"26 Old Putnam Rd Ext, Plainfield, CT 06239","current_milestone":"Prospecting","closing_date":null,"sources":["Email","PDF"],"contacts":[{"name":"Alice Kempf","role":"Agent"}],"financials":{"arv_estimate":"429000"},"recent_updates":[{"date":"2026-05-15","subject":"Alice Kempf sent CMA with ARV ~$429k. Sloping backyard noted from previous listing may reduce value. Two PDF reports attached (CMA and previous listing).","source":"Email"},{"date":"2026-05-15","subject":"Matt acknowledged receipt of CMA","source":"Email"}],"action_items":["Review CMA reports for pricing accuracy","Assess impact of sloping backyard on value","Determine offer strategy"]},{"address":"412 Saint James Ave, Springfield, MA 01109","current_milestone":"Title & Escrow","closing_date":null,"sources":["Email"],"contacts":[{"name":"David Burstein","role":"Attorney"},{"name":"Jessica Sicard","role":"Project Manager"},{"name":"Adina Edgett","role":"Insurance (Webber & Grinnell)"},{"name":"Antonio","role":"Partner (Investarters)"},{"name":"Jocelyn Pickard","role":"YellowBrick Staff"},{"name":"Connie Willetts","role":"Title Coordinator (Brock & Scott)"},{"name":"Zackary Moricas","role":"Attorney (Brock & Scott)"}],"financials":{"claimed_rent":"2500/mo","auction_loan":"45000","entity":"Yellowbrick Property LLC"},"recent_updates":[{"date":"2026-05-22","subject":"David Burstein confirmed title entity: Yellowbrick Property LLC (no space). Corrected Matt original Yellow Brick Property LLC.","source":"Email"},{"date":"2026-05-21","subject":"Connie Willetts (Brock & Scott) requested title vesting info for auction win. Matt responded: Yellow Brick Property LLC, cc d David Burstein.","source":"Email"},{"date":"2026-05-21","subject":"$45k GSB LOC loan repaid for auction purchase check (approved by Matt)","source":"Email"},{"date":"2026-05-20","subject":"NEW FORECLOSURE: Matt sent property details to team. Occupied by tenants Lydia Crespo and George Anderson. Plan is to wholesale then possibly manage.","source":"Email"},{"date":"2026-05-20","subject":"Adina Edgett (Webber & Grinnell) sent insurance application for completion","source":"Email"},{"date":"2026-05-20","subject":"Jessica asked who will own this property; Matt replied plan is wholesaling then managing","source":"Email"}],"action_items":["Finalize title vesting as Yellowbrick Property LLC per David Burstein","Complete insurance application from Adina Edgett (Webber & Grinnell)","Respond to Brock & Scott with corrected entity name"]}]};
+const DATA = {
+"last_updated": "2026-05-23T08:02:00-04:00",
+"properties": [
+{
+"address": "297 Breckwood Blvd, Springfield, MA 01109",
+"current_milestone": "Closed",
+"closing_date": "4/13/2026",
+"sources": ["dotloop", "Email"],
+"contacts": [
+{"name": "Alice Kempf", "role": "Agent"},
+{"name": "David Burstein", "role": "Attorney"},
+{"name": "Jessica Sicard", "role": "Project Manager"},
+{"name": "Chris Keniley", "role": "Accounting Manager"}
+],
+"financials": {"loan_repayment_gsb": "69322"},
+"recent_updates": [
+{"date": "2026-05-17", "subject": "Wicked account: $69,322 Reay Loan GSB LOC payment for Breckwood", "source": "Email"},
+{"date": "2026-04-13", "subject": "Closing date reached", "source": "Email"},
+{"subject": "Repairs priority", "source": "Email"},
+{"subject": "FHA Amendatory signed", "source": "dotloop"}
+],
+"action_items": []
+},
+{
+"address": "29 Chestnut Dr, Belchertown, MA 01007",
+"current_milestone": "Closed",
+"closing_date": "4/14/2026",
+"sources": ["dotloop", "Email"],
+"contacts": [
+{"name": "Alice Kempf", "role": "Agent"},
+{"name": "David Burstein", "role": "Attorney"},
+{"name": "Jessica Sicard", "role": "Project Manager"}
+],
+"financials": {},
+"recent_updates": [
+{"date": "2026-04-24", "subject": "RE Tax payment $2,079.49 - Belchertown RealEstate", "source": "Email"},
+{"date": "2026-04-14", "subject": "Closing date reached", "source": "Email"}
+],
+"action_items": []
+},
+{
+"address": "4 School St, Ware, MA 01082",
+"current_milestone": "Financing",
+"closing_date": null,
+"sources": ["Email", "PDF"],
+"contacts": [
+{"name": "David Burstein", "role": "Attorney"},
+{"name": "Jessica Sicard", "role": "Project Manager"}
+],
+"financials": {},
+"recent_updates": [
+{"date": "2026-04-28", "subject": "Financing stage updates", "source": "Email"}
+],
+"action_items": ["Follow up on closing date once financing finalizes"]
+},
+{
+"address": "167 East Park Terrace, Pittsfield, MA 01201",
+"current_milestone": "Repairs / Rehab",
+"closing_date": "5/7/2026",
+"sources": ["Email", "PDF"],
+"contacts": [
+{"name": "David Burstein", "role": "Attorney"},
+{"name": "Jessica Sicard", "role": "Project Manager"},
+{"name": "Will McGuire", "role": "Borrower/Signer"},
+{"name": "Pinnacle Financial", "role": "Lender"},
+{"name": "Premiere Home Solutions", "role": "Contractor"}
+],
+"financials": {
+"purchase_price": "166000",
+"construction_advance": "50000",
+"points": "4980",
+"rate": "12.00%",
+"term": "12 months",
+"lender_fees": "570",
+"rehab_budget_cap": "50000",
+"boiler_estimate": "5500-6000"
+},
+"recent_updates": [
+{"date": "2026-05-22", "subject": "REMINDER: Pinnacle billing statement (Acct #45006) - 6 days away", "source": "Email"},
+{"date": "2026-05-20", "subject": "Pinnacle Financial billing statement received (Acct #45006) - PDF attached", "source": "Email"},
+{"date": "2026-05-19", "subject": "Premiere Home Solutions revised rehab estimate; boiler $5,500-6k installed. Matt insists total budget stay under $50k including labor, boiler, and supplies.", "source": "Email"},
+{"date": "2026-05-18", "subject": "Premiere Home Solutions submitted initial rehab estimate via Joist app. Original scope: 3 men, 5 weeks, ~$25k labor + $8k boiler + $15k supplies approaching $50k.", "source": "Email"},
+{"date": "2026-05-03", "subject": "David Burstein sent preliminary closing docs to Pinnacle; closing moved up to May 7", "source": "Email"},
+{"date": "2026-04-29", "subject": "Pinnacle Financial approved financing; checklist and funding sheet sent", "source": "Email"},
+{"date": "2026-04-25", "subject": "Insurance binder and financing docs in progress", "source": "Email"},
+{"date": "2026-04-21", "subject": "Pinnacle received financing request; proposed terms shared", "source": "Email"}
+],
+"action_items": [
+"Review Pinnacle billing statement for Acct #45006",
+"Finalize rehab scope with Premiere Home Solutions under $50k cap",
+"Confirm boiler installation timeline"
+]
+},
+{
+"address": "70 Town Hill Road, Middlefield, MA 01243",
+"current_milestone": "Closed",
+"closing_date": null,
+"sources": ["Email"],
+"contacts": [{"name": "Jessica Sicard", "role": "Project Manager"}],
+"financials": {},
+"recent_updates": [{"date": "2026-04-20", "subject": "Property closed", "source": "Email"}],
+"action_items": []
+},
+{
+"address": "40 Roland St, Pittsfield, MA 01201",
+"current_milestone": "Closing",
+"closing_date": null,
+"sources": ["Email", "dotloop"],
+"contacts": [
+{"name": "Alice Kempf", "role": "Agent"},
+{"name": "David Burstein", "role": "Attorney"},
+{"name": "Jessica Sicard", "role": "Project Manager"},
+{"name": "Alexandra", "role": "Agent (KVR Team)"}
+],
+"financials": {},
+"recent_updates": [
+{"date": "2026-05-19", "subject": "Jessica sent electrical invoice (PDF) to Burstein, Alice, Matt, and Alexandra", "source": "Email"},
+{"date": "2026-05-18", "subject": "Matt plans to use Roland sale funds for new acquisition instead of Russ project; David Burstein OOO traveling this week (Jeffrey Burstein or Shamikka Andrews handling urgent matters)", "source": "Email"},
+{"date": "2026-05-18", "subject": "HD credit card replenishment for Roland & Richmond from HHH Florence Account approved by Will", "source": "Email"},
+{"date": "2026-05-09", "subject": "Confirm new closing date", "source": "Email"}
+],
+"action_items": [
+"Confirm new closing date",
+"Follow up with Jeffrey Burstein while David is traveling",
+"Process electrical invoice"
+]
+},
+{
+"address": "21 Holly St, Greenfield, MA",
+"current_milestone": "Repairs / Rehab",
+"closing_date": null,
+"sources": ["Email"],
+"contacts": [
+{"name": "Jessica Sicard", "role": "Project Manager"},
+{"name": "Chris Keniley", "role": "Accounting Manager"},
+{"name": "Shamikka Andrews", "role": "Legal Assistant (Burstein Law)"}
+],
+"financials": {},
+"recent_updates": [
+{"date": "2026-05-20", "subject": "Misplaced check issue: 21 Holly check recovered, 3 Evergreen check still missing. Shamikka contacting other attorney to reissue.", "source": "Email"},
+{"date": "2026-04-22", "subject": "Rehab work in progress", "source": "Email"}
+],
+"action_items": ["Follow up on reissued check for 3 Evergreen (Shamikka handling)"]
+},
+{
+"address": "1874 Home Rd, Sheffield, MA",
+"current_milestone": "Repairs / Rehab",
+"closing_date": null,
+"sources": ["Email", "dotloop"],
+"contacts": [
+{"name": "Jessica Sicard", "role": "Project Manager"},
+{"name": "Mahari", "role": "Contractor"},
+{"name": "Alice Kempf", "role": "Agent"},
+{"name": "Gabriela Dearstyne", "role": "Agent (KVR Team)"}
+],
+"financials": {"contractor_payments": "15750"},
+"recent_updates": [
+{"date": "2026-05-17", "subject": "Wicked account: $12,600 + $3,150 Mahari contractor payments for 1874 Home", "source": "Email"},
+{"date": "2026-05-12", "subject": "Listing docs signed in dotloop: Exclusive Right to Sell, ERTS Addendum Coming Soon, Licensee-Consumer Disclosure, Seller Consent to Dual Agency, Seller Consent to Designated Agency, Mass Inspection Disclosure", "source": "dotloop"},
+{"date": "2026-04-22", "subject": "Rehab work in progress", "source": "Email"}
+],
+"action_items": ["Property being prepared for listing - monitor dotloop for buyer activity"]
+},
+{
+"address": "1 Richmond Ln, Pittsfield, MA",
+"current_milestone": "Repairs / Rehab",
+"closing_date": null,
+"sources": ["Email", "PDF"],
+"contacts": [
+{"name": "Jessica Sicard", "role": "Project Manager"},
+{"name": "Jesse Leydet", "role": "On-site Contact"},
+{"name": "Premiere Home Solutions", "role": "Contractor"},
+{"name": "Meredith Martin", "role": "HD Pro Support"}
+],
+"financials": {},
+"recent_updates": [
+{"date": "2026-05-20", "subject": "Demo permit sent by Jessica to Premiere Home Solutions; contractor acknowledged receipt", "source": "Email"},
+{"date": "2026-05-20", "subject": "Permit R-26-0069 issued for demolition of detached shed at 1 Richmond. Matt forwarded to Jessica.", "source": "Email"},
+{"date": "2026-05-15", "subject": "Appliance order placed via Home Depot Pro: 30in electric stove, 24in dishwasher, fridge (73x36 opening), basic OTR microwave. Lockbox delivery scheduled 5/21.", "source": "Email"},
+{"date": "2026-05-15", "subject": "Premiere Home Solutions confirmed appliance specs for Richmond", "source": "Email"},
+{"date": "2026-04-22", "subject": "Rehab work in progress", "source": "Email"}
+],
+"action_items": [
+"Confirm appliance delivery completed (was scheduled 5/21)",
+"Demolition of detached shed can proceed - permit issued"
+]
+},
+{
+"address": "42 Washington St, Monson, MA 01057",
+"current_milestone": "Inspections",
+"closing_date": "6/29/2026",
+"sources": ["dotloop", "Email"],
+"contacts": [
+{"name": "Alice Kempf", "role": "Agent"},
+{"name": "Jessica Sicard", "role": "Project Manager"},
+{"name": "David Burstein", "role": "Seller's Attorney"},
+{"name": "Vasilios Papastathopoulos", "role": "Buyer's Agent"},
+{"name": "Melissa A. Gaboury", "role": "Buyer's Attorney - Hornung and Scimone P.C."},
+{"name": "Riley Brennan", "role": "KVR Team"},
+{"name": "Melissa Vanderburgh", "role": "Team Leader (KVR Team)"}
+],
+"financials": {
+"purchase_price": "335000",
+"loan_type": "FHA",
+"seller_concessions": "Yes"
+},
+"recent_updates": [
+{"date": "2026-05-22", "subject": "Melissa Vanderburgh advises: add collar ties (separate from existing reinforcement), treat mold on rafters, gable vents may be needed for attic ventilation (no soffit area). Team agreed on repair response to buyer.", "source": "Email"},
+{"date": "2026-05-22", "subject": "Buyer's inspection found multiple issues: mold in attic/basement, sistered joists, sagging floors, deteriorated roof ridge vent, powder post beetles, sagging roof structure", "source": "Email"},
+{"date": "2026-05-22", "subject": "Matt responded to inspection findings: will treat mold, no knowledge of structural history, will replace roof ridge, will treat beetles, suggests collar ties for roof sag. Asked Melissa for input on crawl space support.", "source": "Email"},
+{"date": "2026-05-14", "subject": "Jessica confirmed under contract status", "source": "Email"},
+{"date": "2026-05-13", "subject": "Contract To Purchase Real Estate (Offer #501, rev 7) signed in dotloop; property now under contract for sale", "source": "dotloop"},
+{"date": "2026-05-13", "subject": "Matt notified Jessica: 42 Washington under contract", "source": "Email"},
+{"date": "2026-05-13", "subject": "Alice Kempf shared Contract To Purchase Real Estate (Offer #501, revision 7) via Dotloop for review", "source": "dotloop"},
+{"date": "2026-05-01", "subject": "6 listing documents signed via dotloop", "source": "dotloop"}
+],
+"action_items": [
+"Negotiate final inspection repair concessions with buyer",
+"Treat mold in attic and basement",
+"Replace roof ridge vent",
+"Treat powder post beetles",
+"Add collar ties to roof structure per Melissa's recommendation",
+"Investigate gable vent installation for attic ventilation",
+"Confirm closing date 6/29"
+]
+},
+{
+"address": "54 Sectar Rd, Ashford, CT 06278",
+"current_milestone": "Under Contract",
+"closing_date": null,
+"sources": ["dotloop", "Email"],
+"contacts": [
+{"name": "Alice Kempf", "role": "Agent"},
+{"name": "Jessica Sicard", "role": "Project Manager"}
+],
+"financials": {},
+"recent_updates": [{"date": "2026-05-01", "subject": "Under contract; docs in dotloop", "source": "dotloop"}],
+"action_items": []
+},
+{
+"address": "282-284 Suffolk Street, Holyoke, MA",
+"current_milestone": "Prospecting",
+"closing_date": null,
+"sources": ["Email"],
+"contacts": [],
+"financials": {},
+"recent_updates": [],
+"action_items": []
+},
+{
+"address": "140 Egremont Plain Rd, Egremont, MA 01230",
+"current_milestone": "Prospecting",
+"closing_date": null,
+"sources": ["Email", "PDF"],
+"contacts": [
+{"name": "Alice Kempf", "role": "Agent"},
+{"name": "Antonio", "role": "Partner (House Hack Helpers)"}
+],
+"financials": {"arv_estimate": "1200000-1300000"},
+"recent_updates": [
+{"date": "2026-05-18", "subject": "Alice sent CMA: ARV $1.2-1.3M. Comp reminds her of Richmond. Suggested fluff strategy (cleaning, staging, bank financing) for quick profit like Belchertown and Sheffield.", "source": "Email"}
+],
+"action_items": [
+"Review CMA and comp photos",
+"Evaluate fluff strategy vs full rehab",
+"Determine acquisition cost and offer"
+]
+},
+{
+"address": "213 Brodie Mountain Rd, Hancock, MA 01237",
+"current_milestone": "Closed",
+"closing_date": null,
+"sources": ["Email"],
+"contacts": [{"name": "David Chase", "role": "VP, Freedom Credit Union"}],
+"financials": {},
+"recent_updates": [{"date": "2026-05-14", "subject": "Appraisal received from David Chase at Freedom Credit Union", "source": "Email"}],
+"action_items": []
+},
+{
+"address": "11 Bryant St, Springfield, MA",
+"current_milestone": "Closed",
+"closing_date": null,
+"sources": ["Email"],
+"contacts": [{"name": "Jessica Sicard", "role": "Project Manager"}],
+"financials": {},
+"recent_updates": [{"date": "2026-04-29", "subject": "Detailed financial breakdown: YB owed $8,670.50 after settlement", "source": "Email"}],
+"action_items": ["Final payment approved; confirm listing date", "Track YB settlement amount"]
+},
+{
+"address": "100 Central St (New Property)",
+"current_milestone": "Repairs / Rehab",
+"closing_date": null,
+"sources": ["Email"],
+"contacts": [],
+"financials": {},
+"recent_updates": [{"date": "2026-04-24", "subject": "New property acquired; rehab planning", "source": "Email"}],
+"action_items": []
+},
+{
+"address": "300 Tyler St, Pittsfield, MA 01201",
+"current_milestone": "Title & Escrow",
+"closing_date": null,
+"sources": ["Email", "PDF"],
+"contacts": [
+{"name": "David Burstein", "role": "Attorney"},
+{"name": "Jessica Sicard", "role": "Project Manager"}
+],
+"financials": {},
+"recent_updates": [{"date": "2026-05-05", "subject": "Title work in progress", "source": "Email"}],
+"action_items": []
+},
+{
+"address": "166 East St, Stafford, CT 06076",
+"current_milestone": "Under Contract",
+"closing_date": null,
+"sources": ["dotloop", "Email"],
+"contacts": [{"name": "Alice Kempf", "role": "Agent"}],
+"financials": {},
+"recent_updates": [{"date": "2026-05-08", "subject": "Under contract; awaiting inspections", "source": "Email"}],
+"action_items": []
+},
+{
+"address": "583 Hawks Spur Rd, Plymouth, VT",
+"current_milestone": "Prospecting",
+"closing_date": null,
+"sources": ["Email"],
+"contacts": [],
+"financials": {},
+"recent_updates": [],
+"action_items": []
+},
+{
+"address": "103 Prospect St, Springfield, MA",
+"current_milestone": "Inspections",
+"closing_date": null,
+"sources": ["Email"],
+"contacts": [
+{"name": "Ryan O'Hara", "role": "Attorney (Bacon Wilson)"},
+{"name": "Hunter Foote", "role": "Prospective Buyer (Vanderburgh)"}
+],
+"financials": {},
+"recent_updates": [
+{"date": "2026-05-22", "subject": "REMINDER: Eviction court first tier event - 6 days away", "source": "Email"},
+{"date": "2026-05-19", "subject": "Matt rejected Hunter Foote's latest offer. O'Hara acknowledged, noted duty to forward offers but agrees serious offer must be higher.", "source": "Email"},
+{"date": "2026-05-18", "subject": "O'Hara forwarded buyer response re: violations. Basement stairs removed with door remaining and basement fireblocking noted as issues (p. 11-12 of inspection report). Attachments included.", "source": "Email"},
+{"date": "2026-05-13", "subject": "Hunter Foote submitted new lower offer via attorney; Matt rejected as going backwards. O'Hara notes buyer banking on immediate close as incentive", "source": "Email"},
+{"date": "2026-05-13", "subject": "Eviction court first tier event scheduled for May 28", "source": "Email"},
+{"date": "2026-05-08", "subject": "Potential buyer Hunter Foote in discussions", "source": "Email"}
+],
+"action_items": [
+"Eviction court first tier event May 28 (5 DAYS AWAY)",
+"Review inspection violations: basement stairs and fireblocking",
+"Await revised offer from Hunter Foote / Vanderburgh",
+"Do NOT contact Code Enforcement - avoid prompting closer attention"
+]
+},
+{
+"address": "172 Fiske St, Southbridge, MA",
+"current_milestone": "Prospecting",
+"closing_date": null,
+"sources": ["Email", "PDF"],
+"contacts": [
+{"name": "Alice Kempf", "role": "Agent"},
+{"name": "Antonio", "role": "Partner (Investarters)"}
+],
+"financials": {"arv_2br": "379900", "arv_3br": "439900-480000"},
+"recent_updates": [
+{"date": "2026-05-15", "subject": "Alice Kempf sent CMA: 2BR ARV $379,900; 3BR ARV $439,900-$480,000. Previous listing PDF attached. Room with fireplace could be converted to MBR suite. Full bath on each floor confirmed.", "source": "Email"},
+{"date": "2026-05-15", "subject": "Matt forwarded CMA to Antonio at Investarters for review", "source": "Email"}
+],
+"action_items": [
+"Evaluate whether room can be converted to MBR suite for 3BR pricing",
+"Await Antonios feedback on deal viability",
+"Review previous listing details from PDF"
+]
+},
+{
+"address": "26 Old Putnam Rd Ext, Plainfield, CT 06239",
+"current_milestone": "Prospecting",
+"closing_date": null,
+"sources": ["Email", "PDF"],
+"contacts": [{"name": "Alice Kempf", "role": "Agent"}],
+"financials": {"arv_estimate": "429000"},
+"recent_updates": [
+{"date": "2026-05-15", "subject": "Alice Kempf sent CMA with ARV ~$429k. Sloping backyard noted from previous listing may reduce value. Two PDF reports attached (CMA and previous listing).", "source": "Email"},
+{"date": "2026-05-15", "subject": "Matt acknowledged receipt of CMA", "source": "Email"}
+],
+"action_items": [
+"Review CMA reports for pricing accuracy",
+"Assess impact of sloping backyard on value",
+"Determine offer strategy"
+]
+},
+{
+"address": "412 Saint James Ave, Springfield, MA 01109",
+"current_milestone": "Title & Escrow",
+"closing_date": null,
+"sources": ["Email"],
+"contacts": [
+{"name": "David Burstein", "role": "Attorney"},
+{"name": "Jessica Sicard", "role": "Project Manager"},
+{"name": "Adina Edgett", "role": "Insurance (Webber & Grinnell)"},
+{"name": "Antonio", "role": "Partner (Investarters)"},
+{"name": "Jocelyn Pickard", "role": "YellowBrick Staff"},
+{"name": "Connie Willetts", "role": "Title Coordinator (Brock & Scott)"},
+{"name": "Zackary Moricas", "role": "Attorney (Brock & Scott)"}
+],
+"financials": {
+"claimed_rent": "2500/mo",
+"auction_loan": "45000",
+"entity": "Yellowbrick Property LLC"
+},
+"recent_updates": [
+{"date": "2026-05-22", "subject": "David Burstein confirmed title entity: Yellowbrick Property LLC (no space). Corrected Matt original Yellow Brick Property LLC.", "source": "Email"},
+{"date": "2026-05-21", "subject": "Connie Willetts (Brock & Scott) requested title vesting info for auction win. Matt responded: Yellow Brick Property LLC, cc d David Burstein.", "source": "Email"},
+{"date": "2026-05-21", "subject": "$45k GSB LOC loan repaid for auction purchase check (approved by Matt)", "source": "Email"},
+{"date": "2026-05-20", "subject": "NEW FORECLOSURE: Matt sent property details to team. Occupied by tenants Lydia Crespo and George Anderson. Plan is to wholesale then possibly manage.", "source": "Email"},
+{"date": "2026-05-20", "subject": "Adina Edgett (Webber & Grinnell) sent insurance application for completion", "source": "Email"},
+{"date": "2026-05-20", "subject": "Jessica asked who will own this property; Matt replied plan is wholesaling then managing", "source": "Email"}
+],
+"action_items": [
+"Finalize title vesting as Yellowbrick Property LLC per David Burstein",
+"Complete insurance application from Adina Edgett (Webber & Grinnell)",
+"Respond to Brock & Scott with corrected entity name"
+]
+}
+]
+};
 
-// âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
-// MILESTONE CONFIG
-// âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
-const MILESTONES = [
-  'Offer Made',
-  'Under Contract',
-  'Title & Escrow',
-  'Inspections',
-  'Appraisal',
-  'Financing',
-  'Repairs / Rehab',
-  'Final Walkthrough',
-  'Closing',
-  'Closed'
+const STAGES = [
+"Offer Made", "Under Contract", "Title & Escrow", "Inspections",
+"Appraisal", "Financing", "Repairs / Rehab", "Final Walkthrough",
+"Closing", "Closed"
+];
+const STAGE_ABBR = [
+"Offer", "Contract", "Title", "Inspect",
+"Appraise", "Finance", "Rehab", "Walkthru",
+"Closing", "Closed"
 ];
 
-// âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
-// HELPERS
-// âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
-const TODAY = new Date('2026-05-22');
-
-function fmtDate(iso) {
-  if (!iso) return '';
-  const d = new Date(iso);
-  if (isNaN(d)) return iso;
-  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+function stageIndex(milestone) {
+  if (milestone === "Prospecting") return -1;
+  const idx = STAGES.indexOf(milestone);
+  return idx >= 0 ? idx : -1;
 }
 
-function fmtLastUpdated(iso) {
-  const d = new Date(iso);
-  return 'Updated ' + d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit', timeZoneName: 'short' });
+function isActive(p) {
+  return p.current_milestone !== "Closed" && p.current_milestone !== "Prospecting";
 }
 
-function parseClosingDate(str) {
-  if (!str) return null;
-  const d = new Date(str);
-  if (!isNaN(d)) return d;
-  return null;
-}
-
-function daysToClosing(str) {
-  const d = parseClosingDate(str);
+function parseClosingDate(d) {
   if (!d) return null;
-  const diff = Math.round((d - TODAY) / 86400000);
-  return diff;
+  const parts = d.split('/');
+  return new Date(parseInt(parts[2]), parseInt(parts[0])-1, parseInt(parts[1]));
 }
 
-function formatMoney(val) {
-  const n = parseFloat(String(val).replace(/[^0-9.]/g, ''));
-  if (isNaN(n)) return val;
-  if (n >= 1000000) return '$' + (n / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
-  if (n >= 1000) return '$' + n.toLocaleString();
-  return '$' + n;
+function daysBetween(a, b) {
+  return Math.ceil((b - a) / (1000*60*60*24));
 }
 
-function formatFinKey(key) {
-  return key.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
-}
-
-function formatFinVal(key, val) {
-  const lower = key.toLowerCase();
-  if (lower.includes('rate') || lower.includes('percent')) return val;
-  if (lower.includes('term') || lower.includes('type') || lower.includes('loan_type') || lower.includes('entity') || lower.includes('concession')) return val;
-  if (/\d.*-.*\d/.test(val)) {
-    const parts = val.split('-');
-    return parts.map(p => isNaN(p.trim()) ? p.trim() : formatMoney(p.trim())).join(' â ');
-  }
-  if (/^\d+(\.\d+)?$/.test(String(val))) return formatMoney(val);
-  return val;
-}
-
-function srcClass(src) {
-  const map = { dotloop: 'src-dotloop', docusign: 'src-docusign', email: 'src-email', pdf: 'src-pdf' };
-  return map[src.toLowerCase()] || 'src-email';
-}
-
-function phaseBadgeClass(milestone) {
-  if (milestone === 'Closed') return 'phase-green';
-  if (milestone === 'Inspections') return 'phase-yellow';
-  if (milestone === 'Prospecting') return 'phase-gray';
-  return 'phase-blue';
-}
-
-function sortKey(p) {
-  const m = p.current_milestone;
-  if (m === 'Prospecting') return 2;
-  if (m === 'Closed') return 1;
-  return 0;
-}
-
-function milestoneProgress(m) {
-  if (m === 'Prospecting') return -1;
-  return MILESTONES.indexOf(m);
-}
-
-function getFilterGroup(p) {
-  const m = p.current_milestone;
-  if (m === 'Closed') return 'closed';
-  if (m === 'Prospecting') return 'prospecting';
-  if (m === 'Closing') return 'closing';
-  if (m === 'Repairs / Rehab') return 'rehab';
-  return 'active';
-}
-
-// âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
-// SORT PROPERTIES
-// âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 function sortProperties(props) {
-  return [...props].sort((a, b) => {
-    const sk = sortKey(a) - sortKey(b);
-    if (sk !== 0) return sk;
-    // within active: higher milestone index = closer to done
-    if (sortKey(a) === 0) {
-      const diff = milestoneProgress(b) - milestoneProgress(a);
-      if (diff !== 0) return diff;
-    }
-    return 0;
+  const today = new Date(2026, 4, 23);
+  const active = props.filter(p => isActive(p));
+  const closed = props.filter(p => p.current_milestone === "Closed");
+  const prospecting = props.filter(p => p.current_milestone === "Prospecting");
+
+  active.sort((a, b) => {
+    const da = parseClosingDate(a.closing_date);
+    const db = parseClosingDate(b.closing_date);
+    if (da && db) return da - db;
+    if (da) return -1;
+    if (db) return 1;
+    return stageIndex(b.current_milestone) - stageIndex(a.current_milestone);
   });
+
+  return [...active, ...closed, ...prospecting];
 }
 
-// âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
-// BUILD MILESTONE TIMELINE
-// âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
-function buildTimeline(currentMilestone) {
-  const isProspecting = currentMilestone === 'Prospecting';
-  const currentIdx = MILESTONES.indexOf(currentMilestone);
+function sourceClass(s) {
+  switch(s.toLowerCase()) {
+    case 'dotloop': return 'badge-purple';
+    case 'docusign': return 'badge-blue';
+    case 'pdf': return 'badge-orange';
+    default: return 'badge-gray';
+  }
+}
 
-  let html = '<div class="milestone-bar">';
-  html += '<div class="milestone-label">Milestone Progress</div>';
-  html += '<div class="milestone-track">';
+function milestoneClass(m) {
+  if (m === 'Closed') return 'badge-green';
+  if (m === 'Inspections') return 'badge-yellow';
+  if (m === 'Prospecting') return 'badge-gray';
+  return 'badge-blue';
+}
 
-  // Prospecting dot
-  const prospClass = isProspecting ? 'ms-dot active' : (currentIdx >= 0 ? 'ms-dot done' : 'ms-dot pending');
-  html += `<div class="ms-item" title="Prospecting"><div class="${prospClass}"></div></div>`;
+function formatFinancialKey(k) {
+  return k.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+}
 
-  // Connector after prospecting
-  const conn0Class = (!isProspecting && currentIdx >= 0) ? 'ms-connector done' : 'ms-connector pending';
-  html += `<div class="${conn0Class}" style="flex:0.5"></div>`;
+function formatFinancialValue(v) {
+  if (!isNaN(v) && v.length > 0) {
+    return '$' + parseInt(v).toLocaleString();
+  }
+  return v;
+}
 
-  MILESTONES.forEach((ms, i) => {
-    let dotClass;
-    if (isProspecting) {
-      dotClass = 'ms-dot pending';
-    } else if (i < currentIdx) {
-      dotClass = 'ms-dot done';
-    } else if (i === currentIdx) {
-      dotClass = 'ms-dot active';
-    } else {
-      dotClass = 'ms-dot pending';
+function renderTimeline(milestone) {
+  const idx = stageIndex(milestone);
+  let html = '<div class="milestone-timeline">';
+  for (let i = 0; i < STAGES.length; i++) {
+    let stepClass = 'step-future';
+    let dotClass = 'future';
+    if (milestone === 'Prospecting') {
+      dotClass = 'future';
+      stepClass = 'step-future';
+    } else if (i < idx) {
+      dotClass = 'completed';
+      stepClass = 'step-completed';
+    } else if (i === idx) {
+      dotClass = 'current';
+      stepClass = 'step-current';
     }
-    html += `<div class="ms-item" title="${ms}"><div class="${dotClass}"></div></div>`;
-    if (i < MILESTONES.length - 1) {
-      const connClass = (!isProspecting && i < currentIdx) ? 'ms-connector done' : 'ms-connector pending';
-      html += `<div class="${connClass}"></div>`;
-    }
-  });
-
-  html += '</div></div>';
+    html += `<div class="milestone-step ${stepClass}">`;
+    html += `<div class="milestone-dot ${dotClass}"></div>`;
+    html += `<div class="milestone-label">${STAGE_ABBR[i]}</div>`;
+    html += '</div>';
+  }
+  html += '</div>';
   return html;
 }
 
-// âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
-// BUILD CARD HTML
-// âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
-function buildCard(prop) {
-  const hasActionItems = prop.action_items && prop.action_items.length > 0;
-  const isClosed = prop.current_milestone === 'Closed';
-  const isProspecting = prop.current_milestone === 'Prospecting';
-  const filterGroup = getFilterGroup(prop);
+function renderCard(p) {
+  const today = new Date(2026, 4, 23);
+  let html = '<div class="card">';
+
+  // Header
+  html += '<div class="card-header">';
+  html += `<span class="card-address">${p.address}</span>`;
+  html += '<div class="badges">';
+  html += `<span class="badge ${milestoneClass(p.current_milestone)}">${p.current_milestone}</span>`;
+  html += '</div></div>';
+
+  // Source badges
+  html += '<div class="source-badges">';
+  p.sources.forEach(s => {
+    html += `<span class="source-badge ${sourceClass(s)}">${s}</span>`;
+  });
+  html += '</div>';
 
   // Countdown
-  let countdownHtml = '';
-  if (prop.closing_date && !isClosed) {
-    const days = daysToClosing(prop.closing_date);
-    if (days !== null) {
+  if (p.closing_date) {
+    const cd = parseClosingDate(p.closing_date);
+    if (p.current_milestone === 'Closed') {
+      html += `<div class="countdown closed">CLOSED (${p.closing_date})</div>`;
+    } else {
+      const days = daysBetween(today, cd);
+      let cls = 'normal';
+      if (days < 0) cls = 'closed';
+      else if (days <= 7) cls = 'urgent';
+      else if (days <= 30) cls = 'soon';
       if (days < 0) {
-        countdownHtml = `<div class="countdown overdue">&#9888; CLOSING OVERDUE (${Math.abs(days)}d ago)</div>`;
-      } else if (days <= 14) {
-        countdownHtml = `<div class="countdown soon">&#128197; ${days} days to closing</div>`;
+        html += `<div class="countdown ${cls}">${Math.abs(days)} days past closing (${p.closing_date})</div>`;
       } else {
-        countdownHtml = `<div class="countdown ok">&#128197; ${days} days to closing</div>`;
+        html += `<div class="countdown ${cls}">${days} days to closing (${p.closing_date})</div>`;
       }
     }
   }
 
-  // Sources
-  const sourcesHtml = prop.sources.map(s =>
-    `<span class="source-badge ${srcClass(s)}">${s}</span>`
-  ).join('');
+  // Timeline
+  html += renderTimeline(p.current_milestone);
 
-  // Phase badge
-  const phaseClass = phaseBadgeClass(prop.current_milestone);
-  const phaseBadge = `<span class="phase-badge ${phaseClass}">${prop.current_milestone}</span>`;
+  // Card grid
+  html += '<div class="card-grid">';
 
-  // Card classes
-  const cardClasses = ['card', filterGroup];
-  if (hasActionItems) cardClasses.push('urgent');
-  // Expand by default if has action items
-  if (hasActionItems) cardClasses.push('expanded');
-
-  // ââ FINANCIALS ââ
-  let financialsHtml = '';
-  const finEntries = Object.entries(prop.financials || {}).filter(([k, v]) => v !== '' && v !== null);
-  if (finEntries.length > 0) {
-    financialsHtml = `<div class="card-section">
-      <div class="section-title">Financials</div>
-      <div class="financials-grid">
-        ${finEntries.map(([k, v]) => `
-          <div class="fin-item">
-            <div class="fin-key">${formatFinKey(k)}</div>
-            <div class="fin-val">${formatFinVal(k, v)}</div>
-          </div>
-        `).join('')}
-      </div>
-    </div>`;
+  // Financials
+  const finKeys = Object.keys(p.financials || {});
+  if (finKeys.length > 0) {
+    html += '<div class="card-section"><h3>Financials</h3>';
+    finKeys.forEach(k => {
+      html += `<div class="financial-item"><span class="financial-key">${formatFinancialKey(k)}:</span> <span class="financial-value">${formatFinancialValue(p.financials[k])}</span></div>`;
+    });
+    html += '</div>';
   }
 
-  // ââ CONTACTS ââ
-  let contactsHtml = '';
-  if (prop.contacts && prop.contacts.length > 0) {
-    contactsHtml = `<div class="card-section">
-      <div class="section-title">Key Contacts</div>
-      <div class="contacts-list">
-        ${prop.contacts.map(c => `
-          <div class="contact-item">
-            <span class="contact-name">${c.name}</span>
-            <span class="contact-role">${c.role}</span>
-          </div>
-        `).join('')}
-      </div>
-    </div>`;
+  // Contacts
+  if (p.contacts && p.contacts.length > 0) {
+    html += '<div class="card-section"><h3>Key Contacts</h3>';
+    p.contacts.forEach(c => {
+      html += `<div class="contact-item">${c.name} <span class="contact-role">- ${c.role}</span></div>`;
+    });
+    html += '</div>';
   }
 
-  // ââ DATES ââ
-  let datesHtml = '';
-  if (prop.closing_date) {
-    const cdDate = parseClosingDate(prop.closing_date);
-    const cdFmt = cdDate ? cdDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) : prop.closing_date;
-    datesHtml = `<div class="card-section">
-      <div class="section-title">Important Dates</div>
-      <div class="dates-list">
-        <div class="date-item"><span class="date-label">Closing Date</span><span>${cdFmt}</span></div>
-      </div>
-    </div>`;
+  // Dates
+  if (p.closing_date) {
+    html += '<div class="card-section"><h3>Important Dates</h3>';
+    html += `<div class="date-item">Closing: ${p.closing_date}</div>`;
+    html += '</div>';
   }
 
-  // ââ ACTION ITEMS ââ
-  let actionsHtml = '';
-  if (hasActionItems) {
-    actionsHtml = `<div class="card-section">
-      <div class="section-title">Action Items</div>
-      <div class="action-list">
-        ${prop.action_items.map(a => `
-          <div class="action-item">
-            <span class="action-icon">&#9888;</span>
-            <span>${a}</span>
-          </div>
-        `).join('')}
-      </div>
-    </div>`;
+  // Action items
+  if (p.action_items && p.action_items.length > 0) {
+    html += '<div class="card-section"><h3>Action Items</h3>';
+    p.action_items.forEach(a => {
+      html += `<div class="action-item">${a}</div>`;
+    });
+    html += '</div>';
   }
 
-  // ââ RECENT UPDATES ââ
-  let updatesHtml = '';
-  const updates = (prop.recent_updates || []).slice(0, 3);
-  if (updates.length > 0) {
-    updatesHtml = `<div class="card-section">
-      <div class="section-title">Recent Updates</div>
-      <div class="updates-list">
-        ${updates.map(u => {
-          const text = u.subject || u.note || '';
-          return `<div class="update-item">
-            <div class="update-meta">
-              ${u.date ? `<span class="update-date">${fmtDate(u.date)}</span>` : ''}
-              <span class="source-badge ${srcClass(u.source || 'Email')}">${u.source || 'Email'}</span>
-            </div>
-            <div class="update-subject">${text}</div>
-          </div>`;
-        }).join('')}
-      </div>
-    </div>`;
+  // Recent updates (last 5)
+  if (p.recent_updates && p.recent_updates.length > 0) {
+    html += '<div class="card-section"><h3>Recent Updates</h3>';
+    const updates = p.recent_updates.slice(0, 5);
+    updates.forEach(u => {
+      const text = u.subject || u.note || '';
+      html += '<div class="update-item">';
+      if (u.date) html += `<span class="update-date">${u.date}</span>`;
+      html += `<span class="update-source source-badge ${sourceClass(u.source)}">${u.source}</span>`;
+      html += `<div>${text}</div>`;
+      html += '</div>';
+    });
+    html += '</div>';
   }
 
-  return `
-  <div class="${cardClasses.join(' ')}" data-filter="${filterGroup}" data-address="${prop.address}">
-    <div class="card-header" onclick="toggleCard(this)">
-      <div class="card-header-left">
-        <div class="card-address">${prop.address}</div>
-        <div class="card-badges">
-          ${phaseBadge}
-          ${sourcesHtml}
-        </div>
-        ${countdownHtml}
-      </div>
-      <span class="card-chevron">&#8964;</span>
-    </div>
-    ${buildTimeline(prop.current_milestone)}
-    <div class="card-body">
-      ${financialsHtml}
-      ${contactsHtml}
-      ${datesHtml}
-      ${actionsHtml}
-      ${updatesHtml}
-    </div>
-  </div>`;
+  html += '</div>'; // card-grid
+  html += '</div>'; // card
+  return html;
 }
 
-// âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
-// FILTER
-// âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
-let currentFilter = 'all';
+function render() {
+  // Header
+  const updated = new Date(DATA.last_updated);
+  document.getElementById('lastUpdated').textContent =
+    'Last updated: ' + updated.toLocaleString('en-US', {
+      month: 'short', day: 'numeric', year: 'numeric',
+      hour: 'numeric', minute: '2-digit', hour12: true, timeZoneName: 'short'
+    });
 
-function setFilter(filter) {
-  currentFilter = filter;
-  document.querySelectorAll('.filter-btn').forEach(b => {
-    b.classList.toggle('active', b.dataset.filter === filter);
-  });
-  const cards = document.querySelectorAll('.card');
-  let visible = 0;
-  cards.forEach(card => {
-    const group = card.dataset.filter;
-    const show = filter === 'all' || group === filter;
-    card.classList.toggle('hidden', !show);
-    if (show) visible++;
-  });
-  const empty = document.getElementById('empty-state');
-  empty.classList.toggle('visible', visible === 0);
-}
+  // Stats
+  const activeProps = DATA.properties.filter(isActive);
+  const closingProps = DATA.properties.filter(p => p.current_milestone === 'Closing');
+  const rehabProps = DATA.properties.filter(p => p.current_milestone === 'Repairs / Rehab');
+  document.getElementById('statsBadges').innerHTML =
+    `<span class="stat-badge active">${activeProps.length} Active</span>` +
+    `<span class="stat-badge closing">${closingProps.length} At Closing</span>` +
+    `<span class="stat-badge rehab">${rehabProps.length} In Rehab</span>`;
 
-// âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
-// TOGGLE CARD
-// âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
-function toggleCard(headerEl) {
-  const card = headerEl.closest('.card');
-  card.classList.toggle('expanded');
-}
-
-// âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
-// STATS
-// âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
-function computeStats(props) {
-  let active = 0, atClosing = 0, inRehab = 0;
-  props.forEach(p => {
-    const m = p.current_milestone;
-    if (m !== 'Closed' && m !== 'Prospecting') active++;
-    if (m === 'Closing') atClosing++;
-    if (m === 'Repairs / Rehab') inRehab++;
-  });
-  return { active, atClosing, inRehab };
-}
-
-// âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
-// INIT
-// âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
-(function init() {
-  // Last updated
-  document.getElementById('last-updated').textContent = fmtLastUpdated(DATA.last_updated);
-
-  // Stats badges
-  const stats = computeStats(DATA.properties);
-  const badgesEl = document.getElementById('header-badges');
-  badgesEl.innerHTML = `
-    <span class="stat-badge blue"><span class="stat-dot blue"></span>${stats.active} Active</span>
-    <span class="stat-badge yellow"><span class="stat-dot yellow"></span>${stats.atClosing} At Closing</span>
-    <span class="stat-badge green"><span class="stat-dot green"></span>${stats.inRehab} In Rehab</span>
-  `;
-
-  // Filter bar
-  const filters = [
-    { label: 'All', key: 'all' },
-    { label: 'Active', key: 'active' },
-    { label: 'Closing', key: 'closing' },
-    { label: 'Rehab', key: 'rehab' },
-    { label: 'Closed', key: 'closed' },
-    { label: 'Prospecting', key: 'prospecting' },
-  ];
-  const filterBar = document.getElementById('filter-bar');
-  filterBar.innerHTML = filters.map(f =>
-    `<button class="filter-btn${f.key === 'all' ? ' active' : ''}" data-filter="${f.key}" onclick="setFilter('${f.key}')">${f.label}</button>`
-  ).join('');
-
-  // Sort and render cards
+  // Cards
   const sorted = sortProperties(DATA.properties);
-  const grid = document.getElementById('grid');
-  const emptyState = document.getElementById('empty-state');
-  grid.innerHTML = emptyState.outerHTML; // keep empty state
-  sorted.forEach(p => {
-    grid.insertAdjacentHTML('beforeend', buildCard(p));
-  });
-})();
+  const main = document.getElementById('main');
+  let html = '';
+
+  const activeSorted = sorted.filter(isActive);
+  const closedSorted = sorted.filter(p => p.current_milestone === 'Closed');
+  const prospSorted = sorted.filter(p => p.current_milestone === 'Prospecting');
+
+  if (activeSorted.length > 0) {
+    html += '<div class="section-label">Active Properties</div>';
+    activeSorted.forEach(p => { html += renderCard(p); });
+  }
+  if (closedSorted.length > 0) {
+    html += '<div class="section-label">Closed</div>';
+    closedSorted.forEach(p => { html += renderCard(p); });
+  }
+  if (prospSorted.length > 0) {
+    html += '<div class="section-label">Prospecting</div>';
+    prospSorted.forEach(p => { html += renderCard(p); });
+  }
+
+  main.innerHTML = html;
+}
+
+render();
 </script>
 </body>
 </html>
