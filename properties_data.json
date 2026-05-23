@@ -1,5 +1,5 @@
 {
-"last_updated": "2026-05-23T08:02:00-04:00",
+"last_updated": "2026-05-23T18:02:00-04:00",
 "properties": [
 {
 "address": "297 Breckwood Blvd, Springfield, MA 01109",
@@ -144,22 +144,24 @@
 },
 {
 "address": "1874 Home Rd, Sheffield, MA",
-"current_milestone": "Repairs / Rehab",
+"current_milestone": "Under Contract",
 "closing_date": null,
 "sources": ["Email", "dotloop"],
 "contacts": [
 {"name": "Jessica Sicard", "role": "Project Manager"},
 {"name": "Mahari", "role": "Contractor"},
 {"name": "Alice Kempf", "role": "Agent"},
-{"name": "Gabriela Dearstyne", "role": "Agent (KVR Team)"}
+{"name": "Gabriela Dearstyne", "role": "Agent (KVR Team)"},
+{"name": "Vasilios Papastathopoulos", "role": "Buyer's Agent"}
 ],
-"financials": {"contractor_payments": "15750"},
+"financials": {"contractor_payments": "15750", "listing_price": "450000", "offer_received": "near 450k"},
 "recent_updates": [
+{"date": "2026-05-23", "subject": "Signed Purchase and Sale Agreement received from buyer. Alice notes offer is near $450k listing price. Waiting for buyer proof of funds. Matt wants to discuss - possible counter on buyer agent commission (2%).", "source": "Email"},
 {"date": "2026-05-17", "subject": "Wicked account: $12,600 + $3,150 Mahari contractor payments for 1874 Home", "source": "Email"},
 {"date": "2026-05-12", "subject": "Listing docs signed in dotloop: Exclusive Right to Sell, ERTS Addendum Coming Soon, Licensee-Consumer Disclosure, Seller Consent to Dual Agency, Seller Consent to Designated Agency, Mass Inspection Disclosure", "source": "dotloop"},
 {"date": "2026-04-22", "subject": "Rehab work in progress", "source": "Email"}
 ],
-"action_items": ["Property being prepared for listing - monitor dotloop for buyer activity"]
+"action_items": ["Review and counter P&S agreement terms (buyer agent commission)", "Obtain buyer proof of funds", "Schedule closing timeline with attorney"]
 },
 {
 "address": "1 Richmond Ln, Pittsfield, MA",
@@ -205,6 +207,7 @@
 "seller_concessions": "Yes"
 },
 "recent_updates": [
+{"date": "2026-05-23", "subject": "Team finalized inspection repair response: will add collar ties in attic (per Melissa), treat mold on rafters, investigate gable vents. Alice to communicate response to buyer's agent.", "source": "Email"},
 {"date": "2026-05-22", "subject": "Melissa Vanderburgh advises: add collar ties (separate from existing reinforcement), treat mold on rafters, gable vents may be needed for attic ventilation (no soffit area). Team agreed on repair response to buyer.", "source": "Email"},
 {"date": "2026-05-22", "note": "Buyer's inspection found multiple issues: mold in attic/basement, sistered joists, sagging floors, deteriorated roof ridge vent, powder post beetles, sagging roof structure", "source": "Email"},
 {"date": "2026-05-22", "note": "Matt responded to inspection findings: will treat mold, no knowledge of structural history, will replace roof ridge, will treat beetles, suggests collar ties for roof sag. Asked Melissa for input on crawl space support.", "source": "Email"},
@@ -215,6 +218,7 @@
 {"date": "2026-05-01", "subject": "6 listing documents signed via dotloop", "source": "dotloop"}
 ],
 "action_items": [
+"Alice to send finalized inspection repair response to buyer",
 "Negotiate final inspection repair concessions with buyer",
 "Treat mold in attic and basement",
 "Replace roof ridge vent",
