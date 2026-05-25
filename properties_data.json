@@ -1,23 +1,54 @@
 {
-  "last_updated": "2026-05-24T18:04:00-04:00",
+  "last_updated": "2026-05-25T08:01:00-04:00",
   "properties": [
     {
       "address": "297 Breckwood Blvd, Springfield, MA 01109",
       "current_milestone": "Closed",
       "closing_date": "4/13/2026",
-      "sources": ["dotloop", "Email"],
-      "contacts": [
-        {"name": "Alice Kempf", "role": "Agent"},
-        {"name": "David Burstein", "role": "Attorney"},
-        {"name": "Jessica Sicard", "role": "Project Manager"},
-        {"name": "Chris Keniley", "role": "Accounting Manager"}
+      "sources": [
+        "dotloop",
+        "Email"
       ],
-      "financials": {"loan_repayment_gsb": "69322"},
+      "contacts": [
+        {
+          "name": "Alice Kempf",
+          "role": "Agent"
+        },
+        {
+          "name": "David Burstein",
+          "role": "Attorney"
+        },
+        {
+          "name": "Jessica Sicard",
+          "role": "Project Manager"
+        },
+        {
+          "name": "Chris Keniley",
+          "role": "Accounting Manager"
+        }
+      ],
+      "financials": {
+        "loan_repayment_gsb": "69322"
+      },
       "recent_updates": [
-        {"date": "2026-05-17", "subject": "Wicked account: $69,322 Reay Loan GSB LOC payment for Breckwood", "source": "Email"},
-        {"date": "2026-04-13", "subject": "Closing date reached", "source": "Email"},
-        {"subject": "Repairs priority", "source": "Email"},
-        {"subject": "FHA Amendatory signed", "source": "dotloop"}
+        {
+          "date": "2026-05-17",
+          "subject": "Wicked account: $69,322 Reay Loan GSB LOC payment for Breckwood",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-13",
+          "subject": "Closing date reached",
+          "source": "Email"
+        },
+        {
+          "subject": "Repairs priority",
+          "source": "Email"
+        },
+        {
+          "subject": "FHA Amendatory signed",
+          "source": "dotloop"
+        }
       ],
       "action_items": []
     },
@@ -25,16 +56,36 @@
       "address": "29 Chestnut Dr, Belchertown, MA 01007",
       "current_milestone": "Closed",
       "closing_date": "4/14/2026",
-      "sources": ["dotloop", "Email"],
+      "sources": [
+        "dotloop",
+        "Email"
+      ],
       "contacts": [
-        {"name": "Alice Kempf", "role": "Agent"},
-        {"name": "David Burstein", "role": "Attorney"},
-        {"name": "Jessica Sicard", "role": "Project Manager"}
+        {
+          "name": "Alice Kempf",
+          "role": "Agent"
+        },
+        {
+          "name": "David Burstein",
+          "role": "Attorney"
+        },
+        {
+          "name": "Jessica Sicard",
+          "role": "Project Manager"
+        }
       ],
       "financials": {},
       "recent_updates": [
-        {"date": "2026-04-24", "subject": "RE Tax payment $2,079.49 - Belchertown RealEstate", "source": "Email"},
-        {"date": "2026-04-14", "subject": "Closing date reached", "source": "Email"}
+        {
+          "date": "2026-04-24",
+          "subject": "RE Tax payment $2,079.49 - Belchertown RealEstate",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-14",
+          "subject": "Closing date reached",
+          "source": "Email"
+        }
       ],
       "action_items": []
     },
@@ -42,28 +93,61 @@
       "address": "4 School St, Ware, MA 01082",
       "current_milestone": "Financing",
       "closing_date": null,
-      "sources": ["Email", "PDF"],
+      "sources": [
+        "Email",
+        "PDF"
+      ],
       "contacts": [
-        {"name": "David Burstein", "role": "Attorney"},
-        {"name": "Jessica Sicard", "role": "Project Manager"}
+        {
+          "name": "David Burstein",
+          "role": "Attorney"
+        },
+        {
+          "name": "Jessica Sicard",
+          "role": "Project Manager"
+        }
       ],
       "financials": {},
       "recent_updates": [
-        {"date": "2026-04-28", "subject": "Financing stage updates", "source": "Email"}
+        {
+          "date": "2026-04-28",
+          "subject": "Financing stage updates",
+          "source": "Email"
+        }
       ],
-      "action_items": ["Follow up on closing date once financing finalizes"]
+      "action_items": [
+        "Follow up on closing date once financing finalizes"
+      ]
     },
     {
       "address": "167 East Park Terrace, Pittsfield, MA 01201",
       "current_milestone": "Repairs / Rehab",
       "closing_date": "5/7/2026",
-      "sources": ["Email", "PDF"],
+      "sources": [
+        "Email",
+        "PDF"
+      ],
       "contacts": [
-        {"name": "David Burstein", "role": "Attorney"},
-        {"name": "Jessica Sicard", "role": "Project Manager"},
-        {"name": "Will McGuire", "role": "Borrower/Signer"},
-        {"name": "Pinnacle Financial", "role": "Lender"},
-        {"name": "Premiere Home Solutions", "role": "Contractor"}
+        {
+          "name": "David Burstein",
+          "role": "Attorney"
+        },
+        {
+          "name": "Jessica Sicard",
+          "role": "Project Manager"
+        },
+        {
+          "name": "Will McGuire",
+          "role": "Borrower/Signer"
+        },
+        {
+          "name": "Pinnacle Financial",
+          "role": "Lender"
+        },
+        {
+          "name": "Premiere Home Solutions",
+          "role": "Contractor"
+        }
       ],
       "financials": {
         "purchase_price": "166000",
@@ -76,14 +160,46 @@
         "boiler_estimate": "5500-6000"
       },
       "recent_updates": [
-        {"date": "2026-05-22", "subject": "REMINDER: Pinnacle billing statement (Acct #45006) - 6 days away", "source": "Email"},
-        {"date": "2026-05-20", "subject": "Pinnacle Financial billing statement received (Acct #45006) - PDF attached", "source": "Email"},
-        {"date": "2026-05-19", "subject": "Premiere Home Solutions revised rehab estimate; boiler $5,500-6k installed. Matt insists total budget stay under $50k including labor, boiler, and supplies.", "source": "Email"},
-        {"date": "2026-05-18", "subject": "Premiere Home Solutions submitted initial rehab estimate via Joist app. Original scope: 3 men, 5 weeks, ~$25k labor + $8k boiler + $15k supplies approaching $50k.", "source": "Email"},
-        {"date": "2026-05-03", "subject": "David Burstein sent preliminary closing docs to Pinnacle; closing moved up to May 7", "source": "Email"},
-        {"date": "2026-04-29", "subject": "Pinnacle Financial approved financing; checklist and funding sheet sent", "source": "Email"},
-        {"date": "2026-04-25", "subject": "Insurance binder and financing docs in progress", "source": "Email"},
-        {"date": "2026-04-21", "subject": "Pinnacle received financing request; proposed terms shared", "source": "Email"}
+        {
+          "date": "2026-05-22",
+          "subject": "REMINDER: Pinnacle billing statement (Acct #45006) - 6 days away",
+          "source": "Email"
+        },
+        {
+          "date": "2026-05-20",
+          "subject": "Pinnacle Financial billing statement received (Acct #45006) - PDF attached",
+          "source": "Email"
+        },
+        {
+          "date": "2026-05-19",
+          "subject": "Premiere Home Solutions revised rehab estimate; boiler $5,500-6k installed. Matt insists total budget stay under $50k including labor, boiler, and supplies.",
+          "source": "Email"
+        },
+        {
+          "date": "2026-05-18",
+          "subject": "Premiere Home Solutions submitted initial rehab estimate via Joist app. Original scope: 3 men, 5 weeks, ~$25k labor + $8k boiler + $15k supplies approaching $50k.",
+          "source": "Email"
+        },
+        {
+          "date": "2026-05-03",
+          "subject": "David Burstein sent preliminary closing docs to Pinnacle; closing moved up to May 7",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-29",
+          "subject": "Pinnacle Financial approved financing; checklist and funding sheet sent",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-25",
+          "subject": "Insurance binder and financing docs in progress",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-21",
+          "subject": "Pinnacle received financing request; proposed terms shared",
+          "source": "Email"
+        }
       ],
       "action_items": [
         "Review Pinnacle billing statement for Acct #45006",
@@ -95,29 +211,73 @@
       "address": "70 Town Hill Road, Middlefield, MA 01243",
       "current_milestone": "Closed",
       "closing_date": null,
-      "sources": ["Email"],
-      "contacts": [{"name": "Jessica Sicard", "role": "Project Manager"}],
+      "sources": [
+        "Email"
+      ],
+      "contacts": [
+        {
+          "name": "Jessica Sicard",
+          "role": "Project Manager"
+        }
+      ],
       "financials": {},
-      "recent_updates": [{"date": "2026-04-20", "subject": "Property closed", "source": "Email"}],
+      "recent_updates": [
+        {
+          "date": "2026-04-20",
+          "subject": "Property closed",
+          "source": "Email"
+        }
+      ],
       "action_items": []
     },
     {
       "address": "40 Roland St, Pittsfield, MA 01201",
       "current_milestone": "Closing",
       "closing_date": null,
-      "sources": ["Email", "dotloop"],
+      "sources": [
+        "Email",
+        "dotloop"
+      ],
       "contacts": [
-        {"name": "Alice Kempf", "role": "Agent"},
-        {"name": "David Burstein", "role": "Attorney"},
-        {"name": "Jessica Sicard", "role": "Project Manager"},
-        {"name": "Alexandra", "role": "Agent (KVR Team)"}
+        {
+          "name": "Alice Kempf",
+          "role": "Agent"
+        },
+        {
+          "name": "David Burstein",
+          "role": "Attorney"
+        },
+        {
+          "name": "Jessica Sicard",
+          "role": "Project Manager"
+        },
+        {
+          "name": "Alexandra",
+          "role": "Agent (KVR Team)"
+        }
       ],
       "financials": {},
       "recent_updates": [
-        {"date": "2026-05-19", "subject": "Jessica sent electrical invoice (PDF) to Burstein, Alice, Matt, and Alexandra", "source": "Email"},
-        {"date": "2026-05-18", "subject": "Matt plans to use Roland sale funds for new acquisition instead of Russ project; David Burstein OOO traveling this week (Jeffrey Burstein or Shamikka Andrews handling urgent matters)", "source": "Email"},
-        {"date": "2026-05-18", "subject": "HD credit card replenishment for Roland & Richmond from HHH Florence Account approved by Will", "source": "Email"},
-        {"date": "2026-05-09", "subject": "Confirm new closing date", "source": "Email"}
+        {
+          "date": "2026-05-19",
+          "subject": "Jessica sent electrical invoice (PDF) to Burstein, Alice, Matt, and Alexandra",
+          "source": "Email"
+        },
+        {
+          "date": "2026-05-18",
+          "subject": "Matt plans to use Roland sale funds for new acquisition instead of Russ project; David Burstein OOO traveling this week (Jeffrey Burstein or Shamikka Andrews handling urgent matters)",
+          "source": "Email"
+        },
+        {
+          "date": "2026-05-18",
+          "subject": "HD credit card replenishment for Roland & Richmond from HHH Florence Account approved by Will",
+          "source": "Email"
+        },
+        {
+          "date": "2026-05-09",
+          "subject": "Confirm new closing date",
+          "source": "Email"
+        }
       ],
       "action_items": [
         "Confirm new closing date",
@@ -129,58 +289,156 @@
       "address": "21 Holly St, Greenfield, MA",
       "current_milestone": "Repairs / Rehab",
       "closing_date": null,
-      "sources": ["Email"],
+      "sources": [
+        "Email"
+      ],
       "contacts": [
-        {"name": "Jessica Sicard", "role": "Project Manager"},
-        {"name": "Chris Keniley", "role": "Accounting Manager"},
-        {"name": "Shamikka Andrews", "role": "Legal Assistant (Burstein Law)"}
+        {
+          "name": "Jessica Sicard",
+          "role": "Project Manager"
+        },
+        {
+          "name": "Chris Keniley",
+          "role": "Accounting Manager"
+        },
+        {
+          "name": "Shamikka Andrews",
+          "role": "Legal Assistant (Burstein Law)"
+        }
       ],
       "financials": {},
       "recent_updates": [
-        {"date": "2026-05-20", "subject": "Misplaced check issue: 21 Holly check recovered, 3 Evergreen check still missing. Shamikka contacting other attorney to reissue.", "source": "Email"},
-        {"date": "2026-04-22", "subject": "Rehab work in progress", "source": "Email"}
+        {
+          "date": "2026-05-20",
+          "subject": "Misplaced check issue: 21 Holly check recovered, 3 Evergreen check still missing. Shamikka contacting other attorney to reissue.",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-22",
+          "subject": "Rehab work in progress",
+          "source": "Email"
+        }
       ],
-      "action_items": ["Follow up on reissued check for 3 Evergreen (Shamikka handling)"]
+      "action_items": [
+        "Follow up on reissued check for 3 Evergreen (Shamikka handling)"
+      ]
     },
     {
       "address": "1874 Home Rd, Sheffield, MA",
       "current_milestone": "Under Contract",
       "closing_date": null,
-      "sources": ["Email", "dotloop"],
+      "sources": [
+        "Email",
+        "dotloop"
+      ],
       "contacts": [
-        {"name": "Jessica Sicard", "role": "Project Manager"},
-        {"name": "Mahari", "role": "Contractor"},
-        {"name": "Alice Kempf", "role": "Agent"},
-        {"name": "Gabriela Dearstyne", "role": "Agent (KVR Team)"},
-        {"name": "Vasilios Papastathopoulos", "role": "Buyer's Agent"}
+        {
+          "name": "Jessica Sicard",
+          "role": "Project Manager"
+        },
+        {
+          "name": "Mahari",
+          "role": "Contractor"
+        },
+        {
+          "name": "Alice Kempf",
+          "role": "Agent"
+        },
+        {
+          "name": "Gabriela Dearstyne",
+          "role": "Agent (KVR Team)"
+        },
+        {
+          "name": "Vasilios Papastathopoulos",
+          "role": "Buyer's Agent"
+        }
       ],
-      "financials": {"contractor_payments": "15750", "listing_price": "450000", "offer_received": "near 450k"},
+      "financials": {
+        "contractor_payments": "15750",
+        "listing_price": "450000",
+        "offer_received": "near 450k"
+      },
       "recent_updates": [
-        {"date": "2026-05-23", "subject": "Signed Purchase and Sale Agreement received from buyer. Alice notes offer is near $450k listing price. Waiting for buyer proof of funds. Matt wants to discuss - possible counter on buyer agent commission (2%).", "source": "Email"},
-        {"date": "2026-05-17", "subject": "Wicked account: $12,600 + $3,150 Mahari contractor payments for 1874 Home", "source": "Email"},
-        {"date": "2026-05-12", "subject": "Listing docs signed in dotloop: Exclusive Right to Sell, ERTS Addendum Coming Soon, Licensee-Consumer Disclosure, Seller Consent to Dual Agency, Seller Consent to Designated Agency, Mass Inspection Disclosure", "source": "dotloop"},
-        {"date": "2026-04-22", "subject": "Rehab work in progress", "source": "Email"}
+        {
+          "date": "2026-05-23",
+          "subject": "Signed Purchase and Sale Agreement received from buyer. Alice notes offer is near $450k listing price. Waiting for buyer proof of funds. Matt wants to discuss - possible counter on buyer agent commission (2%).",
+          "source": "Email"
+        },
+        {
+          "date": "2026-05-17",
+          "subject": "Wicked account: $12,600 + $3,150 Mahari contractor payments for 1874 Home",
+          "source": "Email"
+        },
+        {
+          "date": "2026-05-12",
+          "subject": "Listing docs signed in dotloop: Exclusive Right to Sell, ERTS Addendum Coming Soon, Licensee-Consumer Disclosure, Seller Consent to Dual Agency, Seller Consent to Designated Agency, Mass Inspection Disclosure",
+          "source": "dotloop"
+        },
+        {
+          "date": "2026-04-22",
+          "subject": "Rehab work in progress",
+          "source": "Email"
+        }
       ],
-      "action_items": ["Review and counter P&S agreement terms (buyer agent commission)", "Obtain buyer proof of funds", "Schedule closing timeline with attorney"]
+      "action_items": [
+        "Review and counter P&S agreement terms (buyer agent commission)",
+        "Obtain buyer proof of funds",
+        "Schedule closing timeline with attorney"
+      ]
     },
     {
       "address": "1 Richmond Ln, Pittsfield, MA",
       "current_milestone": "Repairs / Rehab",
       "closing_date": null,
-      "sources": ["Email", "PDF"],
+      "sources": [
+        "Email",
+        "PDF"
+      ],
       "contacts": [
-        {"name": "Jessica Sicard", "role": "Project Manager"},
-        {"name": "Jesse Leydet", "role": "On-site Contact"},
-        {"name": "Premiere Home Solutions", "role": "Contractor"},
-        {"name": "Meredith Martin", "role": "HD Pro Support"}
+        {
+          "name": "Jessica Sicard",
+          "role": "Project Manager"
+        },
+        {
+          "name": "Jesse Leydet",
+          "role": "On-site Contact"
+        },
+        {
+          "name": "Premiere Home Solutions",
+          "role": "Contractor"
+        },
+        {
+          "name": "Meredith Martin",
+          "role": "HD Pro Support"
+        }
       ],
       "financials": {},
       "recent_updates": [
-        {"date": "2026-05-20", "subject": "Demo permit sent by Jessica to Premiere Home Solutions; contractor acknowledged receipt", "source": "Email"},
-        {"date": "2026-05-20", "subject": "Permit R-26-0069 issued for demolition of detached shed at 1 Richmond. Matt forwarded to Jessica.", "source": "Email"},
-        {"date": "2026-05-15", "subject": "Appliance order placed via Home Depot Pro: 30in electric stove, 24in dishwasher, fridge (73x36 opening), basic OTR microwave. Lockbox delivery scheduled 5/21.", "source": "Email"},
-        {"date": "2026-05-15", "subject": "Premiere Home Solutions confirmed appliance specs for Richmond", "source": "Email"},
-        {"date": "2026-04-22", "subject": "Rehab work in progress", "source": "Email"}
+        {
+          "date": "2026-05-20",
+          "subject": "Demo permit sent by Jessica to Premiere Home Solutions; contractor acknowledged receipt",
+          "source": "Email"
+        },
+        {
+          "date": "2026-05-20",
+          "subject": "Permit R-26-0069 issued for demolition of detached shed at 1 Richmond. Matt forwarded to Jessica.",
+          "source": "Email"
+        },
+        {
+          "date": "2026-05-15",
+          "subject": "Appliance order placed via Home Depot Pro: 30in electric stove, 24in dishwasher, fridge (73x36 opening), basic OTR microwave. Lockbox delivery scheduled 5/21.",
+          "source": "Email"
+        },
+        {
+          "date": "2026-05-15",
+          "subject": "Premiere Home Solutions confirmed appliance specs for Richmond",
+          "source": "Email"
+        },
+        {
+          "date": "2026-04-22",
+          "subject": "Rehab work in progress",
+          "source": "Email"
+        }
       ],
       "action_items": [
         "Confirm appliance delivery completed (was scheduled 5/21)",
@@ -191,15 +449,39 @@
       "address": "42 Washington St, Monson, MA 01057",
       "current_milestone": "Inspections",
       "closing_date": "6/29/2026",
-      "sources": ["dotloop", "Email"],
+      "sources": [
+        "dotloop",
+        "Email"
+      ],
       "contacts": [
-        {"name": "Alice Kempf", "role": "Agent"},
-        {"name": "Jessica Sicard", "role": "Project Manager"},
-        {"name": "David Burstein", "role": "Seller's Attorney"},
-        {"name": "Vasilios Papastathopoulos", "role": "Buyer's Agent"},
-        {"name": "Melissa A. Gaboury", "role": "Buyer's Attorney - Hornung and Scimone P.C."},
-        {"name": "Riley Brennan", "role": "KVR Team"},
-        {"name": "Melissa Vanderburgh", "role": "Team Leader (KVR Team)"}
+        {
+          "name": "Alice Kempf",
+          "role": "Agent"
+        },
+        {
+          "name": "Jessica Sicard",
+          "role": "Project Manager"
+        },
+        {
+          "name": "David Burstein",
+          "role": "Seller's Attorney"
+        },
+        {
+          "name": "Vasilios Papastathopoulos",
+          "role": "Buyer's Agent"
+        },
+        {
+          "name": "Melissa A. Gaboury",
+          "role": "Buyer's Attorney - Hornung and Scimone P.C."
+        },
+        {
+          "name": "Riley Brennan",
+          "role": "KVR Team"
+        },
+        {
+          "name": "Melissa Vanderburgh",
+          "role": "Team Leader (KVR Team)"
+        }
       ],
       "financials": {
         "purchase_price": "335000",
@@ -207,22 +489,67 @@
         "seller_concessions": "Yes"
       },
       "recent_updates": [
-        {"date": "2026-05-24", "subject": "Buyer sent official inspection repair request list via Alice Kempf. Items: mold remediation with professional documentation, chimney repointing, basement mold remediation with floor covering, additional crawl space supports, water meter location clarification, retaining wall evaluation, roof ridge vent replacement, powder post beetle treatment with lender documentation, roof sheathing replacement, plumbing leak repairs, moisture mitigation with professional sign-off and certificate.", "source": "Email"},
-        {"date": "2026-05-23", "subject": "Team finalized inspection repair response: will add collar ties in attic (per Melissa), treat mold on rafters, investigate gable vents. Alice to communicate response to buyer's agent.", "source": "Email"},
-        {"date": "2026-05-22", "subject": "Melissa Vanderburgh advises: add collar ties (separate from existing reinforcement), treat mold on rafters, gable vents may be needed for attic ventilation (no soffit area). Team agreed on repair response to buyer.", "source": "Email"},
-        {"date": "2026-05-22", "subject": "Buyer inspection found multiple issues: mold in attic/basement, sistered joists, sagging floors, deteriorated roof ridge vent, powder post beetles, sagging roof structure.", "source": "Email"},
-        {"date": "2026-05-22", "subject": "Matt responded to inspection findings: will treat mold, no knowledge of structural history, will replace roof ridge, will treat beetles, suggests collar ties for roof sag. Asked Melissa for input on crawl space support.", "source": "Email"},
-        {"date": "2026-05-14", "subject": "Jessica confirmed under contract status", "source": "Email"},
-        {"date": "2026-05-13", "subject": "Contract To Purchase Real Estate (Offer #501, rev 7) signed in dotloop; property now under contract for sale", "source": "dotloop"},
-        {"date": "2026-05-13", "subject": "Matt notified Jessica: 42 Washington under contract", "source": "Email"},
-        {"date": "2026-05-13", "subject": "Alice Kempf shared Contract To Purchase Real Estate (Offer #501, revision 7) via Dotloop for review", "source": "dotloop"},
-        {"date": "2026-05-01", "subject": "6 listing documents signed via dotloop", "source": "dotloop"}
+        {
+          "date": "2026-05-25",
+          "subject": "Melissa Vanderburgh provided item-by-item repair response: mold remediation agreed, sistered joists pre-existing (prior to ownership), collar ties to be added, crawl space supports to be addressed, powder post beetle treatment agreed, roof ridge vent replacement agreed. Team finalizing official response to buyer.",
+          "source": "Email"
+        },
+        {
+          "date": "2026-05-24",
+          "subject": "Buyer sent official inspection repair request list via Alice Kempf. Items: mold remediation with professional documentation, chimney repointing, basement mold remediation with floor covering, additional crawl space supports, water meter location clarification, retaining wall evaluation, roof ridge vent replacement, powder post beetle treatment with lender documentation, roof sheathing replacement, plumbing leak repairs, moisture mitigation with professional sign-off and certificate.",
+          "source": "Email"
+        },
+        {
+          "date": "2026-05-23",
+          "subject": "Team finalized inspection repair response: will add collar ties in attic (per Melissa), treat mold on rafters, investigate gable vents. Alice to communicate response to buyer's agent.",
+          "source": "Email"
+        },
+        {
+          "date": "2026-05-22",
+          "subject": "Melissa Vanderburgh advises: add collar ties (separate from existing reinforcement), treat mold on rafters, gable vents may be needed for attic ventilation (no soffit area). Team agreed on repair response to buyer.",
+          "source": "Email"
+        },
+        {
+          "date": "2026-05-22",
+          "subject": "Buyer inspection found multiple issues: mold in attic/basement, sistered joists, sagging floors, deteriorated roof ridge vent, powder post beetles, sagging roof structure.",
+          "source": "Email"
+        },
+        {
+          "date": "2026-05-22",
+          "subject": "Matt responded to inspection findings: will treat mold, no knowledge of structural history, will replace roof ridge, will treat beetles, suggests collar ties for roof sag. Asked Melissa for input on crawl space support.",
+          "source": "Email"
+        },
+        {
+          "date": "2026-05-14",
+          "subject": "Jessica confirmed under contract status",
+          "source": "Email"
+        },
+        {
+          "date": "2026-05-13",
+          "subject": "Contract To Purchase Real Estate (Offer #501, rev 7) signed in dotloop; property now under contract for sale",
+          "source": "dotloop"
+        },
+        {
+          "date": "2026-05-13",
+          "subject": "Matt notified Jessica: 42 Washington under contract",
+          "source": "Email"
+        },
+        {
+          "date": "2026-05-13",
+          "subject": "Alice Kempf shared Contract To Purchase Real Estate (Offer #501, revision 7) via Dotloop for review",
+          "source": "dotloop"
+        },
+        {
+          "date": "2026-05-01",
+          "subject": "6 listing documents signed via dotloop",
+          "source": "dotloop"
+        }
       ],
       "action_items": [
-        "URGENT: Respond to buyer's official inspection repair list (received 5/24)",
-        "Negotiate inspection repair concessions - buyer requests professional mold remediation with documentation",
-        "Get quotes for: mold remediation, chimney repointing, plumbing leak repair, retaining wall evaluation",
-        "Treat powder post beetles with lender-required documentation",
+        "URGENT: Finalize and send official repair response to buyer (Melissa's item-by-item breakdown ready)",
+        "Schedule mold remediation with professional documentation",
+        "Get quotes for: chimney repointing, plumbing leak repair, retaining wall evaluation",
+        "Treat powder post beetles with lender-required documentation (FHA requirement)",
         "Replace roof ridge vent",
         "Add collar ties to roof structure (per Melissa's recommendation)",
         "Investigate gable vent installation for attic ventilation",
@@ -234,20 +561,37 @@
       "address": "54 Sectar Rd, Ashford, CT 06278",
       "current_milestone": "Under Contract",
       "closing_date": null,
-      "sources": ["dotloop", "Email"],
+      "sources": [
+        "dotloop",
+        "Email"
+      ],
       "contacts": [
-        {"name": "Alice Kempf", "role": "Agent"},
-        {"name": "Jessica Sicard", "role": "Project Manager"}
+        {
+          "name": "Alice Kempf",
+          "role": "Agent"
+        },
+        {
+          "name": "Jessica Sicard",
+          "role": "Project Manager"
+        }
       ],
       "financials": {},
-      "recent_updates": [{"date": "2026-05-01", "subject": "Under contract; docs in dotloop", "source": "dotloop"}],
+      "recent_updates": [
+        {
+          "date": "2026-05-01",
+          "subject": "Under contract; docs in dotloop",
+          "source": "dotloop"
+        }
+      ],
       "action_items": []
     },
     {
       "address": "282-284 Suffolk Street, Holyoke, MA",
       "current_milestone": "Prospecting",
       "closing_date": null,
-      "sources": ["Email"],
+      "sources": [
+        "Email"
+      ],
       "contacts": [],
       "financials": {},
       "recent_updates": [],
@@ -257,14 +601,29 @@
       "address": "140 Egremont Plain Rd, Egremont, MA 01230",
       "current_milestone": "Prospecting",
       "closing_date": null,
-      "sources": ["Email", "PDF"],
-      "contacts": [
-        {"name": "Alice Kempf", "role": "Agent"},
-        {"name": "Antonio", "role": "Partner (House Hack Helpers)"}
+      "sources": [
+        "Email",
+        "PDF"
       ],
-      "financials": {"arv_estimate": "1200000-1300000"},
+      "contacts": [
+        {
+          "name": "Alice Kempf",
+          "role": "Agent"
+        },
+        {
+          "name": "Antonio",
+          "role": "Partner (House Hack Helpers)"
+        }
+      ],
+      "financials": {
+        "arv_estimate": "1200000-1300000"
+      },
       "recent_updates": [
-        {"date": "2026-05-18", "subject": "Alice sent CMA: ARV $1.2-1.3M. Comp reminds her of Richmond. Suggested fluff strategy (cleaning, staging, bank financing) for quick profit like Belchertown and Sheffield.", "source": "Email"}
+        {
+          "date": "2026-05-18",
+          "subject": "Alice sent CMA: ARV $1.2-1.3M. Comp reminds her of Richmond. Suggested fluff strategy (cleaning, staging, bank financing) for quick profit like Belchertown and Sheffield.",
+          "source": "Email"
+        }
       ],
       "action_items": [
         "Review CMA and comp photos",
@@ -276,60 +635,128 @@
       "address": "213 Brodie Mountain Rd, Hancock, MA 01237",
       "current_milestone": "Closed",
       "closing_date": null,
-      "sources": ["Email"],
-      "contacts": [{"name": "David Chase", "role": "VP, Freedom Credit Union"}],
+      "sources": [
+        "Email"
+      ],
+      "contacts": [
+        {
+          "name": "David Chase",
+          "role": "VP, Freedom Credit Union"
+        }
+      ],
       "financials": {},
-      "recent_updates": [{"date": "2026-05-14", "subject": "Appraisal received from David Chase at Freedom Credit Union", "source": "Email"}],
+      "recent_updates": [
+        {
+          "date": "2026-05-14",
+          "subject": "Appraisal received from David Chase at Freedom Credit Union",
+          "source": "Email"
+        }
+      ],
       "action_items": []
     },
     {
       "address": "11 Bryant St, Springfield, MA",
       "current_milestone": "Closed",
       "closing_date": null,
-      "sources": ["Email"],
-      "contacts": [{"name": "Jessica Sicard", "role": "Project Manager"}],
+      "sources": [
+        "Email"
+      ],
+      "contacts": [
+        {
+          "name": "Jessica Sicard",
+          "role": "Project Manager"
+        }
+      ],
       "financials": {},
-      "recent_updates": [{"date": "2026-04-29", "subject": "Detailed financial breakdown: YB owed $8,670.50 after settlement", "source": "Email"}],
-      "action_items": ["Final payment approved; confirm listing date", "Track YB settlement amount"]
+      "recent_updates": [
+        {
+          "date": "2026-04-29",
+          "subject": "Detailed financial breakdown: YB owed $8,670.50 after settlement",
+          "source": "Email"
+        }
+      ],
+      "action_items": [
+        "Final payment approved; confirm listing date",
+        "Track YB settlement amount"
+      ]
     },
     {
       "address": "100 Central St (New Property)",
       "current_milestone": "Repairs / Rehab",
       "closing_date": null,
-      "sources": ["Email"],
+      "sources": [
+        "Email"
+      ],
       "contacts": [],
       "financials": {},
-      "recent_updates": [{"date": "2026-04-24", "subject": "New property acquired; rehab planning", "source": "Email"}],
+      "recent_updates": [
+        {
+          "date": "2026-04-24",
+          "subject": "New property acquired; rehab planning",
+          "source": "Email"
+        }
+      ],
       "action_items": []
     },
     {
       "address": "300 Tyler St, Pittsfield, MA 01201",
       "current_milestone": "Title & Escrow",
       "closing_date": null,
-      "sources": ["Email", "PDF"],
+      "sources": [
+        "Email",
+        "PDF"
+      ],
       "contacts": [
-        {"name": "David Burstein", "role": "Attorney"},
-        {"name": "Jessica Sicard", "role": "Project Manager"}
+        {
+          "name": "David Burstein",
+          "role": "Attorney"
+        },
+        {
+          "name": "Jessica Sicard",
+          "role": "Project Manager"
+        }
       ],
       "financials": {},
-      "recent_updates": [{"date": "2026-05-05", "subject": "Title work in progress", "source": "Email"}],
+      "recent_updates": [
+        {
+          "date": "2026-05-05",
+          "subject": "Title work in progress",
+          "source": "Email"
+        }
+      ],
       "action_items": []
     },
     {
       "address": "166 East St, Stafford, CT 06076",
       "current_milestone": "Under Contract",
       "closing_date": null,
-      "sources": ["dotloop", "Email"],
-      "contacts": [{"name": "Alice Kempf", "role": "Agent"}],
+      "sources": [
+        "dotloop",
+        "Email"
+      ],
+      "contacts": [
+        {
+          "name": "Alice Kempf",
+          "role": "Agent"
+        }
+      ],
       "financials": {},
-      "recent_updates": [{"date": "2026-05-08", "subject": "Under contract; awaiting inspections", "source": "Email"}],
+      "recent_updates": [
+        {
+          "date": "2026-05-08",
+          "subject": "Under contract; awaiting inspections",
+          "source": "Email"
+        }
+      ],
       "action_items": []
     },
     {
       "address": "583 Hawks Spur Rd, Plymouth, VT",
       "current_milestone": "Prospecting",
       "closing_date": null,
-      "sources": ["Email"],
+      "sources": [
+        "Email"
+      ],
       "contacts": [],
       "financials": {},
       "recent_updates": [],
@@ -339,22 +766,54 @@
       "address": "103 Prospect St, Springfield, MA",
       "current_milestone": "Inspections",
       "closing_date": null,
-      "sources": ["Email"],
+      "sources": [
+        "Email"
+      ],
       "contacts": [
-        {"name": "Ryan O'Hara", "role": "Attorney (Bacon Wilson)"},
-        {"name": "Hunter Foote", "role": "Prospective Buyer (Vanderburgh)"}
+        {
+          "name": "Ryan O'Hara",
+          "role": "Attorney (Bacon Wilson)"
+        },
+        {
+          "name": "Hunter Foote",
+          "role": "Prospective Buyer (Vanderburgh)"
+        }
       ],
       "financials": {},
       "recent_updates": [
-        {"date": "2026-05-22", "subject": "REMINDER: Eviction court first tier event - 6 days away", "source": "Email"},
-        {"date": "2026-05-19", "subject": "Matt rejected Hunter Foote's latest offer. O'Hara acknowledged, noted duty to forward offers but agrees serious offer must be higher.", "source": "Email"},
-        {"date": "2026-05-18", "subject": "O'Hara forwarded buyer response re: violations. Basement stairs removed with door remaining and basement fireblocking noted as issues (p. 11-12 of inspection report). Attachments included.", "source": "Email"},
-        {"date": "2026-05-13", "subject": "Hunter Foote submitted new lower offer via attorney; Matt rejected as going backwards. O'Hara notes buyer banking on immediate close as incentive", "source": "Email"},
-        {"date": "2026-05-13", "subject": "Eviction court first tier event scheduled for May 28", "source": "Email"},
-        {"date": "2026-05-08", "subject": "Potential buyer Hunter Foote in discussions", "source": "Email"}
+        {
+          "date": "2026-05-22",
+          "subject": "REMINDER: Eviction court first tier event - 6 days away",
+          "source": "Email"
+        },
+        {
+          "date": "2026-05-19",
+          "subject": "Matt rejected Hunter Foote's latest offer. O'Hara acknowledged, noted duty to forward offers but agrees serious offer must be higher.",
+          "source": "Email"
+        },
+        {
+          "date": "2026-05-18",
+          "subject": "O'Hara forwarded buyer response re: violations. Basement stairs removed with door remaining and basement fireblocking noted as issues (p. 11-12 of inspection report). Attachments included.",
+          "source": "Email"
+        },
+        {
+          "date": "2026-05-13",
+          "subject": "Hunter Foote submitted new lower offer via attorney; Matt rejected as going backwards. O'Hara notes buyer banking on immediate close as incentive",
+          "source": "Email"
+        },
+        {
+          "date": "2026-05-13",
+          "subject": "Eviction court first tier event scheduled for May 28",
+          "source": "Email"
+        },
+        {
+          "date": "2026-05-08",
+          "subject": "Potential buyer Hunter Foote in discussions",
+          "source": "Email"
+        }
       ],
       "action_items": [
-        "Eviction court first tier event May 28 (4 DAYS AWAY)",
+        "Eviction court first tier event May 28 (3 DAYS AWAY)",
         "Review inspection violations: basement stairs and fireblocking",
         "Await revised offer from Hunter Foote / Vanderburgh",
         "Do NOT contact Code Enforcement - avoid prompting closer attention"
@@ -364,15 +823,35 @@
       "address": "172 Fiske St, Southbridge, MA",
       "current_milestone": "Prospecting",
       "closing_date": null,
-      "sources": ["Email", "PDF"],
-      "contacts": [
-        {"name": "Alice Kempf", "role": "Agent"},
-        {"name": "Antonio", "role": "Partner (Investarters)"}
+      "sources": [
+        "Email",
+        "PDF"
       ],
-      "financials": {"arv_2br": "379900", "arv_3br": "439900-480000"},
+      "contacts": [
+        {
+          "name": "Alice Kempf",
+          "role": "Agent"
+        },
+        {
+          "name": "Antonio",
+          "role": "Partner (Investarters)"
+        }
+      ],
+      "financials": {
+        "arv_2br": "379900",
+        "arv_3br": "439900-480000"
+      },
       "recent_updates": [
-        {"date": "2026-05-15", "subject": "Alice Kempf sent CMA: 2BR ARV $379,900; 3BR ARV $439,900-$480,000. Previous listing PDF attached. Room with fireplace could be converted to MBR suite. Full bath on each floor confirmed.", "source": "Email"},
-        {"date": "2026-05-15", "subject": "Matt forwarded CMA to Antonio at Investarters for review", "source": "Email"}
+        {
+          "date": "2026-05-15",
+          "subject": "Alice Kempf sent CMA: 2BR ARV $379,900; 3BR ARV $439,900-$480,000. Previous listing PDF attached. Room with fireplace could be converted to MBR suite. Full bath on each floor confirmed.",
+          "source": "Email"
+        },
+        {
+          "date": "2026-05-15",
+          "subject": "Matt forwarded CMA to Antonio at Investarters for review",
+          "source": "Email"
+        }
       ],
       "action_items": [
         "Evaluate whether room can be converted to MBR suite for 3BR pricing",
@@ -384,12 +863,30 @@
       "address": "26 Old Putnam Rd Ext, Plainfield, CT 06239",
       "current_milestone": "Prospecting",
       "closing_date": null,
-      "sources": ["Email", "PDF"],
-      "contacts": [{"name": "Alice Kempf", "role": "Agent"}],
-      "financials": {"arv_estimate": "429000"},
+      "sources": [
+        "Email",
+        "PDF"
+      ],
+      "contacts": [
+        {
+          "name": "Alice Kempf",
+          "role": "Agent"
+        }
+      ],
+      "financials": {
+        "arv_estimate": "429000"
+      },
       "recent_updates": [
-        {"date": "2026-05-15", "subject": "Alice Kempf sent CMA with ARV ~$429k. Sloping backyard noted from previous listing may reduce value. Two PDF reports attached (CMA and previous listing).", "source": "Email"},
-        {"date": "2026-05-15", "subject": "Matt acknowledged receipt of CMA", "source": "Email"}
+        {
+          "date": "2026-05-15",
+          "subject": "Alice Kempf sent CMA with ARV ~$429k. Sloping backyard noted from previous listing may reduce value. Two PDF reports attached (CMA and previous listing).",
+          "source": "Email"
+        },
+        {
+          "date": "2026-05-15",
+          "subject": "Matt acknowledged receipt of CMA",
+          "source": "Email"
+        }
       ],
       "action_items": [
         "Review CMA reports for pricing accuracy",
@@ -401,15 +898,38 @@
       "address": "412 Saint James Ave, Springfield, MA 01109",
       "current_milestone": "Title & Escrow",
       "closing_date": null,
-      "sources": ["Email"],
+      "sources": [
+        "Email"
+      ],
       "contacts": [
-        {"name": "David Burstein", "role": "Attorney"},
-        {"name": "Jessica Sicard", "role": "Project Manager"},
-        {"name": "Adina Edgett", "role": "Insurance (Webber & Grinnell)"},
-        {"name": "Antonio", "role": "Partner (Investarters)"},
-        {"name": "Jocelyn Pickard", "role": "YellowBrick Staff"},
-        {"name": "Connie Willetts", "role": "Title Coordinator (Brock & Scott)"},
-        {"name": "Zackary Moricas", "role": "Attorney (Brock & Scott)"}
+        {
+          "name": "David Burstein",
+          "role": "Attorney"
+        },
+        {
+          "name": "Jessica Sicard",
+          "role": "Project Manager"
+        },
+        {
+          "name": "Adina Edgett",
+          "role": "Insurance (Webber & Grinnell)"
+        },
+        {
+          "name": "Antonio",
+          "role": "Partner (Investarters)"
+        },
+        {
+          "name": "Jocelyn Pickard",
+          "role": "YellowBrick Staff"
+        },
+        {
+          "name": "Connie Willetts",
+          "role": "Title Coordinator (Brock & Scott)"
+        },
+        {
+          "name": "Zackary Moricas",
+          "role": "Attorney (Brock & Scott)"
+        }
       ],
       "financials": {
         "claimed_rent": "2500/mo",
@@ -417,12 +937,36 @@
         "entity": "Yellowbrick Property LLC"
       },
       "recent_updates": [
-        {"date": "2026-05-22", "subject": "David Burstein confirmed title entity: Yellowbrick Property LLC (no space). Corrected Matt original Yellow Brick Property LLC.", "source": "Email"},
-        {"date": "2026-05-21", "subject": "Connie Willetts (Brock & Scott) requested title vesting info for auction win. Matt responded: Yellow Brick Property LLC, cc d David Burstein.", "source": "Email"},
-        {"date": "2026-05-21", "subject": "$45k GSB LOC loan repaid for auction purchase check (approved by Matt)", "source": "Email"},
-        {"date": "2026-05-20", "subject": "NEW FORECLOSURE: Matt sent property details to team. Occupied by tenants Lydia Crespo and George Anderson. Plan is to wholesale then possibly manage.", "source": "Email"},
-        {"date": "2026-05-20", "subject": "Adina Edgett (Webber & Grinnell) sent insurance application for completion", "source": "Email"},
-        {"date": "2026-05-20", "subject": "Jessica asked who will own this property; Matt replied plan is wholesaling then managing", "source": "Email"}
+        {
+          "date": "2026-05-22",
+          "subject": "David Burstein confirmed title entity: Yellowbrick Property LLC (no space). Corrected Matt original Yellow Brick Property LLC.",
+          "source": "Email"
+        },
+        {
+          "date": "2026-05-21",
+          "subject": "Connie Willetts (Brock & Scott) requested title vesting info for auction win. Matt responded: Yellow Brick Property LLC, cc d David Burstein.",
+          "source": "Email"
+        },
+        {
+          "date": "2026-05-21",
+          "subject": "$45k GSB LOC loan repaid for auction purchase check (approved by Matt)",
+          "source": "Email"
+        },
+        {
+          "date": "2026-05-20",
+          "subject": "NEW FORECLOSURE: Matt sent property details to team. Occupied by tenants Lydia Crespo and George Anderson. Plan is to wholesale then possibly manage.",
+          "source": "Email"
+        },
+        {
+          "date": "2026-05-20",
+          "subject": "Adina Edgett (Webber & Grinnell) sent insurance application for completion",
+          "source": "Email"
+        },
+        {
+          "date": "2026-05-20",
+          "subject": "Jessica asked who will own this property; Matt replied plan is wholesaling then managing",
+          "source": "Email"
+        }
       ],
       "action_items": [
         "Finalize title vesting as Yellowbrick Property LLC per David Burstein",
