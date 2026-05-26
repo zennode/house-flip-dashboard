@@ -1,5 +1,5 @@
 {
-"last_updated": "2026-05-25T18:02:00-04:00",
+"last_updated": "2026-05-26T08:03:00-04:00",
 "properties": [
 {
 "address": "297 Breckwood Blvd, Springfield, MA 01109",
@@ -112,17 +112,27 @@
 {"name": "David Burstein", "role": "Attorney"},
 {"name": "Jessica Sicard", "role": "Project Manager"},
 {"name": "Alexandra", "role": "Agent (KVR Team)"},
-{"name": "Antonio", "role": "Partner (House Hack Helpers)"}
+{"name": "Antonio", "role": "Partner (House Hack Helpers)"},
+{"name": "Will McGuire", "role": "Investors & Team Ops"},
+{"name": "Shamikka Andrews", "role": "Legal Assistant (Burstein Law)"},
+{"name": "Adina Edgett", "role": "Insurance (Webber & Grinnell)"},
+{"name": "Claudia Hicks", "role": "Insurance (Webber & Grinnell)"},
+{"name": "Chris Keniley", "role": "Accounting Manager"}
 ],
 "financials": {},
 "recent_updates": [
+{"date": "2026-05-26", "subject": "Will McGuire updated HHH cash flow sheet; HHH Selling HUD for 40 Roland sent to bookkeeper Liz. Pending final profit numbers from 141 St. Jerome and 40 Roland. Final bills expected by end of May, reconciliation by 6/15 or 7/15.", "source": "Email"},
+{"date": "2026-05-25", "subject": "David Burstein sent Seller Post-Closing Package: Closing Disclosure (CD), mortgage payoff statement, and recorded deed. Sale finalized May 22, 2026.", "source": "Email"},
 {"date": "2026-05-21", "subject": "Antonio signed closing docs; closing expected 5/21 or 5/22", "source": "Email"},
 {"date": "2026-05-19", "subject": "Jessica sent electrical invoice (PDF) to Burstein, Alice, Matt, and Alexandra", "source": "Email"},
 {"date": "2026-05-18", "subject": "Matt plans to use Roland sale funds for new acquisition instead of Russ project; David Burstein OOO traveling this week (Jeffrey Burstein or Shamikka Andrews handling urgent matters)", "source": "Email"},
 {"date": "2026-05-18", "subject": "HD credit card replenishment for Roland & Richmond from HHH Florence Account approved by Will", "source": "Email"},
 {"date": "2026-05-09", "subject": "Confirm new closing date", "source": "Email"}
 ],
-"action_items": []
+"action_items": [
+"Final bills due by end of May 2026",
+"Financial reconciliation target: 6/15 or 7/15"
+]
 },
 {
 "address": "21 Holly St, Greenfield, MA",
@@ -366,7 +376,7 @@
 {"date": "2026-05-08", "subject": "Potential buyer Hunter Foote in discussions", "source": "Email"}
 ],
 "action_items": [
-"Eviction court first tier event May 28 (3 DAYS AWAY)",
+"Eviction court first tier event May 28 (2 DAYS AWAY)",
 "Review inspection violations: basement stairs and fireblocking",
 "Await revised offer from Hunter Foote / Vanderburgh",
 "Do NOT contact Code Enforcement - avoid prompting closer attention"
@@ -444,4 +454,3 @@
 }
 ]
 }
-
