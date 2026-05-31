@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-31T08:01:00-04:00",
+  "last_updated": "2026-05-31T18:03:00-04:00",
   "properties": [
     {
       "address": "67 Willow St (Lane), Wales, MA",
@@ -25,10 +25,18 @@
         {
           "name": "Kevin Shippee",
           "role": "Contact"
+        },
+        {
+          "name": "Melissa (MK Creative)",
+          "role": "Contractor/Designer"
         }
       ],
       "financials": {},
       "recent_updates": [
+        {
+          "date": "2026-05-31",
+          "note": "Mobile home remodel estimate received from Melissa (MK Creative) via email with PDF attachment - appliances included, shopping for best prices"
+        },
         {
           "date": "2026-05-30",
           "note": "Matt sent Bill of Sale PDF for mobile home purchase to flip to Kevin Shippee Jessica and Chris"
@@ -43,7 +51,8 @@
         }
       ],
       "action_items": [
-        "Confirm closing completed (was scheduled 5/29 - PAST DUE)",
+        "Confirm closing completed (was scheduled 5/29 - 2 DAYS PAST DUE)",
+        "Review mobile home remodel estimate from Melissa (MK Creative)",
         "Bill of sale sent to Kevin Shippee for review"
       ]
     },
@@ -86,7 +95,7 @@
       "recent_updates": [
         {
           "date": "2026-05-30",
-          "note": "David Burstein received payoff request effective 6/19/2026 preparing payoffs and discharges for Metro Lending LLC and Ruby Lending LLC 12% interest 2 points $625 origination fee each"
+          "note": "David Burstein received payoff request effective 6/19/2026 preparing payoffs and discharges"
         },
         {
           "date": "2026-05-30",
@@ -98,7 +107,7 @@
         },
         {
           "date": "2026-05-30",
-          "note": "David sent payoff and discharge documents for review: 330Montgomery-RubyPayoffAndDischarge.pdf and 330Montgomery-MetroPayoffAndDischarges.pdf"
+          "note": "David sent payoff and discharge documents for review"
         },
         {
           "date": "2026-05-30",
@@ -108,7 +117,7 @@
       "action_items": [
         "Review payoff and discharge documents from David Burstein",
         "Resolve points discrepancy noted by Peter Houser",
-        "Closing effective date June 19, 2026"
+        "Closing effective date June 19, 2026 (19 days)"
       ]
     },
     {
@@ -136,7 +145,7 @@
       "recent_updates": [
         {
           "date": "2026-05-29",
-          "note": "David Burstein WARNING at risk of forfeiting escrow asked for update sent to Matt Jessica and Alice"
+          "note": "David Burstein WARNING at risk of forfeiting escrow"
         },
         {
           "date": "2026-05-29",
@@ -174,7 +183,7 @@
       "recent_updates": [
         {
           "date": "2026-05-29",
-          "note": "Jessica shared Google Doc scope of work carpet removal not in original scope Dave will charge extra basement insulation is black and gross decision needed on whether to remove"
+          "note": "Jessica shared Google Doc scope of work carpet removal not in original scope Dave will charge extra"
         }
       ],
       "action_items": [
@@ -210,7 +219,7 @@
         },
         {
           "name": "Melissa A. Gaboury",
-          "role": "Buyer's Attorney Hornung and Scimone PC"
+          "role": "Buyer's Attorney"
         },
         {
           "name": "Riley Brennan",
@@ -233,11 +242,7 @@
       "recent_updates": [
         {
           "date": "2026-05-28",
-          "note": "Jessica asked what fogging means for mold report discussion ongoing"
-        },
-        {
-          "date": "2026-05-28",
-          "note": "Melissa Vanderburgh called her fogging guy checking if mold test report can be done after fogging knows a few people"
+          "note": "Melissa Vanderburgh called her fogging guy checking if mold test can be done after fogging"
         },
         {
           "date": "2026-05-27",
@@ -245,58 +250,23 @@
         },
         {
           "date": "2026-05-26",
-          "note": "Matt asked Alice to write up formal repair response for team review before sending to buyer"
-        },
-        {
-          "date": "2026-05-26",
-          "note": "Alice will push back on retaining wall inspection report shows past leaks from water heater repaired sewer pipe corroding but not active leak will explain mold treatment uses licensed contractor ready to draft response"
-        },
-        {
-          "date": "2026-05-26",
-          "note": "Jessica reviewed buyer repair requests item-by-item recommends treating mold with licensed contractor agreed on collar ties powder post beetle treatment ridge vent replacement pushback recommended on some items"
+          "note": "Matt asked Alice to write up formal repair response for team review"
         },
         {
           "date": "2026-05-25",
-          "note": "Melissa Vanderburgh provided item-by-item repair response mold remediation agreed sistered joists pre-existing collar ties to be added crawl space supports to be addressed powder post beetle treatment agreed roof ridge vent replacement agreed team finalizing official response"
+          "note": "Team finalizing official repair response mold remediation agreed"
         },
         {
           "date": "2026-05-24",
           "note": "Buyer sent official inspection repair request list via Alice Kempf"
-        },
-        {
-          "date": "2026-05-23",
-          "note": "Team finalized inspection repair response"
-        },
-        {
-          "date": "2026-05-22",
-          "note": "Melissa Vanderburgh advises add collar ties treat mold on rafters gable vents may be needed"
-        },
-        {
-          "date": "2026-05-22",
-          "note": "Buyer inspection found multiple issues mold attic/basement sistered joists sagging floors deteriorated roof ridge vent powder post beetles sagging roof structure"
-        },
-        {
-          "date": "2026-05-14",
-          "note": "Jessica confirmed under contract status"
-        },
-        {
-          "date": "2026-05-13",
-          "note": "Contract signed in dotloop Offer #501 rev 7"
-        },
-        {
-          "date": "2026-05-01",
-          "note": "6 listing documents signed via dotloop"
         }
       ],
       "action_items": [
         "URGENT Alice drafting formal repair response review before sending to buyer",
         "Get mold test report after fogging Melissa coordinating",
-        "Push back on retaining wall claim",
         "Schedule mold remediation with licensed contractor",
-        "Treat powder post beetles with lender-required documentation FHA requirement",
+        "Treat powder post beetles with FHA documentation",
         "Replace roof ridge vent",
-        "Add collar ties to roof structure",
-        "Add supports in crawl space under kitchen",
         "Closing date 6/29/2026 (29 days away)"
       ]
     },
@@ -332,67 +302,29 @@
       ],
       "financials": {
         "purchase_price": 166000,
-        "construction_advance": 50000,
-        "points": 4980,
-        "rate": "12.00%",
-        "term": "12 months",
-        "lender_fees": 570,
         "rehab_budget_cap": 50000,
-        "boiler_estimate": "5500-6000"
+        "rate": "12.00%",
+        "term": "12 months"
       },
       "recent_updates": [
         {
           "date": "2026-05-29",
-          "note": "Premiere Home Solutions estimate 105 approved by Matt work dates 6/1/26 to 7/27/26 needs dumpster ASAP and windows ordered lead time for windows"
+          "note": "Premiere Home Solutions estimate approved work dates 6/1 to 7/27 needs dumpster ASAP and windows ordered"
         },
         {
           "date": "2026-05-28",
           "note": "Jessica needs start/finish dates for Premiere Home Solutions contract"
         },
         {
-          "date": "2026-05-22",
-          "note": "REMINDER Pinnacle billing statement Acct #45006 6 days away"
-        },
-        {
-          "date": "2026-05-21",
-          "note": "Antonio investor update contractor price negotiation agreed work expected to start this week"
-        },
-        {
           "date": "2026-05-20",
-          "note": "Pinnacle Financial billing statement received Acct #45006 PDF attached"
-        },
-        {
-          "date": "2026-05-19",
-          "note": "Premiere Home Solutions revised rehab estimate boiler $5500-6k installed Matt insists total budget stay under $50k"
-        },
-        {
-          "date": "2026-05-18",
-          "note": "Premiere Home Solutions submitted initial rehab estimate via Joist app original scope 3 men 5 weeks ~$25k labor + $8k boiler + $15k supplies approaching $50k"
-        },
-        {
-          "date": "2026-05-03",
-          "note": "David Burstein sent preliminary closing docs to Pinnacle closing moved up to May 7"
-        },
-        {
-          "date": "2026-04-29",
-          "note": "Pinnacle Financial approved financing checklist and funding sheet sent"
-        },
-        {
-          "date": "2026-04-25",
-          "note": "Insurance binder and financing docs in progress"
-        },
-        {
-          "date": "2026-04-21",
-          "note": "Pinnacle received financing request proposed terms shared"
+          "note": "Pinnacle Financial billing statement received Acct #45006"
         }
       ],
       "action_items": [
-        "Rehab work starts TODAY 6/1 with Premiere Home Solutions",
-        "Dumpster drop-off needed ASAP for Premiere Home Solutions",
+        "Rehab work starts TOMORROW 6/1 with Premiere Home Solutions",
+        "Dumpster drop-off needed ASAP",
         "Order windows ASAP lead time required",
-        "Review Pinnacle billing statement for Acct #45006",
-        "Finalize rehab scope with Premiere Home Solutions under $50k cap",
-        "Confirm boiler installation timeline"
+        "Finalize rehab scope under $50k cap"
       ]
     },
     {
@@ -425,7 +357,7 @@
       "recent_updates": [
         {
           "date": "2026-05-29",
-          "note": "Building permit processing at Town of Stafford ice and water/seam tape inspection required after roof shingles removed and before new shingles installed Jessica forwarded to Jose Unlimited Roofing"
+          "note": "Building permit processing ice and water inspection required before new shingles"
         },
         {
           "date": "2026-05-08",
@@ -433,7 +365,7 @@
         }
       ],
       "action_items": [
-        "Schedule ice and water/seam tape inspection with Town of Stafford before installing new shingles",
+        "Schedule ice and water/seam tape inspection with Town of Stafford",
         "Coordinate roof work timeline with Jose at Unlimited Roofing"
       ]
     },
@@ -457,20 +389,12 @@
         {
           "name": "Jessica Sicard",
           "role": "PM"
-        },
-        {
-          "name": "Chris Keniley",
-          "role": "Accounting"
         }
       ],
       "financials": {
         "loan_repayment_gsb": 69322
       },
       "recent_updates": [
-        {
-          "date": "2026-05-17",
-          "note": "Wicked account $69,322"
-        },
         {
           "date": "2026-04-13",
           "note": "Closing reached"
@@ -494,18 +418,10 @@
         {
           "name": "David Burstein",
           "role": "Attorney"
-        },
-        {
-          "name": "Jessica Sicard",
-          "role": "PM"
         }
       ],
       "financials": {},
       "recent_updates": [
-        {
-          "date": "2026-04-24",
-          "note": "RE Tax payment $2,079.49"
-        },
         {
           "date": "2026-04-14",
           "note": "Closing reached"
@@ -582,41 +498,28 @@
           "role": "Attorney"
         },
         {
-          "name": "Jessica Sicard",
-          "role": "PM"
-        },
-        {
           "name": "Will McGuire",
           "role": "Investors & Team Ops"
         },
         {
           "name": "Chris Keniley",
           "role": "Accounting Manager"
-        },
-        {
-          "name": "Liz Bookkeeper",
-          "role": "Bookkeeper HHH"
         }
       ],
       "financials": {},
       "recent_updates": [
         {
-          "date": "2026-05-26",
-          "note": "Will McGuire asks Matt if 40 Roland check deposited to Freedom yet showing ~$6k balance Chris confirms nothing owed for 40 Roland all paid from HHH Florence account P&Ls attached"
-        },
-        {
           "date": "2026-05-25",
-          "note": "David Burstein sent Seller Post-Closing Package CD mortgage payoff statement and recorded deed sale finalized May 22 2026"
+          "note": "David Burstein sent Seller Post-Closing Package sale finalized May 22"
         },
         {
-          "date": "2026-05-20",
-          "note": "Signed closing docs closing expected 5/21 or 5/22"
+          "date": "2026-05-26",
+          "note": "Chris confirms nothing owed all paid from HHH Florence account"
         }
       ],
       "action_items": [
         "Confirm 40 Roland check deposited to Freedom account",
-        "Final bills due by end of May 2026",
-        "Financial reconciliation target 6/15 or 7/15"
+        "Final bills due by end of May 2026 - TOMORROW"
       ]
     },
     {
@@ -644,15 +547,11 @@
       "recent_updates": [
         {
           "date": "2026-05-20",
-          "note": "Misplaced check issue 21 Holly check recovered 3 Evergreen check still missing Shamikka contacting other attorney to reissue"
-        },
-        {
-          "date": "2026-04-22",
-          "note": "Rehab work in progress"
+          "note": "21 Holly check recovered 3 Evergreen check still missing Shamikka contacting other attorney to reissue"
         }
       ],
       "action_items": [
-        "Follow up on reissued check for 3 Evergreen (Shamikka handling)"
+        "Follow up on reissued check for 3 Evergreen"
       ]
     },
     {
@@ -669,16 +568,8 @@
           "role": "PM"
         },
         {
-          "name": "Mahari",
-          "role": "Contractor"
-        },
-        {
           "name": "Alice Kempf",
           "role": "Agent"
-        },
-        {
-          "name": "Gabriela Dearstyne",
-          "role": "Agent KVR Team"
         },
         {
           "name": "Vasilios Papastathopoulos",
@@ -686,22 +577,13 @@
         }
       ],
       "financials": {
-        "contractor_payments": 15750,
         "listing_price": 450000,
         "offer_received": "near 450k"
       },
       "recent_updates": [
         {
           "date": "2026-05-23",
-          "note": "Signed P&S Agreement received from buyer Alice notes offer near $450k listing price waiting for buyer proof of funds Matt wants to discuss possible counter on buyer agent commission 2%"
-        },
-        {
-          "date": "2026-05-17",
-          "note": "Wicked account $12600 + $3150 Mahari contractor payments for 1874 Home"
-        },
-        {
-          "date": "2026-05-12",
-          "note": "Listing docs signed in dotloop"
+          "note": "Signed P&S Agreement received from buyer near $450k waiting for buyer proof of funds"
         }
       ],
       "action_items": [
@@ -740,24 +622,16 @@
       "recent_updates": [
         {
           "date": "2026-05-21",
-          "note": "Antonio walked property with contractor identified remaining fixes electrician slow team pushed him carpenter ants discovered exterminator scheduled"
+          "note": "Antonio walked property identified remaining fixes electrician slow carpenter ants discovered"
         },
         {
           "date": "2026-05-20",
-          "note": "Demo permit sent by Jessica to Premiere Home Solutions contractor acknowledged receipt"
-        },
-        {
-          "date": "2026-05-20",
-          "note": "Permit R-26-0069 issued for demolition of detached shed at 1 Richmond Matt forwarded to Jessica"
-        },
-        {
-          "date": "2026-05-15",
-          "note": "Appliance order placed via Home Depot Pro 30in electric stove 24in dishwasher fridge 73x36 opening basic OTR microwave lockbox delivery scheduled 5/21"
+          "note": "Permit R-26-0069 issued for demolition of detached shed"
         }
       ],
       "action_items": [
-        "Confirm appliance delivery completed (was scheduled 5/21)",
-        "Demolition of detached shed can proceed permit issued",
+        "Confirm appliance delivery completed",
+        "Demolition of detached shed can proceed",
         "Follow up on carpenter ant extermination",
         "Push electrician to complete work"
       ]
@@ -802,20 +676,12 @@
           "role": "Attorney"
         },
         {
-          "name": "Jessica Sicard",
-          "role": "PM"
-        },
-        {
           "name": "Antonio",
           "role": "Partner Investarters"
         },
         {
           "name": "Connie Willetts",
           "role": "Title Coordinator Brock & Scott"
-        },
-        {
-          "name": "Zackary Moricas",
-          "role": "Attorney Brock & Scott"
         }
       ],
       "financials": {
@@ -826,21 +692,16 @@
       "recent_updates": [
         {
           "date": "2026-05-22",
-          "note": "David Burstein confirmed title entity Yellowbrick Property LLC no space corrected"
-        },
-        {
-          "date": "2026-05-21",
-          "note": "Connie Willetts Brock & Scott requested title vesting info $45k GSB LOC loan repaid"
+          "note": "David Burstein confirmed title entity Yellowbrick Property LLC"
         },
         {
           "date": "2026-05-20",
-          "note": "NEW FORECLOSURE occupied by tenants plan is to wholesale then manage insurance application from Adina Edgett"
+          "note": "NEW FORECLOSURE occupied by tenants plan is to wholesale then manage"
         }
       ],
       "action_items": [
         "Finalize title vesting as Yellowbrick Property LLC",
-        "Complete insurance application from Adina Edgett Webber & Grinnell",
-        "Respond to Brock & Scott with corrected entity name"
+        "Complete insurance application from Adina Edgett"
       ]
     },
     {
@@ -891,25 +752,16 @@
       "recent_updates": [
         {
           "date": "2026-05-28",
-          "note": "Eviction court first tier event scheduled for today May 28"
+          "note": "Eviction court first tier event scheduled for May 28"
         },
         {
           "date": "2026-05-19",
-          "note": "Matt rejected Hunter Foote's latest offer O'Hara acknowledged"
-        },
-        {
-          "date": "2026-05-18",
-          "note": "O'Hara forwarded buyer response re violations basement stairs and fireblocking issues"
-        },
-        {
-          "date": "2026-05-13",
-          "note": "Hunter Foote submitted new lower offer via attorney Matt rejected"
+          "note": "Matt rejected Hunter Foote latest offer"
         }
       ],
       "action_items": [
         "Follow up on eviction court outcome from May 28",
-        "Review inspection violations basement stairs and fireblocking",
-        "Await revised offer from Hunter Foote / Vanderburgh"
+        "Await revised offer from Hunter Foote"
       ]
     },
     {
@@ -937,11 +789,7 @@
       "recent_updates": [
         {
           "date": "2026-05-27",
-          "note": "Jessica requests Kate work property management access into court agreement court date June 1 at 9am in Hadley"
-        },
-        {
-          "date": "2026-05-26",
-          "note": "Attorney Kate defers scheduling decision to Jessica asks if there has been communication with occupants"
+          "note": "Jessica requests Kate work property management access into court agreement"
         },
         {
           "date": "2026-05-24",
@@ -949,8 +797,8 @@
         }
       ],
       "action_items": [
-        "Court date TODAY June 1 at 9am in Hadley - TOMORROW",
-        "Coordinate with Kate on getting property management access via court agreement",
+        "Court date TOMORROW June 1 at 9am in Hadley",
+        "Coordinate with Kate on property management access via court agreement",
         "Schedule lock change and inspection after court resolution"
       ]
     },
@@ -978,7 +826,7 @@
       "recent_updates": [
         {
           "date": "2026-05-27",
-          "note": "Jessica scheduled insurance inspection for June 4 with Derek Boggi J.S. Held / The Hartford"
+          "note": "Jessica scheduled insurance inspection for June 4 with Derek Boggi"
         }
       ],
       "action_items": [
@@ -1009,12 +857,11 @@
       "recent_updates": [
         {
           "date": "2026-05-26",
-          "note": "Chris Keniley reported $2090 outstanding bill from Build it Right approved to pay from HHH Florence account"
+          "note": "Chris Keniley reported $2090 outstanding bill from Build it Right"
         }
       ],
       "action_items": [
-        "Pay $2090 BIR bill from HHH Florence account",
-        "Finalize profit numbers with Liz"
+        "Pay $2090 BIR bill from HHH Florence account"
       ]
     },
     {
@@ -1032,7 +879,7 @@
         },
         {
           "name": "Antonio",
-          "role": "Partner House Hack Helpers"
+          "role": "Partner"
         }
       ],
       "financials": {
@@ -1041,13 +888,13 @@
       "recent_updates": [
         {
           "date": "2026-05-30",
-          "note": "Alice Kempf sent CMA ARV $339,900-$350,000 stucco house needs interior paint kitchen baths exterior paint roof unknown boiler should be good newer windows SmartMLS listing attached"
+          "note": "Alice Kempf sent CMA ARV $339,900-$350,000 stucco house needs paint"
         }
       ],
       "action_items": [
-        "Review CMA and SmartMLS listing photos",
+        "Review CMA and SmartMLS listing",
         "Assess roof condition",
-        "Determine acquisition cost and make offer decision"
+        "Determine acquisition cost"
       ]
     },
     {
@@ -1062,10 +909,6 @@
         {
           "name": "Alice Kempf",
           "role": "Agent"
-        },
-        {
-          "name": "Antonio",
-          "role": "Partner House Hack Helpers"
         }
       ],
       "financials": {
@@ -1079,8 +922,7 @@
       ],
       "action_items": [
         "Review CMA and comp photos",
-        "Evaluate fluff strategy vs full rehab",
-        "Determine acquisition cost and offer"
+        "Evaluate fluff strategy vs full rehab"
       ]
     },
     {
@@ -1122,12 +964,11 @@
       "recent_updates": [
         {
           "date": "2026-04-29",
-          "note": "Detailed financial breakdown YB owed $8670.50 after settlement"
+          "note": "YB owed $8670.50 after settlement"
         }
       ],
       "action_items": [
-        "Final payment approved confirm listing date",
-        "Track YB settlement amount"
+        "Final payment approved confirm listing date"
       ]
     },
     {
@@ -1186,7 +1027,7 @@
         },
         {
           "name": "Antonio",
-          "role": "Partner Investarters"
+          "role": "Partner"
         }
       ],
       "financials": {
@@ -1200,8 +1041,7 @@
         }
       ],
       "action_items": [
-        "Evaluate whether room can be converted to MBR suite for 3BR pricing",
-        "Await Antonio's feedback on deal viability"
+        "Evaluate room conversion to MBR suite for 3BR pricing"
       ]
     },
     {
@@ -1228,8 +1068,7 @@
         }
       ],
       "action_items": [
-        "Review CMA reports for pricing accuracy",
-        "Assess impact of sloping backyard on value"
+        "Review CMA reports for pricing accuracy"
       ]
     }
   ]
