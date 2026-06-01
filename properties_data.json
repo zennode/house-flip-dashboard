@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-01T08:02:00-04:00",
+  "last_updated": "2026-06-01T18:03:00-04:00",
   "properties": [
     {
       "address": "67 Willow St (Lane), Wales, MA",
@@ -117,7 +117,7 @@
       "action_items": [
         "Review payoff and discharge documents from David Burstein",
         "Resolve points discrepancy noted by Peter Houser",
-        "Closing effective date June 19, 2026 (19 days)"
+        "Closing effective date June 19, 2026 (18 days)"
       ]
     },
     {
@@ -182,13 +182,21 @@
       "financials": {},
       "recent_updates": [
         {
+          "date": "2026-06-01",
+          "note": "Change order issued: remove all carpet and padding install new, remove insulation in basement, treat mildew with anti-microbial and scrub"
+        },
+        {
+          "date": "2026-06-01",
+          "note": "Building dept requires drawings for front porch/stairs showing tension ties to ledger board and depth/size of sono tubes"
+        },
+        {
           "date": "2026-05-29",
           "note": "Jessica shared Google Doc scope of work carpet removal not in original scope Dave will charge extra"
         }
       ],
       "action_items": [
-        "Decide on carpet removal extra charge from Dave",
-        "Decide whether to remove or leave gross basement insulation",
+        "Submit front porch/stairs drawings to building dept (tension ties, sono tube specs)",
+        "Execute change order: carpet removal, basement insulation removal, mildew treatment",
         "Review Google Doc scope of work"
       ]
     },
@@ -308,6 +316,10 @@
       },
       "recent_updates": [
         {
+          "date": "2026-06-01",
+          "note": "Dumpster confirmed scheduled for delivery tomorrow 6/2 - Premiere Home Solutions needs it to continue progress"
+        },
+        {
           "date": "2026-05-29",
           "note": "Premiere Home Solutions estimate approved work dates 6/1 to 7/27 needs dumpster ASAP and windows ordered"
         },
@@ -321,8 +333,7 @@
         }
       ],
       "action_items": [
-        "Rehab work starts TODAY 6/1 with Premiere Home Solutions",
-        "Dumpster drop-off needed ASAP",
+        "Dumpster delivery tomorrow 6/2 - confirm arrival",
         "Order windows ASAP lead time required",
         "Finalize rehab scope under $50k cap"
       ]
@@ -509,6 +520,10 @@
       "financials": {},
       "recent_updates": [
         {
+          "date": "2026-06-01",
+          "note": "$6,652 Koenig (Electrical) invoice paid from HHH account. $12k deposited, $23k more being pulled into FSB Hack account for ongoing capex"
+        },
+        {
           "date": "2026-05-25",
           "note": "David Burstein sent Seller Post-Closing Package sale finalized May 22"
         },
@@ -518,8 +533,7 @@
         }
       ],
       "action_items": [
-        "Confirm 40 Roland check deposited to Freedom account",
-        "Final bills due by end of May 2026 - PAST DUE"
+        "Confirm all final bills settled for 40 Roland"
       ]
     },
     {
@@ -621,6 +635,14 @@
       "financials": {},
       "recent_updates": [
         {
+          "date": "2026-06-01",
+          "note": "Jessica requesting demo inspection from building dept - structure open and empty, demo set for tomorrow"
+        },
+        {
+          "date": "2026-06-01",
+          "note": "Premiere Home Solutions pushing to complete demo ASAP, asking about earliest inspection availability"
+        },
+        {
           "date": "2026-05-21",
           "note": "Antonio walked property identified remaining fixes electrician slow carpenter ants discovered"
         },
@@ -630,8 +652,8 @@
         }
       ],
       "action_items": [
-        "Confirm appliance delivery completed",
-        "Demolition of detached shed can proceed",
+        "Demo inspection being requested by Jessica - coordinate with building dept",
+        "Demo completion imminent - structure open and empty",
         "Follow up on carpenter ant extermination",
         "Push electrician to complete work"
       ]
@@ -797,7 +819,7 @@
         }
       ],
       "action_items": [
-        "Court date TODAY June 1 at 9am in Hadley",
+        "Court date was TODAY June 1 at 9am in Hadley - follow up on outcome",
         "Coordinate with Kate on property management access via court agreement",
         "Schedule lock change and inspection after court resolution"
       ]
@@ -817,6 +839,10 @@
         {
           "name": "Derek Boggi",
           "role": "Insurance Inspector J.S. Held"
+        },
+        {
+          "name": "Sharon Gates",
+          "role": "Tenant Contact Sola Salons"
         }
       ],
       "financials": {
@@ -825,12 +851,17 @@
       },
       "recent_updates": [
         {
+          "date": "2026-06-01",
+          "note": "Jessica contacted Sharon Gates at Sola Salons requesting list of suites affected by roof leaks ahead of insurance inspection 6/4 at 9:30 AM"
+        },
+        {
           "date": "2026-05-27",
           "note": "Jessica scheduled insurance inspection for June 4 with Derek Boggi"
         }
       ],
       "action_items": [
-        "Insurance inspection scheduled June 4 confirm time with Derek Boggi",
+        "Insurance inspection June 4 at 9:30 AM with Derek Boggi",
+        "Get list of affected suites from Sharon Gates before inspection",
         "Prepare property for Hartford insurance inspection"
       ]
     },
@@ -1069,6 +1100,73 @@
       ],
       "action_items": [
         "Review CMA reports for pricing accuracy"
+      ]
+    },
+    {
+      "address": "31 Loring Street, Springfield, MA",
+      "current_milestone": "Repairs/Rehab",
+      "closing_date": null,
+      "sources": [
+        "Email"
+      ],
+      "contacts": [
+        {
+          "name": "Jessica Sicard",
+          "role": "PM"
+        },
+        {
+          "name": "Jeff Burack",
+          "role": "Contractor Allied Flooring and Paint"
+        }
+      ],
+      "financials": {},
+      "recent_updates": [
+        {
+          "date": "2026-06-01",
+          "note": "Flooring proposals from Allied Flooring and Paint forwarded by Jessica and approved by Matt"
+        }
+      ],
+      "action_items": [
+        "Flooring work approved - coordinate start date with Allied Flooring"
+      ]
+    },
+    {
+      "address": "Downing Park, Pittsfield, MA",
+      "current_milestone": "Offer Made",
+      "closing_date": null,
+      "sources": [
+        "Email"
+      ],
+      "contacts": [
+        {
+          "name": "Peter Houser",
+          "role": "Partner (housergroup)"
+        },
+        {
+          "name": "Jeffrey Fialky",
+          "role": "Attorney Bacon Wilson"
+        },
+        {
+          "name": "James Jr",
+          "role": "Broker"
+        },
+        {
+          "name": "James Sr",
+          "role": "Broker"
+        }
+      ],
+      "financials": {
+        "entity": "Flying Monkey LLC"
+      },
+      "recent_updates": [
+        {
+          "date": "2026-05-07",
+          "note": "New industrial deal in Pittsfield - buying building on Downing Park under Flying Monkey entity. LOI being sent to attorney Jeff Fialky"
+        }
+      ],
+      "action_items": [
+        "Awaiting LOI submission and seller attorney info",
+        "Confirm deal terms and entity structure"
       ]
     }
   ]
