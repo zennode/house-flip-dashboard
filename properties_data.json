@@ -1,1173 +1,561 @@
 {
-  "last_updated": "2026-06-02T18:02:00-04:00",
-  "properties": [
-    {
-      "address": "67 Willow St (Lane), Wales, MA",
-      "current_milestone": "Closing",
-      "closing_date": "2026-05-29",
-      "sources": [
-        "Email",
-        "PDF"
-      ],
-      "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Agent"
-        },
-        {
-          "name": "Chris Keniley",
-          "role": "Accounting"
-        },
-        {
-          "name": "Roberta",
-          "role": "Signer"
-        },
-        {
-          "name": "Kevin Shippee",
-          "role": "Contact"
-        },
-        {
-          "name": "Melissa (MK Creative)",
-          "role": "Contractor/Designer"
-        }
-      ],
-      "financials": {},
-      "recent_updates": [
-        {
-          "date": "2026-05-31",
-          "note": "Mobile home remodel estimate received from Melissa (MK Creative) via email with PDF attachment - appliances included, shopping for best prices"
-        },
-        {
-          "date": "2026-05-30",
-          "note": "Matt sent Bill of Sale PDF for mobile home purchase to flip to Kevin Shippee Jessica and Chris"
-        },
-        {
-          "date": "2026-05-29",
-          "note": "Alice Kempf sent lease docs for signing closing THIS AFTERNOON need Roberta signature on lease PDF attachments included"
-        },
-        {
-          "date": "2026-05-29",
-          "note": "Alice sent additional PDF document for signing before closing"
-        }
-      ],
-      "action_items": [
-        "Confirm closing completed (was scheduled 5/29 - 4 DAYS PAST DUE)",
-        "Review mobile home remodel estimate from Melissa (MK Creative)",
-        "Bill of sale sent to Kevin Shippee for review"
-      ]
-    },
-    {
-      "address": "330 Montgomery St, Chicopee, MA",
-      "current_milestone": "Closing",
-      "closing_date": "2026-06-19",
-      "sources": [
-        "Email",
-        "PDF"
-      ],
-      "contacts": [
-        {
-          "name": "David Burstein",
-          "role": "Attorney"
-        },
-        {
-          "name": "Peter Houser",
-          "role": "Partner (housergroup)"
-        },
-        {
-          "name": "Michelle",
-          "role": "Payoff Coordinator (Houser)"
-        },
-        {
-          "name": "Matt Tucker",
-          "role": "Contact"
-        }
-      ],
-      "financials": {
-        "interest_rate": "12%",
-        "points": "2 each",
-        "origination_fee": "$625 each",
-        "lenders": [
-          "Metro Lending LLC",
-          "Freedom Credit Union (Ruby Lending LLC)"
-        ],
-        "disbursement": "Via Burstein IOLTA account"
-      },
-      "recent_updates": [
-        {
-          "date": "2026-05-30",
-          "note": "David Burstein received payoff request effective 6/19/2026 preparing payoffs and discharges"
-        },
-        {
-          "date": "2026-05-30",
-          "note": "Peter Houser confirmed Michelle will send his payoff from their system"
-        },
-        {
-          "date": "2026-05-30",
-          "note": "Matt confirmed yes proceed with payoff preparation"
-        },
-        {
-          "date": "2026-05-30",
-          "note": "David sent payoff and discharge documents for review"
-        },
-        {
-          "date": "2026-05-30",
-          "note": "Peter Houser noted points may have been shorted when loans were funded"
-        }
-      ],
-      "action_items": [
-        "Review payoff and discharge documents from David Burstein",
-        "Resolve points discrepancy noted by Peter Houser",
-        "Closing effective date June 19, 2026 (17 days)"
-      ]
-    },
-    {
-      "address": "114 Danforth St, Pittsfield, MA",
-      "current_milestone": "Title & Escrow",
-      "closing_date": null,
-      "sources": [
-        "Email"
-      ],
-      "contacts": [
-        {
-          "name": "David Burstein",
-          "role": "Attorney"
-        },
-        {
-          "name": "Alice Kempf",
-          "role": "Agent"
-        },
-        {
-          "name": "Jessica Sicard",
-          "role": "PM"
-        }
-      ],
-      "financials": {},
-      "recent_updates": [
-        {
-          "date": "2026-05-29",
-          "note": "David Burstein WARNING at risk of forfeiting escrow"
-        },
-        {
-          "date": "2026-05-29",
-          "note": "Matt responded checking with architect and contractor"
-        },
-        {
-          "date": "2026-03-23",
-          "note": "David Burstein forwarded initial property info"
-        }
-      ],
-      "action_items": [
-        "URGENT At risk of forfeiting escrow per David Burstein",
-        "Get update from architect and contractor ASAP",
-        "Respond to David Burstein with timeline"
-      ]
-    },
-    {
-      "address": "2140 Palmer Road, MA",
-      "current_milestone": "Repairs/Rehab",
-      "closing_date": null,
-      "sources": [
-        "Email"
-      ],
-      "contacts": [
-        {
-          "name": "Jessica Sicard",
-          "role": "PM"
-        },
-        {
-          "name": "Dave",
-          "role": "Contractor"
-        }
-      ],
-      "financials": {},
-      "recent_updates": [
-        {
-          "date": "2026-06-01",
-          "note": "Change order issued: remove all carpet and padding install new, remove insulation in basement, treat mildew with anti-microbial and scrub"
-        },
-        {
-          "date": "2026-06-01",
-          "note": "Building dept requires drawings for front porch/stairs showing tension ties to ledger board and depth/size of sono tubes"
-        },
-        {
-          "date": "2026-05-29",
-          "note": "Jessica shared Google Doc scope of work carpet removal not in original scope Dave will charge extra"
-        }
-      ],
-      "action_items": [
-        "Submit front porch/stairs drawings to building dept (tension ties, sono tube specs)",
-        "Execute change order: carpet removal, basement insulation removal, mildew treatment",
-        "Review Google Doc scope of work"
-      ]
-    },
-    {
-      "address": "42 Washington St, Monson, MA 01057",
-      "current_milestone": "Inspections",
-      "closing_date": "2026-06-29",
-      "sources": [
-        "dotloop",
-        "Email"
-      ],
-      "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Agent"
-        },
-        {
-          "name": "Jessica Sicard",
-          "role": "PM"
-        },
-        {
-          "name": "David Burstein",
-          "role": "Seller's Attorney"
-        },
-        {
-          "name": "Vasilios Papastathopoulos",
-          "role": "Buyer's Agent"
-        },
-        {
-          "name": "Melissa A. Gaboury",
-          "role": "Buyer's Attorney"
-        },
-        {
-          "name": "Riley Brennan",
-          "role": "KVR Team"
-        },
-        {
-          "name": "Melissa Vanderburgh",
-          "role": "Team Leader KVR Team"
-        },
-        {
-          "name": "Antonio",
-          "role": "Partner Investarters"
-        }
-      ],
-      "financials": {
-        "purchase_price": 335000,
-        "loan_type": "FHA",
-        "seller_concessions": true
-      },
-      "recent_updates": [
-        {
-          "date": "2026-05-28",
-          "note": "Melissa Vanderburgh called her fogging guy checking if mold test can be done after fogging"
-        },
-        {
-          "date": "2026-05-27",
-          "note": "Alice Kempf sent WDI report seller tried adding mold remediation language Alice negotiated it out"
-        },
-        {
-          "date": "2026-05-26",
-          "note": "Matt asked Alice to write up formal repair response for team review"
-        },
-        {
-          "date": "2026-05-25",
-          "note": "Team finalizing official repair response mold remediation agreed"
-        },
-        {
-          "date": "2026-05-24",
-          "note": "Buyer sent official inspection repair request list via Alice Kempf"
-        }
-      ],
-      "action_items": [
-        "URGENT Alice drafting formal repair response review before sending to buyer",
-        "Get mold test report after fogging Melissa coordinating",
-        "Schedule mold remediation with licensed contractor",
-        "Treat powder post beetles with FHA documentation",
-        "Replace roof ridge vent",
-        "Closing date 6/29/2026 (27 days away)"
-      ]
-    },
-    {
-      "address": "167 East Park Terrace, Pittsfield, MA 01201",
-      "current_milestone": "Repairs/Rehab",
-      "closing_date": "2026-05-07",
-      "sources": [
-        "Email",
-        "PDF"
-      ],
-      "contacts": [
-        {
-          "name": "David Burstein",
-          "role": "Attorney"
-        },
-        {
-          "name": "Jessica Sicard",
-          "role": "PM"
-        },
-        {
-          "name": "Will McGuire",
-          "role": "Borrower/Signer"
-        },
-        {
-          "name": "Pinnacle Financial",
-          "role": "Lender"
-        },
-        {
-          "name": "Premiere Home Solutions",
-          "role": "Contractor"
-        }
-      ],
-      "financials": {
-        "purchase_price": 166000,
-        "rehab_budget_cap": 50000,
-        "rate": "12.00%",
-        "term": "12 months"
-      },
-      "recent_updates": [
-        {
-          "date": "2026-06-01",
-          "note": "Dumpster confirmed scheduled for delivery tomorrow 6/2 - Premiere Home Solutions needs it to continue progress"
-        },
-        {
-          "date": "2026-05-29",
-          "note": "Premiere Home Solutions estimate approved work dates 6/1 to 7/27 needs dumpster ASAP and windows ordered"
-        },
-        {
-          "date": "2026-05-28",
-          "note": "Jessica needs start/finish dates for Premiere Home Solutions contract"
-        },
-        {
-          "date": "2026-05-20",
-          "note": "Pinnacle Financial billing statement received Acct #45006"
-        }
-      ],
-      "action_items": [
-        "Dumpster delivery TODAY 6/2 - confirm arrival",
-        "Order windows ASAP lead time required",
-        "Finalize rehab scope under $50k cap"
-      ]
-    },
-    {
-      "address": "166 East St, Stafford, CT 06076",
-      "current_milestone": "Repairs/Rehab",
-      "closing_date": null,
-      "sources": [
-        "dotloop",
-        "Email"
-      ],
-      "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Agent"
-        },
-        {
-          "name": "Jessica Sicard",
-          "role": "PM"
-        },
-        {
-          "name": "Jose",
-          "role": "Contractor Unlimited Roofing"
-        },
-        {
-          "name": "Glenn Setzler",
-          "role": "Building Services Town of Stafford"
-        }
-      ],
-      "financials": {},
-      "recent_updates": [
-        {
-          "date": "2026-05-29",
-          "note": "Building permit processing ice and water inspection required before new shingles"
-        },
-        {
-          "date": "2026-05-08",
-          "note": "Under contract awaiting inspections"
-        }
-      ],
-      "action_items": [
-        "Schedule ice and water/seam tape inspection with Town of Stafford",
-        "Coordinate roof work timeline with Jose at Unlimited Roofing"
-      ]
-    },
-    {
-      "address": "297 Breckwood Blvd, Springfield, MA 01109",
-      "current_milestone": "Closed",
-      "closing_date": "2026-04-13",
-      "sources": [
-        "dotloop",
-        "Email"
-      ],
-      "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Agent"
-        },
-        {
-          "name": "David Burstein",
-          "role": "Attorney"
-        },
-        {
-          "name": "Jessica Sicard",
-          "role": "PM"
-        }
-      ],
-      "financials": {
-        "loan_repayment_gsb": 69322
-      },
-      "recent_updates": [
-        {
-          "date": "2026-04-13",
-          "note": "Closing reached"
-        }
-      ],
-      "action_items": []
-    },
-    {
-      "address": "29 Chestnut Dr, Belchertown, MA 01007",
-      "current_milestone": "Closed",
-      "closing_date": "2026-04-14",
-      "sources": [
-        "dotloop",
-        "Email"
-      ],
-      "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Agent"
-        },
-        {
-          "name": "David Burstein",
-          "role": "Attorney"
-        }
-      ],
-      "financials": {},
-      "recent_updates": [
-        {
-          "date": "2026-04-14",
-          "note": "Closing reached"
-        }
-      ],
-      "action_items": []
-    },
-    {
-      "address": "4 School St, Ware, MA 01082",
-      "current_milestone": "Financing",
-      "closing_date": null,
-      "sources": [
-        "Email",
-        "PDF"
-      ],
-      "contacts": [
-        {
-          "name": "David Burstein",
-          "role": "Attorney"
-        },
-        {
-          "name": "Jessica Sicard",
-          "role": "PM"
-        }
-      ],
-      "financials": {},
-      "recent_updates": [
-        {
-          "date": "2026-04-28",
-          "note": "Financing stage updates"
-        }
-      ],
-      "action_items": [
-        "Follow up on closing date once financing finalizes"
-      ]
-    },
-    {
-      "address": "70 Town Hill Road, Middlefield, MA 01243",
-      "current_milestone": "Closed",
-      "closing_date": null,
-      "sources": [
-        "Email"
-      ],
-      "contacts": [
-        {
-          "name": "Jessica Sicard",
-          "role": "PM"
-        }
-      ],
-      "financials": {},
-      "recent_updates": [
-        {
-          "date": "2026-04-20",
-          "note": "Property closed"
-        }
-      ],
-      "action_items": []
-    },
-    {
-      "address": "40 Roland St, Pittsfield, MA 01201",
-      "current_milestone": "Closed",
-      "closing_date": "2026-05-22",
-      "sources": [
-        "Email",
-        "dotloop"
-      ],
-      "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Agent"
-        },
-        {
-          "name": "David Burstein",
-          "role": "Attorney"
-        },
-        {
-          "name": "Will McGuire",
-          "role": "Investors & Team Ops"
-        },
-        {
-          "name": "Chris Keniley",
-          "role": "Accounting Manager"
-        }
-      ],
-      "financials": {},
-      "recent_updates": [
-        {
-          "date": "2026-06-01",
-          "note": "$6,652 Koenig (Electrical) invoice paid from HHH account. $12k deposited, $23k more being pulled into FSB Hack account for ongoing capex"
-        },
-        {
-          "date": "2026-05-25",
-          "note": "David Burstein sent Seller Post-Closing Package sale finalized May 22"
-        },
-        {
-          "date": "2026-05-26",
-          "note": "Chris confirms nothing owed all paid from HHH Florence account"
-        }
-      ],
-      "action_items": [
-        "Confirm all final bills settled for 40 Roland"
-      ]
-    },
-    {
-      "address": "21 Holly St, Greenfield, MA",
-      "current_milestone": "Repairs/Rehab",
-      "closing_date": null,
-      "sources": [
-        "Email"
-      ],
-      "contacts": [
-        {
-          "name": "Jessica Sicard",
-          "role": "PM"
-        },
-        {
-          "name": "Chris Keniley",
-          "role": "Accounting Manager"
-        },
-        {
-          "name": "Shamikka Andrews",
-          "role": "Legal Assistant Burstein Law"
-        }
-      ],
-      "financials": {},
-      "recent_updates": [
-        {
-          "date": "2026-05-20",
-          "note": "21 Holly check recovered 3 Evergreen check still missing Shamikka contacting other attorney to reissue"
-        }
-      ],
-      "action_items": [
-        "Follow up on reissued check for 3 Evergreen"
-      ]
-    },
-    {
-      "address": "1874 Home Rd, Sheffield, MA",
-      "current_milestone": "Under Contract",
-      "closing_date": null,
-      "sources": [
-        "Email",
-        "dotloop"
-      ],
-      "contacts": [
-        {
-          "name": "Jessica Sicard",
-          "role": "PM"
-        },
-        {
-          "name": "Alice Kempf",
-          "role": "Agent"
-        },
-        {
-          "name": "Vasilios Papastathopoulos",
-          "role": "Buyer's Agent"
-        }
-      ],
-      "financials": {
-        "listing_price": 450000,
-        "offer_received": "near 450k"
-      },
-      "recent_updates": [
-        {
-          "date": "2026-05-23",
-          "note": "Signed P&S Agreement received from buyer near $450k waiting for buyer proof of funds"
-        }
-      ],
-      "action_items": [
-        "Review and counter P&S agreement terms (buyer agent commission)",
-        "Obtain buyer proof of funds",
-        "Schedule closing timeline with attorney"
-      ]
-    },
-    {
-      "address": "1 Richmond Ln, Pittsfield, MA",
-      "current_milestone": "Repairs/Rehab",
-      "closing_date": null,
-      "sources": [
-        "Email",
-        "PDF"
-      ],
-      "contacts": [
-        {
-          "name": "Jessica Sicard",
-          "role": "PM"
-        },
-        {
-          "name": "Jesse Leydet",
-          "role": "On-site Contact"
-        },
-        {
-          "name": "Premiere Home Solutions",
-          "role": "Contractor"
-        },
-        {
-          "name": "Antonio",
-          "role": "Partner House Hack Helpers"
-        }
-      ],
-      "financials": {},
-      "recent_updates": [
-        {
-          "date": "2026-06-01",
-          "note": "Jessica requesting demo inspection from building dept - structure open and empty, demo set for tomorrow"
-        },
-        {
-          "date": "2026-06-01",
-          "note": "Premiere Home Solutions pushing to complete demo ASAP, asking about earliest inspection availability"
-        },
-        {
-          "date": "2026-05-21",
-          "note": "Antonio walked property identified remaining fixes electrician slow carpenter ants discovered"
-        },
-        {
-          "date": "2026-05-20",
-          "note": "Permit R-26-0069 issued for demolition of detached shed"
-        }
-      ],
-      "action_items": [
-        "Demo inspection being requested by Jessica - coordinate with building dept",
-        "Demo completion imminent - structure open and empty",
-        "Follow up on carpenter ant extermination",
-        "Push electrician to complete work"
-      ]
-    },
-    {
-      "address": "54 Sectar Rd, Ashford, CT 06278",
-      "current_milestone": "Under Contract",
-      "closing_date": null,
-      "sources": [
-        "dotloop",
-        "Email"
-      ],
-      "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Agent"
-        },
-        {
-          "name": "Jessica Sicard",
-          "role": "PM"
-        }
-      ],
-      "financials": {},
-      "recent_updates": [
-        {
-          "date": "2026-05-01",
-          "note": "Under contract docs in dotloop"
-        }
-      ],
-      "action_items": []
-    },
-    {
-      "address": "412 Saint James Ave, Springfield, MA 01109",
-      "current_milestone": "Title & Escrow",
-      "closing_date": null,
-      "sources": [
-        "Email"
-      ],
-      "contacts": [
-        {
-          "name": "David Burstein",
-          "role": "Attorney"
-        },
-        {
-          "name": "Antonio",
-          "role": "Partner Investarters"
-        },
-        {
-          "name": "Connie Willetts",
-          "role": "Title Coordinator Brock & Scott"
-        }
-      ],
-      "financials": {
-        "claimed_rent": "2500/mo",
-        "auction_loan": 45000,
-        "entity": "Yellowbrick Property LLC"
-      },
-      "recent_updates": [
-        {
-          "date": "2026-05-22",
-          "note": "David Burstein confirmed title entity Yellowbrick Property LLC"
-        },
-        {
-          "date": "2026-05-20",
-          "note": "NEW FORECLOSURE occupied by tenants plan is to wholesale then manage"
-        }
-      ],
-      "action_items": [
-        "Finalize title vesting as Yellowbrick Property LLC",
-        "Complete insurance application from Adina Edgett"
-      ]
-    },
-    {
-      "address": "300 Tyler St, Pittsfield, MA 01201",
-      "current_milestone": "Title & Escrow",
-      "closing_date": null,
-      "sources": [
-        "Email",
-        "PDF"
-      ],
-      "contacts": [
-        {
-          "name": "David Burstein",
-          "role": "Attorney"
-        },
-        {
-          "name": "Jessica Sicard",
-          "role": "PM"
-        }
-      ],
-      "financials": {},
-      "recent_updates": [
-        {
-          "date": "2026-05-05",
-          "note": "Title work in progress"
-        }
-      ],
-      "action_items": []
-    },
-    {
-      "address": "103 Prospect St, Springfield, MA",
-      "current_milestone": "Inspections",
-      "closing_date": null,
-      "sources": [
-        "Email"
-      ],
-      "contacts": [
-        {
-          "name": "Ryan O'Hara",
-          "role": "Attorney Bacon Wilson"
-        },
-        {
-          "name": "Hunter Foote",
-          "role": "Prospective Buyer Vanderburgh"
-        }
-      ],
-      "financials": {},
-      "recent_updates": [
-        {
-          "date": "2026-05-28",
-          "note": "Eviction court first tier event scheduled for May 28"
-        },
-        {
-          "date": "2026-05-19",
-          "note": "Matt rejected Hunter Foote latest offer"
-        }
-      ],
-      "action_items": [
-        "Follow up on eviction court outcome from May 28",
-        "Await revised offer from Hunter Foote"
-      ]
-    },
-    {
-      "address": "205 Old Stage Road, Hatfield, MA",
-      "current_milestone": "Repairs/Rehab",
-      "closing_date": null,
-      "sources": [
-        "Email"
-      ],
-      "contacts": [
-        {
-          "name": "Jessica Sicard",
-          "role": "PM"
-        },
-        {
-          "name": "Katharine Higgins-Shea",
-          "role": "Attorney Lyon Fitzpatrick"
-        },
-        {
-          "name": "Kevin Shippee",
-          "role": "Contact"
-        }
-      ],
-      "financials": {},
-      "recent_updates": [
-        {
-          "date": "2026-05-27",
-          "note": "Jessica requests Kate work property management access into court agreement"
-        },
-        {
-          "date": "2026-05-24",
-          "note": "Attorney Kate confirms court date June 1 at 9am in Hadley"
-        }
-      ],
-      "action_items": [
-        "Court date was June 1 (yesterday) - follow up on outcome",
-        "Coordinate with Kate on property management access via court agreement",
-        "Schedule lock change and inspection after court resolution"
-      ]
-    },
-    {
-      "address": "60 Shaker Rd, E Longmeadow, MA",
-      "current_milestone": "Inspections",
-      "closing_date": null,
-      "sources": [
-        "Email"
-      ],
-      "contacts": [
-        {
-          "name": "Jessica Sicard",
-          "role": "PM"
-        },
-        {
-          "name": "Derek Boggi",
-          "role": "Insurance Inspector J.S. Held"
-        },
-        {
-          "name": "Sharon Gates",
-          "role": "Tenant Contact Sola Salons"
-        }
-      ],
-      "financials": {
-        "insurance_carrier": "The Hartford",
-        "entity": "Extremely Clean 2 LLC (Sola Salon)"
-      },
-      "recent_updates": [
-        {
-          "date": "2026-06-01",
-          "note": "Jessica contacted Sharon Gates at Sola Salons requesting list of suites affected by roof leaks ahead of insurance inspection 6/4 at 9:30 AM"
-        },
-        {
-          "date": "2026-05-27",
-          "note": "Jessica scheduled insurance inspection for June 4 with Derek Boggi"
-        }
-      ],
-      "action_items": [
-        "Insurance inspection June 4 at 9:30 AM with Derek Boggi (2 DAYS)",
-        "Get list of affected suites from Sharon Gates before inspection",
-        "Prepare property for Hartford insurance inspection"
-      ]
-    },
-    {
-      "address": "141 St. Jerome Ave, Holyoke, MA",
-      "current_milestone": "Closed",
-      "closing_date": "2026-03-30",
-      "sources": [
-        "Email"
-      ],
-      "contacts": [
-        {
-          "name": "Will McGuire",
-          "role": "Investors & Team Ops HHH"
-        },
-        {
-          "name": "Chris Keniley",
-          "role": "Accounting Manager"
-        }
-      ],
-      "financials": {
-        "outstanding_bill_bir": 2090
-      },
-      "recent_updates": [
-        {
-          "date": "2026-05-26",
-          "note": "Chris Keniley reported $2090 outstanding bill from Build it Right"
-        }
-      ],
-      "action_items": [
-        "Pay $2090 BIR bill from HHH Florence account"
-      ]
-    },
-    {
-      "address": "15 Olympic Ave, Stafford Springs, CT",
-      "current_milestone": "Prospecting",
-      "closing_date": null,
-      "sources": [
-        "Email",
-        "PDF"
-      ],
-      "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Agent"
-        },
-        {
-          "name": "Antonio",
-          "role": "Partner"
-        }
-      ],
-      "financials": {
-        "arv_estimate": "339900-350000"
-      },
-      "recent_updates": [
-        {
-          "date": "2026-05-30",
-          "note": "Alice Kempf sent CMA ARV $339,900-$350,000 stucco house needs paint"
-        }
-      ],
-      "action_items": [
-        "Review CMA and SmartMLS listing",
-        "Assess roof condition",
-        "Determine acquisition cost"
-      ]
-    },
-    {
-      "address": "140 Egremont Plain Rd, Egremont, MA 01230",
-      "current_milestone": "Prospecting",
-      "closing_date": null,
-      "sources": [
-        "Email",
-        "PDF"
-      ],
-      "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Agent"
-        }
-      ],
-      "financials": {
-        "arv_estimate": "1200000-1300000"
-      },
-      "recent_updates": [
-        {
-          "date": "2026-05-18",
-          "note": "Alice sent CMA ARV $1.2-1.3M"
-        }
-      ],
-      "action_items": [
-        "Review CMA and comp photos",
-        "Evaluate fluff strategy vs full rehab"
-      ]
-    },
-    {
-      "address": "213 Brodie Mountain Rd, Hancock, MA 01237",
-      "current_milestone": "Closed",
-      "closing_date": null,
-      "sources": [
-        "Email"
-      ],
-      "contacts": [
-        {
-          "name": "David Chase",
-          "role": "VP Freedom Credit Union"
-        }
-      ],
-      "financials": {},
-      "recent_updates": [
-        {
-          "date": "2026-05-14",
-          "note": "Appraisal received from David Chase at Freedom Credit Union"
-        }
-      ],
-      "action_items": []
-    },
-    {
-      "address": "11 Bryant St, Springfield, MA",
-      "current_milestone": "Closed",
-      "closing_date": null,
-      "sources": [
-        "Email"
-      ],
-      "contacts": [
-        {
-          "name": "Jessica Sicard",
-          "role": "PM"
-        }
-      ],
-      "financials": {},
-      "recent_updates": [
-        {
-          "date": "2026-04-29",
-          "note": "YB owed $8670.50 after settlement"
-        }
-      ],
-      "action_items": [
-        "Final payment approved confirm listing date"
-      ]
-    },
-    {
-      "address": "100 Central St",
-      "current_milestone": "Repairs/Rehab",
-      "closing_date": null,
-      "sources": [
-        "Email"
-      ],
-      "contacts": [],
-      "financials": {},
-      "recent_updates": [
-        {
-          "date": "2026-04-24",
-          "note": "New property acquired rehab planning"
-        }
-      ],
-      "action_items": []
-    },
-    {
-      "address": "282-284 Suffolk Street, Holyoke, MA",
-      "current_milestone": "Prospecting",
-      "closing_date": null,
-      "sources": [
-        "Email"
-      ],
-      "contacts": [],
-      "financials": {},
-      "recent_updates": [],
-      "action_items": []
-    },
-    {
-      "address": "583 Hawks Spur Rd, Plymouth, VT",
-      "current_milestone": "Prospecting",
-      "closing_date": null,
-      "sources": [
-        "Email"
-      ],
-      "contacts": [],
-      "financials": {},
-      "recent_updates": [],
-      "action_items": []
-    },
-    {
-      "address": "172 Fiske St, Southbridge, MA",
-      "current_milestone": "Prospecting",
-      "closing_date": null,
-      "sources": [
-        "Email",
-        "PDF"
-      ],
-      "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Agent"
-        },
-        {
-          "name": "Antonio",
-          "role": "Partner"
-        }
-      ],
-      "financials": {
-        "arv_2br": 379900,
-        "arv_3br": "439900-480000"
-      },
-      "recent_updates": [
-        {
-          "date": "2026-05-15",
-          "note": "Alice Kempf sent CMA 2BR ARV $379900 3BR ARV $439900-$480000"
-        }
-      ],
-      "action_items": [
-        "Evaluate room conversion to MBR suite for 3BR pricing"
-      ]
-    },
-    {
-      "address": "26 Old Putnam Rd Ext, Plainfield, CT 06239",
-      "current_milestone": "Prospecting",
-      "closing_date": null,
-      "sources": [
-        "Email",
-        "PDF"
-      ],
-      "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Agent"
-        }
-      ],
-      "financials": {
-        "arv_estimate": 429000
-      },
-      "recent_updates": [
-        {
-          "date": "2026-05-15",
-          "note": "Alice Kempf sent CMA with ARV ~$429k sloping backyard noted"
-        }
-      ],
-      "action_items": [
-        "Review CMA reports for pricing accuracy"
-      ]
-    },
-    {
-      "address": "31 Loring Street, Springfield, MA",
-      "current_milestone": "Repairs/Rehab",
-      "closing_date": null,
-      "sources": [
-        "Email"
-      ],
-      "contacts": [
-        {
-          "name": "Jessica Sicard",
-          "role": "PM"
-        },
-        {
-          "name": "Jeff Burack",
-          "role": "Contractor Allied Flooring and Paint"
-        }
-      ],
-      "financials": {},
-      "recent_updates": [
-        {
-          "date": "2026-06-01",
-          "note": "Flooring proposals from Allied Flooring and Paint forwarded by Jessica and approved by Matt"
-        }
-      ],
-      "action_items": [
-        "Flooring work approved - coordinate start date with Allied Flooring"
-      ]
-    },
-    {
-      "address": "Downing Park, Pittsfield, MA",
-      "current_milestone": "Offer Made",
-      "closing_date": null,
-      "sources": [
-        "Email"
-      ],
-      "contacts": [
-        {
-          "name": "Peter Houser",
-          "role": "Partner (housergroup)"
-        },
-        {
-          "name": "Jeffrey Fialky",
-          "role": "Attorney Bacon Wilson"
-        },
-        {
-          "name": "James Jr",
-          "role": "Broker"
-        },
-        {
-          "name": "James Sr",
-          "role": "Broker"
-        }
-      ],
-      "financials": {
-        "entity": "Flying Monkey LLC"
-      },
-      "recent_updates": [
-        {
-          "date": "2026-05-07",
-          "note": "New industrial deal in Pittsfield - buying building on Downing Park under Flying Monkey entity. LOI being sent to attorney Jeff Fialky"
-        }
-      ],
-      "action_items": [
-        "Awaiting LOI submission and seller attorney info",
-        "Confirm deal terms and entity structure"
-      ]
-    }
-  ]
+"last_updated": "2026-06-03T08:02:00-04:00",
+"properties": [
+{
+"address": "67 Willow St (Lane), Wales, MA",
+"current_milestone": "Closing",
+"closing_date": "2026-05-29",
+"sources": ["Email", "PDF"],
+"contacts": [
+{"name": "Alice Kempf", "role": "Agent"},
+{"name": "Chris Keniley", "role": "Accounting"},
+{"name": "Roberta", "role": "Signer"},
+{"name": "Kevin Shippee", "role": "Contact"},
+{"name": "Melissa (MK Creative)", "role": "Contractor/Designer"}
+],
+"financials": {},
+"recent_updates": [
+{"date": "2026-05-31", "note": "Mobile home remodel estimate received from Melissa (MK Creative) via email with PDF attachment - appliances included, shopping for best prices"},
+{"date": "2026-05-30", "note": "Matt sent Bill of Sale PDF for mobile home purchase to flip to Kevin Shippee Jessica and Chris"},
+{"date": "2026-05-29", "note": "Alice Kempf sent lease docs for signing closing THIS AFTERNOON need Roberta signature on lease PDF attachments included"},
+{"date": "2026-05-29", "note": "Alice sent additional PDF document for signing before closing"}
+],
+"action_items": [
+"Confirm closing completed (was scheduled 5/29 - 5 DAYS PAST DUE)",
+"Review mobile home remodel estimate from Melissa (MK Creative)",
+"Bill of sale sent to Kevin Shippee for review"
+]
+},
+{
+"address": "330 Montgomery St, Chicopee, MA",
+"current_milestone": "Closing",
+"closing_date": "2026-06-19",
+"sources": ["Email", "PDF"],
+"contacts": [
+{"name": "David Burstein", "role": "Attorney"},
+{"name": "Peter Houser", "role": "Partner (housergroup)"},
+{"name": "Michelle", "role": "Payoff Coordinator (Houser)"},
+{"name": "Matt Tucker", "role": "Contact"}
+],
+"financials": {
+"interest_rate": "12%",
+"points": "2 each",
+"origination_fee": "$625 each",
+"lenders": ["Metro Lending LLC", "Freedom Credit Union (Ruby Lending LLC)"],
+"disbursement": "Via Burstein IOLTA account"
+},
+"recent_updates": [
+{"date": "2026-05-30", "note": "David Burstein received payoff request effective 6/19/2026 preparing payoffs and discharges"},
+{"date": "2026-05-30", "note": "Peter Houser confirmed Michelle will send his payoff from their system"},
+{"date": "2026-05-30", "note": "Matt confirmed yes proceed with payoff preparation"},
+{"date": "2026-05-30", "note": "David sent payoff and discharge documents for review"},
+{"date": "2026-05-30", "note": "Peter Houser noted points may have been shorted when loans were funded"}
+],
+"action_items": [
+"Review payoff and discharge documents from David Burstein",
+"Resolve points discrepancy noted by Peter Houser",
+"Closing effective date June 19, 2026 (16 days)"
+]
+},
+{
+"address": "114 Danforth St, Pittsfield, MA",
+"current_milestone": "Title & Escrow",
+"closing_date": null,
+"sources": ["Email"],
+"contacts": [
+{"name": "David Burstein", "role": "Attorney"},
+{"name": "Alice Kempf", "role": "Agent"},
+{"name": "Jessica Sicard", "role": "PM"}
+],
+"financials": {},
+"recent_updates": [
+{"date": "2026-05-29", "note": "David Burstein WARNING at risk of forfeiting escrow"},
+{"date": "2026-05-29", "note": "Matt responded checking with architect and contractor"},
+{"date": "2026-03-23", "note": "David Burstein forwarded initial property info"}
+],
+"action_items": [
+"URGENT At risk of forfeiting escrow per David Burstein",
+"Get update from architect and contractor ASAP",
+"Respond to David Burstein with timeline"
+]
+},
+{
+"address": "2140 Palmer Road, MA",
+"current_milestone": "Repairs/Rehab",
+"closing_date": null,
+"sources": ["Email"],
+"contacts": [
+{"name": "Jessica Sicard", "role": "PM"},
+{"name": "Dave", "role": "Contractor"}
+],
+"financials": {},
+"recent_updates": [
+{"date": "2026-06-01", "note": "Change order issued: remove all carpet and padding install new, remove insulation in basement, treat mildew with anti-microbial and scrub"},
+{"date": "2026-06-01", "note": "Building dept requires drawings for front porch/stairs showing tension ties to ledger board and depth/size of sono tubes"},
+{"date": "2026-05-29", "note": "Jessica shared Google Doc scope of work carpet removal not in original scope Dave will charge extra"}
+],
+"action_items": [
+"Submit front porch/stairs drawings to building dept (tension ties, sono tube specs)",
+"Execute change order: carpet removal, basement insulation removal, mildew treatment",
+"Review Google Doc scope of work"
+]
+},
+{
+"address": "42 Washington St, Monson, MA 01057",
+"current_milestone": "Inspections",
+"closing_date": "2026-06-29",
+"sources": ["dotloop", "Email"],
+"contacts": [
+{"name": "Alice Kempf", "role": "Agent"},
+{"name": "Jessica Sicard", "role": "PM"},
+{"name": "David Burstein", "role": "Seller's Attorney"},
+{"name": "Vasilios Papastathopoulos", "role": "Buyer's Agent"},
+{"name": "Melissa A. Gaboury", "role": "Buyer's Attorney"},
+{"name": "Riley Brennan", "role": "KVR Team"},
+{"name": "Melissa Vanderburgh", "role": "Team Leader KVR Team"},
+{"name": "Antonio", "role": "Partner Investarters"}
+],
+"financials": {
+"purchase_price": 335000,
+"loan_type": "FHA",
+"seller_concessions": true
+},
+"recent_updates": [
+{"date": "2026-05-28", "note": "Melissa Vanderburgh called her fogging guy checking if mold test can be done after fogging"},
+{"date": "2026-05-27", "note": "Alice Kempf sent WDI report seller tried adding mold remediation language Alice negotiated it out"},
+{"date": "2026-05-26", "note": "Matt asked Alice to write up formal repair response for team review"},
+{"date": "2026-05-25", "note": "Team finalizing official repair response mold remediation agreed"},
+{"date": "2026-05-24", "note": "Buyer sent official inspection repair request list via Alice Kempf"}
+],
+"action_items": [
+"URGENT Alice drafting formal repair response review before sending to buyer",
+"Get mold test report after fogging Melissa coordinating",
+"Schedule mold remediation with licensed contractor",
+"Treat powder post beetles with FHA documentation",
+"Replace roof ridge vent",
+"Closing date 6/29/2026 (26 days away)"
+]
+},
+{
+"address": "167 East Park Terrace, Pittsfield, MA 01201",
+"current_milestone": "Repairs/Rehab",
+"closing_date": "2026-05-07",
+"sources": ["Email", "PDF"],
+"contacts": [
+{"name": "David Burstein", "role": "Attorney"},
+{"name": "Jessica Sicard", "role": "PM"},
+{"name": "Will McGuire", "role": "Borrower/Signer"},
+{"name": "Pinnacle Financial", "role": "Lender"},
+{"name": "Premiere Home Solutions", "role": "Contractor"}
+],
+"financials": {
+"purchase_price": 166000,
+"rehab_budget_cap": 50000,
+"rate": "12.00%",
+"term": "12 months"
+},
+"recent_updates": [
+{"date": "2026-06-01", "note": "Dumpster confirmed scheduled for delivery tomorrow 6/2 - Premiere Home Solutions needs it to continue progress"},
+{"date": "2026-05-29", "note": "Premiere Home Solutions estimate approved work dates 6/1 to 7/27 needs dumpster ASAP and windows ordered"},
+{"date": "2026-05-28", "note": "Jessica needs start/finish dates for Premiere Home Solutions contract"},
+{"date": "2026-05-20", "note": "Pinnacle Financial billing statement received Acct #45006"}
+],
+"action_items": [
+"Confirm dumpster was delivered 6/2",
+"Order windows ASAP lead time required",
+"Finalize rehab scope under $50k cap"
+]
+},
+{
+"address": "166 East St, Stafford, CT 06076",
+"current_milestone": "Repairs/Rehab",
+"closing_date": null,
+"sources": ["dotloop", "Email"],
+"contacts": [
+{"name": "Alice Kempf", "role": "Agent"},
+{"name": "Jessica Sicard", "role": "PM"},
+{"name": "Jose", "role": "Contractor Unlimited Roofing"},
+{"name": "Glenn Setzler", "role": "Building Services Town of Stafford"}
+],
+"financials": {},
+"recent_updates": [
+{"date": "2026-05-29", "note": "Building permit processing ice and water inspection required before new shingles"},
+{"date": "2026-05-08", "note": "Under contract awaiting inspections"}
+],
+"action_items": [
+"Schedule ice and water/seam tape inspection with Town of Stafford",
+"Coordinate roof work timeline with Jose at Unlimited Roofing"
+]
+},
+{
+"address": "297 Breckwood Blvd, Springfield, MA 01109",
+"current_milestone": "Closed",
+"closing_date": "2026-04-13",
+"sources": ["dotloop", "Email"],
+"contacts": [
+{"name": "Alice Kempf", "role": "Agent"},
+{"name": "David Burstein", "role": "Attorney"},
+{"name": "Jessica Sicard", "role": "PM"}
+],
+"financials": {"loan_repayment_gsb": 69322},
+"recent_updates": [{"date": "2026-04-13", "note": "Closing reached"}],
+"action_items": []
+},
+{
+"address": "29 Chestnut Dr, Belchertown, MA 01007",
+"current_milestone": "Closed",
+"closing_date": "2026-04-14",
+"sources": ["dotloop", "Email"],
+"contacts": [
+{"name": "Alice Kempf", "role": "Agent"},
+{"name": "David Burstein", "role": "Attorney"}
+],
+"financials": {},
+"recent_updates": [{"date": "2026-04-14", "note": "Closing reached"}],
+"action_items": []
+},
+{
+"address": "4 School St, Ware, MA 01082",
+"current_milestone": "Financing",
+"closing_date": null,
+"sources": ["Email", "PDF"],
+"contacts": [
+{"name": "David Burstein", "role": "Attorney"},
+{"name": "Jessica Sicard", "role": "PM"}
+],
+"financials": {},
+"recent_updates": [{"date": "2026-04-28", "note": "Financing stage updates"}],
+"action_items": ["Follow up on closing date once financing finalizes"]
+},
+{
+"address": "70 Town Hill Road, Middlefield, MA 01243",
+"current_milestone": "Closed",
+"closing_date": null,
+"sources": ["Email"],
+"contacts": [{"name": "Jessica Sicard", "role": "PM"}],
+"financials": {},
+"recent_updates": [{"date": "2026-04-20", "note": "Property closed"}],
+"action_items": []
+},
+{
+"address": "40 Roland St, Pittsfield, MA 01201",
+"current_milestone": "Closed",
+"closing_date": "2026-05-22",
+"sources": ["Email", "dotloop"],
+"contacts": [
+{"name": "Alice Kempf", "role": "Agent"},
+{"name": "David Burstein", "role": "Attorney"},
+{"name": "Will McGuire", "role": "Investors & Team Ops"},
+{"name": "Chris Keniley", "role": "Accounting Manager"}
+],
+"financials": {},
+"recent_updates": [
+{"date": "2026-06-01", "note": "$6,652 Koenig (Electrical) invoice paid from HHH account. $12k deposited, $23k more being pulled into FSB Hack account for ongoing capex"},
+{"date": "2026-05-25", "note": "David Burstein sent Seller Post-Closing Package sale finalized May 22"},
+{"date": "2026-05-26", "note": "Chris confirms nothing owed all paid from HHH Florence account"}
+],
+"action_items": ["Confirm all final bills settled for 40 Roland"]
+},
+{
+"address": "21 Holly St, Greenfield, MA",
+"current_milestone": "Repairs/Rehab",
+"closing_date": null,
+"sources": ["Email"],
+"contacts": [
+{"name": "Jessica Sicard", "role": "PM"},
+{"name": "Chris Keniley", "role": "Accounting Manager"},
+{"name": "Shamikka Andrews", "role": "Legal Assistant Burstein Law"}
+],
+"financials": {},
+"recent_updates": [{"date": "2026-05-20", "note": "21 Holly check recovered 3 Evergreen check still missing Shamikka contacting other attorney to reissue"}],
+"action_items": ["Follow up on reissued check for 3 Evergreen"]
+},
+{
+"address": "1874 Home Rd, Sheffield, MA",
+"current_milestone": "Under Contract",
+"closing_date": null,
+"sources": ["Email", "dotloop"],
+"contacts": [
+{"name": "Jessica Sicard", "role": "PM"},
+{"name": "Alice Kempf", "role": "Agent"},
+{"name": "Vasilios Papastathopoulos", "role": "Buyer's Agent"}
+],
+"financials": {"listing_price": 450000, "offer_received": "near 450k"},
+"recent_updates": [{"date": "2026-05-23", "note": "Signed P&S Agreement received from buyer near $450k waiting for buyer proof of funds"}],
+"action_items": [
+"Review and counter P&S agreement terms (buyer agent commission)",
+"Obtain buyer proof of funds",
+"Schedule closing timeline with attorney"
+]
+},
+{
+"address": "1 Richmond Ln, Pittsfield, MA",
+"current_milestone": "Repairs/Rehab",
+"closing_date": null,
+"sources": ["Email", "PDF"],
+"contacts": [
+{"name": "Jessica Sicard", "role": "PM"},
+{"name": "Jesse Leydet", "role": "On-site Contact"},
+{"name": "Premiere Home Solutions", "role": "Contractor"},
+{"name": "Antonio", "role": "Partner House Hack Helpers"}
+],
+"financials": {},
+"recent_updates": [
+{"date": "2026-06-01", "note": "Jessica requesting demo inspection from building dept - structure open and empty, demo set for tomorrow"},
+{"date": "2026-06-01", "note": "Premiere Home Solutions pushing to complete demo ASAP, asking about earliest inspection availability"},
+{"date": "2026-05-21", "note": "Antonio walked property identified remaining fixes electrician slow carpenter ants discovered"},
+{"date": "2026-05-20", "note": "Permit R-26-0069 issued for demolition of detached shed"}
+],
+"action_items": [
+"Demo inspection being requested by Jessica - coordinate with building dept",
+"Demo completion imminent - structure open and empty",
+"Follow up on carpenter ant extermination",
+"Push electrician to complete work"
+]
+},
+{
+"address": "54 Sectar Rd, Ashford, CT 06278",
+"current_milestone": "Under Contract",
+"closing_date": null,
+"sources": ["dotloop", "Email"],
+"contacts": [
+{"name": "Alice Kempf", "role": "Agent"},
+{"name": "Jessica Sicard", "role": "PM"}
+],
+"financials": {},
+"recent_updates": [{"date": "2026-05-01", "note": "Under contract docs in dotloop"}],
+"action_items": []
+},
+{
+"address": "412 Saint James Ave, Springfield, MA 01109",
+"current_milestone": "Title & Escrow",
+"closing_date": null,
+"sources": ["Email"],
+"contacts": [
+{"name": "David Burstein", "role": "Attorney"},
+{"name": "Antonio", "role": "Partner Investarters"},
+{"name": "Connie Willetts", "role": "Title Coordinator Brock & Scott"}
+],
+"financials": {"claimed_rent": "2500/mo", "auction_loan": 45000, "entity": "Yellowbrick Property LLC"},
+"recent_updates": [
+{"date": "2026-05-22", "note": "David Burstein confirmed title entity Yellowbrick Property LLC"},
+{"date": "2026-05-20", "note": "NEW FORECLOSURE occupied by tenants plan is to wholesale then manage"}
+],
+"action_items": [
+"Finalize title vesting as Yellowbrick Property LLC",
+"Complete insurance application from Adina Edgett"
+]
+},
+{
+"address": "300 Tyler St, Pittsfield, MA 01201",
+"current_milestone": "Title & Escrow",
+"closing_date": null,
+"sources": ["Email", "PDF"],
+"contacts": [
+{"name": "David Burstein", "role": "Attorney"},
+{"name": "Jessica Sicard", "role": "PM"}
+],
+"financials": {},
+"recent_updates": [{"date": "2026-05-05", "note": "Title work in progress"}],
+"action_items": []
+},
+{
+"address": "103 Prospect St, Springfield, MA",
+"current_milestone": "Inspections",
+"closing_date": null,
+"sources": ["Email"],
+"contacts": [
+{"name": "Ryan O'Hara", "role": "Attorney Bacon Wilson"},
+{"name": "Hunter Foote", "role": "Prospective Buyer Vanderburgh"}
+],
+"financials": {},
+"recent_updates": [
+{"date": "2026-05-28", "note": "Eviction court first tier event scheduled for May 28"},
+{"date": "2026-05-19", "note": "Matt rejected Hunter Foote latest offer"}
+],
+"action_items": [
+"Follow up on eviction court outcome from May 28",
+"Await revised offer from Hunter Foote"
+]
+},
+{
+"address": "205 Old Stage Road, Hatfield, MA",
+"current_milestone": "Repairs/Rehab",
+"closing_date": null,
+"sources": ["Email"],
+"contacts": [
+{"name": "Jessica Sicard", "role": "PM"},
+{"name": "Katharine Higgins-Shea", "role": "Attorney Lyon Fitzpatrick"},
+{"name": "Kevin Shippee", "role": "Contact"}
+],
+"financials": {},
+"recent_updates": [
+{"date": "2026-05-27", "note": "Jessica requests Kate work property management access into court agreement"},
+{"date": "2026-05-24", "note": "Attorney Kate confirms court date June 1 at 9am in Hadley"}
+],
+"action_items": [
+"Court date was June 1 (2 days ago) - follow up on outcome",
+"Coordinate with Kate on property management access via court agreement",
+"Schedule lock change and inspection after court resolution"
+]
+},
+{
+"address": "60 Shaker Rd, E Longmeadow, MA",
+"current_milestone": "Inspections",
+"closing_date": null,
+"sources": ["Email"],
+"contacts": [
+{"name": "Jessica Sicard", "role": "PM"},
+{"name": "Derek Boggi", "role": "Insurance Inspector J.S. Held"},
+{"name": "Sharon Gates", "role": "Tenant Contact Sola Salons"}
+],
+"financials": {"insurance_carrier": "The Hartford", "entity": "Extremely Clean 2 LLC (Sola Salon)"},
+"recent_updates": [
+{"date": "2026-06-01", "note": "Jessica contacted Sharon Gates at Sola Salons requesting list of suites affected by roof leaks ahead of insurance inspection 6/4 at 9:30 AM"},
+{"date": "2026-05-27", "note": "Jessica scheduled insurance inspection for June 4 with Derek Boggi"}
+],
+"action_items": [
+"Insurance inspection TOMORROW"June 4 at 9:30 AM with Derek Boggi",
+"Get list of affected suites from Sharon Gates before inspection",
+"Prepare property for Hartford insurance inspection"
+]
+},
+{
+"address": "141 St. Jerome Ave, Holyoke, MA",
+"current_milestone": "Closed",
+"closing_date": "2026-03-30",
+"sources": ["Email"],
+"contacts": [
+{"name": "Will McGuire", "role": "Investors & Team Ops HHH"},
+{"name": "Chris Keniley", "role": "Accounting Manager"}
+],
+"financials": {"outstanding_bill_bir": 2090},
+"recent_updates": [{"date": "2026-05-26", "note": "Chris Keniley reported $2090 outstanding bill from Build it Right"}],
+"action_items": ["Pay $2090 BIR bill from HHH Florence account"]
+},
+{
+"address": "15 Olympic Ave, Stafford Springs, CT",
+"current_milestone": "Prospecting",
+"closing_date": null,
+"sources": ["Email", "PDF"],
+"contacts": [
+{"name": "Alice Kempf", "role": "Agent"},
+{"name": "Antonio", "role": "Partner"}
+],
+"financials": {"arv_estimate": "339900-350000"},
+"recent_updates": [{"date": "2026-05-30", "note": "Alice Kempf sent CMA ARV $339,900-$350,000 stucco house needs paint"}],
+"action_items": ["Review CMA and SmartMLS listing", "Assess roof condition", "Determine acquisition cost"]
+},
+{
+"address": "140 Egremont Plain Rd, Egremont, MA 01230",
+"current_milestone": "Prospecting",
+"closing_date": null,
+"sources": ["Email", "PDF"],
+"contacts": [{"name": "Alice Kempf", "role": "Agent"}],
+"financials": {"arv_estimate": "1200000-1300000"},
+"recent_updates": [{"date": "2026-05-18", "note": "Alice sent CMA ARV $1.2-1.3M"}],
+"action_items": ["Review CMA and comp photos", "Evaluate fluff strategy vs full rehab"]
+},
+{
+"address": "213 Brodie Mountain Rd, Hancock, MA 01237",
+"current_milestone": "Closed",
+"closing_date": null,
+"sources": ["Email"],
+"contacts": [{"name": "David Chase", "role": "VP Freedom Credit Union"}],
+"financials": {},
+"recent_updates": [{"date": "2026-05-14", "note": "Appraisal received from David Chase at Freedom Credit Union"}],
+"action_items": []
+},
+{
+"address": "11 Bryant St, Springfield, MA",
+"current_milestone": "Closed",
+"closing_date": null,
+"sources": ["Email"],
+"contacts": [{"name": "Jessica Sicard", "role": "PM"}],
+"financials": {},
+"recent_updates": [{"date": "2026-04-29", "note": "YB owed $8670.50 after settlement"}],
+"action_items": ["Final payment approved confirm listing date"]
+},
+{
+"address": "100 Central St",
+"current_milestone": "Repairs/Rehab",
+"closing_date": null,
+"sources": ["Email"],
+"contacts": [],
+"financials": {},
+"recent_updates": [{"date": "2026-04-24", "note": "New property acquired rehab planning"}],
+"action_items": []
+},
+{
+"address": "282-284 Suffolk Street, Holyoke, MA",
+"current_milestone": "Prospecting",
+"closing_date": null,
+"sources": ["Email"],
+"contacts": [],
+"financials": {},
+"recent_updates": [],
+"action_items": []
+},
+{
+"address": "583 Hawks Spur Rd, Plymouth, VT",
+"current_milestone": "Prospecting",
+"closing_date": null,
+"sources": ["Email"],
+"contacts": [],
+"financials": {},
+"recent_updates": [],
+"action_items": []
+},
+{
+"address": "172 Fiske St, Southbridge, MA",
+"current_milestone": "Prospecting",
+"closing_date": null,
+"sources": ["Email", "PDF"],
+"contacts": [
+{"name": "Alice Kempf", "role": "Agent"},
+{"name": "Antonio", "role": "Partner"}
+],
+"financials": {"arv_2br": 379900, "arv_3br": "439900-480000"},
+"recent_updates": [{"date": "2026-05-15", "note": "Alice Kempf sent CMA 2BR ARV $379900 3BR ARV $439900-$480000"}],
+"action_items": ["Evaluate room conversion to MBR suite for 3BR pricing"]
+},
+{
+"address": "26 Old Putnam Rd Ext, Plainfield, CT 06239",
+"current_milestone": "Prospecting",
+"closing_date": null,
+"sources": ["Email", "PDF"],
+"contacts": [{"name": "Alice Kempf", "role": "Agent"}],
+"financials": {"arv_estimate": 429000},
+"recent_updates": [{"date": "2026-05-15", "note": "Alice Kempf sent CMA with ARV ~$429k sloping backyard noted"}],
+"action_items": ["Review CMA reports for pricing accuracy"]
+},
+{
+"address": "31 Loring Street, Springfield, MA",
+"current_milestone": "Repairs/Rehab",
+"closing_date": null,
+"sources": ["Email"],
+"contacts": [
+{"name": "Jessica Sicard", "role": "PM"},
+{"name": "Jeff Burack", "role": "Contractor Allied Flooring and Paint"}
+],
+"financials": {},
+"recent_updates": [{"date": "2026-06-01", "note": "Flooring proposals from Allied Flooring and Paint forwarded by Jessica and approved by Matt"}],
+"action_items": ["Flooring work approved - coordinate start date with Allied Flooring"]
+},
+{
+"address": "Downing Park, Pittsfield, MA",
+"current_milestone": "Offer Made",
+"closing_date": null,
+"sources": ["Email"],
+"contacts": [
+{"name": "Peter Houser", "role": "Partner (housergroup)"},
+{"name": "Jeffrey Fialky", "role": "Attorney Bacon Wilson"},
+{"name": "James Jr", "role": "Broker"},
+{"name": "James Sr", "role": "Broker"}
+],
+"financials": {"entity": "Flying Monkey LLC"},
+"recent_updates": [{"date": "2026-05-07", "note": "New industrial deal in Pittsfield - buying building on Downing Park under Flying Monkey entity. LOI being sent to attorney Jeff Fialky"}],
+"action_items": ["Awaiting LOI submission and seller attorney info", "Confirm deal terms and entity structure"]
+}
+]
 }
