@@ -2,95 +2,79 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>House Flip Closing Coordinator</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#0f1117;--card-bg:#1a1d27;--card-border:#2a2d37;--text:#e0e0e0;--text-muted:#888;--accent:#4a9eff;--green:#22c55e;--yellow:#eab308;--red:#ef4444;--orange:#f97316;--purple:#a855f7}
-body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.5}
-.header{position:sticky;top:0;z-index:100;background:linear-gradient(135deg,#1a1d27,#252836);border-bottom:1px solid var(--card-border);padding:16px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-.header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,#4a9eff,#a855f7);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.header-stats{display:flex;gap:16px;flex-wrap:wrap}
-.stat{text-align:center;padding:6px 14px;background:rgba(255,255,255,0.05);border-radius:8px}
-.stat-value{font-size:1.3rem;font-weight:700}
-.stat-label{font-size:.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px}
-.last-updated{font-size:.75rem;color:var(--text-muted)}
-.container{max-width:1400px;margin:0 auto;padding:20px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:20px}
-.card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:12px;padding:20px;transition:transform .2s,box-shadow .2s}
-.card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.3)}
-.card-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;gap:8px}
-.card-address{font-size:1.05rem;font-weight:600;flex:1}
-.badge{padding:3px 10px;border-radius:12px;font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px;white-space:nowrap}
-.badge-closing{background:rgba(234,179,8,.15);color:var(--yellow)}
-.badge-rehab{background:rgba(249,115,22,.15);color:var(--orange)}
-.badge-inspections{background:rgba(168,85,247,.15);color:var(--purple)}
-.badge-title{background:rgba(74,158,255,.15);color:var(--accent)}
-.badge-closed{background:rgba(34,197,94,.15);color:var(--green)}
-.badge-financing{background:rgba(74,158,255,.15);color:#60a5fa}
-.badge-under-contract{background:rgba(168,85,247,.15);color:#c084fc}
-.badge-prospecting{background:rgba(107,114,128,.15);color:#9ca3af}
-.badge-offer{background:rgba(234,179,8,.15);color:#fbbf24}
-.source-badges{display:flex;gap:4px;margin:6px 0 12px}
-.src{padding:2px 6px;border-radius:4px;font-size:.6rem;background:rgba(255,255,255,0.08);color:var(--text-muted)}
-.countdown{text-align:center;padding:8px;margin:8px 0;border-radius:8px;font-weight:600;font-size:.85rem}
-.countdown.urgent{background:rgba(239,68,68,.12);color:var(--red)}
-.countdown.soon{background:rgba(234,179,8,.12);color:var(--yellow)}
-.countdown.ok{background:rgba(34,197,94,.12);color:var(--green)}
-.countdown.past{background:rgba(239,68,68,.12);color:var(--red)}
-.timeline{display:flex;align-items:center;gap:0;margin:12px 0;padding:8px;background:rgba(255,255,255,.03);border-radius:8px;overflow-x:auto}
-.t-step{display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;position:relative}
-.t-dot{width:12px;height:12px;border-radius:50%;border:2px solid #333;position:relative;z-index:1}
-.t-dot.completed{background:var(--green);border-color:var(--green)}
-.t-dot.active{background:var(--accent);border-color:var(--accent);box-shadow:0 0 8px rgba(74,158,255,.5)}
-.t-dot.pending{background:transparent;border-color:#444}
-.t-label{font-size:.5rem;color:var(--text-muted);margin-top:4px;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
-.t-line{flex:0 0 auto;width:16px;height:2px;background:#333;margin:0 -1px;margin-bottom:14px}
-.t-line.completed{background:var(--green)}
-.section{margin-top:12px}
-.section-title{font-size:.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;padding-bottom:4px;border-bottom:1px solid rgba(255,255,255,.06)}
-.section-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.info-item{font-size:.78rem}
-.info-label{color:var(--text-muted);font-size:.65rem}
-.action-item{font-size:.78rem;padding:4px 0;border-bottom:1px solid rgba(255,255,255,.04);display:flex;align-items:flex-start;gap:6px}
-.action-item:last-child{border:none}
-.action-dot{width:5px;height:5px;border-radius:50%;background:var(--accent);margin-top:6px;flex-shrink:0}
-.action-dot.urgent{background:var(--red)}
-.update-item{font-size:.75rem;padding:4px 0;border-bottom:1px solid rgba(255,255,255,.04)}
-.update-item:last-child{border:none}
-.update-date{color:var(--accent);font-size:.65rem;font-weight:600}
-.loading{text-align:center;padding:60px;color:var(--text-muted);font-size:1.2rem}
-@media(max-width:500px){.grid{grid-template-columns:1fr}.header{flex-direction:column;text-align:center}}
+body{background:#0f1117;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+.hdr{position:sticky;top:0;z-index:100;background:#0f1117ee;backdrop-filter:blur(10px);border-bottom:1px solid #2d3348;padding:16px 24px}
+.hdr h1{font-size:22px;color:#f8fafc}
+.meta{color:#6b7280;font-size:13px;margin-top:4px}
+.stats{display:flex;gap:16px;margin-top:8px;flex-wrap:wrap}
+.stat{background:#1a1d27;border-radius:8px;padding:8px 16px;display:flex;align-items:center;gap:8px}
+.stat .n{font-size:24px;font-weight:700}
+.stat .l{font-size:12px;color:#9ca3af}
+.ctn{max-width:1200px;margin:0 auto;padding:16px 24px}
+.card{background:#1a1d27;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid #2d3348}
+.card-hdr{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.card h2{margin:0;color:#f8fafc;font-size:18px}
+.badge{padding:3px 10px;border-radius:12px;font-size:12px;font-weight:600;color:#fff}
+.src{padding:2px 6px;border-radius:4px;font-size:10px;margin-left:4px}
+.tl{display:flex;gap:2px;margin:12px 0;align-items:flex-start}
+.dot{width:14px;height:14px;border-radius:50%;margin:0 auto}
+.dot-l{font-size:9px;color:#9ca3af;text-align:center;line-height:1.1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:60px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:8px;margin-top:8px}
+.sec{background:#111827;border-radius:6px;padding:10px;margin:4px 0}
+.sec-t{color:#60a5fa;font-size:11px;font-weight:600;margin-bottom:4px}
+.sec-t.warn{color:#f59e0b}
+.row{display:flex;justify-content:space-between;padding:2px 0}
+.row .k{color:#9ca3af}.row .v{color:#e2e8f0}
+.ct{padding:2px 0}.ct .n{color:#e2e8f0}.ct .r{color:#6b7280;font-size:11px}
+.ai{padding:2px 0;color:#e2e8f0}.ai.urg{color:#ef4444;font-weight:600}
+.up{padding:3px 0;border-bottom:1px solid #1f2937}.up .d{color:#6b7280;font-size:11px}.up .t{color:#d1d5db;font-size:12px}
+.cd{margin:8px 0}
 </style>
 </head>
 <body>
-<div class="loading" id="loading">Loading dashboard...</div>
+<div class="hdr"><h1>House Flip Closing Coordinator</h1><div class="meta" id="meta"></div><div class="stats" id="stats"></div></div>
+<div class="ctn" id="cards"></div>
 <script>
-const MILESTONES=['Offer Made','Under Contract','Title & Escrow','Inspections','Appraisal','Financing','Repairs/Rehab','Final Walkthrough','Closing','Closed'];
-function gmi(m){return MILESTONES.indexOf(m)}
-function gbc(m){const map={'Closing':'closing','Repairs/Rehab':'rehab','Inspections':'inspections','Title & Escrow':'title','Closed':'closed','Financing':'financing','Under Contract':'under-contract','Prospecting':'prospecting','Offer Made':'offer'};return'badge-'+(map[m]||'title')}
-function du(ds){if(!ds)return null;const t=new Date(ds+'T00:00:00'),n=new Date();n.setHours(0,0,0,0);return Math.ceil((t-n)/864e5)}
-function rcd(p,cd){if(!cd)return'';const d=du(cd);if(d===null)return'';let c='ok',t='';if(d<0){c='past';t=Math.abs(d)+' DAYS PAST CLOSING ('+cd+')'}else if(d===0){c='urgent';t='CLOSING TODAY!'}else if(d<=3){c='urgent';t=d+' DAY'+(d>1?'S':'')+' TO CLOSING'}else if(d<=14){c='soon';t=d+' days to closing ('+cd+')'}else{t=d+' days to closing ('+cd+')'}return'<div class="countdown '+c+'">'+t+'</div>'}
-function rtl(cur){const idx=gmi(cur);let h='<div class="timeline">';MILESTONES.forEach((m,i)=>{if(i>0)h+='<div class="t-line '+(i<=idx?'completed':'')+'"></div>';let c='pending';if(i<idx)c='completed';else if(i===idx)c='active';h+='<div class="t-step"><div class="t-dot '+c+'"></div><div class="t-label">'+m.replace('Repairs/Rehab','Rehab')+'</div></div>'});h+='</div>';return h}
-function rc(p){let h='<div class="card"><div class="card-header"><div class="card-address">'+p.address+'</div><span class="badge '+gbc(p.current_milestone)+'">'+p.current_milestone+'</span></div>';
-h+='<div class="source-badges">'+(p.sources||[]).map(s=>'<span class="src">'+s+'</span>').join('')+'</div>';
-h+=rcd(p,p.closing_date)+rtl(p.current_milestone);
-const f=p.financials||{},fk=Object.keys(f).filter(k=>!Array.isArray(f[k])||f[k].length>0);
-if(fk.length>0){h+='<div class="section"><div class="section-title">Financials</div><div class="section-grid">';fk.forEach(k=>{let v=f[k];if(Array.isArray(v))v=v.join(', ');h+='<div class="info-item"><div class="info-label">'+k.replace(/_/g,' ').replace(/\b\w/g,l=>l.toUpperCase())+'</div>'+v+'</div>'});h+='</div></div>'}
-if(p.contacts&&p.contacts.length>0){h+='<div class="section"><div class="section-title">Key Contacts</div><div class="section-grid">';p.contacts.forEach(c=>{h+='<div class="info-item"><div class="info-label">'+c.role+'</div>'+c.name+'</div>'});h+='</div></div>'}
-if(p.action_items&&p.action_items.length>0){h+='<div class="section"><div class="section-title">Action Items</div>';p.action_items.forEach(a=>{const u=/URGENT|PAST DUE|ASAP|TODAY|TOMORROW/i.test(a);h+='<div class="action-item"><div class="action-dot '+(u?'urgent':'')+'"></div>'+a+'</div>'});h+='</div>'}
-if(p.recent_updates&&p.recent_updates.length>0){h+='<div class="section"><div class="section-title">Recent Updates</div>';p.recent_updates.slice(0,3).forEach(u=>{h+='<div class="update-item"><span class="update-date">'+u.date+'</span> '+u.note+'</div>'});h+='</div>'}
-h+='</div>';return h}
-fetch('properties_data.json').then(r=>r.json()).then(DATA=>{
-const props=DATA.properties;
-const active=props.filter(p=>p.current_milestone!=='Closed'&&p.current_milestone!=='Prospecting');
-const atC=props.filter(p=>p.current_milestone==='Closing');
-const inR=props.filter(p=>p.current_milestone==='Repairs/Rehab');
-const closed=props.filter(p=>p.current_milestone==='Closed');
-document.body.innerHTML='<div class="header"><div><h1>House Flip Closing Coordinator</h1><div class="last-updated">Last updated: '+new Date(DATA.last_updated).toLocaleString('en-US',{timeZone:'America/New_York',dateStyle:'medium',timeStyle:'short'})+'</div></div><div class="header-stats"><div class="stat"><div class="stat-value" style="color:var(--accent)">'+active.length+'</div><div class="stat-label">Active</div></div><div class="stat"><div class="stat-value" style="color:var(--yellow)">'+atC.length+'</div><div class="stat-label">At Closing</div></div><div class="stat"><div class="stat-value" style="color:var(--orange)">'+inR.length+'</div><div class="stat-label">In Rehab</div></div><div class="stat"><div class="stat-value" style="color:var(--green)">'+closed.length+'</div><div class="stat-label">Closed</div></div></div></div><div class="container"><div class="grid" id="cards"></div></div>';
-const order=['Closing','Inspections','Title & Escrow','Financing','Repairs/Rehab','Final Walkthrough','Under Contract','Offer Made','Prospecting','Closed'];
-[...props].sort((a,b)=>(order.indexOf(a.current_milestone)===-1?99:order.indexOf(a.current_milestone))-(order.indexOf(b.current_milestone)===-1?99:order.indexOf(b.current_milestone))).forEach(p=>{document.getElementById('cards').innerHTML+=rc(p)})
-}).catch(e=>{document.getElementById('loading').textContent='Error loading data: '+e.message});
+const MS=["Offer Made","Under Contract","Title & Escrow","Inspections","Appraisal","Financing","Repairs/Rehab","Final Walkthrough","Closing","Closed"];
+const MC={"Offer Made":"#6366f1","Under Contract":"#8b5cf6","Title & Escrow":"#a855f7","Inspections":"#ec4899","Appraisal":"#f43f5e","Financing":"#f97316","Repairs/Rehab":"#eab308","Final Walkthrough":"#84cc16","Closing":"#22c55e","Closed":"#10b981","Prospecting":"#64748b"};
+const SC={"dotloop":"#3b82f6","DocuSign":"#f59e0b","PDF":"#ef4444","Email":"#6b7280"};
+const today=new Date("2026-06-03");
+
+function cd(d){if(!d)return"";const c=new Date(d),diff=Math.round((c-today)/864e5);if(diff<0)return'<span style="color:#ef4444;font-weight:700">'+Math.abs(diff)+' DAYS PAST DUE</span>';if(diff===0)return'<span style="color:#f59e0b;font-weight:700">CLOSING TODAY</span>';if(diff<=7)return'<span style="color:#f59e0b;font-weight:700">'+diff+' days to close</span>';return'<span style="color:#22c55e">'+diff+' days to close</span>';}
+
+function dots(m){const idx=MS.indexOf(m);return MS.map((s,i)=>{const c=i<idx?"#22c55e":i===idx?"#3b82f6":"#4b5563";return'<div style="display:flex;flex-direction:column;align-items:center;gap:2px;flex:1;min-width:0"><div class="dot" style="background:'+c+'" title="'+s+'"></div><span class="dot-l">'+s+'</span></div>';}).join("");}
+
+function render(data){
+document.getElementById("meta").innerHTML="Last updated: "+data.last_updated+" &bull; Dashboard auto-refreshes via GitHub Pages";
+const p=data.properties;
+const active=p.filter(x=>x.current_milestone!=="Closed"&&x.current_milestone!=="Prospecting");
+const closing=p.filter(x=>x.current_milestone==="Closing");
+const rehab=p.filter(x=>x.current_milestone==="Repairs/Rehab");
+const prospect=p.filter(x=>x.current_milestone==="Prospecting");
+document.getElementById("stats").innerHTML='<div class="stat"><span class="n" style="color:#3b82f6">'+active.length+'</span><span class="l">Active</span></div><div class="stat"><span class="n" style="color:#22c55e">'+closing.length+'</span><span class="l">At Closing</span></div><div class="stat"><span class="n" style="color:#eab308">'+rehab.length+'</span><span class="l">In Rehab</span></div><div class="stat"><span class="n" style="color:#64748b">'+prospect.length+'</span><span class="l">Prospecting</span></div>';
+
+const sorted=p.slice().sort((a,b)=>{const ma=a.current_milestone,mb=b.current_milestone;if(ma==="Closed"&&mb!=="Closed")return 1;if(ma!=="Closed"&&mb==="Closed")return-1;if(ma==="Prospecting"&&mb!=="Prospecting")return 1;if(ma!=="Prospecting"&&mb==="Prospecting")return-1;return MS.indexOf(mb)-MS.indexOf(ma);});
+
+let h="";
+sorted.forEach(pr=>{
+const m=pr.current_milestone;
+const cdt=cd(pr.closing_date);
+const badges='<span class="badge" style="background:'+(MC[m]||"#64748b")+'">'+m+'</span>'+(pr.sources||[]).map(s=>'<span class="src" style="background:'+(SC[s]||"#6b7280")+'33;color:'+(SC[s]||"#6b7280")+'">'+s+'</span>').join("");
+const timeline=m!=="Prospecting"?'<div class="tl">'+dots(m)+'</div>':"";
+const fin=Object.entries(pr.financials||{}).map(([k,v])=>'<div class="row"><span class="k">'+k.replace(/_/g," ")+'</span><span class="v">'+v+'</span></div>').join("")||'<span style="color:#4b5563">â</span>';
+const cts=(pr.contacts||[]).slice(0,5).map(c=>'<div class="ct"><span class="n">'+c.name+'</span> <span class="r">('+c.role+')</span></div>').join("")||'<span style="color:#4b5563">â</span>';
+const ais=(pr.action_items||[]).map(a=>'<div class="ai'+(a.includes("URGENT")||a.includes("PAST DUE")||a.includes("TOMORROW")?" urg":"")+'">\u2022 '+a+'</div>').join("");
+const ups=(pr.recent_updates||[]).slice(0,3).map(u=>'<div class="up"><span class="d">'+u.date+'</span><div class="t">'+u.note+'</div></div>').join("");
+h+='<div class="card"><div class="card-hdr"><h2>'+pr.address+'</h2><div>'+badges+'</div></div>'+(cdt?'<div class="cd">'+cdt+'</div>':"")+timeline+'<div class="grid"><div class="sec"><div class="sec-t">FINANCIALS</div>'+fin+'</div><div class="sec"><div class="sec-t">KEY CONTACTS</div>'+cts+'</div></div>'+(ais?'<div class="sec"><div class="sec-t warn">ACTION ITEMS</div>'+ais+'</div>':'')+(ups?'<div class="sec"><div class="sec-t">RECENT UPDATES</div>'+ups+'</div>':'')+'</div>';
+});
+document.getElementById("cards").innerHTML=h;
+}
+
+fetch("properties_data.json").then(r=>r.json()).then(render).catch(()=>{document.getElementById("cards").innerHTML="<p>Error loading data</p>";});
 </script>
 </body>
 </html>
