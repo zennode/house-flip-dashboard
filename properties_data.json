@@ -1,5 +1,5 @@
 {
-"last_updated": "2026-06-03T08:02:00-04:00",
+"last_updated": "2026-06-03T18:01:00-04:00",
 "properties": [
 {
 "address": "67 Willow St (Lane), Wales, MA",
@@ -415,7 +415,7 @@
 {"date": "2026-05-27", "note": "Jessica scheduled insurance inspection for June 4 with Derek Boggi"}
 ],
 "action_items": [
-"Insurance inspection TOMORROW"June 4 at 9:30 AM with Derek Boggi",
+"Insurance inspection TOMORROW June 4 at 9:30 AM with Derek Boggi",
 "Get list of affected suites from Sharon Gates before inspection",
 "Prepare property for Hartford insurance inspection"
 ]
@@ -556,6 +556,23 @@
 "financials": {"entity": "Flying Monkey LLC"},
 "recent_updates": [{"date": "2026-05-07", "note": "New industrial deal in Pittsfield - buying building on Downing Park under Flying Monkey entity. LOI being sent to attorney Jeff Fialky"}],
 "action_items": ["Awaiting LOI submission and seller attorney info", "Confirm deal terms and entity structure"]
+},
+{
+"address": "105 N Main St, Unit #B, Orange, MA 01364",
+"current_milestone": "Prospecting",
+"closing_date": null,
+"sources": ["Email"],
+"contacts": [
+{"name": "Alice Kempf", "role": "Agent"},
+{"name": "Tim Newcombe", "role": "Wholesaler Joe Homebuyer NE"}
+],
+"financials": {"ask_price": 130000, "arv_estimate": 230000, "repair_estimate": 25000, "taxes": 2349},
+"recent_updates": [{"date": "2026-06-03", "note": "NEW LEAD: Alice Kempf forwarded contract assignment from Joe Homebuyer NE. 3BR/2BA townhouse, 1200 sqft, built 2005. Light cosmetic rehab, no HOA. Close on or before June 30. $10k non-refundable earnest money required."}],
+"action_items": [
+"Evaluate deal: $130k ask, $230k ARV, $25k repairs",
+"Schedule walkthrough via Tim Newcombe (617-202-2225)",
+"Determine if acquisition fits current portfolio"
+]
 }
 ]
 }
