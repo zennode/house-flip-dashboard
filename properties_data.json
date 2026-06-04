@@ -1,5 +1,5 @@
 {
-"last_updated": "2026-06-03T18:01:00-04:00",
+"last_updated": "2026-06-04T08:01:00-04:00",
 "properties": [
 {
 "address": "67 Willow St (Lane), Wales, MA",
@@ -21,7 +21,7 @@
 {"date": "2026-05-29", "note": "Alice sent additional PDF document for signing before closing"}
 ],
 "action_items": [
-"Confirm closing completed (was scheduled 5/29 - 5 DAYS PAST DUE)",
+"Confirm closing completed (was scheduled 5/29 - 6 DAYS PAST DUE)",
 "Review mobile home remodel estimate from Melissa (MK Creative)",
 "Bill of sale sent to Kevin Shippee for review"
 ]
@@ -54,7 +54,7 @@
 "action_items": [
 "Review payoff and discharge documents from David Burstein",
 "Resolve points discrepancy noted by Peter Houser",
-"Closing effective date June 19, 2026 (16 days)"
+"Closing effective date June 19, 2026 (15 days)"
 ]
 },
 {
@@ -133,7 +133,7 @@
 "Schedule mold remediation with licensed contractor",
 "Treat powder post beetles with FHA documentation",
 "Replace roof ridge vent",
-"Closing date 6/29/2026 (26 days away)"
+"Closing date 6/29/2026 (25 days away)"
 ]
 },
 {
@@ -374,7 +374,7 @@
 {"date": "2026-05-19", "note": "Matt rejected Hunter Foote latest offer"}
 ],
 "action_items": [
-"Follow up on eviction court outcome from May 28",
+"Follow up on eviction court outcome from May 28 (7 days ago)",
 "Await revised offer from Hunter Foote"
 ]
 },
@@ -394,7 +394,7 @@
 {"date": "2026-05-24", "note": "Attorney Kate confirms court date June 1 at 9am in Hadley"}
 ],
 "action_items": [
-"Court date was June 1 (2 days ago) - follow up on outcome",
+"Court date was June 1 (3 days ago) - follow up on outcome",
 "Coordinate with Kate on property management access via court agreement",
 "Schedule lock change and inspection after court resolution"
 ]
@@ -415,7 +415,7 @@
 {"date": "2026-05-27", "note": "Jessica scheduled insurance inspection for June 4 with Derek Boggi"}
 ],
 "action_items": [
-"Insurance inspection TOMORROW June 4 at 9:30 AM with Derek Boggi",
+"Insurance inspection TODAY June 4 at 9:30 AM with Derek Boggi",
 "Get list of affected suites from Sharon Gates before inspection",
 "Prepare property for Hartford insurance inspection"
 ]
