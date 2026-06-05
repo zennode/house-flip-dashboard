@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-04T18:01:00-04:00",
+  "last_updated": "2026-06-05T08:07:14-04:00",
   "properties": [
     {
       "id": "67-willow-st",
@@ -40,7 +40,7 @@
       "recent_updates": [
         {
           "date": "2026-06-01",
-          "note": "Closing overdue \u2014 confirm status with David Burstein. Originally scheduled late May."
+          "note": "Closing overdue — confirm status with David Burstein. Originally scheduled late May."
         },
         {
           "date": "2026-05-28",
@@ -48,7 +48,7 @@
         }
       ],
       "action_items": [
-        "URGENT: Closing 6 days past due \u2014 confirm status with David Burstein",
+        "URGENT: Closing 6 days past due — confirm status with David Burstein",
         "Get updated closing date from attorney"
       ]
     },
@@ -98,7 +98,7 @@
         }
       ],
       "action_items": [
-        "Closing June 19 (15 days) \u2014 review payoff docs",
+        "Closing June 19 (15 days) — review payoff docs",
         "Confirm closing time with David Burstein"
       ]
     },
@@ -148,7 +148,7 @@
         }
       ],
       "action_items": [
-        "URGENT: At risk of forfeiting escrow \u2014 contact David Burstein immediately",
+        "URGENT: At risk of forfeiting escrow — contact David Burstein immediately",
         "Resolve buyer financing contingency"
       ]
     },
@@ -256,7 +256,7 @@
       ],
       "action_items": [
         "Powder post beetle treatment scheduled next Tuesday (413 Pest Free)",
-        "Closing June 29 (25 days) \u2014 confirm treatment completion before closing",
+        "Closing June 29 (25 days) — confirm treatment completion before closing",
         "Get treatment certificate from Eric Kvarnstrom for closing docs"
       ]
     },
@@ -308,7 +308,7 @@
       ],
       "action_items": [
         "Awaiting window specs from Premiere Home Solutions",
-        "Slight crew delay \u2014 monitor progress",
+        "Slight crew delay — monitor progress",
         "Review scope and timeline with GC"
       ]
     },
@@ -968,8 +968,12 @@
       },
       "recent_updates": [
         {
+          "date": "2026-06-05",
+          "note": "Work order #42587 assigned to Randy on the 6/5 work-order list from Jessica Sicard."
+        },
+        {
           "date": "2026-06-01",
-          "note": "Court date was June 1 \u2014 follow up on outcome needed."
+          "note": "Court date was June 1 — follow up on outcome needed."
         },
         {
           "date": "2026-05-15",
@@ -980,7 +984,8 @@
         "Follow up on court outcome from June 1 hearing",
         "Coordinate with David Burstein on legal resolution",
         "Resume active marketing once legal matter resolved"
-      ]
+      ],
+      "source": "Email"
     },
     {
       "id": "60-shaker-rd",
@@ -1020,6 +1025,10 @@
       },
       "recent_updates": [
         {
+          "date": "2026-06-05",
+          "note": "Work order #43042 assigned to Barry on the 6/5 work-order list from Jessica Sicard."
+        },
+        {
           "date": "2026-06-04",
           "note": "Insurance inspection completed successfully. Affected suites: 5, 6, 15, plus public bathroom near elevator, hallway areas."
         },
@@ -1035,7 +1044,8 @@
       "action_items": [
         "Insurance inspection completed 6/4 - await Hartford report",
         "Follow up on roof repair recommendations from inspector"
-      ]
+      ],
+      "source": "Email"
     },
     {
       "id": "141-st-jerome-ave",
@@ -1329,7 +1339,7 @@
       "recent_updates": [
         {
           "date": "2026-05-06",
-          "note": "Rural property. Comps are thin \u2014 need broader search."
+          "note": "Rural property. Comps are thin — need broader search."
         }
       ],
       "action_items": [
