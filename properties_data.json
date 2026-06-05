@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-05T08:07:14-04:00",
+  "last_updated": "2026-06-05T18:15:15-04:00",
   "properties": [
     {
       "id": "67-willow-st",
@@ -40,7 +40,7 @@
       "recent_updates": [
         {
           "date": "2026-06-01",
-          "note": "Closing overdue — confirm status with David Burstein. Originally scheduled late May."
+          "note": "Closing overdue \u2014 confirm status with David Burstein. Originally scheduled late May."
         },
         {
           "date": "2026-05-28",
@@ -48,7 +48,7 @@
         }
       ],
       "action_items": [
-        "URGENT: Closing 6 days past due — confirm status with David Burstein",
+        "URGENT: Closing 6 days past due \u2014 confirm status with David Burstein",
         "Get updated closing date from attorney"
       ]
     },
@@ -98,7 +98,7 @@
         }
       ],
       "action_items": [
-        "Closing June 19 (15 days) — review payoff docs",
+        "Closing June 19 (15 days) \u2014 review payoff docs",
         "Confirm closing time with David Burstein"
       ]
     },
@@ -148,7 +148,7 @@
         }
       ],
       "action_items": [
-        "URGENT: At risk of forfeiting escrow — contact David Burstein immediately",
+        "URGENT: At risk of forfeiting escrow \u2014 contact David Burstein immediately",
         "Resolve buyer financing contingency"
       ]
     },
@@ -256,7 +256,7 @@
       ],
       "action_items": [
         "Powder post beetle treatment scheduled next Tuesday (413 Pest Free)",
-        "Closing June 29 (25 days) — confirm treatment completion before closing",
+        "Closing June 29 (25 days) \u2014 confirm treatment completion before closing",
         "Get treatment certificate from Eric Kvarnstrom for closing docs"
       ]
     },
@@ -308,7 +308,7 @@
       ],
       "action_items": [
         "Awaiting window specs from Premiere Home Solutions",
-        "Slight crew delay — monitor progress",
+        "Slight crew delay \u2014 monitor progress",
         "Review scope and timeline with GC"
       ]
     },
@@ -620,20 +620,18 @@
       "city": "Sheffield",
       "state": "MA",
       "status": "active",
-      "current_milestone": "Inspections",
+      "current_milestone": "Listed",
       "milestones": [
         "Acquired",
         "Demo/Rehab",
         "Listed",
         "Under Contract",
-        "Inspections",
         "Closing"
       ],
       "completed_milestones": [
         "Acquired",
         "Demo/Rehab",
-        "Listed",
-        "Under Contract"
+        "Listed"
       ],
       "contacts": [
         {
@@ -643,6 +641,10 @@
         {
           "name": "Gary Fuls",
           "role": "Buyer's Realtor"
+        },
+        {
+          "name": "Gabriela Dearstyne",
+          "role": "Seller Agent (Kempf-Vanderburgh)"
         },
         {
           "name": "Bobby LeDoux",
@@ -670,6 +672,16 @@
       },
       "recent_updates": [
         {
+          "date": "2026-06-05",
+          "source": "dotloop",
+          "note": "DEAL TERMINATED: Seller's agent (Gabriela Dearstyne, Kempf-Vanderburgh) shared a SIGNED Purchase & Sale Agreement Termination and Release of Escrow via dotloop at ~4:08 PM. Buyer walked over the boiler/Title V dispute; escrow deposit being released. Property reverts to market."
+        },
+        {
+          "date": "2026-06-05",
+          "source": "Email",
+          "note": "Buyer (Jon Hollman/Jmax, via Gary Fuls) sent a revised offer / proposed P&S addendum demanding seller complete overdue Title V and replace the 120MBH oil boiler, 40-gal electric water heater, and damaged well-tank fittings with new, permitted, code-compliant work before the inspection contingency deadline. Set a hard 4 PM 6/5 deadline to reach terms or walk."
+        },
+        {
           "date": "2026-06-04",
           "note": "Buyer (Jon Hollman/Jmax) requesting $30K concession for boiler and egress repairs. Attached inspection report and Viessman estimate. Threatened Article 7 termination."
         },
@@ -687,10 +699,10 @@
         }
       ],
       "action_items": [
-        "ACTIVE NEGOTIATION: Buyer requesting $30K concession - counter with ~$6K credit per Alice's suggestion",
-        "Get boiler/hot water repair quotes from contractors ASAP",
-        "Monitor potential red-tag situation from buyer's plumber",
-        "Call Alice Kempf to discuss strategy"
+        "Counter-sign the P&S Termination & Release of Escrow in dotloop to release the buyer's deposit",
+        "Relist 1874 Home Rd \u2014 set new listing strategy with Alice Kempf",
+        "Obtain firm boiler / Title V remediation quotes before re-marketing to pre-empt the next buyer's objections",
+        "Debrief with Jessica/Alice on whether to remediate before relisting or sell as-is at adjusted price"
       ]
     },
     {
@@ -901,6 +913,10 @@
         {
           "name": "David Burstein",
           "role": "Closing Attorney"
+        },
+        {
+          "name": "Jessica Sicard",
+          "role": "Project Manager"
         }
       ],
       "financials": {
@@ -909,6 +925,10 @@
         "arv": 450000
       },
       "recent_updates": [
+        {
+          "date": "2026-06-05",
+          "note": "Matt confirmed to Jessica: closing targeted for end of June, awaiting buyer to sign P&S back. Pay the $100 code/painting fine for now; sale to address outstanding building/code violations."
+        },
         {
           "date": "2026-06-04",
           "note": "Ryan O'Hara forwarded Hunter Foote (Vanderburgh House) Best & Final offer."
@@ -923,8 +943,9 @@
         }
       ],
       "action_items": [
-        "Offer accepted - awaiting formal P&S from Hunter Foote/Vanderburgh",
+        "Closing targeted end of June \u2014 awaiting buyer's countersigned P&S",
         "Confirm all lawsuits and liability dismissed per agreement",
+        "Pay $100 fine now; ensure sale addresses outstanding code violations",
         "Coordinate with Ryan O'Hara on closing timeline"
       ]
     },
@@ -956,6 +977,14 @@
           "role": "Attorney"
         },
         {
+          "name": "Katharine Higgins-Shea",
+          "role": "Litigation Attorney (Lyon & Fitzpatrick)"
+        },
+        {
+          "name": "Kevin Shippee",
+          "role": "Partner/Owner"
+        },
+        {
           "name": "Jessica Sicard",
           "role": "Project Manager"
         }
@@ -969,20 +998,20 @@
       "recent_updates": [
         {
           "date": "2026-06-05",
-          "note": "Work order #42587 assigned to Randy on the 6/5 work-order list from Jessica Sicard."
+          "note": "Occupant's court answer received (attorney Higgins-Shea). Randy granted walkthrough access by an adult male occupant; identity unclear. Counsel advises handling in court \u2014 no further direct contact. Work order #42587 assigned to Randy on 6/5 list."
         },
         {
           "date": "2026-06-01",
-          "note": "Court date was June 1 — follow up on outcome needed."
+          "note": "Court date was June 1 \u2014 follow up on outcome needed."
         },
         {
           "date": "2026-05-15",
-          "note": "Listed at $389,000. Legal matter pending regarding property boundary dispute."
+          "note": "Listed at $389,000. Legal matter pending regarding property boundary/occupancy dispute."
         }
       ],
       "action_items": [
-        "Follow up on court outcome from June 1 hearing",
-        "Coordinate with David Burstein on legal resolution",
+        "Eviction/occupancy litigation proceeding \u2014 coordinate with Higgins-Shea (Lyon & Fitzpatrick)",
+        "Tell Russ to stop contacting occupant per counsel",
         "Resume active marketing once legal matter resolved"
       ],
       "source": "Email"
@@ -1339,7 +1368,7 @@
       "recent_updates": [
         {
           "date": "2026-05-06",
-          "note": "Rural property. Comps are thin — need broader search."
+          "note": "Rural property. Comps are thin \u2014 need broader search."
         }
       ],
       "action_items": [
