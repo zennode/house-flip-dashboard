@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-06T08:05:00-04:00",
+  "last_updated": "2026-06-06T18:04:11-04:00",
   "properties": [
     {
       "id": "67-willow-st",
@@ -678,6 +678,11 @@
         {
           "date": "2026-06-06",
           "source": "Email",
+          "note": "Alice Kempf (5:40 PM) reports ANOTHER interested buyer for the property. Asking David Burstein/Russ for the Title V completion date and whether a survey exists from the original purchase — new buyer wants to see the boundary (property abuts state land / Appalachian Trail)."
+        },
+        {
+          "date": "2026-06-06",
+          "source": "Email",
           "note": "Alice Kempf confirmed to closing attorney David Burstein that the signed termination is in hand — 1874 Home Rd is officially BACK ON THE MARKET. Title V (septic) is expected to be completed this week so the property is ready for the next buyer."
         },
         {
@@ -713,6 +718,8 @@
         }
       ],
       "action_items": [
+        "Confirm Title V (septic) completion date this week and relay to Alice for the new buyer",
+        "David/Matt: locate original-purchase survey showing the boundary vs. state land/Appalachian Trail",
         "Termination fully signed in dotloop — deal officially dead; buyer deposit released",
         "Complete Title V / septic inspection this week (Russ) so the property is buyer-ready",
         "Relist 1874 Home Rd with Alice Kempf — set new pricing / marketing strategy",
