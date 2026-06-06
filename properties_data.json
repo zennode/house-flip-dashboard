@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-05T18:15:15-04:00",
+  "last_updated": "2026-06-06T08:05:00-04:00",
   "properties": [
     {
       "id": "67-willow-st",
@@ -40,7 +40,7 @@
       "recent_updates": [
         {
           "date": "2026-06-01",
-          "note": "Closing overdue \u2014 confirm status with David Burstein. Originally scheduled late May."
+          "note": "Closing overdue — confirm status with David Burstein. Originally scheduled late May."
         },
         {
           "date": "2026-05-28",
@@ -48,7 +48,7 @@
         }
       ],
       "action_items": [
-        "URGENT: Closing 6 days past due \u2014 confirm status with David Burstein",
+        "URGENT: Closing 6 days past due — confirm status with David Burstein",
         "Get updated closing date from attorney"
       ]
     },
@@ -98,7 +98,7 @@
         }
       ],
       "action_items": [
-        "Closing June 19 (15 days) \u2014 review payoff docs",
+        "Closing June 19 (15 days) — review payoff docs",
         "Confirm closing time with David Burstein"
       ]
     },
@@ -148,7 +148,7 @@
         }
       ],
       "action_items": [
-        "URGENT: At risk of forfeiting escrow \u2014 contact David Burstein immediately",
+        "URGENT: At risk of forfeiting escrow — contact David Burstein immediately",
         "Resolve buyer financing contingency"
       ]
     },
@@ -256,7 +256,7 @@
       ],
       "action_items": [
         "Powder post beetle treatment scheduled next Tuesday (413 Pest Free)",
-        "Closing June 29 (25 days) \u2014 confirm treatment completion before closing",
+        "Closing June 29 (25 days) — confirm treatment completion before closing",
         "Get treatment certificate from Eric Kvarnstrom for closing docs"
       ]
     },
@@ -308,7 +308,7 @@
       ],
       "action_items": [
         "Awaiting window specs from Premiere Home Solutions",
-        "Slight crew delay \u2014 monitor progress",
+        "Slight crew delay — monitor progress",
         "Review scope and timeline with GC"
       ]
     },
@@ -661,6 +661,10 @@
         {
           "name": "Jessica Sicard",
           "role": "Project Manager"
+        },
+        {
+          "name": "David Burstein",
+          "role": "Closing Attorney"
         }
       ],
       "financials": {
@@ -671,6 +675,16 @@
         "prior_price_reduction": 20000
       },
       "recent_updates": [
+        {
+          "date": "2026-06-06",
+          "source": "Email",
+          "note": "Alice Kempf confirmed to closing attorney David Burstein that the signed termination is in hand — 1874 Home Rd is officially BACK ON THE MARKET. Title V (septic) is expected to be completed this week so the property is ready for the next buyer."
+        },
+        {
+          "date": "2026-06-05",
+          "source": "dotloop",
+          "note": "Matt counter-signed the Purchase & Sale Agreement Termination and Release of Escrow in dotloop (evening 6/5), completing the mutual termination. Buyer's escrow deposit released."
+        },
         {
           "date": "2026-06-05",
           "source": "dotloop",
@@ -699,11 +713,13 @@
         }
       ],
       "action_items": [
-        "Counter-sign the P&S Termination & Release of Escrow in dotloop to release the buyer's deposit",
-        "Relist 1874 Home Rd \u2014 set new listing strategy with Alice Kempf",
-        "Obtain firm boiler / Title V remediation quotes before re-marketing to pre-empt the next buyer's objections",
-        "Debrief with Jessica/Alice on whether to remediate before relisting or sell as-is at adjusted price"
-      ]
+        "Termination fully signed in dotloop — deal officially dead; buyer deposit released",
+        "Complete Title V / septic inspection this week (Russ) so the property is buyer-ready",
+        "Relist 1874 Home Rd with Alice Kempf — set new pricing / marketing strategy",
+        "Obtain firm boiler & mechanical remediation quotes to pre-empt the next buyer's objections",
+        "Provide buyer's-counsel contact to David Burstein once a new buyer materializes (prior buyer never named counsel)"
+      ],
+      "source": "dotloop"
     },
     {
       "id": "1-richmond-ln",
@@ -943,7 +959,7 @@
         }
       ],
       "action_items": [
-        "Closing targeted end of June \u2014 awaiting buyer's countersigned P&S",
+        "Closing targeted end of June — awaiting buyer's countersigned P&S",
         "Confirm all lawsuits and liability dismissed per agreement",
         "Pay $100 fine now; ensure sale addresses outstanding code violations",
         "Coordinate with Ryan O'Hara on closing timeline"
@@ -998,11 +1014,11 @@
       "recent_updates": [
         {
           "date": "2026-06-05",
-          "note": "Occupant's court answer received (attorney Higgins-Shea). Randy granted walkthrough access by an adult male occupant; identity unclear. Counsel advises handling in court \u2014 no further direct contact. Work order #42587 assigned to Randy on 6/5 list."
+          "note": "Occupant's court answer received (attorney Higgins-Shea). Randy granted walkthrough access by an adult male occupant; identity unclear. Counsel advises handling in court — no further direct contact. Work order #42587 assigned to Randy on 6/5 list."
         },
         {
           "date": "2026-06-01",
-          "note": "Court date was June 1 \u2014 follow up on outcome needed."
+          "note": "Court date was June 1 — follow up on outcome needed."
         },
         {
           "date": "2026-05-15",
@@ -1010,7 +1026,7 @@
         }
       ],
       "action_items": [
-        "Eviction/occupancy litigation proceeding \u2014 coordinate with Higgins-Shea (Lyon & Fitzpatrick)",
+        "Eviction/occupancy litigation proceeding — coordinate with Higgins-Shea (Lyon & Fitzpatrick)",
         "Tell Russ to stop contacting occupant per counsel",
         "Resume active marketing once legal matter resolved"
       ],
@@ -1368,7 +1384,7 @@
       "recent_updates": [
         {
           "date": "2026-05-06",
-          "note": "Rural property. Comps are thin \u2014 need broader search."
+          "note": "Rural property. Comps are thin — need broader search."
         }
       ],
       "action_items": [
