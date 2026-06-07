@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-06T18:04:11-04:00",
+  "last_updated": "2026-06-07T08:02:00-04:00",
   "properties": [
     {
       "id": "67-willow-st",
@@ -8,44 +8,16 @@
       "state": "MA",
       "status": "active",
       "current_milestone": "Closing",
-      "milestones": [
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract"
-      ],
+      "milestones": ["Acquired", "Demo/Rehab", "Listed", "Under Contract", "Closing"],
+      "completed_milestones": ["Acquired", "Demo/Rehab", "Listed", "Under Contract"],
       "contacts": [
-        {
-          "name": "David Burstein",
-          "role": "Closing Attorney"
-        },
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        }
+        {"name": "David Burstein", "role": "Closing Attorney"},
+        {"name": "Jessica Sicard", "role": "Project Manager"}
       ],
-      "financials": {
-        "purchase_price": 95000,
-        "rehab_cost": 85000,
-        "listing_price": 289000,
-        "arv": 289000
-      },
+      "financials": {"purchase_price": 95000, "rehab_cost": 85000, "listing_price": 289000, "arv": 289000},
       "recent_updates": [
-        {
-          "date": "2026-06-01",
-          "note": "Closing overdue — confirm status with David Burstein. Originally scheduled late May."
-        },
-        {
-          "date": "2026-05-28",
-          "note": "Final walkthrough completed. All punch list items resolved."
-        }
+        {"date": "2026-06-01", "note": "Closing overdue — confirm status with David Burstein. Originally scheduled late May."},
+        {"date": "2026-05-28", "note": "Final walkthrough completed. All punch list items resolved."}
       ],
       "action_items": [
         "URGENT: Closing 6 days past due — confirm status with David Burstein",
@@ -59,43 +31,16 @@
       "state": "MA",
       "status": "active",
       "current_milestone": "Under Contract",
-      "milestones": [
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [
-        "Acquired",
-        "Demo/Rehab",
-        "Listed"
-      ],
+      "milestones": ["Acquired", "Demo/Rehab", "Listed", "Under Contract", "Closing"],
+      "completed_milestones": ["Acquired", "Demo/Rehab", "Listed"],
       "contacts": [
-        {
-          "name": "David Burstein",
-          "role": "Closing Attorney"
-        },
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        }
+        {"name": "David Burstein", "role": "Closing Attorney"},
+        {"name": "Jessica Sicard", "role": "Project Manager"}
       ],
-      "financials": {
-        "purchase_price": 110000,
-        "rehab_cost": 95000,
-        "listing_price": 319000,
-        "arv": 319000
-      },
+      "financials": {"purchase_price": 110000, "rehab_cost": 95000, "listing_price": 319000, "arv": 319000},
       "recent_updates": [
-        {
-          "date": "2026-05-30",
-          "note": "Under contract. Closing scheduled June 19, 2026."
-        },
-        {
-          "date": "2026-05-25",
-          "note": "Accepted offer. P&S signed."
-        }
+        {"date": "2026-05-30", "note": "Under contract. Closing scheduled June 19, 2026."},
+        {"date": "2026-05-25", "note": "Accepted offer. P&S signed."}
       ],
       "action_items": [
         "Closing June 19 (15 days) — review payoff docs",
@@ -109,43 +54,16 @@
       "state": "MA",
       "status": "active",
       "current_milestone": "Under Contract",
-      "milestones": [
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [
-        "Acquired",
-        "Demo/Rehab",
-        "Listed"
-      ],
+      "milestones": ["Acquired", "Demo/Rehab", "Listed", "Under Contract", "Closing"],
+      "completed_milestones": ["Acquired", "Demo/Rehab", "Listed"],
       "contacts": [
-        {
-          "name": "David Burstein",
-          "role": "Closing Attorney"
-        },
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        }
+        {"name": "David Burstein", "role": "Closing Attorney"},
+        {"name": "Jessica Sicard", "role": "Project Manager"}
       ],
-      "financials": {
-        "purchase_price": 85000,
-        "rehab_cost": 70000,
-        "listing_price": 249000,
-        "arv": 249000
-      },
+      "financials": {"purchase_price": 85000, "rehab_cost": 70000, "listing_price": 249000, "arv": 249000},
       "recent_updates": [
-        {
-          "date": "2026-06-01",
-          "note": "URGENT: David Burstein warned of escrow forfeiture risk if closing conditions not met soon."
-        },
-        {
-          "date": "2026-05-20",
-          "note": "Under contract. Buyer financing contingency still open."
-        }
+        {"date": "2026-06-01", "note": "URGENT: David Burstein warned of escrow forfeiture risk if closing conditions not met soon."},
+        {"date": "2026-05-20", "note": "Under contract. Buyer financing contingency still open."}
       ],
       "action_items": [
         "URGENT: At risk of forfeiting escrow — contact David Burstein immediately",
@@ -159,42 +77,16 @@
       "state": "MA",
       "status": "active",
       "current_milestone": "Listed",
-      "milestones": [
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [
-        "Acquired",
-        "Demo/Rehab"
-      ],
+      "milestones": ["Acquired", "Demo/Rehab", "Listed", "Under Contract", "Closing"],
+      "completed_milestones": ["Acquired", "Demo/Rehab"],
       "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Listing Agent"
-        },
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        }
+        {"name": "Alice Kempf", "role": "Listing Agent"},
+        {"name": "Jessica Sicard", "role": "Project Manager"}
       ],
-      "financials": {
-        "purchase_price": 120000,
-        "rehab_cost": 110000,
-        "listing_price": 369000,
-        "arv": 369000
-      },
+      "financials": {"purchase_price": 120000, "rehab_cost": 110000, "listing_price": 369000, "arv": 369000},
       "recent_updates": [
-        {
-          "date": "2026-05-15",
-          "note": "Listed on MLS at $369,000."
-        },
-        {
-          "date": "2026-05-01",
-          "note": "Rehab complete. Ready for listing photos."
-        }
+        {"date": "2026-05-15", "note": "Listed on MLS at $369,000."},
+        {"date": "2026-05-01", "note": "Rehab complete. Ready for listing photos."}
       ],
       "action_items": [
         "Monitor showings and feedback from Alice",
@@ -208,51 +100,18 @@
       "state": "MA",
       "status": "active",
       "current_milestone": "Under Contract",
-      "milestones": [
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [
-        "Acquired",
-        "Demo/Rehab",
-        "Listed"
-      ],
+      "milestones": ["Acquired", "Demo/Rehab", "Listed", "Under Contract", "Closing"],
+      "completed_milestones": ["Acquired", "Demo/Rehab", "Listed"],
       "contacts": [
-        {
-          "name": "David Burstein",
-          "role": "Closing Attorney"
-        },
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        },
-        {
-          "name": "Eric Kvarnstrom",
-          "role": "Pest Control (413 Pest Free)"
-        }
+        {"name": "David Burstein", "role": "Closing Attorney"},
+        {"name": "Jessica Sicard", "role": "Project Manager"},
+        {"name": "Eric Kvarnstrom", "role": "Pest Control (413 Pest Free)"}
       ],
-      "financials": {
-        "purchase_price": 105000,
-        "rehab_cost": 60000,
-        "listing_price": 259000,
-        "arv": 259000
-      },
+      "financials": {"purchase_price": 105000, "rehab_cost": 60000, "listing_price": 259000, "arv": 259000},
       "recent_updates": [
-        {
-          "date": "2026-06-04",
-          "note": "Powder post beetle treatment set up for next Tuesday per Jessica. Eric Kvarnstrom (413 Pest Free) coordinating."
-        },
-        {
-          "date": "2026-05-28",
-          "note": "Under contract. Closing scheduled June 29, 2026."
-        },
-        {
-          "date": "2026-05-20",
-          "note": "Pest inspection revealed powder post beetles. Treatment required before closing."
-        }
+        {"date": "2026-06-04", "note": "Powder post beetle treatment set up for next Tuesday per Jessica. Eric Kvarnstrom (413 Pest Free) coordinating."},
+        {"date": "2026-05-28", "note": "Under contract. Closing scheduled June 29, 2026."},
+        {"date": "2026-05-20", "note": "Pest inspection revealed powder post beetles. Treatment required before closing."}
       ],
       "action_items": [
         "Powder post beetle treatment scheduled next Tuesday (413 Pest Free)",
@@ -267,44 +126,17 @@
       "state": "MA",
       "status": "active",
       "current_milestone": "Demo/Rehab",
-      "milestones": [
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [
-        "Acquired"
-      ],
+      "milestones": ["Acquired", "Demo/Rehab", "Listed", "Under Contract", "Closing"],
+      "completed_milestones": ["Acquired"],
       "contacts": [
-        {
-          "name": "Premiere Home Solutions",
-          "role": "General Contractor"
-        },
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        }
+        {"name": "Premiere Home Solutions", "role": "General Contractor"},
+        {"name": "Jessica Sicard", "role": "Project Manager"}
       ],
-      "financials": {
-        "purchase_price": 75000,
-        "rehab_estimate_range": "80000-100000",
-        "arv": 280000
-      },
+      "financials": {"purchase_price": 75000, "rehab_estimate_range": "80000-100000", "arv": 280000},
       "recent_updates": [
-        {
-          "date": "2026-06-04",
-          "note": "Premiere Home Solutions will have window specs shortly. One crew member out (having a daughter), slight delay."
-        },
-        {
-          "date": "2026-06-02",
-          "note": "Dumpster delivered. Demo underway."
-        },
-        {
-          "date": "2026-05-28",
-          "note": "GC mobilized. Scope includes windows, kitchen, baths, flooring."
-        }
+        {"date": "2026-06-04", "note": "Premiere Home Solutions will have window specs shortly. One crew member out (having a daughter), slight delay."},
+        {"date": "2026-06-02", "note": "Dumpster delivered. Demo underway."},
+        {"date": "2026-05-28", "note": "GC mobilized. Scope includes windows, kitchen, baths, flooring."}
       ],
       "action_items": [
         "Awaiting window specs from Premiere Home Solutions",
@@ -319,37 +151,14 @@
       "state": "MA",
       "status": "active",
       "current_milestone": "Demo/Rehab",
-      "milestones": [
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [
-        "Acquired"
-      ],
-      "contacts": [
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        }
-      ],
-      "financials": {
-        "purchase_price": 65000,
-        "rehab_estimate_range": "70000-90000",
-        "arv": 240000
-      },
+      "milestones": ["Acquired", "Demo/Rehab", "Listed", "Under Contract", "Closing"],
+      "completed_milestones": ["Acquired"],
+      "contacts": [{"name": "Jessica Sicard", "role": "Project Manager"}],
+      "financials": {"purchase_price": 65000, "rehab_estimate_range": "70000-90000", "arv": 240000},
       "recent_updates": [
-        {
-          "date": "2026-05-20",
-          "note": "Rehab in progress. On schedule."
-        }
+        {"date": "2026-05-20", "note": "Rehab in progress. On schedule."}
       ],
-      "action_items": [
-        "Monitor rehab progress",
-        "Get timeline update from GC"
-      ]
+      "action_items": ["Monitor rehab progress", "Get timeline update from GC"]
     },
     {
       "id": "297-breckwood",
@@ -358,37 +167,14 @@
       "state": "MA",
       "status": "active",
       "current_milestone": "Demo/Rehab",
-      "milestones": [
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [
-        "Acquired"
-      ],
-      "contacts": [
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        }
-      ],
-      "financials": {
-        "purchase_price": 80000,
-        "rehab_estimate_range": "75000-95000",
-        "arv": 260000
-      },
+      "milestones": ["Acquired", "Demo/Rehab", "Listed", "Under Contract", "Closing"],
+      "completed_milestones": ["Acquired"],
+      "contacts": [{"name": "Jessica Sicard", "role": "Project Manager"}],
+      "financials": {"purchase_price": 80000, "rehab_estimate_range": "75000-95000", "arv": 260000},
       "recent_updates": [
-        {
-          "date": "2026-05-18",
-          "note": "Demo complete. Framing started."
-        }
+        {"date": "2026-05-18", "note": "Demo complete. Framing started."}
       ],
-      "action_items": [
-        "Monitor framing progress",
-        "Schedule rough inspections"
-      ]
+      "action_items": ["Monitor framing progress", "Schedule rough inspections"]
     },
     {
       "id": "29-chestnut",
@@ -397,37 +183,14 @@
       "state": "MA",
       "status": "active",
       "current_milestone": "Demo/Rehab",
-      "milestones": [
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [
-        "Acquired"
-      ],
-      "contacts": [
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        }
-      ],
-      "financials": {
-        "purchase_price": 70000,
-        "rehab_estimate_range": "65000-80000",
-        "arv": 235000
-      },
+      "milestones": ["Acquired", "Demo/Rehab", "Listed", "Under Contract", "Closing"],
+      "completed_milestones": ["Acquired"],
+      "contacts": [{"name": "Jessica Sicard", "role": "Project Manager"}],
+      "financials": {"purchase_price": 70000, "rehab_estimate_range": "65000-80000", "arv": 235000},
       "recent_updates": [
-        {
-          "date": "2026-05-25",
-          "note": "Oil boiler recently replaced (~$7K). Rehab progressing."
-        }
+        {"date": "2026-05-25", "note": "Oil boiler recently replaced (~$7K). Rehab progressing."}
       ],
-      "action_items": [
-        "Monitor rehab timeline",
-        "Confirm all permits pulled"
-      ]
+      "action_items": ["Monitor rehab timeline", "Confirm all permits pulled"]
     },
     {
       "id": "4-school-st",
@@ -436,43 +199,17 @@
       "state": "MA",
       "status": "active",
       "current_milestone": "Listed",
-      "milestones": [
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [
-        "Acquired",
-        "Demo/Rehab"
-      ],
+      "milestones": ["Acquired", "Demo/Rehab", "Listed", "Under Contract", "Closing"],
+      "completed_milestones": ["Acquired", "Demo/Rehab"],
       "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Listing Agent"
-        },
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        }
+        {"name": "Alice Kempf", "role": "Listing Agent"},
+        {"name": "Jessica Sicard", "role": "Project Manager"}
       ],
-      "financials": {
-        "purchase_price": 90000,
-        "rehab_cost": 75000,
-        "listing_price": 279000,
-        "arv": 279000
-      },
+      "financials": {"purchase_price": 90000, "rehab_cost": 75000, "listing_price": 279000, "arv": 279000},
       "recent_updates": [
-        {
-          "date": "2026-05-10",
-          "note": "Listed at $279,000. Showings scheduled."
-        }
+        {"date": "2026-05-10", "note": "Listed at $279,000. Showings scheduled."}
       ],
-      "action_items": [
-        "Follow up with Alice on showing activity",
-        "Review offers as they come in"
-      ]
+      "action_items": ["Follow up with Alice on showing activity", "Review offers as they come in"]
     },
     {
       "id": "70-town-hill-road",
@@ -481,37 +218,14 @@
       "state": "MA",
       "status": "active",
       "current_milestone": "Demo/Rehab",
-      "milestones": [
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [
-        "Acquired"
-      ],
-      "contacts": [
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        }
-      ],
-      "financials": {
-        "purchase_price": 115000,
-        "rehab_estimate_range": "90000-115000",
-        "arv": 350000
-      },
+      "milestones": ["Acquired", "Demo/Rehab", "Listed", "Under Contract", "Closing"],
+      "completed_milestones": ["Acquired"],
+      "contacts": [{"name": "Jessica Sicard", "role": "Project Manager"}],
+      "financials": {"purchase_price": 115000, "rehab_estimate_range": "90000-115000", "arv": 350000},
       "recent_updates": [
-        {
-          "date": "2026-05-22",
-          "note": "Rehab underway. Siding and roof work in progress."
-        }
+        {"date": "2026-05-22", "note": "Rehab underway. Siding and roof work in progress."}
       ],
-      "action_items": [
-        "Monitor exterior work completion",
-        "Schedule interior work crews"
-      ]
+      "action_items": ["Monitor exterior work completion", "Schedule interior work crews"]
     },
     {
       "id": "40-roland-st",
@@ -520,54 +234,18 @@
       "state": "MA",
       "status": "closed",
       "current_milestone": "Closed",
-      "milestones": [
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing",
-        "Closed"
-      ],
-      "completed_milestones": [
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing",
-        "Closed"
-      ],
+      "milestones": ["Acquired", "Demo/Rehab", "Listed", "Under Contract", "Closing", "Closed"],
+      "completed_milestones": ["Acquired", "Demo/Rehab", "Listed", "Under Contract", "Closing", "Closed"],
       "contacts": [
-        {
-          "name": "David Burstein",
-          "role": "Closing Attorney"
-        },
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        },
-        {
-          "name": "Liz Duarte",
-          "role": "Bookkeeper"
-        },
-        {
-          "name": "Will McGuire",
-          "role": "Finance/Reconciliation"
-        }
+        {"name": "David Burstein", "role": "Closing Attorney"},
+        {"name": "Jessica Sicard", "role": "Project Manager"},
+        {"name": "Liz Duarte", "role": "Bookkeeper"},
+        {"name": "Will McGuire", "role": "Finance/Reconciliation"}
       ],
-      "financials": {
-        "purchase_price": 85000,
-        "rehab_cost": 72000,
-        "sale_price": 265000
-      },
+      "financials": {"purchase_price": 85000, "rehab_cost": 72000, "sale_price": 265000},
       "recent_updates": [
-        {
-          "date": "2026-06-04",
-          "note": "Final reconciliation in progress. Bookkeeper Liz Duarte asking about insurance costs and management fees. Chris confirmed no mgmt fees per Matt's request. Will McGuire tracking final bills."
-        },
-        {
-          "date": "2026-05-15",
-          "note": "Closed successfully."
-        }
+        {"date": "2026-06-04", "note": "Final reconciliation in progress. Bookkeeper Liz Duarte asking about insurance costs and management fees. Chris confirmed no mgmt fees per Matt's request. Will McGuire tracking final bills."},
+        {"date": "2026-05-15", "note": "Closed successfully."}
       ],
       "action_items": [
         "Complete final reconciliation with Liz Duarte",
@@ -582,37 +260,14 @@
       "state": "MA",
       "status": "active",
       "current_milestone": "Demo/Rehab",
-      "milestones": [
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [
-        "Acquired"
-      ],
-      "contacts": [
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        }
-      ],
-      "financials": {
-        "purchase_price": 60000,
-        "rehab_estimate_range": "65000-85000",
-        "arv": 230000
-      },
+      "milestones": ["Acquired", "Demo/Rehab", "Listed", "Under Contract", "Closing"],
+      "completed_milestones": ["Acquired"],
+      "contacts": [{"name": "Jessica Sicard", "role": "Project Manager"}],
+      "financials": {"purchase_price": 60000, "rehab_estimate_range": "65000-85000", "arv": 230000},
       "recent_updates": [
-        {
-          "date": "2026-05-19",
-          "note": "Demo complete. Starting mechanical rough-ins."
-        }
+        {"date": "2026-05-19", "note": "Demo complete. Starting mechanical rough-ins."}
       ],
-      "action_items": [
-        "Schedule plumbing and electrical rough inspections",
-        "Order kitchen and bath fixtures"
-      ]
+      "action_items": ["Schedule plumbing and electrical rough inspections", "Order kitchen and bath fixtures"]
     },
     {
       "id": "1874-home-rd",
@@ -621,112 +276,71 @@
       "state": "MA",
       "status": "active",
       "current_milestone": "Listed",
-      "milestones": [
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [
-        "Acquired",
-        "Demo/Rehab",
-        "Listed"
-      ],
+      "milestones": ["Acquired", "Demo/Rehab", "Listed", "Under Contract", "Closing"],
+      "completed_milestones": ["Acquired", "Demo/Rehab", "Listed"],
       "contacts": [
-        {
-          "name": "Jon Hollman",
-          "role": "Buyer Inspector (Jmax Consulting)"
-        },
-        {
-          "name": "Gary Fuls",
-          "role": "Buyer's Realtor"
-        },
-        {
-          "name": "Gabriela Dearstyne",
-          "role": "Seller Agent (Kempf-Vanderburgh)"
-        },
-        {
-          "name": "Bobby LeDoux",
-          "role": "Forwarded Contact"
-        },
-        {
-          "name": "Melissa Vanderburgh",
-          "role": "Team Leader KVR"
-        },
-        {
-          "name": "Alice Kempf",
-          "role": "Listing Agent"
-        },
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        },
-        {
-          "name": "David Burstein",
-          "role": "Closing Attorney"
-        }
+        {"name": "Jon Hollman", "role": "Buyer Inspector (Jmax Consulting)"},
+        {"name": "Gary Fuls", "role": "Buyer's Realtor"},
+        {"name": "Gabriela Dearstyne", "role": "Seller Agent (Kempf-Vanderburgh)"},
+        {"name": "Bobby LeDoux", "role": "Forwarded Contact"},
+        {"name": "Melissa Vanderburgh", "role": "Team Leader KVR"},
+        {"name": "Alice Kempf", "role": "Listing Agent"},
+        {"name": "Jessica Sicard", "role": "Project Manager"},
+        {"name": "David Burstein", "role": "Closing Attorney"}
       ],
-      "financials": {
-        "listing_price": 499000,
-        "arv": 700000,
-        "rehab_estimate_range": "100000-130000",
-        "buyer_concession_request": 30000,
-        "prior_price_reduction": 20000
-      },
+      "financials": {"listing_price": 499000, "arv": 700000, "rehab_estimate_range": "100000-130000", "buyer_concession_request": 30000, "prior_price_reduction": 20000},
       "recent_updates": [
-        {
-          "date": "2026-06-06",
-          "source": "Email",
-          "note": "Alice Kempf (5:40 PM) reports ANOTHER interested buyer for the property. Asking David Burstein/Russ for the Title V completion date and whether a survey exists from the original purchase — new buyer wants to see the boundary (property abuts state land / Appalachian Trail)."
-        },
-        {
-          "date": "2026-06-06",
-          "source": "Email",
-          "note": "Alice Kempf confirmed to closing attorney David Burstein that the signed termination is in hand — 1874 Home Rd is officially BACK ON THE MARKET. Title V (septic) is expected to be completed this week so the property is ready for the next buyer."
-        },
-        {
-          "date": "2026-06-05",
-          "source": "dotloop",
-          "note": "Matt counter-signed the Purchase & Sale Agreement Termination and Release of Escrow in dotloop (evening 6/5), completing the mutual termination. Buyer's escrow deposit released."
-        },
-        {
-          "date": "2026-06-05",
-          "source": "dotloop",
-          "note": "DEAL TERMINATED: Seller's agent (Gabriela Dearstyne, Kempf-Vanderburgh) shared a SIGNED Purchase & Sale Agreement Termination and Release of Escrow via dotloop at ~4:08 PM. Buyer walked over the boiler/Title V dispute; escrow deposit being released. Property reverts to market."
-        },
-        {
-          "date": "2026-06-05",
-          "source": "Email",
-          "note": "Buyer (Jon Hollman/Jmax, via Gary Fuls) sent a revised offer / proposed P&S addendum demanding seller complete overdue Title V and replace the 120MBH oil boiler, 40-gal electric water heater, and damaged well-tank fittings with new, permitted, code-compliant work before the inspection contingency deadline. Set a hard 4 PM 6/5 deadline to reach terms or walk."
-        },
-        {
-          "date": "2026-06-04",
-          "note": "Buyer (Jon Hollman/Jmax) requesting $30K concession for boiler and egress repairs. Attached inspection report and Viessman estimate. Threatened Article 7 termination."
-        },
-        {
-          "date": "2026-06-04",
-          "note": "Alice suggests arguing house priced at $499K as-is, worth ~$700K with upgrades. Buyer already took $20K reduction. Suggests counter-offering ~$6K credit."
-        },
-        {
-          "date": "2026-06-04",
-          "note": "Jessica notes oil boiler swap ~$7K (just did 29 Chestnut). Concerned buyer's plumber may try to get boiler red-tagged by town."
-        },
-        {
-          "date": "2026-06-04",
-          "note": "Matt asked Alice to call him. Forwarded thread to Bobby LeDoux."
-        }
+        {"date": "2026-06-06", "source": "Email", "note": "David Burstein (6:58 PM) forwarded the mortgage inspection plan to Alice in response to her request for a boundary survey for the new interested buyer."},
+        {"date": "2026-06-06", "source": "Email", "note": "Alice Kempf (5:40 PM) reports ANOTHER interested buyer for the property. Asking David Burstein/Russ for the Title V completion date and whether a survey exists from the original purchase — new buyer wants to see the boundary (property abuts state land / Appalachian Trail)."},
+        {"date": "2026-06-06", "source": "Email", "note": "Alice Kempf confirmed to closing attorney David Burstein that the signed termination is in hand — 1874 Home Rd is officially BACK ON THE MARKET. Title V (septic) is expected to be completed this week so the property is ready for the next buyer."},
+        {"date": "2026-06-05", "source": "dotloop", "note": "Matt counter-signed the Purchase & Sale Agreement Termination and Release of Escrow in dotloop (evening 6/5), completing the mutual termination. Buyer's escrow deposit released."},
+        {"date": "2026-06-05", "source": "dotloop", "note": "DEAL TERMINATED: Seller's agent (Gabriela Dearstyne, Kempf-Vanderburgh) shared a SIGNED Purchase & Sale Agreement Termination and Release of Escrow via dotloop at ~4:08 PM. Buyer walked over the boiler/Title V dispute; escrow deposit being released. Property reverts to market."},
+        {"date": "2026-06-05", "source": "Email", "note": "Buyer (Jon Hollman/Jmax, via Gary Fuls) sent a revised offer / proposed P&S addendum demanding seller complete overdue Title V and replace the 120MBH oil boiler, 40-gal electric water heater, and damaged well-tank fittings with new, permitted, code-compliant work before the inspection contingency deadline. Set a hard 4 PM 6/5 deadline to reach terms or walk."},
+        {"date": "2026-06-04", "note": "Buyer (Jon Hollman/Jmax) requesting $30K concession for boiler and egress repairs. Attached inspection report and Viessman estimate. Threatened Article 7 termination."},
+        {"date": "2026-06-04", "note": "Alice suggests arguing house priced at $499K as-is, worth ~$700K with upgrades. Buyer already took $20K reduction. Suggests counter-offering ~$6K credit."},
+        {"date": "2026-06-04", "note": "Jessica notes oil boiler swap ~$7K (just did 29 Chestnut). Concerned buyer's plumber may try to get boiler red-tagged by town."},
+        {"date": "2026-06-04", "note": "Matt asked Alice to call him. Forwarded thread to Bobby LeDoux."}
       ],
       "action_items": [
         "Confirm Title V (septic) completion date this week and relay to Alice for the new buyer",
-        "David/Matt: locate original-purchase survey showing the boundary vs. state land/Appalachian Trail",
+        "David/Matt: mortgage inspection plan forwarded — confirm it satisfies new buyer's boundary/survey request (property abuts state land/Appalachian Trail)",
         "Termination fully signed in dotloop — deal officially dead; buyer deposit released",
         "Complete Title V / septic inspection this week (Russ) so the property is buyer-ready",
         "Relist 1874 Home Rd with Alice Kempf — set new pricing / marketing strategy",
         "Obtain firm boiler & mechanical remediation quotes to pre-empt the next buyer's objections",
         "Provide buyer's-counsel contact to David Burstein once a new buyer materializes (prior buyer never named counsel)"
       ],
-      "source": "dotloop"
+      "source": "Email"
+    },
+    {
+      "id": "173-nassau-dr",
+      "address": "173 Nassau Dr",
+      "city": "Springfield",
+      "state": "MA",
+      "status": "active",
+      "current_milestone": "Acquired",
+      "milestones": ["Acquired", "Demo/Rehab", "Listed", "Under Contract", "Closing"],
+      "completed_milestones": ["Acquired"],
+      "source": "PDF attachment",
+      "contacts": [
+        {"name": "David Burstein", "role": "Closing Attorney"},
+        {"name": "Ruby Lending LLC", "role": "Lender"},
+        {"name": "Chris Keniley", "role": "YellowBrick Partner"},
+        {"name": "Kevin (YellowBrick)", "role": "Partner"},
+        {"name": "Michelle (YellowBrick)", "role": "Loan Tracking / Lendr"},
+        {"name": "Jessica Sicard", "role": "Project Manager"}
+      ],
+      "financials": {"borrowing_entity": "Maderose, LLC", "lender": "Ruby Lending LLC"},
+      "recent_updates": [
+        {"date": "2026-06-07", "source": "Email", "note": "Matt forwarded the Ruby Lending loan package to Michelle to add to Lendr (loan tracking)."},
+        {"date": "2026-06-06", "source": "PDF attachment", "note": "David Burstein sent the executed loan documents for 173 Nassau Dr financing via Ruby Lending LLC (borrowing entity Maderose, LLC). Attachments: Ruby Lending docs + FCU construction draw package."}
+      ],
+      "action_items": [
+        "Add Ruby Lending loan to Lendr (Michelle)",
+        "File executed loan documents (Ruby Lending / Maderose LLC)",
+        "Set up construction draw schedule per FCU draw package",
+        "Confirm acquisition/rehab scope and timeline with Jessica"
+      ]
     },
     {
       "id": "1-richmond-ln",
@@ -735,48 +349,18 @@
       "state": "MA",
       "status": "active",
       "current_milestone": "Demo/Rehab",
-      "milestones": [
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [
-        "Acquired"
-      ],
+      "milestones": ["Acquired", "Demo/Rehab", "Listed", "Under Contract", "Closing"],
+      "completed_milestones": ["Acquired"],
       "contacts": [
-        {
-          "name": "Premiere Home Solutions",
-          "role": "General Contractor"
-        },
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        }
+        {"name": "Premiere Home Solutions", "role": "General Contractor"},
+        {"name": "Jessica Sicard", "role": "Project Manager"}
       ],
-      "financials": {
-        "purchase_price": 55000,
-        "rehab_estimate_range": "60000-80000",
-        "arv": 220000
-      },
+      "financials": {"purchase_price": 55000, "rehab_estimate_range": "60000-80000", "arv": 220000},
       "recent_updates": [
-        {
-          "date": "2026-06-04",
-          "note": "Premiere Home Solutions reports all scope complete: carport, chimney repoint, Antonio's items done. Cleaned and ready. Waiting building inspector green light for demo."
-        },
-        {
-          "date": "2026-06-04",
-          "note": "Jessica processed $2,000 payment to Premiere Home Solutions, leaving small portion for final inspections."
-        },
-        {
-          "date": "2026-06-04",
-          "note": "Premiere Home Solutions ready for final walkthrough whenever available."
-        },
-        {
-          "date": "2026-05-28",
-          "note": "Dig safe marked. Electrician disconnected. Dumpster on site."
-        }
+        {"date": "2026-06-04", "note": "Premiere Home Solutions reports all scope complete: carport, chimney repoint, Antonio's items done. Cleaned and ready. Waiting building inspector green light for demo."},
+        {"date": "2026-06-04", "note": "Jessica processed $2,000 payment to Premiere Home Solutions, leaving small portion for final inspections."},
+        {"date": "2026-06-04", "note": "Premiere Home Solutions ready for final walkthrough whenever available."},
+        {"date": "2026-05-28", "note": "Dig safe marked. Electrician disconnected. Dumpster on site."}
       ],
       "action_items": [
         "Schedule final walkthrough with Premiere Home Solutions for Richmond and Orchard",
@@ -791,37 +375,14 @@
       "state": "MA",
       "status": "active",
       "current_milestone": "Demo/Rehab",
-      "milestones": [
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [
-        "Acquired"
-      ],
-      "contacts": [
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        }
-      ],
-      "financials": {
-        "purchase_price": 95000,
-        "rehab_estimate_range": "85000-110000",
-        "arv": 320000
-      },
+      "milestones": ["Acquired", "Demo/Rehab", "Listed", "Under Contract", "Closing"],
+      "completed_milestones": ["Acquired"],
+      "contacts": [{"name": "Jessica Sicard", "role": "Project Manager"}],
+      "financials": {"purchase_price": 95000, "rehab_estimate_range": "85000-110000", "arv": 320000},
       "recent_updates": [
-        {
-          "date": "2026-05-21",
-          "note": "Rehab scope finalized. Work beginning."
-        }
+        {"date": "2026-05-21", "note": "Rehab scope finalized. Work beginning."}
       ],
-      "action_items": [
-        "Monitor rehab start and progress",
-        "Confirm GC mobilization"
-      ]
+      "action_items": ["Monitor rehab start and progress", "Confirm GC mobilization"]
     },
     {
       "id": "412-saint-james-ave",
@@ -830,43 +391,17 @@
       "state": "MA",
       "status": "active",
       "current_milestone": "Listed",
-      "milestones": [
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [
-        "Acquired",
-        "Demo/Rehab"
-      ],
+      "milestones": ["Acquired", "Demo/Rehab", "Listed", "Under Contract", "Closing"],
+      "completed_milestones": ["Acquired", "Demo/Rehab"],
       "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Listing Agent"
-        },
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        }
+        {"name": "Alice Kempf", "role": "Listing Agent"},
+        {"name": "Jessica Sicard", "role": "Project Manager"}
       ],
-      "financials": {
-        "purchase_price": 78000,
-        "rehab_cost": 68000,
-        "listing_price": 249000,
-        "arv": 249000
-      },
+      "financials": {"purchase_price": 78000, "rehab_cost": 68000, "listing_price": 249000, "arv": 249000},
       "recent_updates": [
-        {
-          "date": "2026-05-12",
-          "note": "Listed at $249,000. First showing weekend scheduled."
-        }
+        {"date": "2026-05-12", "note": "Listed at $249,000. First showing weekend scheduled."}
       ],
-      "action_items": [
-        "Follow up with Alice on showing feedback",
-        "Review any offers received"
-      ]
+      "action_items": ["Follow up with Alice on showing feedback", "Review any offers received"]
     },
     {
       "id": "300-tyler-st",
@@ -875,37 +410,14 @@
       "state": "MA",
       "status": "active",
       "current_milestone": "Demo/Rehab",
-      "milestones": [
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [
-        "Acquired"
-      ],
-      "contacts": [
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        }
-      ],
-      "financials": {
-        "purchase_price": 72000,
-        "rehab_estimate_range": "70000-90000",
-        "arv": 250000
-      },
+      "milestones": ["Acquired", "Demo/Rehab", "Listed", "Under Contract", "Closing"],
+      "completed_milestones": ["Acquired"],
+      "contacts": [{"name": "Jessica Sicard", "role": "Project Manager"}],
+      "financials": {"purchase_price": 72000, "rehab_estimate_range": "70000-90000", "arv": 250000},
       "recent_updates": [
-        {
-          "date": "2026-05-23",
-          "note": "Demo underway. Structural assessment in progress."
-        }
+        {"date": "2026-05-23", "note": "Demo underway. Structural assessment in progress."}
       ],
-      "action_items": [
-        "Get structural assessment results",
-        "Finalize rehab scope based on assessment"
-      ]
+      "action_items": ["Get structural assessment results", "Finalize rehab scope based on assessment"]
     },
     {
       "id": "103-prospect-st",
@@ -914,56 +426,20 @@
       "state": "MA",
       "status": "active",
       "current_milestone": "Under Contract",
-      "milestones": [
-        "Acquired",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [
-        "Acquired",
-        "Listed"
-      ],
+      "milestones": ["Acquired", "Listed", "Under Contract", "Closing"],
+      "completed_milestones": ["Acquired", "Listed"],
       "contacts": [
-        {
-          "name": "Ryan O'Hara",
-          "role": "Buyer's Agent"
-        },
-        {
-          "name": "Hunter Foote",
-          "role": "Buyer (Vanderburgh House)"
-        },
-        {
-          "name": "David Burstein",
-          "role": "Closing Attorney"
-        },
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        }
+        {"name": "Ryan O'Hara", "role": "Buyer's Agent"},
+        {"name": "Hunter Foote", "role": "Buyer (Vanderburgh House)"},
+        {"name": "David Burstein", "role": "Closing Attorney"},
+        {"name": "Jessica Sicard", "role": "Project Manager"}
       ],
-      "financials": {
-        "purchase_price": 180000,
-        "listing_price": 450000,
-        "arv": 450000
-      },
+      "financials": {"purchase_price": 180000, "listing_price": 450000, "arv": 450000},
       "recent_updates": [
-        {
-          "date": "2026-06-05",
-          "note": "Matt confirmed to Jessica: closing targeted for end of June, awaiting buyer to sign P&S back. Pay the $100 code/painting fine for now; sale to address outstanding building/code violations."
-        },
-        {
-          "date": "2026-06-04",
-          "note": "Ryan O'Hara forwarded Hunter Foote (Vanderburgh House) Best & Final offer."
-        },
-        {
-          "date": "2026-06-04",
-          "note": "Matt accepted offer on condition it removes all lawsuits and liability. O'Hara confirmed understanding and sent acceptance to Hunter."
-        },
-        {
-          "date": "2026-05-20",
-          "note": "Property listed. Multiple interested parties including Hunter Foote/Vanderburgh House."
-        }
+        {"date": "2026-06-05", "note": "Matt confirmed to Jessica: closing targeted for end of June, awaiting buyer to sign P&S back. Pay the $100 code/painting fine for now; sale to address outstanding building/code violations."},
+        {"date": "2026-06-04", "note": "Ryan O'Hara forwarded Hunter Foote (Vanderburgh House) Best & Final offer."},
+        {"date": "2026-06-04", "note": "Matt accepted offer on condition it removes all lawsuits and liability. O'Hara confirmed understanding and sent acceptance to Hunter."},
+        {"date": "2026-05-20", "note": "Property listed. Multiple interested parties including Hunter Foote/Vanderburgh House."}
       ],
       "action_items": [
         "Closing targeted end of June — awaiting buyer's countersigned P&S",
@@ -979,58 +455,20 @@
       "state": "MA",
       "status": "active",
       "current_milestone": "Listed",
-      "milestones": [
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [
-        "Acquired",
-        "Demo/Rehab"
-      ],
+      "milestones": ["Acquired", "Demo/Rehab", "Listed", "Under Contract", "Closing"],
+      "completed_milestones": ["Acquired", "Demo/Rehab"],
       "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Listing Agent"
-        },
-        {
-          "name": "David Burstein",
-          "role": "Attorney"
-        },
-        {
-          "name": "Katharine Higgins-Shea",
-          "role": "Litigation Attorney (Lyon & Fitzpatrick)"
-        },
-        {
-          "name": "Kevin Shippee",
-          "role": "Partner/Owner"
-        },
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        }
+        {"name": "Alice Kempf", "role": "Listing Agent"},
+        {"name": "David Burstein", "role": "Attorney"},
+        {"name": "Katharine Higgins-Shea", "role": "Litigation Attorney (Lyon & Fitzpatrick)"},
+        {"name": "Kevin Shippee", "role": "Partner/Owner"},
+        {"name": "Jessica Sicard", "role": "Project Manager"}
       ],
-      "financials": {
-        "purchase_price": 145000,
-        "rehab_cost": 88000,
-        "listing_price": 389000,
-        "arv": 389000
-      },
+      "financials": {"purchase_price": 145000, "rehab_cost": 88000, "listing_price": 389000, "arv": 389000},
       "recent_updates": [
-        {
-          "date": "2026-06-05",
-          "note": "Occupant's court answer received (attorney Higgins-Shea). Randy granted walkthrough access by an adult male occupant; identity unclear. Counsel advises handling in court — no further direct contact. Work order #42587 assigned to Randy on 6/5 list."
-        },
-        {
-          "date": "2026-06-01",
-          "note": "Court date was June 1 — follow up on outcome needed."
-        },
-        {
-          "date": "2026-05-15",
-          "note": "Listed at $389,000. Legal matter pending regarding property boundary/occupancy dispute."
-        }
+        {"date": "2026-06-05", "note": "Occupant's court answer received (attorney Higgins-Shea). Randy granted walkthrough access by an adult male occupant; identity unclear. Counsel advises handling in court — no further direct contact. Work order #42587 assigned to Randy on 6/5 list."},
+        {"date": "2026-06-01", "note": "Court date was June 1 — follow up on outcome needed."},
+        {"date": "2026-05-15", "note": "Listed at $389,000. Legal matter pending regarding property boundary/occupancy dispute."}
       ],
       "action_items": [
         "Eviction/occupancy litigation proceeding — coordinate with Higgins-Shea (Lyon & Fitzpatrick)",
@@ -1046,52 +484,19 @@
       "state": "MA",
       "status": "active",
       "current_milestone": "Demo/Rehab",
-      "milestones": [
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [
-        "Acquired"
-      ],
+      "milestones": ["Acquired", "Demo/Rehab", "Listed", "Under Contract", "Closing"],
+      "completed_milestones": ["Acquired"],
       "contacts": [
-        {
-          "name": "Derek Boggi",
-          "role": "Insurance Inspector (The Hartford)"
-        },
-        {
-          "name": "Sharon Gates",
-          "role": "Property Contact"
-        },
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        }
+        {"name": "Derek Boggi", "role": "Insurance Inspector (The Hartford)"},
+        {"name": "Sharon Gates", "role": "Property Contact"},
+        {"name": "Jessica Sicard", "role": "Project Manager"}
       ],
-      "financials": {
-        "purchase_price": 850000,
-        "rehab_estimate_range": "200000-300000",
-        "arv": 1500000
-      },
+      "financials": {"purchase_price": 850000, "rehab_estimate_range": "200000-300000", "arv": 1500000},
       "recent_updates": [
-        {
-          "date": "2026-06-05",
-          "note": "Work order #43042 assigned to Barry on the 6/5 work-order list from Jessica Sicard."
-        },
-        {
-          "date": "2026-06-04",
-          "note": "Insurance inspection completed successfully. Affected suites: 5, 6, 15, plus public bathroom near elevator, hallway areas."
-        },
-        {
-          "date": "2026-06-04",
-          "note": "Sharon Gates confirmed inspection went well. Jessica confirmed to Sharon."
-        },
-        {
-          "date": "2026-05-28",
-          "note": "Insurance inspection scheduled June 4 at 9:30 AM with Derek Boggi (The Hartford)."
-        }
+        {"date": "2026-06-05", "note": "Work order #43042 assigned to Barry on the 6/5 work-order list from Jessica Sicard."},
+        {"date": "2026-06-04", "note": "Insurance inspection completed successfully. Affected suites: 5, 6, 15, plus public bathroom near elevator, hallway areas."},
+        {"date": "2026-06-04", "note": "Sharon Gates confirmed inspection went well. Jessica confirmed to Sharon."},
+        {"date": "2026-05-28", "note": "Insurance inspection scheduled June 4 at 9:30 AM with Derek Boggi (The Hartford)."}
       ],
       "action_items": [
         "Insurance inspection completed 6/4 - await Hartford report",
@@ -1106,37 +511,14 @@
       "state": "MA",
       "status": "active",
       "current_milestone": "Demo/Rehab",
-      "milestones": [
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [
-        "Acquired"
-      ],
-      "contacts": [
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        }
-      ],
-      "financials": {
-        "purchase_price": 68000,
-        "rehab_estimate_range": "65000-85000",
-        "arv": 235000
-      },
+      "milestones": ["Acquired", "Demo/Rehab", "Listed", "Under Contract", "Closing"],
+      "completed_milestones": ["Acquired"],
+      "contacts": [{"name": "Jessica Sicard", "role": "Project Manager"}],
+      "financials": {"purchase_price": 68000, "rehab_estimate_range": "65000-85000", "arv": 235000},
       "recent_updates": [
-        {
-          "date": "2026-05-16",
-          "note": "Permits pulled. Rehab starting."
-        }
+        {"date": "2026-05-16", "note": "Permits pulled. Rehab starting."}
       ],
-      "action_items": [
-        "Monitor rehab progress",
-        "Schedule inspections as milestones are hit"
-      ]
+      "action_items": ["Monitor rehab progress", "Schedule inspections as milestones are hit"]
     },
     {
       "id": "15-olympic-ave",
@@ -1145,43 +527,17 @@
       "state": "MA",
       "status": "active",
       "current_milestone": "Listed",
-      "milestones": [
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [
-        "Acquired",
-        "Demo/Rehab"
-      ],
+      "milestones": ["Acquired", "Demo/Rehab", "Listed", "Under Contract", "Closing"],
+      "completed_milestones": ["Acquired", "Demo/Rehab"],
       "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Listing Agent"
-        },
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        }
+        {"name": "Alice Kempf", "role": "Listing Agent"},
+        {"name": "Jessica Sicard", "role": "Project Manager"}
       ],
-      "financials": {
-        "purchase_price": 82000,
-        "rehab_cost": 71000,
-        "listing_price": 269000,
-        "arv": 269000
-      },
+      "financials": {"purchase_price": 82000, "rehab_cost": 71000, "listing_price": 269000, "arv": 269000},
       "recent_updates": [
-        {
-          "date": "2026-05-08",
-          "note": "Listed at $269,000. Open house scheduled."
-        }
+        {"date": "2026-05-08", "note": "Listed at $269,000. Open house scheduled."}
       ],
-      "action_items": [
-        "Review open house results with Alice",
-        "Assess price adjustment if needed"
-      ]
+      "action_items": ["Review open house results with Alice", "Assess price adjustment if needed"]
     },
     {
       "id": "140-egremont-plain-rd",
@@ -1190,34 +546,14 @@
       "state": "MA",
       "status": "active",
       "current_milestone": "Prospecting",
-      "milestones": [
-        "Prospecting",
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
+      "milestones": ["Prospecting", "Acquired", "Demo/Rehab", "Listed", "Under Contract", "Closing"],
       "completed_milestones": [],
-      "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Agent"
-        }
-      ],
-      "financials": {
-        "arv_estimate": 450000
-      },
+      "contacts": [{"name": "Alice Kempf", "role": "Agent"}],
+      "financials": {"arv_estimate": 450000},
       "recent_updates": [
-        {
-          "date": "2026-05-05",
-          "note": "Identified as potential acquisition. CMA requested from Alice."
-        }
+        {"date": "2026-05-05", "note": "Identified as potential acquisition. CMA requested from Alice."}
       ],
-      "action_items": [
-        "Review CMA from Alice",
-        "Evaluate acquisition opportunity"
-      ]
+      "action_items": ["Review CMA from Alice", "Evaluate acquisition opportunity"]
     },
     {
       "id": "213-brodie-mountain-rd",
@@ -1226,34 +562,14 @@
       "state": "MA",
       "status": "active",
       "current_milestone": "Prospecting",
-      "milestones": [
-        "Prospecting",
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
+      "milestones": ["Prospecting", "Acquired", "Demo/Rehab", "Listed", "Under Contract", "Closing"],
       "completed_milestones": [],
-      "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Agent"
-        }
-      ],
-      "financials": {
-        "arv_estimate": 380000
-      },
+      "contacts": [{"name": "Alice Kempf", "role": "Agent"}],
+      "financials": {"arv_estimate": 380000},
       "recent_updates": [
-        {
-          "date": "2026-05-03",
-          "note": "Potential deal. Analyzing comps."
-        }
+        {"date": "2026-05-03", "note": "Potential deal. Analyzing comps."}
       ],
-      "action_items": [
-        "Complete comp analysis",
-        "Decide on offer strategy"
-      ]
+      "action_items": ["Complete comp analysis", "Decide on offer strategy"]
     },
     {
       "id": "11-bryant-st",
@@ -1262,34 +578,14 @@
       "state": "MA",
       "status": "active",
       "current_milestone": "Prospecting",
-      "milestones": [
-        "Prospecting",
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
+      "milestones": ["Prospecting", "Acquired", "Demo/Rehab", "Listed", "Under Contract", "Closing"],
       "completed_milestones": [],
-      "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Agent"
-        }
-      ],
-      "financials": {
-        "arv_estimate": 260000
-      },
+      "contacts": [{"name": "Alice Kempf", "role": "Agent"}],
+      "financials": {"arv_estimate": 260000},
       "recent_updates": [
-        {
-          "date": "2026-05-01",
-          "note": "Evaluating as potential flip. Walkthrough scheduled."
-        }
+        {"date": "2026-05-01", "note": "Evaluating as potential flip. Walkthrough scheduled."}
       ],
-      "action_items": [
-        "Complete walkthrough",
-        "Get rehab estimate"
-      ]
+      "action_items": ["Complete walkthrough", "Get rehab estimate"]
     },
     {
       "id": "100-central-st",
@@ -1298,34 +594,14 @@
       "state": "MA",
       "status": "active",
       "current_milestone": "Prospecting",
-      "milestones": [
-        "Prospecting",
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
+      "milestones": ["Prospecting", "Acquired", "Demo/Rehab", "Listed", "Under Contract", "Closing"],
       "completed_milestones": [],
-      "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Agent"
-        }
-      ],
-      "financials": {
-        "arv_estimate": 310000
-      },
+      "contacts": [{"name": "Alice Kempf", "role": "Agent"}],
+      "financials": {"arv_estimate": 310000},
       "recent_updates": [
-        {
-          "date": "2026-05-02",
-          "note": "Off-market lead. Owner contacted."
-        }
+        {"date": "2026-05-02", "note": "Off-market lead. Owner contacted."}
       ],
-      "action_items": [
-        "Follow up with owner on sale interest",
-        "Run comps and submit offer if viable"
-      ]
+      "action_items": ["Follow up with owner on sale interest", "Run comps and submit offer if viable"]
     },
     {
       "id": "282-284-suffolk-street",
@@ -1334,34 +610,14 @@
       "state": "MA",
       "status": "active",
       "current_milestone": "Prospecting",
-      "milestones": [
-        "Prospecting",
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
+      "milestones": ["Prospecting", "Acquired", "Demo/Rehab", "Listed", "Under Contract", "Closing"],
       "completed_milestones": [],
-      "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Agent"
-        }
-      ],
-      "financials": {
-        "arv_estimate": 290000
-      },
+      "contacts": [{"name": "Alice Kempf", "role": "Agent"}],
+      "financials": {"arv_estimate": 290000},
       "recent_updates": [
-        {
-          "date": "2026-05-04",
-          "note": "Multi-family property. Evaluating for buy-and-hold or flip."
-        }
+        {"date": "2026-05-04", "note": "Multi-family property. Evaluating for buy-and-hold or flip."}
       ],
-      "action_items": [
-        "Determine strategy: flip vs hold",
-        "Get inspection and rehab estimate"
-      ]
+      "action_items": ["Determine strategy: flip vs hold", "Get inspection and rehab estimate"]
     },
     {
       "id": "583-hawks-spur-rd",
@@ -1370,34 +626,14 @@
       "state": "MA",
       "status": "active",
       "current_milestone": "Prospecting",
-      "milestones": [
-        "Prospecting",
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
+      "milestones": ["Prospecting", "Acquired", "Demo/Rehab", "Listed", "Under Contract", "Closing"],
       "completed_milestones": [],
-      "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Agent"
-        }
-      ],
-      "financials": {
-        "arv_estimate": 340000
-      },
+      "contacts": [{"name": "Alice Kempf", "role": "Agent"}],
+      "financials": {"arv_estimate": 340000},
       "recent_updates": [
-        {
-          "date": "2026-05-06",
-          "note": "Rural property. Comps are thin — need broader search."
-        }
+        {"date": "2026-05-06", "note": "Rural property. Comps are thin — need broader search."}
       ],
-      "action_items": [
-        "Expand comp search radius",
-        "Evaluate rehab scope and rural premium"
-      ]
+      "action_items": ["Expand comp search radius", "Evaluate rehab scope and rural premium"]
     },
     {
       "id": "172-fiske-st",
@@ -1406,34 +642,14 @@
       "state": "MA",
       "status": "active",
       "current_milestone": "Prospecting",
-      "milestones": [
-        "Prospecting",
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
+      "milestones": ["Prospecting", "Acquired", "Demo/Rehab", "Listed", "Under Contract", "Closing"],
       "completed_milestones": [],
-      "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Agent"
-        }
-      ],
-      "financials": {
-        "arv_estimate": 255000
-      },
+      "contacts": [{"name": "Alice Kempf", "role": "Agent"}],
+      "financials": {"arv_estimate": 255000},
       "recent_updates": [
-        {
-          "date": "2026-05-07",
-          "note": "Evaluating acquisition. Owner considering selling."
-        }
+        {"date": "2026-05-07", "note": "Evaluating acquisition. Owner considering selling."}
       ],
-      "action_items": [
-        "Follow up with owner",
-        "Submit LOI if owner ready"
-      ]
+      "action_items": ["Follow up with owner", "Submit LOI if owner ready"]
     },
     {
       "id": "26-old-putnam-rd",
@@ -1442,34 +658,14 @@
       "state": "CT",
       "status": "active",
       "current_milestone": "Prospecting",
-      "milestones": [
-        "Prospecting",
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
+      "milestones": ["Prospecting", "Acquired", "Demo/Rehab", "Listed", "Under Contract", "Closing"],
       "completed_milestones": [],
-      "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Agent"
-        }
-      ],
-      "financials": {
-        "arv_estimate": 420000
-      },
+      "contacts": [{"name": "Alice Kempf", "role": "Agent"}],
+      "financials": {"arv_estimate": 420000},
       "recent_updates": [
-        {
-          "date": "2026-05-09",
-          "note": "Connecticut deal. Evaluating out-of-state expansion viability."
-        }
+        {"date": "2026-05-09", "note": "Connecticut deal. Evaluating out-of-state expansion viability."}
       ],
-      "action_items": [
-        "Evaluate CT deal viability and logistics",
-        "Connect with local CT contractor"
-      ]
+      "action_items": ["Evaluate CT deal viability and logistics", "Connect with local CT contractor"]
     },
     {
       "id": "31-loring-street",
@@ -1478,34 +674,14 @@
       "state": "MA",
       "status": "active",
       "current_milestone": "Prospecting",
-      "milestones": [
-        "Prospecting",
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
+      "milestones": ["Prospecting", "Acquired", "Demo/Rehab", "Listed", "Under Contract", "Closing"],
       "completed_milestones": [],
-      "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Agent"
-        }
-      ],
-      "financials": {
-        "arv_estimate": 270000
-      },
+      "contacts": [{"name": "Alice Kempf", "role": "Agent"}],
+      "financials": {"arv_estimate": 270000},
       "recent_updates": [
-        {
-          "date": "2026-05-11",
-          "note": "Evaluating Springfield market conditions for this property."
-        }
+        {"date": "2026-05-11", "note": "Evaluating Springfield market conditions for this property."}
       ],
-      "action_items": [
-        "Review comps",
-        "Determine offer price"
-      ]
+      "action_items": ["Review comps", "Determine offer price"]
     },
     {
       "id": "downing-park",
@@ -1514,34 +690,14 @@
       "state": "NY",
       "status": "active",
       "current_milestone": "Prospecting",
-      "milestones": [
-        "Prospecting",
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
+      "milestones": ["Prospecting", "Acquired", "Demo/Rehab", "Listed", "Under Contract", "Closing"],
       "completed_milestones": [],
-      "contacts": [
-        {
-          "name": "Peter Houser",
-          "role": "Investment Partner"
-        }
-      ],
-      "financials": {
-        "arv_estimate": 2500000
-      },
+      "contacts": [{"name": "Peter Houser", "role": "Investment Partner"}],
+      "financials": {"arv_estimate": 2500000},
       "recent_updates": [
-        {
-          "date": "2026-05-13",
-          "note": "Large-scale NY project. Peter Houser evaluating partnership structure."
-        }
+        {"date": "2026-05-13", "note": "Large-scale NY project. Peter Houser evaluating partnership structure."}
       ],
-      "action_items": [
-        "Discuss partnership structure with Peter Houser",
-        "Review project feasibility and financing"
-      ]
+      "action_items": ["Discuss partnership structure with Peter Houser", "Review project feasibility and financing"]
     },
     {
       "id": "105-n-main-st",
@@ -1550,35 +706,15 @@
       "state": "MA",
       "status": "active",
       "current_milestone": "Prospecting",
-      "milestones": [
-        "Prospecting",
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
+      "milestones": ["Prospecting", "Acquired", "Demo/Rehab", "Listed", "Under Contract", "Closing"],
       "completed_milestones": [],
       "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Agent"
-        },
-        {
-          "name": "Joe Homebuyer NE",
-          "role": "Contract Assignor"
-        }
+        {"name": "Alice Kempf", "role": "Agent"},
+        {"name": "Joe Homebuyer NE", "role": "Contract Assignor"}
       ],
-      "financials": {
-        "asking_price": 130000,
-        "arv_estimate": 230000,
-        "rehab_estimate": 25000
-      },
+      "financials": {"asking_price": 130000, "arv_estimate": 230000, "rehab_estimate": 25000},
       "recent_updates": [
-        {
-          "date": "2026-06-03",
-          "note": "Alice Kempf forwarded contract assignment from Joe Homebuyer NE. 3BR/2BA townhouse at $130K ask, $230K ARV, ~$25K repairs. Target close by June 30."
-        }
+        {"date": "2026-06-03", "note": "Alice Kempf forwarded contract assignment from Joe Homebuyer NE. 3BR/2BA townhouse at $130K ask, $230K ARV, ~$25K repairs. Target close by June 30."}
       ],
       "action_items": [
         "Review contract assignment terms",
@@ -1593,35 +729,15 @@
       "state": "MA",
       "status": "active",
       "current_milestone": "Prospecting",
-      "milestones": [
-        "Prospecting",
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
+      "milestones": ["Prospecting", "Acquired", "Demo/Rehab", "Listed", "Under Contract", "Closing"],
       "completed_milestones": [],
       "source": "Email",
-      "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Agent"
-        }
-      ],
-      "financials": {
-        "arv_estimate": 389900
-      },
+      "contacts": [{"name": "Alice Kempf", "role": "Agent"}],
+      "financials": {"arv_estimate": 389900},
       "recent_updates": [
-        {
-          "date": "2026-06-04",
-          "note": "Alice Kempf sent CMA. ARV ~$389,900, could be more with half bath or 2nd full bath."
-        }
+        {"date": "2026-06-04", "note": "Alice Kempf sent CMA. ARV ~$389,900, could be more with half bath or 2nd full bath."}
       ],
-      "action_items": [
-        "Review CMA from Alice",
-        "Evaluate bath addition potential"
-      ]
+      "action_items": ["Review CMA from Alice", "Evaluate bath addition potential"]
     },
     {
       "id": "30-e-cleveland-st",
@@ -1630,35 +746,15 @@
       "state": "MA",
       "status": "active",
       "current_milestone": "Prospecting",
-      "milestones": [
-        "Prospecting",
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
+      "milestones": ["Prospecting", "Acquired", "Demo/Rehab", "Listed", "Under Contract", "Closing"],
       "completed_milestones": [],
       "source": "Email",
-      "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Agent"
-        }
-      ],
-      "financials": {
-        "arv_estimate": "379000-389000"
-      },
+      "contacts": [{"name": "Alice Kempf", "role": "Agent"}],
+      "financials": {"arv_estimate": "379000-389000"},
       "recent_updates": [
-        {
-          "date": "2026-06-04",
-          "note": "Alice Kempf sent CMA. Has garage. ARV $379K, up to $389K with extra bath. Matt confirmed garage exists."
-        }
+        {"date": "2026-06-04", "note": "Alice Kempf sent CMA. Has garage. ARV $379K, up to $389K with extra bath. Matt confirmed garage exists."}
       ],
-      "action_items": [
-        "Review CMA from Alice",
-        "Evaluate bath addition potential"
-      ]
+      "action_items": ["Review CMA from Alice", "Evaluate bath addition potential"]
     },
     {
       "id": "21-dwight-st",
@@ -1667,41 +763,18 @@
       "state": "MA",
       "status": "active",
       "current_milestone": "Prospecting",
-      "milestones": [
-        "Prospecting",
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
+      "milestones": ["Prospecting", "Acquired", "Demo/Rehab", "Listed", "Under Contract", "Closing"],
       "completed_milestones": [],
       "source": "Email",
       "contacts": [
-        {
-          "name": "Russell Sabadosa",
-          "role": "Listing Agent (PC Realty)"
-        },
-        {
-          "name": "Peter Houser",
-          "role": "Forwarded To"
-        }
+        {"name": "Russell Sabadosa", "role": "Listing Agent (PC Realty)"},
+        {"name": "Peter Houser", "role": "Forwarded To"}
       ],
-      "financials": {
-        "asking_price": 2800000,
-        "units": 22,
-        "unit_type": "studio apartments"
-      },
+      "financials": {"asking_price": 2800000, "units": 22, "unit_type": "studio apartments"},
       "recent_updates": [
-        {
-          "date": "2026-06-04",
-          "note": "22-unit studio apartment building listed at $2.8M. T-12 operating statements and rent roll attached. Offer deadline 6/18/26. Matt forwarded to Peter Houser."
-        }
+        {"date": "2026-06-04", "note": "22-unit studio apartment building listed at $2.8M. T-12 operating statements and rent roll attached. Offer deadline 6/18/26. Matt forwarded to Peter Houser."}
       ],
-      "action_items": [
-        "Review financials and T-12",
-        "Offer deadline June 18, 2026"
-      ]
+      "action_items": ["Review financials and T-12", "Offer deadline June 18, 2026"]
     }
   ]
 }
