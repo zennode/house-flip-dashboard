@@ -1,932 +1,552 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>House Flip Closing Coordinator</title>
 <style>
-  :root {
-    --bg: #0f1117;
-    --card-bg: #1a1d27;
-    --border: #2a2e3a;
-    --text: #e6e8ee;
-    --muted: #8b90a0;
-    --accent: #4f8cff;
-    --green: #2fbf71;
-    --blue: #4f8cff;
-    --gray: #3a3f4d;
-    --amber: #f0a93b;
-    --red: #ef5350;
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--text);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    line-height: 1.45;
-  }
-  header {
-    position: sticky; top: 0; z-index: 10;
-    background: rgba(15,17,23,0.95);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--border);
-    padding: 16px 24px;
-  }
-  header h1 { margin: 0 0 2px; font-size: 20px; letter-spacing: 0.2px; }
-  header .updated { color: var(--muted); font-size: 13px; }
-  .stats { display: flex; gap: 24px; margin-top: 12px; flex-wrap: wrap; }
-  .stat { display: flex; flex-direction: column; }
-  .stat .num { font-size: 24px; font-weight: 700; }
-  .stat .lbl { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
-  .stat.s-closing .num { color: var(--amber); }
-  .stat.s-rehab .num { color: var(--blue); }
-  .stat.s-active .num { color: var(--green); }
-  main {
-    padding: 24px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
-    gap: 20px;
-    max-width: 1600px;
-    margin: 0 auto;
-  }
-  .card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-left: 4px solid var(--gray);
-    border-radius: 12px;
-    padding: 18px;
-  }
-  .card.phase-closing { border-left-color: var(--amber); }
-  .card.phase-closed { border-left-color: var(--green); }
-  .card.phase-contract { border-left-color: var(--accent); }
-  .card.phase-listed { border-left-color: #9b7bff; }
-  .card.phase-rehab { border-left-color: var(--blue); }
-  .card.phase-acquired { border-left-color: #2fbf71; }
-  .card.phase-prospecting { border-left-color: #6b7280; }
-  .card-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
-  .card-head h2 { margin: 0; font-size: 17px; }
-  .loc { color: var(--muted); font-size: 13px; }
-  .badges { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
-  .phase-badge {
-    background: #232734; color: var(--text);
-    border: 1px solid var(--border);
-    padding: 3px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; white-space: nowrap;
-  }
-  .src-badge {
-    font-size: 10px; padding: 2px 7px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.4px;
-    background: #232734; color: var(--muted); border: 1px solid var(--border);
-  }
-  .src-dotloop { color: #6ad0ff; border-color: #234; }
-  .src-docusign { color: #ffd166; }
-  .src-pdf-attachment { color: #ff9aa2; }
-  .src-email { color: #9be7a8; }
-  .countdown {
-    margin: 12px 0 4px; font-size: 13px; font-weight: 600;
-    padding: 6px 10px; border-radius: 8px; display: inline-block;
-  }
-  .cd-ok { background: rgba(47,191,113,0.12); color: var(--green); }
-  .cd-soon { background: rgba(240,169,59,0.14); color: var(--amber); }
-  .cd-overdue { background: rgba(239,83,80,0.14); color: var(--red); }
-  .timeline { display: flex; gap: 4px; margin: 14px 0 16px; flex-wrap: wrap; }
-  .ms { display: flex; flex-direction: column; align-items: center; flex: 1; min-width: 56px; }
-  .dot { width: 12px; height: 12px; border-radius: 50%; background: var(--gray); margin-bottom: 5px; position: relative; }
-  .dot.done { background: var(--green); }
-  .dot.active { background: var(--blue); box-shadow: 0 0 0 4px rgba(79,140,255,0.22); }
-  .dot.pending { background: var(--gray); }
-  .ms-label { font-size: 9.5px; color: var(--muted); text-align: center; line-height: 1.2; }
-  .sections { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 6px; }
-  .sec-wide { grid-column: 1 / -1; }
-  .sec h3 { margin: 0 0 6px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.6px; color: var(--muted); }
-  .kv { display: flex; justify-content: space-between; gap: 10px; font-size: 13px; padding: 2px 0; border-bottom: 1px solid rgba(42,46,58,0.5); }
-  .kv .k { color: var(--muted); }
-  .kv .v { text-align: right; font-weight: 500; }
-  .items { margin: 0; padding-left: 16px; font-size: 13px; }
-  .items li { margin-bottom: 4px; }
-  .items li.urgent { color: var(--red); font-weight: 600; }
-  .updates { list-style: none; margin: 0; padding: 0; font-size: 12.5px; }
-  .updates li { padding: 5px 0; border-bottom: 1px solid rgba(42,46,58,0.5); }
-  .u-date { color: var(--muted); margin-right: 8px; font-variant-numeric: tabular-nums; }
-  .u-src { font-size: 10px; text-transform: uppercase; background: #232734; color: var(--accent); padding: 1px 6px; border-radius: 999px; margin-right: 8px; }
-  .empty { color: var(--muted); font-size: 13px; }
-  footer { text-align: center; color: var(--muted); font-size: 12px; padding: 24px; }
-  @media (max-width: 520px) {
-    main { grid-template-columns: 1fr; padding: 14px; }
-    .sections { grid-template-columns: 1fr; }
-  }
-</style>
-</head>
+:root{--bg:#0f1117;--card-bg:#1a1d27;--border:#2a2e3a;--text:#e6e8ee;--muted:#8b90a0;--green:#3fb950;--blue:#388bfd;--gray:#3a3f4b;--accent:#ff9900;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;line-height:1.5;}
+header{position:sticky;top:0;z-index:10;background:rgba(15,17,23,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);padding:18px 24px;}
+header h1{margin:0;font-size:20px;}
+.updated{color:var(--muted);font-size:13px;margin-top:4px;}
+.stats{display:flex;gap:24px;margin-top:12px;flex-wrap:wrap;}
+.stat{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:8px 16px;}
+.stat .num{font-size:22px;font-weight:700;}
+.stat .lbl{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;}
+main{padding:24px;display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:20px;max-width:1600px;margin:0 auto;}
+.card{background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:20px;}
+.card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;}
+.card-head h2{margin:0;font-size:17px;}
+.sub{color:var(--muted);font-size:13px;}
+.badges{display:flex;flex-direction:column;gap:6px;align-items:flex-end;}
+.badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;background:var(--gray);white-space:nowrap;}
+.badge.src{background:#23262f;color:var(--muted);border:1px solid var(--border);}
+.badge.phase-closing,.badge.phase-closed{background:rgba(63,185,80,.18);color:var(--green);}
+.badge.phase-under-contract{background:rgba(56,139,253,.18);color:var(--blue);}
+.badge.phase-demo-rehab,.badge.phase-acquired,.badge.phase-listed,.badge.phase-prospecting{background:rgba(255,153,0,.16);color:var(--accent);}
+.timeline{display:flex;align-items:center;margin:18px 0;overflow-x:auto;padding-bottom:4px;}
+.mstone{display:flex;flex-direction:column;align-items:center;gap:6px;min-width:64px;}
+.dot{width:14px;height:14px;border-radius:50%;background:var(--gray);border:2px solid var(--gray);}
+.mstone.done .dot{background:var(--green);border-color:var(--green);}
+.mstone.active .dot{background:var(--blue);border-color:var(--blue);box-shadow:0 0 0 4px rgba(56,139,253,.25);}
+.mlabel{font-size:10px;color:var(--muted);text-align:center;}
+.mstone.done .mlabel{color:var(--green);}
+.mstone.active .mlabel{color:var(--blue);font-weight:600;}
+.mline{height:2px;background:var(--gray);flex:1;min-width:16px;margin-bottom:18px;}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:6px;}
+.sec h3{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin:0 0 8px;border-bottom:1px solid var(--border);padding-bottom:4px;}
+.kv{display:flex;justify-content:space-between;gap:8px;font-size:13px;padding:2px 0;}
+.kv .k{color:var(--muted);}
+.kv .v{font-weight:600;text-align:right;}
+ul.upd,ul.ai{margin:0;padding-left:16px;font-size:13px;}
+ul.upd li,ul.ai li{margin-bottom:6px;}
+.udate{color:var(--muted);font-size:11px;}
+.src{font-size:10px;color:var(--muted);background:#23262f;padding:1px 6px;border-radius:6px;border:1px solid var(--border);}
+@media(max-width:520px){.grid{grid-template-columns:1fr;}main{grid-template-columns:1fr;}}
+</style></head>
 <body>
 <header>
-  <h1>🏠 House Flip Closing Coordinator</h1>
-  <div class="updated">Last updated: Sunday, June 7, 2026 at 8:02 AM ET</div>
-  <div class="stats">
-    <div class="stat s-active"><span class="num">37</span><span class="lbl">Active Properties</span></div>
-    <div class="stat s-closing"><span class="num">1</span><span class="lbl">At Closing</span></div>
-    <div class="stat s-rehab"><span class="num">11</span><span class="lbl">In Rehab</span></div>
-    <div class="stat"><span class="num">38</span><span class="lbl">Total Tracked</span></div>
-  </div>
+ <h1>House Flip Closing Coordinator</h1>
+ <div class="updated">Last updated: Sunday, June 7, 2026 · 6:05 PM ET</div>
+ <div class="stats">
+  <div class="stat"><div class="num">37</div><div class="lbl">Active Properties</div></div>
+  <div class="stat"><div class="num">2</div><div class="lbl">At Closing</div></div>
+  <div class="stat"><div class="num">11</div><div class="lbl">In Rehab</div></div>
+ </div>
 </header>
 <main>
-
-    <div class="card phase-closing">
-      <div class="card-head">
-        <div>
-          <h2>67 Willow St</h2>
-          <div class="loc">Pittsfield, MA</div>
-        </div>
-        <div class="badges">
-          <span class="phase-badge">Closing</span>
-          
-        </div>
-      </div>
-      
-      <div class="timeline"><div class="ms"><span class="dot done"></span><span class="ms-label">Acquired</span></div><div class="ms"><span class="dot done"></span><span class="ms-label">Demo/Rehab</span></div><div class="ms"><span class="dot done"></span><span class="ms-label">Listed</span></div><div class="ms"><span class="dot done"></span><span class="ms-label">Under Contract</span></div><div class="ms"><span class="dot active"></span><span class="ms-label">Closing</span></div></div>
-      <div class="sections">
-        <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">Purchase Price</span><span class="v">$95,000</span></div><div class="kv"><span class="k">Rehab Cost</span><span class="v">$85,000</span></div><div class="kv"><span class="k">Listing Price</span><span class="v">$289,000</span></div><div class="kv"><span class="k">ARV</span><span class="v">$289,000</span></div></div>
-        <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">David Burstein</span><span class="v">Closing Attorney</span></div><div class="kv"><span class="k">Jessica Sicard</span><span class="v">Project Manager</span></div></div>
-        <div class="sec"><h3>Action Items</h3><ul class="items"><li class="urgent">URGENT: Closing 6 days past due — confirm status with David Burstein</li><li class="">Get updated closing date from attorney</li></ul></div>
-        <div class="sec sec-wide"><h3>Recent Updates</h3><ul class="updates"><li><span class="u-date">2026-06-01</span><span class="u-note">Closing overdue — confirm status with David Burstein. Originally scheduled late May.</span></li><li><span class="u-date">2026-05-28</span><span class="u-note">Final walkthrough completed. All punch list items resolved.</span></li></ul></div>
-      </div>
-    </div>
-
-    <div class="card phase-contract">
-      <div class="card-head">
-        <div>
-          <h2>330 Montgomery St</h2>
-          <div class="loc">Chicopee, MA</div>
-        </div>
-        <div class="badges">
-          <span class="phase-badge">Under Contract</span>
-          
-        </div>
-      </div>
-      <div class="countdown cd-ok">⏳ Jun 19, 2026 · 12 days to closing</div>
-      <div class="timeline"><div class="ms"><span class="dot done"></span><span class="ms-label">Acquired</span></div><div class="ms"><span class="dot done"></span><span class="ms-label">Demo/Rehab</span></div><div class="ms"><span class="dot done"></span><span class="ms-label">Listed</span></div><div class="ms"><span class="dot active"></span><span class="ms-label">Under Contract</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Closing</span></div></div>
-      <div class="sections">
-        <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">Purchase Price</span><span class="v">$110,000</span></div><div class="kv"><span class="k">Rehab Cost</span><span class="v">$95,000</span></div><div class="kv"><span class="k">Listing Price</span><span class="v">$319,000</span></div><div class="kv"><span class="k">ARV</span><span class="v">$319,000</span></div></div>
-        <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">David Burstein</span><span class="v">Closing Attorney</span></div><div class="kv"><span class="k">Jessica Sicard</span><span class="v">Project Manager</span></div></div>
-        <div class="sec"><h3>Action Items</h3><ul class="items"><li class="">Closing June 19 (15 days) — review payoff docs</li><li class="">Confirm closing time with David Burstein</li></ul></div>
-        <div class="sec sec-wide"><h3>Recent Updates</h3><ul class="updates"><li><span class="u-date">2026-05-30</span><span class="u-note">Under contract. Closing scheduled June 19, 2026.</span></li><li><span class="u-date">2026-05-25</span><span class="u-note">Accepted offer. P&amp;S signed.</span></li></ul></div>
-      </div>
-    </div>
-
-    <div class="card phase-contract">
-      <div class="card-head">
-        <div>
-          <h2>114 Danforth St</h2>
-          <div class="loc">Springfield, MA</div>
-        </div>
-        <div class="badges">
-          <span class="phase-badge">Under Contract</span>
-          
-        </div>
-      </div>
-      
-      <div class="timeline"><div class="ms"><span class="dot done"></span><span class="ms-label">Acquired</span></div><div class="ms"><span class="dot done"></span><span class="ms-label">Demo/Rehab</span></div><div class="ms"><span class="dot done"></span><span class="ms-label">Listed</span></div><div class="ms"><span class="dot active"></span><span class="ms-label">Under Contract</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Closing</span></div></div>
-      <div class="sections">
-        <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">Purchase Price</span><span class="v">$85,000</span></div><div class="kv"><span class="k">Rehab Cost</span><span class="v">$70,000</span></div><div class="kv"><span class="k">Listing Price</span><span class="v">$249,000</span></div><div class="kv"><span class="k">ARV</span><span class="v">$249,000</span></div></div>
-        <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">David Burstein</span><span class="v">Closing Attorney</span></div><div class="kv"><span class="k">Jessica Sicard</span><span class="v">Project Manager</span></div></div>
-        <div class="sec"><h3>Action Items</h3><ul class="items"><li class="urgent">URGENT: At risk of forfeiting escrow — contact David Burstein immediately</li><li class="">Resolve buyer financing contingency</li></ul></div>
-        <div class="sec sec-wide"><h3>Recent Updates</h3><ul class="updates"><li><span class="u-date">2026-06-01</span><span class="u-note">URGENT: David Burstein warned of escrow forfeiture risk if closing conditions not met soon.</span></li><li><span class="u-date">2026-05-20</span><span class="u-note">Under contract. Buyer financing contingency still open.</span></li></ul></div>
-      </div>
-    </div>
-
-    <div class="card phase-listed">
-      <div class="card-head">
-        <div>
-          <h2>2140 Palmer Road</h2>
-          <div class="loc">Palmer, MA</div>
-        </div>
-        <div class="badges">
-          <span class="phase-badge">Listed</span>
-          
-        </div>
-      </div>
-      
-      <div class="timeline"><div class="ms"><span class="dot done"></span><span class="ms-label">Acquired</span></div><div class="ms"><span class="dot done"></span><span class="ms-label">Demo/Rehab</span></div><div class="ms"><span class="dot active"></span><span class="ms-label">Listed</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Under Contract</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Closing</span></div></div>
-      <div class="sections">
-        <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">Purchase Price</span><span class="v">$120,000</span></div><div class="kv"><span class="k">Rehab Cost</span><span class="v">$110,000</span></div><div class="kv"><span class="k">Listing Price</span><span class="v">$369,000</span></div><div class="kv"><span class="k">ARV</span><span class="v">$369,000</span></div></div>
-        <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Alice Kempf</span><span class="v">Listing Agent</span></div><div class="kv"><span class="k">Jessica Sicard</span><span class="v">Project Manager</span></div></div>
-        <div class="sec"><h3>Action Items</h3><ul class="items"><li class="">Monitor showings and feedback from Alice</li><li class="">Review price reduction if no offers by June 15</li></ul></div>
-        <div class="sec sec-wide"><h3>Recent Updates</h3><ul class="updates"><li><span class="u-date">2026-05-15</span><span class="u-note">Listed on MLS at $369,000.</span></li><li><span class="u-date">2026-05-01</span><span class="u-note">Rehab complete. Ready for listing photos.</span></li></ul></div>
-      </div>
-    </div>
-
-    <div class="card phase-contract">
-      <div class="card-head">
-        <div>
-          <h2>42 Washington St</h2>
-          <div class="loc">Monson, MA</div>
-        </div>
-        <div class="badges">
-          <span class="phase-badge">Under Contract</span>
-          
-        </div>
-      </div>
-      <div class="countdown cd-ok">⏳ Jun 29, 2026 · 22 days to closing</div>
-      <div class="timeline"><div class="ms"><span class="dot done"></span><span class="ms-label">Acquired</span></div><div class="ms"><span class="dot done"></span><span class="ms-label">Demo/Rehab</span></div><div class="ms"><span class="dot done"></span><span class="ms-label">Listed</span></div><div class="ms"><span class="dot active"></span><span class="ms-label">Under Contract</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Closing</span></div></div>
-      <div class="sections">
-        <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">Purchase Price</span><span class="v">$105,000</span></div><div class="kv"><span class="k">Rehab Cost</span><span class="v">$60,000</span></div><div class="kv"><span class="k">Listing Price</span><span class="v">$259,000</span></div><div class="kv"><span class="k">ARV</span><span class="v">$259,000</span></div></div>
-        <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">David Burstein</span><span class="v">Closing Attorney</span></div><div class="kv"><span class="k">Jessica Sicard</span><span class="v">Project Manager</span></div><div class="kv"><span class="k">Eric Kvarnstrom</span><span class="v">Pest Control (413 Pest Free)</span></div></div>
-        <div class="sec"><h3>Action Items</h3><ul class="items"><li class="">Powder post beetle treatment scheduled next Tuesday (413 Pest Free)</li><li class="">Closing June 29 (25 days) — confirm treatment completion before closing</li><li class="">Get treatment certificate from Eric Kvarnstrom for closing docs</li></ul></div>
-        <div class="sec sec-wide"><h3>Recent Updates</h3><ul class="updates"><li><span class="u-date">2026-06-04</span><span class="u-note">Powder post beetle treatment set up for next Tuesday per Jessica. Eric Kvarnstrom (413 Pest Free) coordinating.</span></li><li><span class="u-date">2026-05-28</span><span class="u-note">Under contract. Closing scheduled June 29, 2026.</span></li><li><span class="u-date">2026-05-20</span><span class="u-note">Pest inspection revealed powder post beetles. Treatment required before closing.</span></li></ul></div>
-      </div>
-    </div>
-
-    <div class="card phase-rehab">
-      <div class="card-head">
-        <div>
-          <h2>167 East Park Terrace</h2>
-          <div class="loc">Springfield, MA</div>
-        </div>
-        <div class="badges">
-          <span class="phase-badge">Demo/Rehab</span>
-          
-        </div>
-      </div>
-      
-      <div class="timeline"><div class="ms"><span class="dot done"></span><span class="ms-label">Acquired</span></div><div class="ms"><span class="dot active"></span><span class="ms-label">Demo/Rehab</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Listed</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Under Contract</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Closing</span></div></div>
-      <div class="sections">
-        <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">Purchase Price</span><span class="v">$75,000</span></div><div class="kv"><span class="k">Rehab Estimate</span><span class="v">$80,000 – $100,000</span></div><div class="kv"><span class="k">ARV</span><span class="v">$280,000</span></div></div>
-        <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Premiere Home Solutions</span><span class="v">General Contractor</span></div><div class="kv"><span class="k">Jessica Sicard</span><span class="v">Project Manager</span></div></div>
-        <div class="sec"><h3>Action Items</h3><ul class="items"><li class="">Awaiting window specs from Premiere Home Solutions</li><li class="">Slight crew delay — monitor progress</li><li class="">Review scope and timeline with GC</li></ul></div>
-        <div class="sec sec-wide"><h3>Recent Updates</h3><ul class="updates"><li><span class="u-date">2026-06-04</span><span class="u-note">Premiere Home Solutions will have window specs shortly. One crew member out (having a daughter), slight delay.</span></li><li><span class="u-date">2026-06-02</span><span class="u-note">Dumpster delivered. Demo underway.</span></li><li><span class="u-date">2026-05-28</span><span class="u-note">GC mobilized. Scope includes windows, kitchen, baths, flooring.</span></li></ul></div>
-      </div>
-    </div>
-
-    <div class="card phase-rehab">
-      <div class="card-head">
-        <div>
-          <h2>166 East St</h2>
-          <div class="loc">Pittsfield, MA</div>
-        </div>
-        <div class="badges">
-          <span class="phase-badge">Demo/Rehab</span>
-          
-        </div>
-      </div>
-      
-      <div class="timeline"><div class="ms"><span class="dot done"></span><span class="ms-label">Acquired</span></div><div class="ms"><span class="dot active"></span><span class="ms-label">Demo/Rehab</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Listed</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Under Contract</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Closing</span></div></div>
-      <div class="sections">
-        <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">Purchase Price</span><span class="v">$65,000</span></div><div class="kv"><span class="k">Rehab Estimate</span><span class="v">$70,000 – $90,000</span></div><div class="kv"><span class="k">ARV</span><span class="v">$240,000</span></div></div>
-        <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Jessica Sicard</span><span class="v">Project Manager</span></div></div>
-        <div class="sec"><h3>Action Items</h3><ul class="items"><li class="">Monitor rehab progress</li><li class="">Get timeline update from GC</li></ul></div>
-        <div class="sec sec-wide"><h3>Recent Updates</h3><ul class="updates"><li><span class="u-date">2026-05-20</span><span class="u-note">Rehab in progress. On schedule.</span></li></ul></div>
-      </div>
-    </div>
-
-    <div class="card phase-rehab">
-      <div class="card-head">
-        <div>
-          <h2>297 Breckwood Blvd</h2>
-          <div class="loc">Springfield, MA</div>
-        </div>
-        <div class="badges">
-          <span class="phase-badge">Demo/Rehab</span>
-          
-        </div>
-      </div>
-      
-      <div class="timeline"><div class="ms"><span class="dot done"></span><span class="ms-label">Acquired</span></div><div class="ms"><span class="dot active"></span><span class="ms-label">Demo/Rehab</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Listed</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Under Contract</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Closing</span></div></div>
-      <div class="sections">
-        <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">Purchase Price</span><span class="v">$80,000</span></div><div class="kv"><span class="k">Rehab Estimate</span><span class="v">$75,000 – $95,000</span></div><div class="kv"><span class="k">ARV</span><span class="v">$260,000</span></div></div>
-        <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Jessica Sicard</span><span class="v">Project Manager</span></div></div>
-        <div class="sec"><h3>Action Items</h3><ul class="items"><li class="">Monitor framing progress</li><li class="">Schedule rough inspections</li></ul></div>
-        <div class="sec sec-wide"><h3>Recent Updates</h3><ul class="updates"><li><span class="u-date">2026-05-18</span><span class="u-note">Demo complete. Framing started.</span></li></ul></div>
-      </div>
-    </div>
-
-    <div class="card phase-rehab">
-      <div class="card-head">
-        <div>
-          <h2>29 Chestnut St</h2>
-          <div class="loc">Pittsfield, MA</div>
-        </div>
-        <div class="badges">
-          <span class="phase-badge">Demo/Rehab</span>
-          
-        </div>
-      </div>
-      
-      <div class="timeline"><div class="ms"><span class="dot done"></span><span class="ms-label">Acquired</span></div><div class="ms"><span class="dot active"></span><span class="ms-label">Demo/Rehab</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Listed</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Under Contract</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Closing</span></div></div>
-      <div class="sections">
-        <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">Purchase Price</span><span class="v">$70,000</span></div><div class="kv"><span class="k">Rehab Estimate</span><span class="v">$65,000 – $80,000</span></div><div class="kv"><span class="k">ARV</span><span class="v">$235,000</span></div></div>
-        <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Jessica Sicard</span><span class="v">Project Manager</span></div></div>
-        <div class="sec"><h3>Action Items</h3><ul class="items"><li class="">Monitor rehab timeline</li><li class="">Confirm all permits pulled</li></ul></div>
-        <div class="sec sec-wide"><h3>Recent Updates</h3><ul class="updates"><li><span class="u-date">2026-05-25</span><span class="u-note">Oil boiler recently replaced (~$7K). Rehab progressing.</span></li></ul></div>
-      </div>
-    </div>
-
-    <div class="card phase-listed">
-      <div class="card-head">
-        <div>
-          <h2>4 School St</h2>
-          <div class="loc">Westfield, MA</div>
-        </div>
-        <div class="badges">
-          <span class="phase-badge">Listed</span>
-          
-        </div>
-      </div>
-      
-      <div class="timeline"><div class="ms"><span class="dot done"></span><span class="ms-label">Acquired</span></div><div class="ms"><span class="dot done"></span><span class="ms-label">Demo/Rehab</span></div><div class="ms"><span class="dot active"></span><span class="ms-label">Listed</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Under Contract</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Closing</span></div></div>
-      <div class="sections">
-        <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">Purchase Price</span><span class="v">$90,000</span></div><div class="kv"><span class="k">Rehab Cost</span><span class="v">$75,000</span></div><div class="kv"><span class="k">Listing Price</span><span class="v">$279,000</span></div><div class="kv"><span class="k">ARV</span><span class="v">$279,000</span></div></div>
-        <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Alice Kempf</span><span class="v">Listing Agent</span></div><div class="kv"><span class="k">Jessica Sicard</span><span class="v">Project Manager</span></div></div>
-        <div class="sec"><h3>Action Items</h3><ul class="items"><li class="">Follow up with Alice on showing activity</li><li class="">Review offers as they come in</li></ul></div>
-        <div class="sec sec-wide"><h3>Recent Updates</h3><ul class="updates"><li><span class="u-date">2026-05-10</span><span class="u-note">Listed at $279,000. Showings scheduled.</span></li></ul></div>
-      </div>
-    </div>
-
-    <div class="card phase-rehab">
-      <div class="card-head">
-        <div>
-          <h2>70 Town Hill Road</h2>
-          <div class="loc">Dalton, MA</div>
-        </div>
-        <div class="badges">
-          <span class="phase-badge">Demo/Rehab</span>
-          
-        </div>
-      </div>
-      
-      <div class="timeline"><div class="ms"><span class="dot done"></span><span class="ms-label">Acquired</span></div><div class="ms"><span class="dot active"></span><span class="ms-label">Demo/Rehab</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Listed</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Under Contract</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Closing</span></div></div>
-      <div class="sections">
-        <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">Purchase Price</span><span class="v">$115,000</span></div><div class="kv"><span class="k">Rehab Estimate</span><span class="v">$90,000 – $115,000</span></div><div class="kv"><span class="k">ARV</span><span class="v">$350,000</span></div></div>
-        <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Jessica Sicard</span><span class="v">Project Manager</span></div></div>
-        <div class="sec"><h3>Action Items</h3><ul class="items"><li class="">Monitor exterior work completion</li><li class="">Schedule interior work crews</li></ul></div>
-        <div class="sec sec-wide"><h3>Recent Updates</h3><ul class="updates"><li><span class="u-date">2026-05-22</span><span class="u-note">Rehab underway. Siding and roof work in progress.</span></li></ul></div>
-      </div>
-    </div>
-
-    <div class="card phase-closed">
-      <div class="card-head">
-        <div>
-          <h2>40 Roland St</h2>
-          <div class="loc">Pittsfield, MA</div>
-        </div>
-        <div class="badges">
-          <span class="phase-badge">Closed</span>
-          
-        </div>
-      </div>
-      
-      <div class="timeline"><div class="ms"><span class="dot done"></span><span class="ms-label">Acquired</span></div><div class="ms"><span class="dot done"></span><span class="ms-label">Demo/Rehab</span></div><div class="ms"><span class="dot done"></span><span class="ms-label">Listed</span></div><div class="ms"><span class="dot done"></span><span class="ms-label">Under Contract</span></div><div class="ms"><span class="dot done"></span><span class="ms-label">Closing</span></div><div class="ms"><span class="dot done"></span><span class="ms-label">Closed</span></div></div>
-      <div class="sections">
-        <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">Purchase Price</span><span class="v">$85,000</span></div><div class="kv"><span class="k">Rehab Cost</span><span class="v">$72,000</span></div><div class="kv"><span class="k">Sale Price</span><span class="v">$265,000</span></div></div>
-        <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">David Burstein</span><span class="v">Closing Attorney</span></div><div class="kv"><span class="k">Jessica Sicard</span><span class="v">Project Manager</span></div><div class="kv"><span class="k">Liz Duarte</span><span class="v">Bookkeeper</span></div><div class="kv"><span class="k">Will McGuire</span><span class="v">Finance/Reconciliation</span></div></div>
-        <div class="sec"><h3>Action Items</h3><ul class="items"><li class="">Complete final reconciliation with Liz Duarte</li><li class="">Confirm insurance costs for closing statement</li><li class="">Will McGuire to finalize all outstanding bills</li></ul></div>
-        <div class="sec sec-wide"><h3>Recent Updates</h3><ul class="updates"><li><span class="u-date">2026-06-04</span><span class="u-note">Final reconciliation in progress. Bookkeeper Liz Duarte asking about insurance costs and management fees. Chris confirmed no mgmt fees per Matt&#x27;s request. Will McGuire tracking final bills.</span></li><li><span class="u-date">2026-05-15</span><span class="u-note">Closed successfully.</span></li></ul></div>
-      </div>
-    </div>
-
-    <div class="card phase-rehab">
-      <div class="card-head">
-        <div>
-          <h2>21 Holly St</h2>
-          <div class="loc">Springfield, MA</div>
-        </div>
-        <div class="badges">
-          <span class="phase-badge">Demo/Rehab</span>
-          
-        </div>
-      </div>
-      
-      <div class="timeline"><div class="ms"><span class="dot done"></span><span class="ms-label">Acquired</span></div><div class="ms"><span class="dot active"></span><span class="ms-label">Demo/Rehab</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Listed</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Under Contract</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Closing</span></div></div>
-      <div class="sections">
-        <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">Purchase Price</span><span class="v">$60,000</span></div><div class="kv"><span class="k">Rehab Estimate</span><span class="v">$65,000 – $85,000</span></div><div class="kv"><span class="k">ARV</span><span class="v">$230,000</span></div></div>
-        <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Jessica Sicard</span><span class="v">Project Manager</span></div></div>
-        <div class="sec"><h3>Action Items</h3><ul class="items"><li class="">Schedule plumbing and electrical rough inspections</li><li class="">Order kitchen and bath fixtures</li></ul></div>
-        <div class="sec sec-wide"><h3>Recent Updates</h3><ul class="updates"><li><span class="u-date">2026-05-19</span><span class="u-note">Demo complete. Starting mechanical rough-ins.</span></li></ul></div>
-      </div>
-    </div>
-
-    <div class="card phase-listed">
-      <div class="card-head">
-        <div>
-          <h2>1874 Home Rd</h2>
-          <div class="loc">Sheffield, MA</div>
-        </div>
-        <div class="badges">
-          <span class="phase-badge">Listed</span>
-          <span class="src-badge src-email">Email</span><span class="src-badge src-dotloop">dotloop</span>
-        </div>
-      </div>
-      
-      <div class="timeline"><div class="ms"><span class="dot done"></span><span class="ms-label">Acquired</span></div><div class="ms"><span class="dot done"></span><span class="ms-label">Demo/Rehab</span></div><div class="ms"><span class="dot done"></span><span class="ms-label">Listed</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Under Contract</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Closing</span></div></div>
-      <div class="sections">
-        <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">Listing Price</span><span class="v">$499,000</span></div><div class="kv"><span class="k">ARV</span><span class="v">$700,000</span></div><div class="kv"><span class="k">Rehab Estimate</span><span class="v">$100,000 – $130,000</span></div><div class="kv"><span class="k">Buyer Concession Req.</span><span class="v">$30,000</span></div><div class="kv"><span class="k">Prior Price Reduction</span><span class="v">$20,000</span></div></div>
-        <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Jon Hollman</span><span class="v">Buyer Inspector (Jmax Consulting)</span></div><div class="kv"><span class="k">Gary Fuls</span><span class="v">Buyer&#x27;s Realtor</span></div><div class="kv"><span class="k">Gabriela Dearstyne</span><span class="v">Seller Agent (Kempf-Vanderburgh)</span></div><div class="kv"><span class="k">Bobby LeDoux</span><span class="v">Forwarded Contact</span></div><div class="kv"><span class="k">Melissa Vanderburgh</span><span class="v">Team Leader KVR</span></div><div class="kv"><span class="k">Alice Kempf</span><span class="v">Listing Agent</span></div><div class="kv"><span class="k">Jessica Sicard</span><span class="v">Project Manager</span></div><div class="kv"><span class="k">David Burstein</span><span class="v">Closing Attorney</span></div></div>
-        <div class="sec"><h3>Action Items</h3><ul class="items"><li class="">Confirm Title V (septic) completion date this week and relay to Alice for the new buyer</li><li class="">David/Matt: mortgage inspection plan forwarded — confirm it satisfies new buyer&#x27;s boundary/survey request (property abuts state land/Appalachian Trail)</li><li class="">Termination fully signed in dotloop — deal officially dead; buyer deposit released</li><li class="">Complete Title V / septic inspection this week (Russ) so the property is buyer-ready</li><li class="">Relist 1874 Home Rd with Alice Kempf — set new pricing / marketing strategy</li><li class="">Obtain firm boiler &amp; mechanical remediation quotes to pre-empt the next buyer&#x27;s objections</li><li class="">Provide buyer&#x27;s-counsel contact to David Burstein once a new buyer materializes (prior buyer never named counsel)</li></ul></div>
-        <div class="sec sec-wide"><h3>Recent Updates</h3><ul class="updates"><li><span class="u-date">2026-06-06</span><span class="u-src">Email</span><span class="u-note">David Burstein (6:58 PM) forwarded the mortgage inspection plan to Alice in response to her request for a boundary survey for the new interested buyer.</span></li><li><span class="u-date">2026-06-06</span><span class="u-src">Email</span><span class="u-note">Alice Kempf (5:40 PM) reports ANOTHER interested buyer for the property. Asking David Burstein/Russ for the Title V completion date and whether a survey exists from the original purchase — new buyer wants to see the boundary (property abuts state land / Appalachian Trail).</span></li><li><span class="u-date">2026-06-06</span><span class="u-src">Email</span><span class="u-note">Alice Kempf confirmed to closing attorney David Burstein that the signed termination is in hand — 1874 Home Rd is officially BACK ON THE MARKET. Title V (septic) is expected to be completed this week so the property is ready for the next buyer.</span></li><li><span class="u-date">2026-06-05</span><span class="u-src">dotloop</span><span class="u-note">Matt counter-signed the Purchase &amp; Sale Agreement Termination and Release of Escrow in dotloop (evening 6/5), completing the mutual termination. Buyer&#x27;s escrow deposit released.</span></li><li><span class="u-date">2026-06-05</span><span class="u-src">dotloop</span><span class="u-note">DEAL TERMINATED: Seller&#x27;s agent (Gabriela Dearstyne, Kempf-Vanderburgh) shared a SIGNED Purchase &amp; Sale Agreement Termination and Release of Escrow via dotloop at ~4:08 PM. Buyer walked over the boiler/Title V dispute; escrow deposit being released. Property reverts to market.</span></li><li><span class="u-date">2026-06-05</span><span class="u-src">Email</span><span class="u-note">Buyer (Jon Hollman/Jmax, via Gary Fuls) sent a revised offer / proposed P&amp;S addendum demanding seller complete overdue Title V and replace the 120MBH oil boiler, 40-gal electric water heater, and damaged well-tank fittings with new, permitted, code-compliant work before the inspection contingency deadline. Set a hard 4 PM 6/5 deadline to reach terms or walk.</span></li></ul></div>
-      </div>
-    </div>
-
-    <div class="card phase-acquired">
-      <div class="card-head">
-        <div>
-          <h2>173 Nassau Dr</h2>
-          <div class="loc">Springfield, MA</div>
-        </div>
-        <div class="badges">
-          <span class="phase-badge">Acquired</span>
-          <span class="src-badge src-email">Email</span><span class="src-badge src-pdf-attachment">PDF attachment</span>
-        </div>
-      </div>
-      
-      <div class="timeline"><div class="ms"><span class="dot done"></span><span class="ms-label">Acquired</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Demo/Rehab</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Listed</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Under Contract</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Closing</span></div></div>
-      <div class="sections">
-        <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">Borrowing Entity</span><span class="v">Maderose, LLC</span></div><div class="kv"><span class="k">Lender</span><span class="v">Ruby Lending LLC</span></div></div>
-        <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">David Burstein</span><span class="v">Closing Attorney</span></div><div class="kv"><span class="k">Ruby Lending LLC</span><span class="v">Lender</span></div><div class="kv"><span class="k">Chris Keniley</span><span class="v">YellowBrick Partner</span></div><div class="kv"><span class="k">Kevin (YellowBrick)</span><span class="v">Partner</span></div><div class="kv"><span class="k">Michelle (YellowBrick)</span><span class="v">Loan Tracking / Lendr</span></div><div class="kv"><span class="k">Jessica Sicard</span><span class="v">Project Manager</span></div></div>
-        <div class="sec"><h3>Action Items</h3><ul class="items"><li class="">Add Ruby Lending loan to Lendr (Michelle)</li><li class="">File executed loan documents (Ruby Lending / Maderose LLC)</li><li class="">Set up construction draw schedule per FCU draw package</li><li class="">Confirm acquisition/rehab scope and timeline with Jessica</li></ul></div>
-        <div class="sec sec-wide"><h3>Recent Updates</h3><ul class="updates"><li><span class="u-date">2026-06-07</span><span class="u-src">Email</span><span class="u-note">Matt forwarded the Ruby Lending loan package to Michelle to add to Lendr (loan tracking).</span></li><li><span class="u-date">2026-06-06</span><span class="u-src">PDF attachment</span><span class="u-note">David Burstein sent the executed loan documents for 173 Nassau Dr financing via Ruby Lending LLC (borrowing entity Maderose, LLC). Attachments: Ruby Lending docs + FCU construction draw package.</span></li></ul></div>
-      </div>
-    </div>
-
-    <div class="card phase-rehab">
-      <div class="card-head">
-        <div>
-          <h2>1 Richmond Ln</h2>
-          <div class="loc">Pittsfield, MA</div>
-        </div>
-        <div class="badges">
-          <span class="phase-badge">Demo/Rehab</span>
-          
-        </div>
-      </div>
-      
-      <div class="timeline"><div class="ms"><span class="dot done"></span><span class="ms-label">Acquired</span></div><div class="ms"><span class="dot active"></span><span class="ms-label">Demo/Rehab</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Listed</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Under Contract</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Closing</span></div></div>
-      <div class="sections">
-        <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">Purchase Price</span><span class="v">$55,000</span></div><div class="kv"><span class="k">Rehab Estimate</span><span class="v">$60,000 – $80,000</span></div><div class="kv"><span class="k">ARV</span><span class="v">$220,000</span></div></div>
-        <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Premiere Home Solutions</span><span class="v">General Contractor</span></div><div class="kv"><span class="k">Jessica Sicard</span><span class="v">Project Manager</span></div></div>
-        <div class="sec"><h3>Action Items</h3><ul class="items"><li class="">Schedule final walkthrough with Premiere Home Solutions for Richmond and Orchard</li><li class="">Awaiting building inspector demo green light</li><li class="">Dig safe marked, electrician disconnected, dumpster on site</li></ul></div>
-        <div class="sec sec-wide"><h3>Recent Updates</h3><ul class="updates"><li><span class="u-date">2026-06-04</span><span class="u-note">Premiere Home Solutions reports all scope complete: carport, chimney repoint, Antonio&#x27;s items done. Cleaned and ready. Waiting building inspector green light for demo.</span></li><li><span class="u-date">2026-06-04</span><span class="u-note">Jessica processed $2,000 payment to Premiere Home Solutions, leaving small portion for final inspections.</span></li><li><span class="u-date">2026-06-04</span><span class="u-note">Premiere Home Solutions ready for final walkthrough whenever available.</span></li><li><span class="u-date">2026-05-28</span><span class="u-note">Dig safe marked. Electrician disconnected. Dumpster on site.</span></li></ul></div>
-      </div>
-    </div>
-
-    <div class="card phase-rehab">
-      <div class="card-head">
-        <div>
-          <h2>54 Sectar Rd</h2>
-          <div class="loc">Cheshire, MA</div>
-        </div>
-        <div class="badges">
-          <span class="phase-badge">Demo/Rehab</span>
-          
-        </div>
-      </div>
-      
-      <div class="timeline"><div class="ms"><span class="dot done"></span><span class="ms-label">Acquired</span></div><div class="ms"><span class="dot active"></span><span class="ms-label">Demo/Rehab</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Listed</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Under Contract</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Closing</span></div></div>
-      <div class="sections">
-        <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">Purchase Price</span><span class="v">$95,000</span></div><div class="kv"><span class="k">Rehab Estimate</span><span class="v">$85,000 – $110,000</span></div><div class="kv"><span class="k">ARV</span><span class="v">$320,000</span></div></div>
-        <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Jessica Sicard</span><span class="v">Project Manager</span></div></div>
-        <div class="sec"><h3>Action Items</h3><ul class="items"><li class="">Monitor rehab start and progress</li><li class="">Confirm GC mobilization</li></ul></div>
-        <div class="sec sec-wide"><h3>Recent Updates</h3><ul class="updates"><li><span class="u-date">2026-05-21</span><span class="u-note">Rehab scope finalized. Work beginning.</span></li></ul></div>
-      </div>
-    </div>
-
-    <div class="card phase-listed">
-      <div class="card-head">
-        <div>
-          <h2>412 Saint James Ave</h2>
-          <div class="loc">Springfield, MA</div>
-        </div>
-        <div class="badges">
-          <span class="phase-badge">Listed</span>
-          
-        </div>
-      </div>
-      
-      <div class="timeline"><div class="ms"><span class="dot done"></span><span class="ms-label">Acquired</span></div><div class="ms"><span class="dot done"></span><span class="ms-label">Demo/Rehab</span></div><div class="ms"><span class="dot active"></span><span class="ms-label">Listed</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Under Contract</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Closing</span></div></div>
-      <div class="sections">
-        <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">Purchase Price</span><span class="v">$78,000</span></div><div class="kv"><span class="k">Rehab Cost</span><span class="v">$68,000</span></div><div class="kv"><span class="k">Listing Price</span><span class="v">$249,000</span></div><div class="kv"><span class="k">ARV</span><span class="v">$249,000</span></div></div>
-        <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Alice Kempf</span><span class="v">Listing Agent</span></div><div class="kv"><span class="k">Jessica Sicard</span><span class="v">Project Manager</span></div></div>
-        <div class="sec"><h3>Action Items</h3><ul class="items"><li class="">Follow up with Alice on showing feedback</li><li class="">Review any offers received</li></ul></div>
-        <div class="sec sec-wide"><h3>Recent Updates</h3><ul class="updates"><li><span class="u-date">2026-05-12</span><span class="u-note">Listed at $249,000. First showing weekend scheduled.</span></li></ul></div>
-      </div>
-    </div>
-
-    <div class="card phase-rehab">
-      <div class="card-head">
-        <div>
-          <h2>300 Tyler St</h2>
-          <div class="loc">Pittsfield, MA</div>
-        </div>
-        <div class="badges">
-          <span class="phase-badge">Demo/Rehab</span>
-          
-        </div>
-      </div>
-      
-      <div class="timeline"><div class="ms"><span class="dot done"></span><span class="ms-label">Acquired</span></div><div class="ms"><span class="dot active"></span><span class="ms-label">Demo/Rehab</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Listed</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Under Contract</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Closing</span></div></div>
-      <div class="sections">
-        <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">Purchase Price</span><span class="v">$72,000</span></div><div class="kv"><span class="k">Rehab Estimate</span><span class="v">$70,000 – $90,000</span></div><div class="kv"><span class="k">ARV</span><span class="v">$250,000</span></div></div>
-        <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Jessica Sicard</span><span class="v">Project Manager</span></div></div>
-        <div class="sec"><h3>Action Items</h3><ul class="items"><li class="">Get structural assessment results</li><li class="">Finalize rehab scope based on assessment</li></ul></div>
-        <div class="sec sec-wide"><h3>Recent Updates</h3><ul class="updates"><li><span class="u-date">2026-05-23</span><span class="u-note">Demo underway. Structural assessment in progress.</span></li></ul></div>
-      </div>
-    </div>
-
-    <div class="card phase-contract">
-      <div class="card-head">
-        <div>
-          <h2>103 Prospect St</h2>
-          <div class="loc">Springfield, MA</div>
-        </div>
-        <div class="badges">
-          <span class="phase-badge">Under Contract</span>
-          
-        </div>
-      </div>
-      
-      <div class="timeline"><div class="ms"><span class="dot done"></span><span class="ms-label">Acquired</span></div><div class="ms"><span class="dot done"></span><span class="ms-label">Listed</span></div><div class="ms"><span class="dot active"></span><span class="ms-label">Under Contract</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Closing</span></div></div>
-      <div class="sections">
-        <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">Purchase Price</span><span class="v">$180,000</span></div><div class="kv"><span class="k">Listing Price</span><span class="v">$450,000</span></div><div class="kv"><span class="k">ARV</span><span class="v">$450,000</span></div></div>
-        <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Ryan O&#x27;Hara</span><span class="v">Buyer&#x27;s Agent</span></div><div class="kv"><span class="k">Hunter Foote</span><span class="v">Buyer (Vanderburgh House)</span></div><div class="kv"><span class="k">David Burstein</span><span class="v">Closing Attorney</span></div><div class="kv"><span class="k">Jessica Sicard</span><span class="v">Project Manager</span></div></div>
-        <div class="sec"><h3>Action Items</h3><ul class="items"><li class="">Closing targeted end of June — awaiting buyer&#x27;s countersigned P&amp;S</li><li class="">Confirm all lawsuits and liability dismissed per agreement</li><li class="">Pay $100 fine now; ensure sale addresses outstanding code violations</li><li class="">Coordinate with Ryan O&#x27;Hara on closing timeline</li></ul></div>
-        <div class="sec sec-wide"><h3>Recent Updates</h3><ul class="updates"><li><span class="u-date">2026-06-05</span><span class="u-note">Matt confirmed to Jessica: closing targeted for end of June, awaiting buyer to sign P&amp;S back. Pay the $100 code/painting fine for now; sale to address outstanding building/code violations.</span></li><li><span class="u-date">2026-06-04</span><span class="u-note">Ryan O&#x27;Hara forwarded Hunter Foote (Vanderburgh House) Best &amp; Final offer.</span></li><li><span class="u-date">2026-06-04</span><span class="u-note">Matt accepted offer on condition it removes all lawsuits and liability. O&#x27;Hara confirmed understanding and sent acceptance to Hunter.</span></li><li><span class="u-date">2026-05-20</span><span class="u-note">Property listed. Multiple interested parties including Hunter Foote/Vanderburgh House.</span></li></ul></div>
-      </div>
-    </div>
-
-    <div class="card phase-listed">
-      <div class="card-head">
-        <div>
-          <h2>205 Old Stage Road</h2>
-          <div class="loc">Hampden, MA</div>
-        </div>
-        <div class="badges">
-          <span class="phase-badge">Listed</span>
-          <span class="src-badge src-email">Email</span>
-        </div>
-      </div>
-      
-      <div class="timeline"><div class="ms"><span class="dot done"></span><span class="ms-label">Acquired</span></div><div class="ms"><span class="dot done"></span><span class="ms-label">Demo/Rehab</span></div><div class="ms"><span class="dot active"></span><span class="ms-label">Listed</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Under Contract</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Closing</span></div></div>
-      <div class="sections">
-        <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">Purchase Price</span><span class="v">$145,000</span></div><div class="kv"><span class="k">Rehab Cost</span><span class="v">$88,000</span></div><div class="kv"><span class="k">Listing Price</span><span class="v">$389,000</span></div><div class="kv"><span class="k">ARV</span><span class="v">$389,000</span></div></div>
-        <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Alice Kempf</span><span class="v">Listing Agent</span></div><div class="kv"><span class="k">David Burstein</span><span class="v">Attorney</span></div><div class="kv"><span class="k">Katharine Higgins-Shea</span><span class="v">Litigation Attorney (Lyon &amp; Fitzpatrick)</span></div><div class="kv"><span class="k">Kevin Shippee</span><span class="v">Partner/Owner</span></div><div class="kv"><span class="k">Jessica Sicard</span><span class="v">Project Manager</span></div></div>
-        <div class="sec"><h3>Action Items</h3><ul class="items"><li class="">Eviction/occupancy litigation proceeding — coordinate with Higgins-Shea (Lyon &amp; Fitzpatrick)</li><li class="">Tell Russ to stop contacting occupant per counsel</li><li class="">Resume active marketing once legal matter resolved</li></ul></div>
-        <div class="sec sec-wide"><h3>Recent Updates</h3><ul class="updates"><li><span class="u-date">2026-06-05</span><span class="u-note">Occupant&#x27;s court answer received (attorney Higgins-Shea). Randy granted walkthrough access by an adult male occupant; identity unclear. Counsel advises handling in court — no further direct contact. Work order #42587 assigned to Randy on 6/5 list.</span></li><li><span class="u-date">2026-06-01</span><span class="u-note">Court date was June 1 — follow up on outcome needed.</span></li><li><span class="u-date">2026-05-15</span><span class="u-note">Listed at $389,000. Legal matter pending regarding property boundary/occupancy dispute.</span></li></ul></div>
-      </div>
-    </div>
-
-    <div class="card phase-rehab">
-      <div class="card-head">
-        <div>
-          <h2>60 Shaker Rd</h2>
-          <div class="loc">E Longmeadow, MA</div>
-        </div>
-        <div class="badges">
-          <span class="phase-badge">Demo/Rehab</span>
-          <span class="src-badge src-email">Email</span>
-        </div>
-      </div>
-      
-      <div class="timeline"><div class="ms"><span class="dot done"></span><span class="ms-label">Acquired</span></div><div class="ms"><span class="dot active"></span><span class="ms-label">Demo/Rehab</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Listed</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Under Contract</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Closing</span></div></div>
-      <div class="sections">
-        <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">Purchase Price</span><span class="v">$850,000</span></div><div class="kv"><span class="k">Rehab Estimate</span><span class="v">$200,000 – $300,000</span></div><div class="kv"><span class="k">ARV</span><span class="v">$1,500,000</span></div></div>
-        <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Derek Boggi</span><span class="v">Insurance Inspector (The Hartford)</span></div><div class="kv"><span class="k">Sharon Gates</span><span class="v">Property Contact</span></div><div class="kv"><span class="k">Jessica Sicard</span><span class="v">Project Manager</span></div></div>
-        <div class="sec"><h3>Action Items</h3><ul class="items"><li class="">Insurance inspection completed 6/4 - await Hartford report</li><li class="">Follow up on roof repair recommendations from inspector</li></ul></div>
-        <div class="sec sec-wide"><h3>Recent Updates</h3><ul class="updates"><li><span class="u-date">2026-06-05</span><span class="u-note">Work order #43042 assigned to Barry on the 6/5 work-order list from Jessica Sicard.</span></li><li><span class="u-date">2026-06-04</span><span class="u-note">Insurance inspection completed successfully. Affected suites: 5, 6, 15, plus public bathroom near elevator, hallway areas.</span></li><li><span class="u-date">2026-06-04</span><span class="u-note">Sharon Gates confirmed inspection went well. Jessica confirmed to Sharon.</span></li><li><span class="u-date">2026-05-28</span><span class="u-note">Insurance inspection scheduled June 4 at 9:30 AM with Derek Boggi (The Hartford).</span></li></ul></div>
-      </div>
-    </div>
-
-    <div class="card phase-rehab">
-      <div class="card-head">
-        <div>
-          <h2>141 St. Jerome Ave</h2>
-          <div class="loc">Pittsfield, MA</div>
-        </div>
-        <div class="badges">
-          <span class="phase-badge">Demo/Rehab</span>
-          
-        </div>
-      </div>
-      
-      <div class="timeline"><div class="ms"><span class="dot done"></span><span class="ms-label">Acquired</span></div><div class="ms"><span class="dot active"></span><span class="ms-label">Demo/Rehab</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Listed</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Under Contract</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Closing</span></div></div>
-      <div class="sections">
-        <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">Purchase Price</span><span class="v">$68,000</span></div><div class="kv"><span class="k">Rehab Estimate</span><span class="v">$65,000 – $85,000</span></div><div class="kv"><span class="k">ARV</span><span class="v">$235,000</span></div></div>
-        <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Jessica Sicard</span><span class="v">Project Manager</span></div></div>
-        <div class="sec"><h3>Action Items</h3><ul class="items"><li class="">Monitor rehab progress</li><li class="">Schedule inspections as milestones are hit</li></ul></div>
-        <div class="sec sec-wide"><h3>Recent Updates</h3><ul class="updates"><li><span class="u-date">2026-05-16</span><span class="u-note">Permits pulled. Rehab starting.</span></li></ul></div>
-      </div>
-    </div>
-
-    <div class="card phase-listed">
-      <div class="card-head">
-        <div>
-          <h2>15 Olympic Ave</h2>
-          <div class="loc">Pittsfield, MA</div>
-        </div>
-        <div class="badges">
-          <span class="phase-badge">Listed</span>
-          
-        </div>
-      </div>
-      
-      <div class="timeline"><div class="ms"><span class="dot done"></span><span class="ms-label">Acquired</span></div><div class="ms"><span class="dot done"></span><span class="ms-label">Demo/Rehab</span></div><div class="ms"><span class="dot active"></span><span class="ms-label">Listed</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Under Contract</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Closing</span></div></div>
-      <div class="sections">
-        <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">Purchase Price</span><span class="v">$82,000</span></div><div class="kv"><span class="k">Rehab Cost</span><span class="v">$71,000</span></div><div class="kv"><span class="k">Listing Price</span><span class="v">$269,000</span></div><div class="kv"><span class="k">ARV</span><span class="v">$269,000</span></div></div>
-        <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Alice Kempf</span><span class="v">Listing Agent</span></div><div class="kv"><span class="k">Jessica Sicard</span><span class="v">Project Manager</span></div></div>
-        <div class="sec"><h3>Action Items</h3><ul class="items"><li class="">Review open house results with Alice</li><li class="">Assess price adjustment if needed</li></ul></div>
-        <div class="sec sec-wide"><h3>Recent Updates</h3><ul class="updates"><li><span class="u-date">2026-05-08</span><span class="u-note">Listed at $269,000. Open house scheduled.</span></li></ul></div>
-      </div>
-    </div>
-
-    <div class="card phase-prospecting">
-      <div class="card-head">
-        <div>
-          <h2>140 Egremont Plain Rd</h2>
-          <div class="loc">Egremont, MA</div>
-        </div>
-        <div class="badges">
-          <span class="phase-badge">Prospecting</span>
-          
-        </div>
-      </div>
-      
-      <div class="timeline"><div class="ms"><span class="dot active"></span><span class="ms-label">Prospecting</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Acquired</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Demo/Rehab</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Listed</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Under Contract</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Closing</span></div></div>
-      <div class="sections">
-        <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">ARV (est.)</span><span class="v">$450,000</span></div></div>
-        <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Alice Kempf</span><span class="v">Agent</span></div></div>
-        <div class="sec"><h3>Action Items</h3><ul class="items"><li class="">Review CMA from Alice</li><li class="">Evaluate acquisition opportunity</li></ul></div>
-        <div class="sec sec-wide"><h3>Recent Updates</h3><ul class="updates"><li><span class="u-date">2026-05-05</span><span class="u-note">Identified as potential acquisition. CMA requested from Alice.</span></li></ul></div>
-      </div>
-    </div>
-
-    <div class="card phase-prospecting">
-      <div class="card-head">
-        <div>
-          <h2>213 Brodie Mountain Rd</h2>
-          <div class="loc">Lanesborough, MA</div>
-        </div>
-        <div class="badges">
-          <span class="phase-badge">Prospecting</span>
-          
-        </div>
-      </div>
-      
-      <div class="timeline"><div class="ms"><span class="dot active"></span><span class="ms-label">Prospecting</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Acquired</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Demo/Rehab</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Listed</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Under Contract</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Closing</span></div></div>
-      <div class="sections">
-        <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">ARV (est.)</span><span class="v">$380,000</span></div></div>
-        <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Alice Kempf</span><span class="v">Agent</span></div></div>
-        <div class="sec"><h3>Action Items</h3><ul class="items"><li class="">Complete comp analysis</li><li class="">Decide on offer strategy</li></ul></div>
-        <div class="sec sec-wide"><h3>Recent Updates</h3><ul class="updates"><li><span class="u-date">2026-05-03</span><span class="u-note">Potential deal. Analyzing comps.</span></li></ul></div>
-      </div>
-    </div>
-
-    <div class="card phase-prospecting">
-      <div class="card-head">
-        <div>
-          <h2>11 Bryant St</h2>
-          <div class="loc">Pittsfield, MA</div>
-        </div>
-        <div class="badges">
-          <span class="phase-badge">Prospecting</span>
-          
-        </div>
-      </div>
-      
-      <div class="timeline"><div class="ms"><span class="dot active"></span><span class="ms-label">Prospecting</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Acquired</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Demo/Rehab</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Listed</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Under Contract</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Closing</span></div></div>
-      <div class="sections">
-        <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">ARV (est.)</span><span class="v">$260,000</span></div></div>
-        <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Alice Kempf</span><span class="v">Agent</span></div></div>
-        <div class="sec"><h3>Action Items</h3><ul class="items"><li class="">Complete walkthrough</li><li class="">Get rehab estimate</li></ul></div>
-        <div class="sec sec-wide"><h3>Recent Updates</h3><ul class="updates"><li><span class="u-date">2026-05-01</span><span class="u-note">Evaluating as potential flip. Walkthrough scheduled.</span></li></ul></div>
-      </div>
-    </div>
-
-    <div class="card phase-prospecting">
-      <div class="card-head">
-        <div>
-          <h2>100 Central St</h2>
-          <div class="loc">Springfield, MA</div>
-        </div>
-        <div class="badges">
-          <span class="phase-badge">Prospecting</span>
-          
-        </div>
-      </div>
-      
-      <div class="timeline"><div class="ms"><span class="dot active"></span><span class="ms-label">Prospecting</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Acquired</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Demo/Rehab</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Listed</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Under Contract</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Closing</span></div></div>
-      <div class="sections">
-        <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">ARV (est.)</span><span class="v">$310,000</span></div></div>
-        <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Alice Kempf</span><span class="v">Agent</span></div></div>
-        <div class="sec"><h3>Action Items</h3><ul class="items"><li class="">Follow up with owner on sale interest</li><li class="">Run comps and submit offer if viable</li></ul></div>
-        <div class="sec sec-wide"><h3>Recent Updates</h3><ul class="updates"><li><span class="u-date">2026-05-02</span><span class="u-note">Off-market lead. Owner contacted.</span></li></ul></div>
-      </div>
-    </div>
-
-    <div class="card phase-prospecting">
-      <div class="card-head">
-        <div>
-          <h2>282-284 Suffolk Street</h2>
-          <div class="loc">Holyoke, MA</div>
-        </div>
-        <div class="badges">
-          <span class="phase-badge">Prospecting</span>
-          
-        </div>
-      </div>
-      
-      <div class="timeline"><div class="ms"><span class="dot active"></span><span class="ms-label">Prospecting</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Acquired</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Demo/Rehab</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Listed</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Under Contract</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Closing</span></div></div>
-      <div class="sections">
-        <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">ARV (est.)</span><span class="v">$290,000</span></div></div>
-        <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Alice Kempf</span><span class="v">Agent</span></div></div>
-        <div class="sec"><h3>Action Items</h3><ul class="items"><li class="">Determine strategy: flip vs hold</li><li class="">Get inspection and rehab estimate</li></ul></div>
-        <div class="sec sec-wide"><h3>Recent Updates</h3><ul class="updates"><li><span class="u-date">2026-05-04</span><span class="u-note">Multi-family property. Evaluating for buy-and-hold or flip.</span></li></ul></div>
-      </div>
-    </div>
-
-    <div class="card phase-prospecting">
-      <div class="card-head">
-        <div>
-          <h2>583 Hawks Spur Rd</h2>
-          <div class="loc">Cheshire, MA</div>
-        </div>
-        <div class="badges">
-          <span class="phase-badge">Prospecting</span>
-          
-        </div>
-      </div>
-      
-      <div class="timeline"><div class="ms"><span class="dot active"></span><span class="ms-label">Prospecting</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Acquired</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Demo/Rehab</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Listed</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Under Contract</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Closing</span></div></div>
-      <div class="sections">
-        <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">ARV (est.)</span><span class="v">$340,000</span></div></div>
-        <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Alice Kempf</span><span class="v">Agent</span></div></div>
-        <div class="sec"><h3>Action Items</h3><ul class="items"><li class="">Expand comp search radius</li><li class="">Evaluate rehab scope and rural premium</li></ul></div>
-        <div class="sec sec-wide"><h3>Recent Updates</h3><ul class="updates"><li><span class="u-date">2026-05-06</span><span class="u-note">Rural property. Comps are thin — need broader search.</span></li></ul></div>
-      </div>
-    </div>
-
-    <div class="card phase-prospecting">
-      <div class="card-head">
-        <div>
-          <h2>172 Fiske St</h2>
-          <div class="loc">Pittsfield, MA</div>
-        </div>
-        <div class="badges">
-          <span class="phase-badge">Prospecting</span>
-          
-        </div>
-      </div>
-      
-      <div class="timeline"><div class="ms"><span class="dot active"></span><span class="ms-label">Prospecting</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Acquired</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Demo/Rehab</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Listed</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Under Contract</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Closing</span></div></div>
-      <div class="sections">
-        <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">ARV (est.)</span><span class="v">$255,000</span></div></div>
-        <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Alice Kempf</span><span class="v">Agent</span></div></div>
-        <div class="sec"><h3>Action Items</h3><ul class="items"><li class="">Follow up with owner</li><li class="">Submit LOI if owner ready</li></ul></div>
-        <div class="sec sec-wide"><h3>Recent Updates</h3><ul class="updates"><li><span class="u-date">2026-05-07</span><span class="u-note">Evaluating acquisition. Owner considering selling.</span></li></ul></div>
-      </div>
-    </div>
-
-    <div class="card phase-prospecting">
-      <div class="card-head">
-        <div>
-          <h2>26 Old Putnam Rd</h2>
-          <div class="loc">Bethel, CT</div>
-        </div>
-        <div class="badges">
-          <span class="phase-badge">Prospecting</span>
-          
-        </div>
-      </div>
-      
-      <div class="timeline"><div class="ms"><span class="dot active"></span><span class="ms-label">Prospecting</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Acquired</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Demo/Rehab</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Listed</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Under Contract</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Closing</span></div></div>
-      <div class="sections">
-        <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">ARV (est.)</span><span class="v">$420,000</span></div></div>
-        <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Alice Kempf</span><span class="v">Agent</span></div></div>
-        <div class="sec"><h3>Action Items</h3><ul class="items"><li class="">Evaluate CT deal viability and logistics</li><li class="">Connect with local CT contractor</li></ul></div>
-        <div class="sec sec-wide"><h3>Recent Updates</h3><ul class="updates"><li><span class="u-date">2026-05-09</span><span class="u-note">Connecticut deal. Evaluating out-of-state expansion viability.</span></li></ul></div>
-      </div>
-    </div>
-
-    <div class="card phase-prospecting">
-      <div class="card-head">
-        <div>
-          <h2>31 Loring Street</h2>
-          <div class="loc">Springfield, MA</div>
-        </div>
-        <div class="badges">
-          <span class="phase-badge">Prospecting</span>
-          
-        </div>
-      </div>
-      
-      <div class="timeline"><div class="ms"><span class="dot active"></span><span class="ms-label">Prospecting</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Acquired</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Demo/Rehab</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Listed</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Under Contract</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Closing</span></div></div>
-      <div class="sections">
-        <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">ARV (est.)</span><span class="v">$270,000</span></div></div>
-        <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Alice Kempf</span><span class="v">Agent</span></div></div>
-        <div class="sec"><h3>Action Items</h3><ul class="items"><li class="">Review comps</li><li class="">Determine offer price</li></ul></div>
-        <div class="sec sec-wide"><h3>Recent Updates</h3><ul class="updates"><li><span class="u-date">2026-05-11</span><span class="u-note">Evaluating Springfield market conditions for this property.</span></li></ul></div>
-      </div>
-    </div>
-
-    <div class="card phase-prospecting">
-      <div class="card-head">
-        <div>
-          <h2>Downing Park</h2>
-          <div class="loc">Newburgh, NY</div>
-        </div>
-        <div class="badges">
-          <span class="phase-badge">Prospecting</span>
-          
-        </div>
-      </div>
-      
-      <div class="timeline"><div class="ms"><span class="dot active"></span><span class="ms-label">Prospecting</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Acquired</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Demo/Rehab</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Listed</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Under Contract</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Closing</span></div></div>
-      <div class="sections">
-        <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">ARV (est.)</span><span class="v">$2,500,000</span></div></div>
-        <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Peter Houser</span><span class="v">Investment Partner</span></div></div>
-        <div class="sec"><h3>Action Items</h3><ul class="items"><li class="">Discuss partnership structure with Peter Houser</li><li class="">Review project feasibility and financing</li></ul></div>
-        <div class="sec sec-wide"><h3>Recent Updates</h3><ul class="updates"><li><span class="u-date">2026-05-13</span><span class="u-note">Large-scale NY project. Peter Houser evaluating partnership structure.</span></li></ul></div>
-      </div>
-    </div>
-
-    <div class="card phase-prospecting">
-      <div class="card-head">
-        <div>
-          <h2>105 N Main St</h2>
-          <div class="loc">Orange, MA</div>
-        </div>
-        <div class="badges">
-          <span class="phase-badge">Prospecting</span>
-          
-        </div>
-      </div>
-      
-      <div class="timeline"><div class="ms"><span class="dot active"></span><span class="ms-label">Prospecting</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Acquired</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Demo/Rehab</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Listed</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Under Contract</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Closing</span></div></div>
-      <div class="sections">
-        <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">Asking Price</span><span class="v">$130,000</span></div><div class="kv"><span class="k">ARV (est.)</span><span class="v">$230,000</span></div><div class="kv"><span class="k">Rehab Estimate</span><span class="v">$25,000</span></div></div>
-        <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Alice Kempf</span><span class="v">Agent</span></div><div class="kv"><span class="k">Joe Homebuyer NE</span><span class="v">Contract Assignor</span></div></div>
-        <div class="sec"><h3>Action Items</h3><ul class="items"><li class="">Review contract assignment terms</li><li class="">Evaluate deal at $130K ask with $25K repairs and $230K ARV</li><li class="">Respond to Alice on interest by June 20 if pursuing June 30 close</li></ul></div>
-        <div class="sec sec-wide"><h3>Recent Updates</h3><ul class="updates"><li><span class="u-date">2026-06-03</span><span class="u-note">Alice Kempf forwarded contract assignment from Joe Homebuyer NE. 3BR/2BA townhouse at $130K ask, $230K ARV, ~$25K repairs. Target close by June 30.</span></li></ul></div>
-      </div>
-    </div>
-
-    <div class="card phase-prospecting">
-      <div class="card-head">
-        <div>
-          <h2>5 Carpenter Rd</h2>
-          <div class="loc">Greenfield, MA</div>
-        </div>
-        <div class="badges">
-          <span class="phase-badge">Prospecting</span>
-          <span class="src-badge src-email">Email</span>
-        </div>
-      </div>
-      
-      <div class="timeline"><div class="ms"><span class="dot active"></span><span class="ms-label">Prospecting</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Acquired</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Demo/Rehab</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Listed</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Under Contract</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Closing</span></div></div>
-      <div class="sections">
-        <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">ARV (est.)</span><span class="v">$389,900</span></div></div>
-        <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Alice Kempf</span><span class="v">Agent</span></div></div>
-        <div class="sec"><h3>Action Items</h3><ul class="items"><li class="">Review CMA from Alice</li><li class="">Evaluate bath addition potential</li></ul></div>
-        <div class="sec sec-wide"><h3>Recent Updates</h3><ul class="updates"><li><span class="u-date">2026-06-04</span><span class="u-note">Alice Kempf sent CMA. ARV ~$389,900, could be more with half bath or 2nd full bath.</span></li></ul></div>
-      </div>
-    </div>
-
-    <div class="card phase-prospecting">
-      <div class="card-head">
-        <div>
-          <h2>30 E Cleveland St</h2>
-          <div class="loc">Greenfield, MA</div>
-        </div>
-        <div class="badges">
-          <span class="phase-badge">Prospecting</span>
-          <span class="src-badge src-email">Email</span>
-        </div>
-      </div>
-      
-      <div class="timeline"><div class="ms"><span class="dot active"></span><span class="ms-label">Prospecting</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Acquired</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Demo/Rehab</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Listed</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Under Contract</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Closing</span></div></div>
-      <div class="sections">
-        <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">ARV (est.)</span><span class="v">379000-389000</span></div></div>
-        <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Alice Kempf</span><span class="v">Agent</span></div></div>
-        <div class="sec"><h3>Action Items</h3><ul class="items"><li class="">Review CMA from Alice</li><li class="">Evaluate bath addition potential</li></ul></div>
-        <div class="sec sec-wide"><h3>Recent Updates</h3><ul class="updates"><li><span class="u-date">2026-06-04</span><span class="u-note">Alice Kempf sent CMA. Has garage. ARV $379K, up to $389K with extra bath. Matt confirmed garage exists.</span></li></ul></div>
-      </div>
-    </div>
-
-    <div class="card phase-prospecting">
-      <div class="card-head">
-        <div>
-          <h2>21 Dwight St</h2>
-          <div class="loc">Agawam, MA</div>
-        </div>
-        <div class="badges">
-          <span class="phase-badge">Prospecting</span>
-          <span class="src-badge src-email">Email</span>
-        </div>
-      </div>
-      
-      <div class="timeline"><div class="ms"><span class="dot active"></span><span class="ms-label">Prospecting</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Acquired</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Demo/Rehab</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Listed</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Under Contract</span></div><div class="ms"><span class="dot pending"></span><span class="ms-label">Closing</span></div></div>
-      <div class="sections">
-        <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">Asking Price</span><span class="v">$2,800,000</span></div><div class="kv"><span class="k">Units</span><span class="v">22</span></div><div class="kv"><span class="k">Unit Type</span><span class="v">studio apartments</span></div></div>
-        <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Russell Sabadosa</span><span class="v">Listing Agent (PC Realty)</span></div><div class="kv"><span class="k">Peter Houser</span><span class="v">Forwarded To</span></div></div>
-        <div class="sec"><h3>Action Items</h3><ul class="items"><li class="">Review financials and T-12</li><li class="">Offer deadline June 18, 2026</li></ul></div>
-        <div class="sec sec-wide"><h3>Recent Updates</h3><ul class="updates"><li><span class="u-date">2026-06-04</span><span class="u-note">22-unit studio apartment building listed at $2.8M. T-12 operating statements and rent roll attached. Offer deadline 6/18/26. Matt forwarded to Peter Houser.</span></li></ul></div>
-      </div>
-    </div>
+<div class="card">
+  <div class="card-head">
+   <div><h2>67 Willow St</h2><div class="sub">Pittsfield, MA</div></div>
+   <div class="badges"><span class="badge phase-closing">Closing</span></div>
+  </div>
+  <div class="timeline"><div class="mstone done"><span class="dot"></span><span class="mlabel">Acquired</span></div><div class="mline"></div><div class="mstone done"><span class="dot"></span><span class="mlabel">Demo/Rehab</span></div><div class="mline"></div><div class="mstone done"><span class="dot"></span><span class="mlabel">Listed</span></div><div class="mline"></div><div class="mstone done"><span class="dot"></span><span class="mlabel">Under Contract</span></div><div class="mline"></div><div class="mstone active"><span class="dot"></span><span class="mlabel">Closing</span></div></div>
+  <div class="grid">
+   <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">Purchase Price</span><span class="v">$95,000</span></div><div class="kv"><span class="k">Rehab Cost</span><span class="v">$85,000</span></div><div class="kv"><span class="k">Listing Price</span><span class="v">$289,000</span></div><div class="kv"><span class="k">ARV</span><span class="v">$289,000</span></div></div>
+   <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Closing Attorney</span><span class="v">David Burstein</span></div><div class="kv"><span class="k">Project Manager</span><span class="v">Jessica Sicard</span></div></div>
+   <div class="sec"><h3>Action Items</h3><ul class="ai"><li>URGENT: Closing 6 days past due — confirm status with David Burstein</li><li>Get updated closing date from attorney</li></ul></div>
+   <div class="sec"><h3>Recent Updates</h3><ul class="upd"><li><span class="udate">2026-06-01</span> Closing overdue — confirm status with David Burstein. Originally scheduled late May.</li><li><span class="udate">2026-05-28</span> Final walkthrough completed. All punch list items resolved.</li></ul></div>
+  </div>
+ </div>
+<div class="card">
+  <div class="card-head">
+   <div><h2>330 Montgomery St</h2><div class="sub">Chicopee, MA</div></div>
+   <div class="badges"><span class="badge phase-under-contract">Under Contract</span></div>
+  </div>
+  <div class="timeline"><div class="mstone done"><span class="dot"></span><span class="mlabel">Acquired</span></div><div class="mline"></div><div class="mstone done"><span class="dot"></span><span class="mlabel">Demo/Rehab</span></div><div class="mline"></div><div class="mstone done"><span class="dot"></span><span class="mlabel">Listed</span></div><div class="mline"></div><div class="mstone active"><span class="dot"></span><span class="mlabel">Under Contract</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Closing</span></div></div>
+  <div class="grid">
+   <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">Purchase Price</span><span class="v">$110,000</span></div><div class="kv"><span class="k">Rehab Cost</span><span class="v">$95,000</span></div><div class="kv"><span class="k">Listing Price</span><span class="v">$319,000</span></div><div class="kv"><span class="k">ARV</span><span class="v">$319,000</span></div></div>
+   <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Closing Attorney</span><span class="v">David Burstein</span></div><div class="kv"><span class="k">Project Manager</span><span class="v">Jessica Sicard</span></div></div>
+   <div class="sec"><h3>Action Items</h3><ul class="ai"><li>Closing June 19 (15 days) — review payoff docs</li><li>Confirm closing time with David Burstein</li></ul></div>
+   <div class="sec"><h3>Recent Updates</h3><ul class="upd"><li><span class="udate">2026-05-30</span> Under contract. Closing scheduled June 19, 2026.</li><li><span class="udate">2026-05-25</span> Accepted offer. P&amp;S signed.</li></ul></div>
+  </div>
+ </div>
+<div class="card">
+  <div class="card-head">
+   <div><h2>114 Danforth St</h2><div class="sub">Springfield, MA</div></div>
+   <div class="badges"><span class="badge phase-under-contract">Under Contract</span></div>
+  </div>
+  <div class="timeline"><div class="mstone done"><span class="dot"></span><span class="mlabel">Acquired</span></div><div class="mline"></div><div class="mstone done"><span class="dot"></span><span class="mlabel">Demo/Rehab</span></div><div class="mline"></div><div class="mstone done"><span class="dot"></span><span class="mlabel">Listed</span></div><div class="mline"></div><div class="mstone active"><span class="dot"></span><span class="mlabel">Under Contract</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Closing</span></div></div>
+  <div class="grid">
+   <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">Purchase Price</span><span class="v">$85,000</span></div><div class="kv"><span class="k">Rehab Cost</span><span class="v">$70,000</span></div><div class="kv"><span class="k">Listing Price</span><span class="v">$249,000</span></div><div class="kv"><span class="k">ARV</span><span class="v">$249,000</span></div></div>
+   <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Closing Attorney</span><span class="v">David Burstein</span></div><div class="kv"><span class="k">Project Manager</span><span class="v">Jessica Sicard</span></div></div>
+   <div class="sec"><h3>Action Items</h3><ul class="ai"><li>URGENT: At risk of forfeiting escrow — contact David Burstein immediately</li><li>Resolve buyer financing contingency</li></ul></div>
+   <div class="sec"><h3>Recent Updates</h3><ul class="upd"><li><span class="udate">2026-06-01</span> URGENT: David Burstein warned of escrow forfeiture risk if closing conditions not met soon.</li><li><span class="udate">2026-05-20</span> Under contract. Buyer financing contingency still open.</li></ul></div>
+  </div>
+ </div>
+<div class="card">
+  <div class="card-head">
+   <div><h2>2140 Palmer Road</h2><div class="sub">Palmer, MA</div></div>
+   <div class="badges"><span class="badge phase-listed">Listed</span></div>
+  </div>
+  <div class="timeline"><div class="mstone done"><span class="dot"></span><span class="mlabel">Acquired</span></div><div class="mline"></div><div class="mstone done"><span class="dot"></span><span class="mlabel">Demo/Rehab</span></div><div class="mline"></div><div class="mstone active"><span class="dot"></span><span class="mlabel">Listed</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Under Contract</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Closing</span></div></div>
+  <div class="grid">
+   <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">Purchase Price</span><span class="v">$120,000</span></div><div class="kv"><span class="k">Rehab Cost</span><span class="v">$110,000</span></div><div class="kv"><span class="k">Listing Price</span><span class="v">$369,000</span></div><div class="kv"><span class="k">ARV</span><span class="v">$369,000</span></div></div>
+   <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Listing Agent</span><span class="v">Alice Kempf</span></div><div class="kv"><span class="k">Project Manager</span><span class="v">Jessica Sicard</span></div></div>
+   <div class="sec"><h3>Action Items</h3><ul class="ai"><li>Monitor showings and feedback from Alice</li><li>Review price reduction if no offers by June 15</li></ul></div>
+   <div class="sec"><h3>Recent Updates</h3><ul class="upd"><li><span class="udate">2026-05-15</span> Listed on MLS at $369,000.</li><li><span class="udate">2026-05-01</span> Rehab complete. Ready for listing photos.</li></ul></div>
+  </div>
+ </div>
+<div class="card">
+  <div class="card-head">
+   <div><h2>42 Washington St</h2><div class="sub">Monson, MA</div></div>
+   <div class="badges"><span class="badge phase-under-contract">Under Contract</span></div>
+  </div>
+  <div class="timeline"><div class="mstone done"><span class="dot"></span><span class="mlabel">Acquired</span></div><div class="mline"></div><div class="mstone done"><span class="dot"></span><span class="mlabel">Demo/Rehab</span></div><div class="mline"></div><div class="mstone done"><span class="dot"></span><span class="mlabel">Listed</span></div><div class="mline"></div><div class="mstone active"><span class="dot"></span><span class="mlabel">Under Contract</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Closing</span></div></div>
+  <div class="grid">
+   <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">Purchase Price</span><span class="v">$105,000</span></div><div class="kv"><span class="k">Rehab Cost</span><span class="v">$60,000</span></div><div class="kv"><span class="k">Listing Price</span><span class="v">$259,000</span></div><div class="kv"><span class="k">ARV</span><span class="v">$259,000</span></div></div>
+   <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Closing Attorney</span><span class="v">David Burstein</span></div><div class="kv"><span class="k">Project Manager</span><span class="v">Jessica Sicard</span></div><div class="kv"><span class="k">Pest Control (413 Pest Free)</span><span class="v">Eric Kvarnstrom</span></div></div>
+   <div class="sec"><h3>Action Items</h3><ul class="ai"><li>Powder post beetle treatment scheduled next Tuesday (413 Pest Free)</li><li>Closing June 29 (25 days) — confirm treatment completion before closing</li><li>Get treatment certificate from Eric Kvarnstrom for closing docs</li></ul></div>
+   <div class="sec"><h3>Recent Updates</h3><ul class="upd"><li><span class="udate">2026-06-04</span> Powder post beetle treatment set up for next Tuesday per Jessica. Eric Kvarnstrom (413 Pest Free) coordinating.</li><li><span class="udate">2026-05-28</span> Under contract. Closing scheduled June 29, 2026.</li><li><span class="udate">2026-05-20</span> Pest inspection revealed powder post beetles. Treatment required before closing.</li></ul></div>
+  </div>
+ </div>
+<div class="card">
+  <div class="card-head">
+   <div><h2>167 East Park Terrace</h2><div class="sub">Springfield, MA</div></div>
+   <div class="badges"><span class="badge phase-demo-rehab">Demo/Rehab</span></div>
+  </div>
+  <div class="timeline"><div class="mstone done"><span class="dot"></span><span class="mlabel">Acquired</span></div><div class="mline"></div><div class="mstone active"><span class="dot"></span><span class="mlabel">Demo/Rehab</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Listed</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Under Contract</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Closing</span></div></div>
+  <div class="grid">
+   <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">Purchase Price</span><span class="v">$75,000</span></div><div class="kv"><span class="k">Rehab Estimate</span><span class="v">80000-100000</span></div><div class="kv"><span class="k">ARV</span><span class="v">$280,000</span></div></div>
+   <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">General Contractor</span><span class="v">Premiere Home Solutions</span></div><div class="kv"><span class="k">Project Manager</span><span class="v">Jessica Sicard</span></div></div>
+   <div class="sec"><h3>Action Items</h3><ul class="ai"><li>Awaiting window specs from Premiere Home Solutions</li><li>Slight crew delay — monitor progress</li><li>Review scope and timeline with GC</li></ul></div>
+   <div class="sec"><h3>Recent Updates</h3><ul class="upd"><li><span class="udate">2026-06-04</span> Premiere Home Solutions will have window specs shortly. One crew member out (having a daughter), slight delay.</li><li><span class="udate">2026-06-02</span> Dumpster delivered. Demo underway.</li><li><span class="udate">2026-05-28</span> GC mobilized. Scope includes windows, kitchen, baths, flooring.</li></ul></div>
+  </div>
+ </div>
+<div class="card">
+  <div class="card-head">
+   <div><h2>166 East St</h2><div class="sub">Pittsfield, MA</div></div>
+   <div class="badges"><span class="badge phase-demo-rehab">Demo/Rehab</span></div>
+  </div>
+  <div class="timeline"><div class="mstone done"><span class="dot"></span><span class="mlabel">Acquired</span></div><div class="mline"></div><div class="mstone active"><span class="dot"></span><span class="mlabel">Demo/Rehab</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Listed</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Under Contract</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Closing</span></div></div>
+  <div class="grid">
+   <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">Purchase Price</span><span class="v">$65,000</span></div><div class="kv"><span class="k">Rehab Estimate</span><span class="v">70000-90000</span></div><div class="kv"><span class="k">ARV</span><span class="v">$240,000</span></div></div>
+   <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Project Manager</span><span class="v">Jessica Sicard</span></div></div>
+   <div class="sec"><h3>Action Items</h3><ul class="ai"><li>Monitor rehab progress</li><li>Get timeline update from GC</li></ul></div>
+   <div class="sec"><h3>Recent Updates</h3><ul class="upd"><li><span class="udate">2026-05-20</span> Rehab in progress. On schedule.</li></ul></div>
+  </div>
+ </div>
+<div class="card">
+  <div class="card-head">
+   <div><h2>297 Breckwood Blvd</h2><div class="sub">Springfield, MA</div></div>
+   <div class="badges"><span class="badge phase-demo-rehab">Demo/Rehab</span></div>
+  </div>
+  <div class="timeline"><div class="mstone done"><span class="dot"></span><span class="mlabel">Acquired</span></div><div class="mline"></div><div class="mstone active"><span class="dot"></span><span class="mlabel">Demo/Rehab</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Listed</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Under Contract</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Closing</span></div></div>
+  <div class="grid">
+   <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">Purchase Price</span><span class="v">$80,000</span></div><div class="kv"><span class="k">Rehab Estimate</span><span class="v">75000-95000</span></div><div class="kv"><span class="k">ARV</span><span class="v">$260,000</span></div></div>
+   <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Project Manager</span><span class="v">Jessica Sicard</span></div></div>
+   <div class="sec"><h3>Action Items</h3><ul class="ai"><li>Monitor framing progress</li><li>Schedule rough inspections</li></ul></div>
+   <div class="sec"><h3>Recent Updates</h3><ul class="upd"><li><span class="udate">2026-05-18</span> Demo complete. Framing started.</li></ul></div>
+  </div>
+ </div>
+<div class="card">
+  <div class="card-head">
+   <div><h2>29 Chestnut St</h2><div class="sub">Pittsfield, MA</div></div>
+   <div class="badges"><span class="badge phase-demo-rehab">Demo/Rehab</span></div>
+  </div>
+  <div class="timeline"><div class="mstone done"><span class="dot"></span><span class="mlabel">Acquired</span></div><div class="mline"></div><div class="mstone active"><span class="dot"></span><span class="mlabel">Demo/Rehab</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Listed</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Under Contract</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Closing</span></div></div>
+  <div class="grid">
+   <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">Purchase Price</span><span class="v">$70,000</span></div><div class="kv"><span class="k">Rehab Estimate</span><span class="v">65000-80000</span></div><div class="kv"><span class="k">ARV</span><span class="v">$235,000</span></div></div>
+   <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Project Manager</span><span class="v">Jessica Sicard</span></div></div>
+   <div class="sec"><h3>Action Items</h3><ul class="ai"><li>Monitor rehab timeline</li><li>Confirm all permits pulled</li></ul></div>
+   <div class="sec"><h3>Recent Updates</h3><ul class="upd"><li><span class="udate">2026-05-25</span> Oil boiler recently replaced (~$7K). Rehab progressing.</li></ul></div>
+  </div>
+ </div>
+<div class="card">
+  <div class="card-head">
+   <div><h2>4 School St</h2><div class="sub">Westfield, MA</div></div>
+   <div class="badges"><span class="badge phase-listed">Listed</span></div>
+  </div>
+  <div class="timeline"><div class="mstone done"><span class="dot"></span><span class="mlabel">Acquired</span></div><div class="mline"></div><div class="mstone done"><span class="dot"></span><span class="mlabel">Demo/Rehab</span></div><div class="mline"></div><div class="mstone active"><span class="dot"></span><span class="mlabel">Listed</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Under Contract</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Closing</span></div></div>
+  <div class="grid">
+   <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">Purchase Price</span><span class="v">$90,000</span></div><div class="kv"><span class="k">Rehab Cost</span><span class="v">$75,000</span></div><div class="kv"><span class="k">Listing Price</span><span class="v">$279,000</span></div><div class="kv"><span class="k">ARV</span><span class="v">$279,000</span></div></div>
+   <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Listing Agent</span><span class="v">Alice Kempf</span></div><div class="kv"><span class="k">Project Manager</span><span class="v">Jessica Sicard</span></div></div>
+   <div class="sec"><h3>Action Items</h3><ul class="ai"><li>Follow up with Alice on showing activity</li><li>Review offers as they come in</li></ul></div>
+   <div class="sec"><h3>Recent Updates</h3><ul class="upd"><li><span class="udate">2026-05-10</span> Listed at $279,000. Showings scheduled.</li></ul></div>
+  </div>
+ </div>
+<div class="card">
+  <div class="card-head">
+   <div><h2>70 Town Hill Road</h2><div class="sub">Dalton, MA</div></div>
+   <div class="badges"><span class="badge phase-demo-rehab">Demo/Rehab</span></div>
+  </div>
+  <div class="timeline"><div class="mstone done"><span class="dot"></span><span class="mlabel">Acquired</span></div><div class="mline"></div><div class="mstone active"><span class="dot"></span><span class="mlabel">Demo/Rehab</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Listed</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Under Contract</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Closing</span></div></div>
+  <div class="grid">
+   <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">Purchase Price</span><span class="v">$115,000</span></div><div class="kv"><span class="k">Rehab Estimate</span><span class="v">90000-115000</span></div><div class="kv"><span class="k">ARV</span><span class="v">$350,000</span></div></div>
+   <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Project Manager</span><span class="v">Jessica Sicard</span></div></div>
+   <div class="sec"><h3>Action Items</h3><ul class="ai"><li>Monitor exterior work completion</li><li>Schedule interior work crews</li></ul></div>
+   <div class="sec"><h3>Recent Updates</h3><ul class="upd"><li><span class="udate">2026-05-22</span> Rehab underway. Siding and roof work in progress.</li></ul></div>
+  </div>
+ </div>
+<div class="card">
+  <div class="card-head">
+   <div><h2>40 Roland St</h2><div class="sub">Pittsfield, MA</div></div>
+   <div class="badges"><span class="badge phase-closed">Closed</span></div>
+  </div>
+  <div class="timeline"><div class="mstone done"><span class="dot"></span><span class="mlabel">Acquired</span></div><div class="mline"></div><div class="mstone done"><span class="dot"></span><span class="mlabel">Demo/Rehab</span></div><div class="mline"></div><div class="mstone done"><span class="dot"></span><span class="mlabel">Listed</span></div><div class="mline"></div><div class="mstone done"><span class="dot"></span><span class="mlabel">Under Contract</span></div><div class="mline"></div><div class="mstone done"><span class="dot"></span><span class="mlabel">Closing</span></div><div class="mline"></div><div class="mstone done"><span class="dot"></span><span class="mlabel">Closed</span></div></div>
+  <div class="grid">
+   <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">Purchase Price</span><span class="v">$85,000</span></div><div class="kv"><span class="k">Rehab Cost</span><span class="v">$72,000</span></div><div class="kv"><span class="k">Sale Price</span><span class="v">$265,000</span></div></div>
+   <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Closing Attorney</span><span class="v">David Burstein</span></div><div class="kv"><span class="k">Project Manager</span><span class="v">Jessica Sicard</span></div><div class="kv"><span class="k">Bookkeeper</span><span class="v">Liz Duarte</span></div><div class="kv"><span class="k">Finance/Reconciliation</span><span class="v">Will McGuire</span></div></div>
+   <div class="sec"><h3>Action Items</h3><ul class="ai"><li>Complete final reconciliation with Liz Duarte</li><li>Confirm insurance costs for closing statement</li><li>Will McGuire to finalize all outstanding bills</li></ul></div>
+   <div class="sec"><h3>Recent Updates</h3><ul class="upd"><li><span class="udate">2026-06-04</span> Final reconciliation in progress. Bookkeeper Liz Duarte asking about insurance costs and management fees. Chris confirmed no mgmt fees per Matt's request. Will McGuire tracking final bills.</li><li><span class="udate">2026-05-15</span> Closed successfully.</li></ul></div>
+  </div>
+ </div>
+<div class="card">
+  <div class="card-head">
+   <div><h2>21 Holly St</h2><div class="sub">Springfield, MA</div></div>
+   <div class="badges"><span class="badge phase-demo-rehab">Demo/Rehab</span></div>
+  </div>
+  <div class="timeline"><div class="mstone done"><span class="dot"></span><span class="mlabel">Acquired</span></div><div class="mline"></div><div class="mstone active"><span class="dot"></span><span class="mlabel">Demo/Rehab</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Listed</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Under Contract</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Closing</span></div></div>
+  <div class="grid">
+   <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">Purchase Price</span><span class="v">$60,000</span></div><div class="kv"><span class="k">Rehab Estimate</span><span class="v">65000-85000</span></div><div class="kv"><span class="k">ARV</span><span class="v">$230,000</span></div></div>
+   <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Project Manager</span><span class="v">Jessica Sicard</span></div></div>
+   <div class="sec"><h3>Action Items</h3><ul class="ai"><li>Schedule plumbing and electrical rough inspections</li><li>Order kitchen and bath fixtures</li></ul></div>
+   <div class="sec"><h3>Recent Updates</h3><ul class="upd"><li><span class="udate">2026-05-19</span> Demo complete. Starting mechanical rough-ins.</li></ul></div>
+  </div>
+ </div>
+<div class="card">
+  <div class="card-head">
+   <div><h2>1874 Home Rd</h2><div class="sub">Sheffield, MA</div></div>
+   <div class="badges"><span class="badge phase-listed">Listed</span><span class="badge src">Email</span></div>
+  </div>
+  <div class="timeline"><div class="mstone done"><span class="dot"></span><span class="mlabel">Acquired</span></div><div class="mline"></div><div class="mstone done"><span class="dot"></span><span class="mlabel">Demo/Rehab</span></div><div class="mline"></div><div class="mstone done"><span class="dot"></span><span class="mlabel">Listed</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Under Contract</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Closing</span></div></div>
+  <div class="grid">
+   <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">Listing Price</span><span class="v">$499,000</span></div><div class="kv"><span class="k">ARV</span><span class="v">$700,000</span></div><div class="kv"><span class="k">Rehab Estimate</span><span class="v">100000-130000</span></div><div class="kv"><span class="k">Buyer Concession</span><span class="v">$30,000</span></div><div class="kv"><span class="k">Prior Price Reduction</span><span class="v">$20,000</span></div></div>
+   <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Buyer Inspector (Jmax Consulting)</span><span class="v">Jon Hollman</span></div><div class="kv"><span class="k">Buyer's Realtor</span><span class="v">Gary Fuls</span></div><div class="kv"><span class="k">Seller Agent (Kempf-Vanderburgh)</span><span class="v">Gabriela Dearstyne</span></div><div class="kv"><span class="k">Forwarded Contact</span><span class="v">Bobby LeDoux</span></div><div class="kv"><span class="k">Team Leader KVR</span><span class="v">Melissa Vanderburgh</span></div><div class="kv"><span class="k">Listing Agent</span><span class="v">Alice Kempf</span></div><div class="kv"><span class="k">Project Manager</span><span class="v">Jessica Sicard</span></div><div class="kv"><span class="k">Closing Attorney</span><span class="v">David Burstein</span></div></div>
+   <div class="sec"><h3>Action Items</h3><ul class="ai"><li>Confirm Title V (septic) completion date this week and relay to Alice for the new buyer</li><li>David/Matt: mortgage inspection plan forwarded — confirm it satisfies new buyer's boundary/survey request (property abuts state land/Appalachian Trail)</li><li>Termination fully signed in dotloop — deal officially dead; buyer deposit released</li><li>Complete Title V / septic inspection this week (Russ) so the property is buyer-ready</li><li>Relist 1874 Home Rd with Alice Kempf — set new pricing / marketing strategy</li><li>Obtain firm boiler &amp; mechanical remediation quotes to pre-empt the next buyer's objections</li><li>Provide buyer's-counsel contact to David Burstein once a new buyer materializes (prior buyer never named counsel)</li></ul></div>
+   <div class="sec"><h3>Recent Updates</h3><ul class="upd"><li><span class="udate">2026-06-06</span> David Burstein (6:58 PM) forwarded the mortgage inspection plan to Alice in response to her request for a boundary survey for the new interested buyer. <span class="src">Email</span></li><li><span class="udate">2026-06-06</span> Alice Kempf (5:40 PM) reports ANOTHER interested buyer for the property. Asking David Burstein/Russ for the Title V completion date and whether a survey exists from the original purchase — new buyer wants to see the boundary (property abuts state land / Appalachian Trail). <span class="src">Email</span></li><li><span class="udate">2026-06-06</span> Alice Kempf confirmed to closing attorney David Burstein that the signed termination is in hand — 1874 Home Rd is officially BACK ON THE MARKET. Title V (septic) is expected to be completed this week so the property is ready for the next buyer. <span class="src">Email</span></li><li><span class="udate">2026-06-05</span> Matt counter-signed the Purchase &amp; Sale Agreement Termination and Release of Escrow in dotloop (evening 6/5), completing the mutual termination. Buyer's escrow deposit released. <span class="src">dotloop</span></li><li><span class="udate">2026-06-05</span> DEAL TERMINATED: Seller's agent (Gabriela Dearstyne, Kempf-Vanderburgh) shared a SIGNED Purchase &amp; Sale Agreement Termination and Release of Escrow via dotloop at ~4:08 PM. Buyer walked over the boiler/Title V dispute; escrow deposit being released. Property reverts to market. <span class="src">dotloop</span></li><li><span class="udate">2026-06-05</span> Buyer (Jon Hollman/Jmax, via Gary Fuls) sent a revised offer / proposed P&amp;S addendum demanding seller complete overdue Title V and replace the 120MBH oil boiler, 40-gal electric water heater, and damaged well-tank fittings with new, permitted, code-compliant work before the inspection contingency deadline. Set a hard 4 PM 6/5 deadline to reach terms or walk. <span class="src">Email</span></li><li><span class="udate">2026-06-04</span> Buyer (Jon Hollman/Jmax) requesting $30K concession for boiler and egress repairs. Attached inspection report and Viessman estimate. Threatened Article 7 termination.</li><li><span class="udate">2026-06-04</span> Alice suggests arguing house priced at $499K as-is, worth ~$700K with upgrades. Buyer already took $20K reduction. Suggests counter-offering ~$6K credit.</li><li><span class="udate">2026-06-04</span> Jessica notes oil boiler swap ~$7K (just did 29 Chestnut). Concerned buyer's plumber may try to get boiler red-tagged by town.</li><li><span class="udate">2026-06-04</span> Matt asked Alice to call him. Forwarded thread to Bobby LeDoux.</li></ul></div>
+  </div>
+ </div>
+<div class="card">
+  <div class="card-head">
+   <div><h2>173 Nassau Dr</h2><div class="sub">Springfield, MA</div></div>
+   <div class="badges"><span class="badge phase-acquired">Acquired</span><span class="badge src">PDF attachment</span></div>
+  </div>
+  <div class="timeline"><div class="mstone done"><span class="dot"></span><span class="mlabel">Acquired</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Demo/Rehab</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Listed</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Under Contract</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Closing</span></div></div>
+  <div class="grid">
+   <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">Borrowing Entity</span><span class="v">Maderose, LLC</span></div><div class="kv"><span class="k">Lender</span><span class="v">Ruby Lending LLC</span></div></div>
+   <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Closing Attorney</span><span class="v">David Burstein</span></div><div class="kv"><span class="k">Lender</span><span class="v">Ruby Lending LLC</span></div><div class="kv"><span class="k">YellowBrick Partner</span><span class="v">Chris Keniley</span></div><div class="kv"><span class="k">Partner</span><span class="v">Kevin (YellowBrick)</span></div><div class="kv"><span class="k">Loan Tracking / Lendr</span><span class="v">Michelle (YellowBrick)</span></div><div class="kv"><span class="k">Project Manager</span><span class="v">Jessica Sicard</span></div></div>
+   <div class="sec"><h3>Action Items</h3><ul class="ai"><li>Add Ruby Lending loan to Lendr (Michelle)</li><li>File executed loan documents (Ruby Lending / Maderose LLC)</li><li>Set up construction draw schedule per FCU draw package</li><li>Confirm acquisition/rehab scope and timeline with Jessica</li></ul></div>
+   <div class="sec"><h3>Recent Updates</h3><ul class="upd"><li><span class="udate">2026-06-07</span> Matt forwarded the Ruby Lending loan package to Michelle to add to Lendr (loan tracking). <span class="src">Email</span></li><li><span class="udate">2026-06-06</span> David Burstein sent the executed loan documents for 173 Nassau Dr financing via Ruby Lending LLC (borrowing entity Maderose, LLC). Attachments: Ruby Lending docs + FCU construction draw package. <span class="src">PDF attachment</span></li></ul></div>
+  </div>
+ </div>
+<div class="card">
+  <div class="card-head">
+   <div><h2>1 Richmond Ln</h2><div class="sub">Pittsfield, MA</div></div>
+   <div class="badges"><span class="badge phase-demo-rehab">Demo/Rehab</span></div>
+  </div>
+  <div class="timeline"><div class="mstone done"><span class="dot"></span><span class="mlabel">Acquired</span></div><div class="mline"></div><div class="mstone active"><span class="dot"></span><span class="mlabel">Demo/Rehab</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Listed</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Under Contract</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Closing</span></div></div>
+  <div class="grid">
+   <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">Purchase Price</span><span class="v">$55,000</span></div><div class="kv"><span class="k">Rehab Estimate</span><span class="v">60000-80000</span></div><div class="kv"><span class="k">ARV</span><span class="v">$220,000</span></div></div>
+   <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">General Contractor</span><span class="v">Premiere Home Solutions</span></div><div class="kv"><span class="k">Project Manager</span><span class="v">Jessica Sicard</span></div></div>
+   <div class="sec"><h3>Action Items</h3><ul class="ai"><li>Schedule final walkthrough with Premiere Home Solutions for Richmond and Orchard</li><li>Awaiting building inspector demo green light</li><li>Dig safe marked, electrician disconnected, dumpster on site</li></ul></div>
+   <div class="sec"><h3>Recent Updates</h3><ul class="upd"><li><span class="udate">2026-06-04</span> Premiere Home Solutions reports all scope complete: carport, chimney repoint, Antonio's items done. Cleaned and ready. Waiting building inspector green light for demo.</li><li><span class="udate">2026-06-04</span> Jessica processed $2,000 payment to Premiere Home Solutions, leaving small portion for final inspections.</li><li><span class="udate">2026-06-04</span> Premiere Home Solutions ready for final walkthrough whenever available.</li><li><span class="udate">2026-05-28</span> Dig safe marked. Electrician disconnected. Dumpster on site.</li></ul></div>
+  </div>
+ </div>
+<div class="card">
+  <div class="card-head">
+   <div><h2>54 Sectar Rd</h2><div class="sub">Cheshire, MA</div></div>
+   <div class="badges"><span class="badge phase-demo-rehab">Demo/Rehab</span></div>
+  </div>
+  <div class="timeline"><div class="mstone done"><span class="dot"></span><span class="mlabel">Acquired</span></div><div class="mline"></div><div class="mstone active"><span class="dot"></span><span class="mlabel">Demo/Rehab</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Listed</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Under Contract</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Closing</span></div></div>
+  <div class="grid">
+   <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">Purchase Price</span><span class="v">$95,000</span></div><div class="kv"><span class="k">Rehab Estimate</span><span class="v">85000-110000</span></div><div class="kv"><span class="k">ARV</span><span class="v">$320,000</span></div></div>
+   <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Project Manager</span><span class="v">Jessica Sicard</span></div></div>
+   <div class="sec"><h3>Action Items</h3><ul class="ai"><li>Monitor rehab start and progress</li><li>Confirm GC mobilization</li></ul></div>
+   <div class="sec"><h3>Recent Updates</h3><ul class="upd"><li><span class="udate">2026-05-21</span> Rehab scope finalized. Work beginning.</li></ul></div>
+  </div>
+ </div>
+<div class="card">
+  <div class="card-head">
+   <div><h2>412 Saint James Ave</h2><div class="sub">Springfield, MA</div></div>
+   <div class="badges"><span class="badge phase-listed">Listed</span></div>
+  </div>
+  <div class="timeline"><div class="mstone done"><span class="dot"></span><span class="mlabel">Acquired</span></div><div class="mline"></div><div class="mstone done"><span class="dot"></span><span class="mlabel">Demo/Rehab</span></div><div class="mline"></div><div class="mstone active"><span class="dot"></span><span class="mlabel">Listed</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Under Contract</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Closing</span></div></div>
+  <div class="grid">
+   <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">Purchase Price</span><span class="v">$78,000</span></div><div class="kv"><span class="k">Rehab Cost</span><span class="v">$68,000</span></div><div class="kv"><span class="k">Listing Price</span><span class="v">$249,000</span></div><div class="kv"><span class="k">ARV</span><span class="v">$249,000</span></div></div>
+   <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Listing Agent</span><span class="v">Alice Kempf</span></div><div class="kv"><span class="k">Project Manager</span><span class="v">Jessica Sicard</span></div></div>
+   <div class="sec"><h3>Action Items</h3><ul class="ai"><li>Follow up with Alice on showing feedback</li><li>Review any offers received</li></ul></div>
+   <div class="sec"><h3>Recent Updates</h3><ul class="upd"><li><span class="udate">2026-05-12</span> Listed at $249,000. First showing weekend scheduled.</li></ul></div>
+  </div>
+ </div>
+<div class="card">
+  <div class="card-head">
+   <div><h2>300 Tyler St</h2><div class="sub">Pittsfield, MA</div></div>
+   <div class="badges"><span class="badge phase-demo-rehab">Demo/Rehab</span></div>
+  </div>
+  <div class="timeline"><div class="mstone done"><span class="dot"></span><span class="mlabel">Acquired</span></div><div class="mline"></div><div class="mstone active"><span class="dot"></span><span class="mlabel">Demo/Rehab</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Listed</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Under Contract</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Closing</span></div></div>
+  <div class="grid">
+   <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">Purchase Price</span><span class="v">$72,000</span></div><div class="kv"><span class="k">Rehab Estimate</span><span class="v">70000-90000</span></div><div class="kv"><span class="k">ARV</span><span class="v">$250,000</span></div></div>
+   <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Project Manager</span><span class="v">Jessica Sicard</span></div></div>
+   <div class="sec"><h3>Action Items</h3><ul class="ai"><li>Get structural assessment results</li><li>Finalize rehab scope based on assessment</li></ul></div>
+   <div class="sec"><h3>Recent Updates</h3><ul class="upd"><li><span class="udate">2026-05-23</span> Demo underway. Structural assessment in progress.</li></ul></div>
+  </div>
+ </div>
+<div class="card">
+  <div class="card-head">
+   <div><h2>103 Prospect St</h2><div class="sub">Springfield, MA</div></div>
+   <div class="badges"><span class="badge phase-under-contract">Under Contract</span></div>
+  </div>
+  <div class="timeline"><div class="mstone done"><span class="dot"></span><span class="mlabel">Acquired</span></div><div class="mline"></div><div class="mstone done"><span class="dot"></span><span class="mlabel">Listed</span></div><div class="mline"></div><div class="mstone active"><span class="dot"></span><span class="mlabel">Under Contract</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Closing</span></div></div>
+  <div class="grid">
+   <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">Purchase Price</span><span class="v">$180,000</span></div><div class="kv"><span class="k">Listing Price</span><span class="v">$450,000</span></div><div class="kv"><span class="k">ARV</span><span class="v">$450,000</span></div></div>
+   <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Buyer's Agent</span><span class="v">Ryan O'Hara</span></div><div class="kv"><span class="k">Buyer (Vanderburgh House)</span><span class="v">Hunter Foote</span></div><div class="kv"><span class="k">Closing Attorney</span><span class="v">David Burstein</span></div><div class="kv"><span class="k">Project Manager</span><span class="v">Jessica Sicard</span></div></div>
+   <div class="sec"><h3>Action Items</h3><ul class="ai"><li>Closing targeted end of June — awaiting buyer's countersigned P&amp;S</li><li>Confirm all lawsuits and liability dismissed per agreement</li><li>Pay $100 fine now; ensure sale addresses outstanding code violations</li><li>Coordinate with Ryan O'Hara on closing timeline</li></ul></div>
+   <div class="sec"><h3>Recent Updates</h3><ul class="upd"><li><span class="udate">2026-06-05</span> Matt confirmed to Jessica: closing targeted for end of June, awaiting buyer to sign P&amp;S back. Pay the $100 code/painting fine for now; sale to address outstanding building/code violations.</li><li><span class="udate">2026-06-04</span> Ryan O'Hara forwarded Hunter Foote (Vanderburgh House) Best &amp; Final offer.</li><li><span class="udate">2026-06-04</span> Matt accepted offer on condition it removes all lawsuits and liability. O'Hara confirmed understanding and sent acceptance to Hunter.</li><li><span class="udate">2026-05-20</span> Property listed. Multiple interested parties including Hunter Foote/Vanderburgh House.</li></ul></div>
+  </div>
+ </div>
+<div class="card">
+  <div class="card-head">
+   <div><h2>205 Old Stage Road</h2><div class="sub">Hampden, MA</div></div>
+   <div class="badges"><span class="badge phase-listed">Listed</span><span class="badge src">Email</span></div>
+  </div>
+  <div class="timeline"><div class="mstone done"><span class="dot"></span><span class="mlabel">Acquired</span></div><div class="mline"></div><div class="mstone done"><span class="dot"></span><span class="mlabel">Demo/Rehab</span></div><div class="mline"></div><div class="mstone active"><span class="dot"></span><span class="mlabel">Listed</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Under Contract</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Closing</span></div></div>
+  <div class="grid">
+   <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">Purchase Price</span><span class="v">$145,000</span></div><div class="kv"><span class="k">Rehab Cost</span><span class="v">$88,000</span></div><div class="kv"><span class="k">Listing Price</span><span class="v">$389,000</span></div><div class="kv"><span class="k">ARV</span><span class="v">$389,000</span></div></div>
+   <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Listing Agent</span><span class="v">Alice Kempf</span></div><div class="kv"><span class="k">Attorney</span><span class="v">David Burstein</span></div><div class="kv"><span class="k">Litigation Attorney (Lyon &amp; Fitzpatrick)</span><span class="v">Katharine Higgins-Shea</span></div><div class="kv"><span class="k">Partner/Owner</span><span class="v">Kevin Shippee</span></div><div class="kv"><span class="k">Project Manager</span><span class="v">Jessica Sicard</span></div></div>
+   <div class="sec"><h3>Action Items</h3><ul class="ai"><li>Eviction/occupancy litigation proceeding — coordinate with Higgins-Shea (Lyon &amp; Fitzpatrick)</li><li>Tell Russ to stop contacting occupant per counsel</li><li>Resume active marketing once legal matter resolved</li></ul></div>
+   <div class="sec"><h3>Recent Updates</h3><ul class="upd"><li><span class="udate">2026-06-05</span> Occupant's court answer received (attorney Higgins-Shea). Randy granted walkthrough access by an adult male occupant; identity unclear. Counsel advises handling in court — no further direct contact. Work order #42587 assigned to Randy on 6/5 list.</li><li><span class="udate">2026-06-01</span> Court date was June 1 — follow up on outcome needed.</li><li><span class="udate">2026-05-15</span> Listed at $389,000. Legal matter pending regarding property boundary/occupancy dispute.</li></ul></div>
+  </div>
+ </div>
+<div class="card">
+  <div class="card-head">
+   <div><h2>60 Shaker Rd</h2><div class="sub">E Longmeadow, MA</div></div>
+   <div class="badges"><span class="badge phase-demo-rehab">Demo/Rehab</span><span class="badge src">Email</span></div>
+  </div>
+  <div class="timeline"><div class="mstone done"><span class="dot"></span><span class="mlabel">Acquired</span></div><div class="mline"></div><div class="mstone active"><span class="dot"></span><span class="mlabel">Demo/Rehab</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Listed</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Under Contract</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Closing</span></div></div>
+  <div class="grid">
+   <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">Purchase Price</span><span class="v">$850,000</span></div><div class="kv"><span class="k">Rehab Estimate</span><span class="v">200000-300000</span></div><div class="kv"><span class="k">ARV</span><span class="v">$1,500,000</span></div></div>
+   <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Insurance Inspector (The Hartford)</span><span class="v">Derek Boggi</span></div><div class="kv"><span class="k">Property Contact</span><span class="v">Sharon Gates</span></div><div class="kv"><span class="k">Project Manager</span><span class="v">Jessica Sicard</span></div></div>
+   <div class="sec"><h3>Action Items</h3><ul class="ai"><li>Insurance inspection completed 6/4 - await Hartford report</li><li>Follow up on roof repair recommendations from inspector</li></ul></div>
+   <div class="sec"><h3>Recent Updates</h3><ul class="upd"><li><span class="udate">2026-06-05</span> Work order #43042 assigned to Barry on the 6/5 work-order list from Jessica Sicard.</li><li><span class="udate">2026-06-04</span> Insurance inspection completed successfully. Affected suites: 5, 6, 15, plus public bathroom near elevator, hallway areas.</li><li><span class="udate">2026-06-04</span> Sharon Gates confirmed inspection went well. Jessica confirmed to Sharon.</li><li><span class="udate">2026-05-28</span> Insurance inspection scheduled June 4 at 9:30 AM with Derek Boggi (The Hartford).</li></ul></div>
+  </div>
+ </div>
+<div class="card">
+  <div class="card-head">
+   <div><h2>141 St. Jerome Ave</h2><div class="sub">Pittsfield, MA</div></div>
+   <div class="badges"><span class="badge phase-demo-rehab">Demo/Rehab</span></div>
+  </div>
+  <div class="timeline"><div class="mstone done"><span class="dot"></span><span class="mlabel">Acquired</span></div><div class="mline"></div><div class="mstone active"><span class="dot"></span><span class="mlabel">Demo/Rehab</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Listed</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Under Contract</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Closing</span></div></div>
+  <div class="grid">
+   <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">Purchase Price</span><span class="v">$68,000</span></div><div class="kv"><span class="k">Rehab Estimate</span><span class="v">65000-85000</span></div><div class="kv"><span class="k">ARV</span><span class="v">$235,000</span></div></div>
+   <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Project Manager</span><span class="v">Jessica Sicard</span></div></div>
+   <div class="sec"><h3>Action Items</h3><ul class="ai"><li>Monitor rehab progress</li><li>Schedule inspections as milestones are hit</li></ul></div>
+   <div class="sec"><h3>Recent Updates</h3><ul class="upd"><li><span class="udate">2026-05-16</span> Permits pulled. Rehab starting.</li></ul></div>
+  </div>
+ </div>
+<div class="card">
+  <div class="card-head">
+   <div><h2>15 Olympic Ave</h2><div class="sub">Pittsfield, MA</div></div>
+   <div class="badges"><span class="badge phase-listed">Listed</span></div>
+  </div>
+  <div class="timeline"><div class="mstone done"><span class="dot"></span><span class="mlabel">Acquired</span></div><div class="mline"></div><div class="mstone done"><span class="dot"></span><span class="mlabel">Demo/Rehab</span></div><div class="mline"></div><div class="mstone active"><span class="dot"></span><span class="mlabel">Listed</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Under Contract</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Closing</span></div></div>
+  <div class="grid">
+   <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">Purchase Price</span><span class="v">$82,000</span></div><div class="kv"><span class="k">Rehab Cost</span><span class="v">$71,000</span></div><div class="kv"><span class="k">Listing Price</span><span class="v">$269,000</span></div><div class="kv"><span class="k">ARV</span><span class="v">$269,000</span></div></div>
+   <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Listing Agent</span><span class="v">Alice Kempf</span></div><div class="kv"><span class="k">Project Manager</span><span class="v">Jessica Sicard</span></div></div>
+   <div class="sec"><h3>Action Items</h3><ul class="ai"><li>Review open house results with Alice</li><li>Assess price adjustment if needed</li></ul></div>
+   <div class="sec"><h3>Recent Updates</h3><ul class="upd"><li><span class="udate">2026-05-08</span> Listed at $269,000. Open house scheduled.</li></ul></div>
+  </div>
+ </div>
+<div class="card">
+  <div class="card-head">
+   <div><h2>140 Egremont Plain Rd</h2><div class="sub">Egremont, MA</div></div>
+   <div class="badges"><span class="badge phase-prospecting">Prospecting</span></div>
+  </div>
+  <div class="timeline"><div class="mstone active"><span class="dot"></span><span class="mlabel">Prospecting</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Acquired</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Demo/Rehab</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Listed</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Under Contract</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Closing</span></div></div>
+  <div class="grid">
+   <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">ARV Estimate</span><span class="v">$450,000</span></div></div>
+   <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Agent</span><span class="v">Alice Kempf</span></div></div>
+   <div class="sec"><h3>Action Items</h3><ul class="ai"><li>Review CMA from Alice</li><li>Evaluate acquisition opportunity</li></ul></div>
+   <div class="sec"><h3>Recent Updates</h3><ul class="upd"><li><span class="udate">2026-05-05</span> Identified as potential acquisition. CMA requested from Alice.</li></ul></div>
+  </div>
+ </div>
+<div class="card">
+  <div class="card-head">
+   <div><h2>213 Brodie Mountain Rd</h2><div class="sub">Lanesborough, MA</div></div>
+   <div class="badges"><span class="badge phase-prospecting">Prospecting</span></div>
+  </div>
+  <div class="timeline"><div class="mstone active"><span class="dot"></span><span class="mlabel">Prospecting</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Acquired</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Demo/Rehab</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Listed</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Under Contract</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Closing</span></div></div>
+  <div class="grid">
+   <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">ARV Estimate</span><span class="v">$380,000</span></div></div>
+   <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Agent</span><span class="v">Alice Kempf</span></div></div>
+   <div class="sec"><h3>Action Items</h3><ul class="ai"><li>Complete comp analysis</li><li>Decide on offer strategy</li></ul></div>
+   <div class="sec"><h3>Recent Updates</h3><ul class="upd"><li><span class="udate">2026-05-03</span> Potential deal. Analyzing comps.</li></ul></div>
+  </div>
+ </div>
+<div class="card">
+  <div class="card-head">
+   <div><h2>11 Bryant St</h2><div class="sub">Pittsfield, MA</div></div>
+   <div class="badges"><span class="badge phase-prospecting">Prospecting</span></div>
+  </div>
+  <div class="timeline"><div class="mstone active"><span class="dot"></span><span class="mlabel">Prospecting</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Acquired</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Demo/Rehab</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Listed</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Under Contract</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Closing</span></div></div>
+  <div class="grid">
+   <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">ARV Estimate</span><span class="v">$260,000</span></div></div>
+   <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Agent</span><span class="v">Alice Kempf</span></div></div>
+   <div class="sec"><h3>Action Items</h3><ul class="ai"><li>Complete walkthrough</li><li>Get rehab estimate</li></ul></div>
+   <div class="sec"><h3>Recent Updates</h3><ul class="upd"><li><span class="udate">2026-05-01</span> Evaluating as potential flip. Walkthrough scheduled.</li></ul></div>
+  </div>
+ </div>
+<div class="card">
+  <div class="card-head">
+   <div><h2>100 Central St</h2><div class="sub">Springfield, MA</div></div>
+   <div class="badges"><span class="badge phase-prospecting">Prospecting</span></div>
+  </div>
+  <div class="timeline"><div class="mstone active"><span class="dot"></span><span class="mlabel">Prospecting</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Acquired</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Demo/Rehab</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Listed</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Under Contract</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Closing</span></div></div>
+  <div class="grid">
+   <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">ARV Estimate</span><span class="v">$310,000</span></div></div>
+   <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Agent</span><span class="v">Alice Kempf</span></div></div>
+   <div class="sec"><h3>Action Items</h3><ul class="ai"><li>Follow up with owner on sale interest</li><li>Run comps and submit offer if viable</li></ul></div>
+   <div class="sec"><h3>Recent Updates</h3><ul class="upd"><li><span class="udate">2026-05-02</span> Off-market lead. Owner contacted.</li></ul></div>
+  </div>
+ </div>
+<div class="card">
+  <div class="card-head">
+   <div><h2>282-284 Suffolk Street</h2><div class="sub">Holyoke, MA</div></div>
+   <div class="badges"><span class="badge phase-prospecting">Prospecting</span></div>
+  </div>
+  <div class="timeline"><div class="mstone active"><span class="dot"></span><span class="mlabel">Prospecting</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Acquired</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Demo/Rehab</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Listed</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Under Contract</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Closing</span></div></div>
+  <div class="grid">
+   <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">ARV Estimate</span><span class="v">$290,000</span></div></div>
+   <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Agent</span><span class="v">Alice Kempf</span></div></div>
+   <div class="sec"><h3>Action Items</h3><ul class="ai"><li>Determine strategy: flip vs hold</li><li>Get inspection and rehab estimate</li></ul></div>
+   <div class="sec"><h3>Recent Updates</h3><ul class="upd"><li><span class="udate">2026-05-04</span> Multi-family property. Evaluating for buy-and-hold or flip.</li></ul></div>
+  </div>
+ </div>
+<div class="card">
+  <div class="card-head">
+   <div><h2>583 Hawks Spur Rd</h2><div class="sub">Cheshire, MA</div></div>
+   <div class="badges"><span class="badge phase-prospecting">Prospecting</span></div>
+  </div>
+  <div class="timeline"><div class="mstone active"><span class="dot"></span><span class="mlabel">Prospecting</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Acquired</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Demo/Rehab</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Listed</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Under Contract</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Closing</span></div></div>
+  <div class="grid">
+   <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">ARV Estimate</span><span class="v">$340,000</span></div></div>
+   <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Agent</span><span class="v">Alice Kempf</span></div></div>
+   <div class="sec"><h3>Action Items</h3><ul class="ai"><li>Expand comp search radius</li><li>Evaluate rehab scope and rural premium</li></ul></div>
+   <div class="sec"><h3>Recent Updates</h3><ul class="upd"><li><span class="udate">2026-05-06</span> Rural property. Comps are thin — need broader search.</li></ul></div>
+  </div>
+ </div>
+<div class="card">
+  <div class="card-head">
+   <div><h2>172 Fiske St</h2><div class="sub">Pittsfield, MA</div></div>
+   <div class="badges"><span class="badge phase-prospecting">Prospecting</span></div>
+  </div>
+  <div class="timeline"><div class="mstone active"><span class="dot"></span><span class="mlabel">Prospecting</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Acquired</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Demo/Rehab</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Listed</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Under Contract</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Closing</span></div></div>
+  <div class="grid">
+   <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">ARV Estimate</span><span class="v">$255,000</span></div></div>
+   <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Agent</span><span class="v">Alice Kempf</span></div></div>
+   <div class="sec"><h3>Action Items</h3><ul class="ai"><li>Follow up with owner</li><li>Submit LOI if owner ready</li></ul></div>
+   <div class="sec"><h3>Recent Updates</h3><ul class="upd"><li><span class="udate">2026-05-07</span> Evaluating acquisition. Owner considering selling.</li></ul></div>
+  </div>
+ </div>
+<div class="card">
+  <div class="card-head">
+   <div><h2>26 Old Putnam Rd</h2><div class="sub">Bethel, CT</div></div>
+   <div class="badges"><span class="badge phase-prospecting">Prospecting</span></div>
+  </div>
+  <div class="timeline"><div class="mstone active"><span class="dot"></span><span class="mlabel">Prospecting</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Acquired</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Demo/Rehab</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Listed</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Under Contract</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Closing</span></div></div>
+  <div class="grid">
+   <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">ARV Estimate</span><span class="v">$420,000</span></div></div>
+   <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Agent</span><span class="v">Alice Kempf</span></div></div>
+   <div class="sec"><h3>Action Items</h3><ul class="ai"><li>Evaluate CT deal viability and logistics</li><li>Connect with local CT contractor</li></ul></div>
+   <div class="sec"><h3>Recent Updates</h3><ul class="upd"><li><span class="udate">2026-05-09</span> Connecticut deal. Evaluating out-of-state expansion viability.</li></ul></div>
+  </div>
+ </div>
+<div class="card">
+  <div class="card-head">
+   <div><h2>31 Loring Street</h2><div class="sub">Springfield, MA</div></div>
+   <div class="badges"><span class="badge phase-prospecting">Prospecting</span></div>
+  </div>
+  <div class="timeline"><div class="mstone active"><span class="dot"></span><span class="mlabel">Prospecting</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Acquired</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Demo/Rehab</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Listed</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Under Contract</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Closing</span></div></div>
+  <div class="grid">
+   <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">ARV Estimate</span><span class="v">$270,000</span></div></div>
+   <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Agent</span><span class="v">Alice Kempf</span></div></div>
+   <div class="sec"><h3>Action Items</h3><ul class="ai"><li>Review comps</li><li>Determine offer price</li></ul></div>
+   <div class="sec"><h3>Recent Updates</h3><ul class="upd"><li><span class="udate">2026-05-11</span> Evaluating Springfield market conditions for this property.</li></ul></div>
+  </div>
+ </div>
+<div class="card">
+  <div class="card-head">
+   <div><h2>Downing Park</h2><div class="sub">Newburgh, NY</div></div>
+   <div class="badges"><span class="badge phase-prospecting">Prospecting</span></div>
+  </div>
+  <div class="timeline"><div class="mstone active"><span class="dot"></span><span class="mlabel">Prospecting</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Acquired</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Demo/Rehab</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Listed</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Under Contract</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Closing</span></div></div>
+  <div class="grid">
+   <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">ARV Estimate</span><span class="v">$2,500,000</span></div></div>
+   <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Investment Partner</span><span class="v">Peter Houser</span></div></div>
+   <div class="sec"><h3>Action Items</h3><ul class="ai"><li>Discuss partnership structure with Peter Houser</li><li>Review project feasibility and financing</li></ul></div>
+   <div class="sec"><h3>Recent Updates</h3><ul class="upd"><li><span class="udate">2026-05-13</span> Large-scale NY project. Peter Houser evaluating partnership structure.</li></ul></div>
+  </div>
+ </div>
+<div class="card">
+  <div class="card-head">
+   <div><h2>105 N Main St</h2><div class="sub">Orange, MA</div></div>
+   <div class="badges"><span class="badge phase-prospecting">Prospecting</span></div>
+  </div>
+  <div class="timeline"><div class="mstone active"><span class="dot"></span><span class="mlabel">Prospecting</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Acquired</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Demo/Rehab</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Listed</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Under Contract</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Closing</span></div></div>
+  <div class="grid">
+   <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">Asking Price</span><span class="v">$130,000</span></div><div class="kv"><span class="k">ARV Estimate</span><span class="v">$230,000</span></div><div class="kv"><span class="k">Rehab Estimate</span><span class="v">$25,000</span></div></div>
+   <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Agent</span><span class="v">Alice Kempf</span></div><div class="kv"><span class="k">Contract Assignor</span><span class="v">Joe Homebuyer NE</span></div></div>
+   <div class="sec"><h3>Action Items</h3><ul class="ai"><li>Review contract assignment terms</li><li>Evaluate deal at $130K ask with $25K repairs and $230K ARV</li><li>Respond to Alice on interest by June 20 if pursuing June 30 close</li></ul></div>
+   <div class="sec"><h3>Recent Updates</h3><ul class="upd"><li><span class="udate">2026-06-03</span> Alice Kempf forwarded contract assignment from Joe Homebuyer NE. 3BR/2BA townhouse at $130K ask, $230K ARV, ~$25K repairs. Target close by June 30.</li></ul></div>
+  </div>
+ </div>
+<div class="card">
+  <div class="card-head">
+   <div><h2>5 Carpenter Rd</h2><div class="sub">Greenfield, MA</div></div>
+   <div class="badges"><span class="badge phase-prospecting">Prospecting</span><span class="badge src">Email</span></div>
+  </div>
+  <div class="timeline"><div class="mstone active"><span class="dot"></span><span class="mlabel">Prospecting</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Acquired</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Demo/Rehab</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Listed</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Under Contract</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Closing</span></div></div>
+  <div class="grid">
+   <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">ARV Estimate</span><span class="v">$389,900</span></div></div>
+   <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Agent</span><span class="v">Alice Kempf</span></div></div>
+   <div class="sec"><h3>Action Items</h3><ul class="ai"><li>Review CMA from Alice</li><li>Evaluate bath addition potential</li></ul></div>
+   <div class="sec"><h3>Recent Updates</h3><ul class="upd"><li><span class="udate">2026-06-04</span> Alice Kempf sent CMA. ARV ~$389,900, could be more with half bath or 2nd full bath.</li></ul></div>
+  </div>
+ </div>
+<div class="card">
+  <div class="card-head">
+   <div><h2>30 E Cleveland St</h2><div class="sub">Greenfield, MA</div></div>
+   <div class="badges"><span class="badge phase-prospecting">Prospecting</span><span class="badge src">Email</span></div>
+  </div>
+  <div class="timeline"><div class="mstone active"><span class="dot"></span><span class="mlabel">Prospecting</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Acquired</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Demo/Rehab</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Listed</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Under Contract</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Closing</span></div></div>
+  <div class="grid">
+   <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">ARV Estimate</span><span class="v">379000-389000</span></div></div>
+   <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Agent</span><span class="v">Alice Kempf</span></div></div>
+   <div class="sec"><h3>Action Items</h3><ul class="ai"><li>Review CMA from Alice</li><li>Evaluate bath addition potential</li></ul></div>
+   <div class="sec"><h3>Recent Updates</h3><ul class="upd"><li><span class="udate">2026-06-04</span> Alice Kempf sent CMA. Has garage. ARV $379K, up to $389K with extra bath. Matt confirmed garage exists.</li></ul></div>
+  </div>
+ </div>
+<div class="card">
+  <div class="card-head">
+   <div><h2>21 Dwight St</h2><div class="sub">Agawam, MA</div></div>
+   <div class="badges"><span class="badge phase-prospecting">Prospecting</span><span class="badge src">Email</span></div>
+  </div>
+  <div class="timeline"><div class="mstone active"><span class="dot"></span><span class="mlabel">Prospecting</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Acquired</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Demo/Rehab</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Listed</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Under Contract</span></div><div class="mline"></div><div class="mstone pending"><span class="dot"></span><span class="mlabel">Closing</span></div></div>
+  <div class="grid">
+   <div class="sec"><h3>Financials</h3><div class="kv"><span class="k">Asking Price</span><span class="v">$2,800,000</span></div><div class="kv"><span class="k">Units</span><span class="v">22</span></div><div class="kv"><span class="k">Unit Type</span><span class="v">studio apartments</span></div></div>
+   <div class="sec"><h3>Key Contacts</h3><div class="kv"><span class="k">Listing Agent (PC Realty)</span><span class="v">Russell Sabadosa</span></div><div class="kv"><span class="k">Forwarded To</span><span class="v">Peter Houser</span></div></div>
+   <div class="sec"><h3>Action Items</h3><ul class="ai"><li>Review financials and T-12</li><li>Offer deadline June 18, 2026</li></ul></div>
+   <div class="sec"><h3>Recent Updates</h3><ul class="upd"><li><span class="udate">2026-06-04</span> 22-unit studio apartment building listed at $2.8M. T-12 operating statements and rent roll attached. Offer deadline 6/18/26. Matt forwarded to Peter Houser.</li></ul></div>
+  </div>
+ </div>
 </main>
-<footer>House Flip Closing Coordinator · auto-generated Sunday, June 7, 2026 at 8:02 AM ET · 38 properties</footer>
-</body>
-                                                </html>
+</body></html>
