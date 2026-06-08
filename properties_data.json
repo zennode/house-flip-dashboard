@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-08T08:05:39-04:00",
+  "last_updated": "2026-06-08T18:05:00-04:00",
   "properties": [
     {
       "id": "67-willow-st",
@@ -294,6 +294,11 @@
       },
       "recent_updates": [
         {
+          "date": "2026-06-08",
+          "source": "Email",
+          "note": "Premiere Home Solutions sent the final window count: 11 vinyl double-hung replacements (7 @ 53.75\"x29.75\", 1 @ 33.75\"x31.75\", 1 @ 45.75\"x23.75\", 2 @ 45.75\"x27.75\")."
+        },
+        {
           "date": "2026-06-04",
           "note": "Premiere Home Solutions will have window specs shortly. One crew member out (having a daughter), slight delay."
         },
@@ -307,7 +312,7 @@
         }
       ],
       "action_items": [
-        "Awaiting window specs from Premiere Home Solutions",
+        "Order 11 vinyl double-hung replacement windows per Premiere's measured count",
         "Slight crew delay — monitor progress",
         "Review scope and timeline with GC"
       ]
@@ -1843,6 +1848,130 @@
         "Confirm whether the ~$8K charge affects the already-distributed investor return reconciliation",
         "REVIEW: property auto-created from email — verify address/details are correct"
       ]
+    },
+    {
+      "id": "23-schley-st",
+      "address": "23 Schley St",
+      "city": "Springfield",
+      "state": "MA",
+      "status": "active",
+      "current_milestone": "Closing",
+      "milestones": [
+        "Acquired",
+        "Demo/Rehab",
+        "Listed",
+        "Under Contract",
+        "Closing"
+      ],
+      "completed_milestones": [
+        "Acquired",
+        "Demo/Rehab",
+        "Listed",
+        "Under Contract"
+      ],
+      "source": "Email",
+      "auto_detected": true,
+      "closing_date": "2026-06-09",
+      "contacts": [
+        {
+          "name": "David Burstein",
+          "role": "Closing Attorney"
+        },
+        {
+          "name": "Chris Keniley",
+          "role": "Accounting Manager (Yellowbrick)"
+        },
+        {
+          "name": "Kevin (YellowBrick)",
+          "role": "Partner"
+        }
+      ],
+      "financials": {
+        "loan_amount": 255000,
+        "lender": "Ruby Lending LLC",
+        "borrowing_entity": "Barose Projects LLC"
+      },
+      "important_dates": {
+        "closing": "2026-06-09"
+      },
+      "recent_updates": [
+        {
+          "date": "2026-06-08",
+          "source": "Email",
+          "note": "David Burstein confirmed the $255,000 wire was received for tomorrow's closing. Chris Keniley sent the wire; the Ruby Lending LLC loan to Barose Projects LLC closes June 9, 2026."
+        },
+        {
+          "date": "2026-06-08",
+          "source": "Email",
+          "note": "David Burstein requested a $255,000 wire for the closing scheduled June 9; funds disbursed by Yellowbrick accounting (Chris Keniley)."
+        }
+      ],
+      "action_items": [
+        "Closing June 9 (tomorrow) — confirm loan documents executed at closing",
+        "File executed Ruby Lending / Barose Projects loan package and add to Lendr",
+        "REVIEW: property auto-created from email — verify address/details"
+      ]
+    },
+    {
+      "id": "53-5-orchard-st",
+      "address": "53 1/2 Orchard St",
+      "city": "Pittsfield",
+      "state": "MA",
+      "status": "active",
+      "current_milestone": "Under Contract",
+      "milestones": [
+        "Acquired",
+        "Demo/Rehab",
+        "Listed",
+        "Under Contract",
+        "Closing"
+      ],
+      "completed_milestones": [
+        "Acquired",
+        "Demo/Rehab",
+        "Listed"
+      ],
+      "source": "PDF attachment",
+      "auto_detected": true,
+      "closing_date": "2026-06-30",
+      "contacts": [
+        {
+          "name": "Peter Houser",
+          "role": "Seller / Investment Partner"
+        },
+        {
+          "name": "Vitaliy Yusenko",
+          "role": "Closing Attorney (Yusenko Law)"
+        },
+        {
+          "name": "Daniel Mendoza",
+          "role": "Qualified Intermediary (e1031xchange)"
+        }
+      ],
+      "financials": {
+        "note": "Sale structured as a 1031 exchange (QI: e1031xchange). Accepted offer contract on file (Accepted offer Orchard.pdf)."
+      },
+      "important_dates": {
+        "estimated_closing": "2026-06-30"
+      },
+      "recent_updates": [
+        {
+          "date": "2026-06-08",
+          "source": "Email",
+          "note": "e1031xchange (Daniel Mendoza) confirmed receipt of the contract, is generating exchange forms, and asked for the title report and settlement statement plus confirmation of the 6/30 closing date; requested organizational docs showing the authorized signatory."
+        },
+        {
+          "date": "2026-06-08",
+          "source": "PDF attachment",
+          "note": "Peter Houser sent the accepted offer / contract (Accepted offer Orchard.pdf) for the sale of 53 1/2 Orchard St, Pittsfield, set up as a 1031 exchange. Estimated closing June 30, 2026."
+        }
+      ],
+      "action_items": [
+        "Forward organizational documents showing authorized signatory to e1031xchange",
+        "Provide title report and settlement statement to the QI once available",
+        "Confirm June 30, 2026 closing date with attorney Vitaliy Yusenko",
+        "REVIEW: property auto-created from email — verify address/details"
+      ]
     }
   ]
-}
+        }
