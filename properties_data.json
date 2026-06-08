@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-07T18:05:26-04:00",
+  "last_updated": "2026-06-08T08:05:39-04:00",
   "properties": [
     {
       "id": "67-willow-st",
@@ -560,6 +560,11 @@
         "sale_price": 265000
       },
       "recent_updates": [
+        {
+          "date": "2026-06-08",
+          "source": "Email",
+          "note": "Reconciliation thread still active: Will McGuire (HHH) following up to document agreed costs; a separate overall-financials email is forthcoming. Related ~$8K Suarez deposit/rent item is being tracked under 342 Wilbraham."
+        },
         {
           "date": "2026-06-04",
           "note": "Final reconciliation in progress. Bookkeeper Liz Duarte asking about insurance costs and management fees. Chris confirmed no mgmt fees per Matt's request. Will McGuire tracking final bills."
@@ -1773,6 +1778,70 @@
       "action_items": [
         "Review financials and T-12",
         "Offer deadline June 18, 2026"
+      ]
+    },
+    {
+      "id": "342-wilbraham",
+      "address": "342 Wilbraham",
+      "city": "Wilbraham",
+      "state": "MA",
+      "status": "closed",
+      "current_milestone": "Closed",
+      "milestones": [
+        "Acquired",
+        "Demo/Rehab",
+        "Listed",
+        "Under Contract",
+        "Closing",
+        "Closed"
+      ],
+      "completed_milestones": [
+        "Acquired",
+        "Demo/Rehab",
+        "Listed",
+        "Under Contract",
+        "Closing",
+        "Closed"
+      ],
+      "auto_detected": true,
+      "source": "Email",
+      "contacts": [
+        {
+          "name": "Will McGuire",
+          "role": "Investors & Team Ops (HouseHack Helpers)"
+        },
+        {
+          "name": "Chris Keniley",
+          "role": "Accounting Manager (Yellowbrick)"
+        },
+        {
+          "name": "Liz Duarte",
+          "role": "Bookkeeper"
+        },
+        {
+          "name": "Antonio",
+          "role": "HouseHack Helpers"
+        }
+      ],
+      "financials": {
+        "note": "HHH covered ~$8K of seller (Miguel Suarez) costs as part of purchase: security deposit, last month's rent, and a 6-month rent credit ($1,350/mo), treated as closing costs."
+      },
+      "recent_updates": [
+        {
+          "date": "2026-06-08",
+          "source": "Email",
+          "note": "Matt confirmed the Suarez deposit/rent arrangement was agreed as part of the purchase (Yellowbrick took on removing the former owner). Documentation still needs to be formalized; suggested Antonio capture it in his weekly update."
+        },
+        {
+          "date": "2026-06-05",
+          "source": "Email",
+          "note": "Will McGuire (HHH) flagged a ~$8K charge (Suarez SD/LMR/rents) that was not considered when investor returns were paid out on Wilbraham profitability; requested a call Mon/Tue to document the rationale for records."
+        }
+      ],
+      "action_items": [
+        "Document rationale for the ~$8K Suarez deposit/rent charge to HHH (Will/Matt call Mon/Tue)",
+        "Confirm whether the ~$8K charge affects the already-distributed investor return reconciliation",
+        "REVIEW: property auto-created from email — verify address/details are correct"
       ]
     }
   ]
