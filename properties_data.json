@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-09T08:05:49-04:00",
+  "last_updated": "2026-06-09T18:13:00-04:00",
   "properties": [
     {
       "id": "67-willow-st",
@@ -89,6 +89,11 @@
       },
       "recent_updates": [
         {
+          "date": "2026-06-09",
+          "source": "Email",
+          "note": "Ruby Lending LLC mortgage paydown initiated — David Burstein dropping a check at Freedom Credit Union tomorrow with payoff statement and discharge (Word form). Camille Ali (FCU) confirmed she'll watch for it."
+        },
+        {
           "date": "2026-05-30",
           "note": "Under contract. Closing scheduled June 19, 2026."
         },
@@ -98,6 +103,7 @@
         }
       ],
       "action_items": [
+        "Confirm 330 Montgomery paydown check delivered to FCU and discharge recorded",
         "Closing June 19 (15 days) — review payoff docs",
         "Confirm closing time with David Burstein"
       ]
@@ -139,6 +145,11 @@
       },
       "recent_updates": [
         {
+          "date": "2026-06-09",
+          "source": "PDF",
+          "note": "Signed-off building permit received from Premiere Home (final inspection checked as passed; inspector Bill Burruss). Forwarded to David Burstein to pursue a $5K rehab draw release; Burstein flagged possible pushback from buyer's counsel. (Note: permit cites a Pittsfield inspector while this entry lists Springfield — verify jurisdiction.)"
+        },
+        {
           "date": "2026-06-01",
           "note": "URGENT: David Burstein warned of escrow forfeiture risk if closing conditions not met soon."
         },
@@ -148,6 +159,7 @@
         }
       ],
       "action_items": [
+        "Pursue $5K rehab draw release with lender's counsel using the signed building permit",
         "URGENT: At risk of forfeiting escrow — contact David Burstein immediately",
         "Resolve buyer financing contingency"
       ]
@@ -793,6 +805,11 @@
       },
       "recent_updates": [
         {
+          "date": "2026-06-09",
+          "source": "Email",
+          "note": "Ruby Lending LLC draw-request package (Maderose LLC financing) under review — approved by Greg Schmidt (DWPM); FCU (Camille Ali / David Chase) confirming requirements and HUD re-sent. Michelle (Yellowbrick) flagged a Lendr funding gap; deal funded in-house for now, with partial reimbursement from the Freedom LOC expected next week."
+        },
+        {
           "date": "2026-06-07",
           "source": "Email",
           "note": "Matt forwarded the Ruby Lending loan package to Michelle to add to Lendr (loan tracking)."
@@ -804,6 +821,7 @@
         }
       ],
       "action_items": [
+        "Reconcile 173 Nassau funding: confirm Freedom LOC reimbursement and update Lendr balance",
         "Add Ruby Lending loan to Lendr (Michelle)",
         "File executed loan documents (Ruby Lending / Maderose LLC)",
         "Set up construction draw schedule per FCU draw package",
@@ -1854,20 +1872,22 @@
       "address": "23 Schley St",
       "city": "Springfield",
       "state": "MA",
-      "status": "active",
-      "current_milestone": "Closing",
+      "status": "closed",
+      "current_milestone": "Closed",
       "milestones": [
         "Acquired",
         "Demo/Rehab",
         "Listed",
         "Under Contract",
-        "Closing"
+        "Closing",
+        "Closed"
       ],
       "completed_milestones": [
         "Acquired",
         "Demo/Rehab",
         "Listed",
-        "Under Contract"
+        "Under Contract",
+        "Closing"
       ],
       "source": "Email",
       "auto_detected": true,
@@ -1884,6 +1904,10 @@
         {
           "name": "Kevin (YellowBrick)",
           "role": "Partner"
+        },
+        {
+          "name": "Alice Kempf",
+          "role": "Realtor (KVRE)"
         }
       ],
       "financials": {
@@ -1896,6 +1920,11 @@
       },
       "recent_updates": [
         {
+          "date": "2026-06-09",
+          "source": "Email",
+          "note": "David Burstein confirmed the purchase CLOSED today (June 9, 2026); closing documents distributed for records. Ruby Lending LLC → Barose Projects LLC. Alice Kempf acknowledged. Separately, a Ruby Lending draw-request package was prepared and is being dropped at Freedom Credit Union (FCU)."
+        },
+        {
           "date": "2026-06-08",
           "source": "Email",
           "note": "David Burstein confirmed the $255,000 wire was received for tomorrow's closing. Chris Keniley sent the wire; the Ruby Lending LLC loan to Barose Projects LLC closes June 9, 2026."
@@ -1907,7 +1936,7 @@
         }
       ],
       "action_items": [
-        "Closing June 9 (tomorrow) — confirm loan documents executed at closing",
+        "Confirm Ruby Lending draw-request package funded by FCU; file executed loan/closing docs in Lendr",
         "File executed Ruby Lending / Barose Projects loan package and add to Lendr",
         "REVIEW: property auto-created from email — verify address/details"
       ]
@@ -1972,6 +2001,129 @@
         "Confirm June 30, 2026 closing date with attorney Vitaliy Yusenko",
         "REVIEW: property auto-created from email — verify address/details"
       ]
+    },
+    {
+      "id": "283-fuller-rd",
+      "address": "283 Fuller Road, Unit K",
+      "city": "Chicopee",
+      "state": "MA",
+      "status": "active",
+      "current_milestone": "Prospecting",
+      "milestones": [
+        "Prospecting",
+        "Acquired",
+        "Demo/Rehab",
+        "Listed",
+        "Under Contract",
+        "Closing",
+        "Closed"
+      ],
+      "completed_milestones": [],
+      "contacts": [
+        {
+          "name": "David Burstein",
+          "role": "Closing Attorney (representing Yellowbrick Property LLC)"
+        },
+        {
+          "name": "May Gannon (Tranzon)",
+          "role": "Auctioneer"
+        },
+        {
+          "name": "A. Edgett (Webber & Grinnell)",
+          "role": "Insurance"
+        },
+        {
+          "name": "Mat Geffin (Alera Group)",
+          "role": "Insurance"
+        }
+      ],
+      "financials": {},
+      "recent_updates": [
+        {
+          "date": "2026-06-09",
+          "source": "PDF",
+          "note": "Foreclosure auction WON today (Chicopee condo). Memo of Sale received from Tranzon and signed by Matthew for Yellow Brick Property LLC; full executed copy forwarded to David Burstein. Burstein representing the buyer and assessing whether an Assignment of Bid is needed. Insurance binder being set up via Webber & Grinnell / Alera. Neighbor reports current occupant is moving out."
+        }
+      ],
+      "action_items": [
+        "Send fully signed/filled Memo of Sale to David Burstein (needed to determine if Assignment of Bid is required)",
+        "Provide attachment-app details to Webber & Grinnell for the insurance binder",
+        "Confirm occupancy/vacancy status of Unit K"
+      ]
+    },
+    {
+      "id": "19-draper-ave",
+      "address": "19 Draper Ave",
+      "city": "Pittsfield",
+      "state": "MA",
+      "status": "active",
+      "current_milestone": "Prospecting",
+      "milestones": [
+        "Prospecting",
+        "Acquired",
+        "Demo/Rehab",
+        "Listed",
+        "Under Contract",
+        "Closing",
+        "Closed"
+      ],
+      "completed_milestones": [],
+      "contacts": [
+        {
+          "name": "Alice Kempf",
+          "role": "Realtor (KVRE)"
+        }
+      ],
+      "financials": {
+        "arv": 270000
+      },
+      "recent_updates": [
+        {
+          "date": "2026-06-09",
+          "source": "Email",
+          "note": "Alice Kempf CMA: property shows as 1BR/2BA, valued ~$255K as-is; potentially ~$270K if a 2nd bedroom can be added. Forwarded to Kevin Shippee and Antonio (Investarters) for review."
+        }
+      ],
+      "action_items": [
+        "Evaluate feasibility/cost of adding a 2nd bedroom to lift value toward ~$270K"
+      ]
+    },
+    {
+      "id": "89-church-st",
+      "address": "89 Church St",
+      "city": "Ware",
+      "state": "MA",
+      "status": "active",
+      "current_milestone": "Prospecting",
+      "milestones": [
+        "Prospecting",
+        "Acquired",
+        "Demo/Rehab",
+        "Listed",
+        "Under Contract",
+        "Closing",
+        "Closed"
+      ],
+      "completed_milestones": [],
+      "contacts": [
+        {
+          "name": "Alice Kempf",
+          "role": "Realtor (KVRE)"
+        }
+      ],
+      "financials": {
+        "arv": 419000
+      },
+      "recent_updates": [
+        {
+          "date": "2026-06-09",
+          "source": "Email",
+          "note": "Alice Kempf CMA: ~$419K potential if a half-bath can be squeezed in. CloudCMA report shared. Forwarded to Antonio (Investarters) for review."
+        }
+      ],
+      "action_items": [
+        "Assess feasibility of adding a half-bath to reach ~$419K ARV"
+      ]
     }
   ]
-        }
+}
