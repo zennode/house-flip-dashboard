@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>House Flip Closing Coordinator</title>
+<style>
+:root{--bg:#0f1117;--card-bg:#1a1d27;--border:#262a36;--text:#e7e9ee;--muted:#8b90a0;--green:#3fb950;--blue:#388bfd;--gray:#3a3f4b;--amber:#d29922;--accent:#388bfd;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.45}
+header{position:sticky;top:0;z-index:10;background:rgba(15,17,23,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);padding:16px 24px}
+.h-top{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px}
+h1{font-size:20px;font-weight:700;letter-spacing:.2px}
+.updated{color:var(--muted);font-size:12px}
+.stats{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.stat{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:8px 14px;min-width:96px}
+.stat .num{font-size:22px;font-weight:700}
+.stat .lbl{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px}
+.wrap{max-width:1280px;margin:0 auto;padding:20px 24px 60px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:16px}
+.card{background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:14px}
+.card.closed{opacity:.78}
+.card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.addr{font-size:16px;font-weight:650}
+.city{color:var(--muted);font-size:12.5px;margin-top:2px}
+.badge{font-size:11px;font-weight:600;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.badge.phase{background:rgba(56,139,253,.15);color:#79b8ff;border:1px solid rgba(56,139,253,.35)}
+.badge.phase.Closed{background:rgba(63,185,80,.15);color:#56d364;border-color:rgba(63,185,80,.35)}
+.badge.phase.Prospecting{background:rgba(210,153,34,.15);color:#e3b341;border-color:rgba(210,153,34,.35)}
+.sources{display:flex;gap:6px;flex-wrap:wrap}
+.src{font-size:10px;font-weight:600;letter-spacing:.4px;padding:2px 7px;border-radius:6px;background:var(--gray);color:#c9cdd6;text-transform:uppercase}
+.src.dotloop{background:#1f3a2e;color:#56d364}.src.docusign{background:#13314f;color:#79b8ff}.src.pdf{background:#3a1f1f;color:#f0a39a}.src.email{background:#2a2f3b;color:#aeb4c2}
+.countdown{font-size:12.5px;color:var(--amber);font-weight:600}
+.timeline{display:flex;align-items:flex-start;gap:0;margin:4px 0}
+.node{display:flex;flex-direction:column;align-items:center;flex:1;position:relative}
+.dot{width:13px;height:13px;border-radius:50%;background:var(--gray);border:2px solid var(--gray);z-index:2}
+.dot.done{background:var(--green);border-color:var(--green)}
+.dot.active{background:var(--blue);border-color:var(--blue);box-shadow:0 0 0 4px rgba(56,139,253,.25)}
+.node .ticklbl{font-size:8.5px;color:var(--muted);margin-top:6px;text-align:center;line-height:1.1;max-width:62px}
+.bar{position:absolute;top:5.5px;left:-50%;width:100%;height:2px;background:var(--gray);z-index:1}
+.bar.done{background:var(--green)}
+.node:first-child .bar{display:none}
+.sections{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.sec{min-width:0}
+.sec h4{font-size:10.5px;text-transform:uppercase;letter-spacing:.7px;color:var(--muted);margin-bottom:6px;border-bottom:1px solid var(--border);padding-bottom:4px}
+.sec ul{list-style:none;display:flex;flex-direction:column;gap:5px}
+.sec li{font-size:12.5px;color:#cdd2dc}
+.kv{display:flex;justify-content:space-between;gap:8px}.kv .k{color:var(--muted)}
+.contact .nm{font-weight:600}.contact .rl{color:var(--muted);font-size:11.5px}
+.upd{font-size:11.5px;color:#bcc2ce}.upd .d{color:var(--muted);font-weight:600;margin-right:4px}
+.action{display:flex;gap:6px}.action::before{content:"\25B8";color:var(--accent)}
+.full{grid-column:1 / -1}
+.empty{color:var(--muted);font-size:12px;font-style:italic}
+.err{padding:40px;text-align:center;color:var(--muted)}
+@media(max-width:560px){.sections{grid-template-columns:1fr}.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <div class="h-top">
+    <h1>&#127962;&#65039; House Flip Closing Coordinator</h1>
+    <span class="updated" id="updated">Loading&#8230;</span>
+  </div>
+  <div class="stats" id="stats"></div>
+</header>
+<div class="wrap"><div class="grid" id="grid"></div></div>
+<script>
+const PIPELINE_LABELS={"Prospecting":"Prospecting","Acquired":"Acquired","Demo/Rehab":"Demo/Rehab","Listed":"Listed","Under Contract":"Under Contract","Closing":"Closing","Closed":"Closed"};
+function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+function money(n){return "$"+Number(n).toLocaleString();}
+function daysTo(dateStr){const d=new Date(dateStr+"T00:00:00");const now=new Date();return Math.ceil((d-now)/86400000);}
+function srcClass(s){s=(s||"").toLowerCase();if(s.includes("dotloop"))return"dotloop";if(s.includes("docusign"))return"docusign";if(s.includes("pdf"))return"pdf";return"email";}
+function render(d){
+  document.getElementById("updated").textContent="Last updated "+new Date(d.last_updated).toLocaleString("en-US",{dateStyle:"medium",timeStyle:"short"});
+  const active=d.properties.filter(p=>p.status==="active").length;
+  const atClosing=d.properties.filter(p=>p.current_milestone==="Closing").length;
+  const inRehab=d.properties.filter(p=>p.current_milestone==="Demo/Rehab").length;
+  const closed=d.properties.filter(p=>p.status==="closed").length;
+  document.getElementById("stats").innerHTML=[["Active",active],["At Closing",atClosing],["In Rehab",inRehab],["Closed",closed]].map(([l,n])=>'<div class="stat"><div class="num">'+n+'</div><div class="lbl">'+l+'</div></div>').join("");
+  const order=p=>({"Prospecting":0,"Closing":1,"Under Contract":2,"Listed":3,"Demo/Rehab":4,"Acquired":5,"Closed":9})[p.current_milestone]??6;
+  const props=d.properties.slice().sort((a,b)=>order(a)-order(b));
+  document.getElementById("grid").innerHTML=props.map(card).join("");
+}
+function timeline(p){
+  const ms=p.milestones||[];const comp=new Set(p.completed_milestones||[]);
+  return '<div class="timeline">'+ms.map((m,i)=>{
+    let cls="dot";if(m===p.current_milestone)cls+=" active";else if(comp.has(m))cls+=" done";
+    const prevDone=i>0&&(comp.has(ms[i-1])||ms[i-1]===p.current_milestone);
+    return '<div class="node"><div class="bar '+(prevDone?"done":"")+'"></div><div class="'+cls+'"></div><div class="ticklbl">'+esc(PIPELINE_LABELS[m]||m)+'</div></div>';
+  }).join("")+'</div>';
+}
+function card(p){
+  const fin=p.financials||{};const finRows=Object.keys(fin).length?Object.entries(fin).map(([k,v])=>'<li class="kv"><span class="k">'+esc(k.replace(/_/g," ").replace(/\b\w/g,c=>c.toUpperCase()))+'</span><span>'+(typeof v==="number"?money(v):esc(v))+'</span></li>').join(""):'<li class="empty">No financials yet</li>';
+  const contacts=(p.contacts||[]).length?(p.contacts).map(c=>'<li class="contact"><span class="nm">'+esc(c.name)+'</span> &mdash; <span class="rl">'+esc(c.role)+'</span></li>').join(""):'<li class="empty">None</li>';
+  const updates=(p.recent_updates||[]).slice(0,4).map(u=>'<li class="upd"><span class="d">'+esc(u.date)+(u.source?' &middot; '+esc(u.source):'')+'</span>'+esc(u.note)+'</li>').join("")||'<li class="empty">No updates</li>';
+  const actions=(p.action_items||[]).length?(p.action_items).map(a=>'<li class="action">'+esc(a)+'</li>').join(""):'<li class="empty">None open</li>';
+  const srcs=[...new Set((p.recent_updates||[]).map(u=>u.source).filter(Boolean))];
+  const srcBadges=srcs.map(s=>'<span class="src '+srcClass(s)+'">'+esc(s)+'</span>').join("");
+  let cd="";if(p.closing_date){const dd=daysTo(p.closing_date);cd='<div class="countdown">'+(dd>0?dd+" day"+(dd===1?"":"s")+" to closing":(dd===0?"Closing today":(-dd)+" day"+(dd===-1?"":"s")+" overdue"))+' ('+esc(p.closing_date)+')</div>';}
+  const datesSec=p.important_dates?('<div class="sec"><h4>Important Dates</h4><ul>'+Object.entries(p.important_dates).map(([k,v])=>'<li class="kv"><span class="k">'+esc(k)+'</span><span>'+esc(v)+'</span></li>').join("")+'</ul></div>'):"";
+  return '<div class="card '+(p.status==="closed"?"closed":"")+'">'
+    +'<div class="card-head"><div><div class="addr">'+esc(p.address)+'</div><div class="city">'+esc(p.city)+", "+esc(p.state)+'</div></div><span class="badge phase '+esc(p.current_milestone.replace(/[^A-Za-z]/g,""))+'">'+esc(p.current_milestone)+'</span></div>'
+    +(srcBadges?'<div class="sources">'+srcBadges+'</div>':"")
+    +cd
+    +timeline(p)
+    +'<div class="sections">'
+      +'<div class="sec"><h4>Financials</h4><ul>'+finRows+'</ul></div>'
+      +'<div class="sec"><h4>Key Contacts</h4><ul>'+contacts+'</ul></div>'
+      +datesSec
+      +'<div class="sec full"><h4>Action Items</h4><ul>'+actions+'</ul></div>'
+      +'<div class="sec full"><h4>Recent Updates</h4><ul>'+updates+'</ul></div>'
+    +'</div></div>';
+}
+fetch("./properties_data.json?_="+Date.now())
+  .then(r=>r.json())
+  .then(render)
+  .catch(e=>{document.getElementById("grid").innerHTML='<div class="err">Could not load properties_data.json &mdash; '+esc(e.message)+'</div>';document.getElementById("updated").textContent="";});
+</script>
+</body>
+</html>
