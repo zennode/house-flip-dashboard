@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-10T09:55:00-04:00",
+  "last_updated": "2026-06-10T18:15:00-04:00",
   "properties": [
     {
       "id": "67-willow-st",
@@ -219,7 +219,7 @@
       "city": "Monson",
       "state": "MA",
       "status": "active",
-      "current_milestone": "Under Contract",
+      "current_milestone": "Listed",
       "milestones": [
         "Acquired",
         "Demo/Rehab",
@@ -229,8 +229,7 @@
       ],
       "completed_milestones": [
         "Acquired",
-        "Demo/Rehab",
-        "Listed"
+        "Demo/Rehab"
       ],
       "contacts": [
         {
@@ -244,12 +243,16 @@
         {
           "name": "Eric Kvarnstrom",
           "role": "Pest Control (413 Pest Free)"
+        },
+        {
+          "name": "Alice Kempf",
+          "role": "Listing Agent"
         }
       ],
       "financials": {
         "purchase_price": 105000,
         "rehab_cost": 60000,
-        "listing_price": 259000,
+        "listing_price": 254000,
         "arv": 259000
       },
       "recent_updates": [
@@ -264,12 +267,22 @@
         {
           "date": "2026-05-20",
           "note": "Pest inspection revealed powder post beetles. Treatment required before closing."
+        },
+        {
+          "date": "2026-06-10",
+          "source": "Email",
+          "note": "HHH investor update: buyer backed out over mold found during inspection fixes. Re-listed at $254,000 ($5K reduction). Open house held with no attendees."
+        },
+        {
+          "date": "2026-06-10",
+          "source": "PDF",
+          "note": "Jessica sent powder post beetle inspection report (PDF) to Alice Kempf; treatment completed June 9."
         }
       ],
       "action_items": [
-        "Powder post beetle treatment scheduled next Tuesday (413 Pest Free)",
-        "Closing June 29 (25 days) — confirm treatment completion before closing",
-        "Get treatment certificate from Eric Kvarnstrom for closing docs"
+        "Complete mold remediation and remaining inspection fixes",
+        "Monitor re-listing activity at reduced price ($254K)",
+        "File powder post beetle treatment report for next buyer's closing docs"
       ]
     },
     {
@@ -321,6 +334,11 @@
         {
           "date": "2026-05-28",
           "note": "GC mobilized. Scope includes windows, kitchen, baths, flooring."
+        },
+        {
+          "date": "2026-06-10",
+          "source": "Email",
+          "note": "HHH investor update: rehab work has started; Antonio to visit end of week for progress footage."
         }
       ],
       "action_items": [
@@ -876,12 +894,17 @@
         {
           "date": "2026-05-28",
           "note": "Dig safe marked. Electrician disconnected. Dumpster on site."
+        },
+        {
+          "date": "2026-06-10",
+          "source": "Email",
+          "note": "HHH investor update: exterior painting complete; demo pending, awaiting contractor confirmation. (HHH lists property as Adams, MA.)"
         }
       ],
       "action_items": [
         "Schedule final walkthrough with Premiere Home Solutions for Richmond and Orchard",
-        "Awaiting building inspector demo green light",
-        "Dig safe marked, electrician disconnected, dumpster on site"
+        "Dig safe marked, electrician disconnected, dumpster on site",
+        "Follow up with contractor on demo completion timeline"
       ]
     },
     {
@@ -2013,7 +2036,7 @@
       "city": "Chicopee",
       "state": "MA",
       "status": "active",
-      "current_milestone": "Prospecting",
+      "current_milestone": "Under Contract",
       "milestones": [
         "Prospecting",
         "Acquired",
@@ -2023,7 +2046,9 @@
         "Closing",
         "Closed"
       ],
-      "completed_milestones": [],
+      "completed_milestones": [
+        "Prospecting"
+      ],
       "contacts": [
         {
           "name": "David Burstein",
@@ -2040,6 +2065,10 @@
         {
           "name": "Mat Geffin (Alera Group)",
           "role": "Insurance"
+        },
+        {
+          "name": "Stephanie Williams (Duane Morris)",
+          "role": "Seller's Counsel"
         }
       ],
       "financials": {},
@@ -2048,12 +2077,21 @@
           "date": "2026-06-09",
           "source": "PDF",
           "note": "Foreclosure auction WON today (Chicopee condo). Memo of Sale received from Tranzon and signed by Matthew for Yellow Brick Property LLC; full executed copy forwarded to David Burstein. Burstein representing the buyer and assessing whether an Assignment of Bid is needed. Insurance binder being set up via Webber & Grinnell / Alera. Neighbor reports current occupant is moving out."
+        },
+        {
+          "date": "2026-06-09",
+          "source": "Email",
+          "note": "Memo of Sale fully executed for foreclosure purchase; buyer entity Yellowbrick Property LLC; David Burstein representing."
+        },
+        {
+          "date": "2026-06-10",
+          "source": "Email",
+          "note": "Seller's counsel (Stephanie Williams, Duane Morris) confirmed no AOB needed; closing docs to be sent by Alex Angelo."
         }
       ],
       "action_items": [
-        "Send fully signed/filled Memo of Sale to David Burstein (needed to determine if Assignment of Bid is required)",
-        "Provide attachment-app details to Webber & Grinnell for the insurance binder",
-        "Confirm occupancy/vacancy status of Unit K"
+        "Await closing documents from Duane Morris (Alex Angelo)",
+        "Coordinate closing logistics with David Burstein"
       ]
     },
     {
@@ -2128,6 +2166,178 @@
       ],
       "action_items": [
         "Assess feasibility of adding a half-bath to reach ~$419K ARV"
+      ]
+    },
+    {
+      "id": "67-willow-ln-wales",
+      "address": "67 Willow Lane (Mobile Home)",
+      "city": "Wales",
+      "state": "MA",
+      "status": "active",
+      "current_milestone": "Closing",
+      "milestones": [
+        "Prospecting",
+        "Under Contract",
+        "Closing",
+        "Closed"
+      ],
+      "completed_milestones": [
+        "Prospecting",
+        "Under Contract"
+      ],
+      "contacts": [
+        {
+          "name": "Alice Kempf",
+          "role": "Realtor"
+        },
+        {
+          "name": "Martha Bruso (Alera Group)",
+          "role": "Insurance Agent"
+        },
+        {
+          "name": "Roberta",
+          "role": "Buyer/Occupant (Matt is point of contact)"
+        }
+      ],
+      "financials": {},
+      "source": "PDF",
+      "auto_detected": true,
+      "recent_updates": [
+        {
+          "date": "2026-06-08",
+          "source": "Email",
+          "note": "Insurance quote in progress with Martha Bruso (Alera Group); home located in Wales Village park."
+        },
+        {
+          "date": "2026-06-10",
+          "source": "PDF",
+          "note": "Alice Kempf sent NEW Mobile Home Bill of Sale (PDF) to Matt and Chris."
+        }
+      ],
+      "action_items": [
+        "Review and execute mobile home bill of sale",
+        "Finalize insurance quote with Martha Bruso"
+      ]
+    },
+    {
+      "id": "19-dudley",
+      "address": "19 Dudley",
+      "city": "",
+      "state": "MA",
+      "status": "active",
+      "current_milestone": "Under Contract",
+      "milestones": [
+        "Prospecting",
+        "Under Contract",
+        "Closing",
+        "Closed"
+      ],
+      "completed_milestones": [
+        "Prospecting"
+      ],
+      "contacts": [
+        {
+          "name": "David Burstein",
+          "role": "Closing Attorney"
+        },
+        {
+          "name": "Chris Keniley",
+          "role": "Accounting (YBM)"
+        }
+      ],
+      "financials": {},
+      "source": "Email",
+      "auto_detected": true,
+      "recent_updates": [
+        {
+          "date": "2026-06-10",
+          "source": "Email",
+          "note": "Chris flagged outstanding YBM work orders to be added to total at closing; David Burstein adding to file. Matt verifying whether Bobby is paying (vs. Barry)."
+        }
+      ],
+      "action_items": [
+        "Chris to send outstanding YBM work orders to David Burstein",
+        "Confirm who owes work order balance before closing"
+      ]
+    },
+    {
+      "id": "58-church",
+      "address": "58 Church",
+      "city": "",
+      "state": "MA",
+      "status": "active",
+      "current_milestone": "Acquired",
+      "milestones": [
+        "Acquired",
+        "Demo/Rehab",
+        "Listed",
+        "Under Contract",
+        "Closing"
+      ],
+      "completed_milestones": [],
+      "contacts": [
+        {
+          "name": "Jessica Sicard",
+          "role": "Project Manager"
+        },
+        {
+          "name": "Kevin Shippee",
+          "role": "Acquisition Contact"
+        }
+      ],
+      "financials": {},
+      "source": "Email",
+      "auto_detected": true,
+      "recent_updates": [
+        {
+          "date": "2026-06-10",
+          "source": "Email",
+          "note": "Occupied at acquisition. Jessica seeking occupant contact info to schedule lock changes and inspections; may post notices on doors."
+        }
+      ],
+      "action_items": [
+        "Obtain occupant contact info",
+        "Schedule lock change and inspections"
+      ]
+    },
+    {
+      "id": "9-florence-rd",
+      "address": "9 Florence Road",
+      "city": "",
+      "state": "MA",
+      "status": "active",
+      "current_milestone": "Acquired",
+      "milestones": [
+        "Acquired",
+        "Demo/Rehab",
+        "Listed",
+        "Under Contract",
+        "Closing"
+      ],
+      "completed_milestones": [],
+      "contacts": [
+        {
+          "name": "Jessica Sicard",
+          "role": "Project Manager"
+        },
+        {
+          "name": "Kevin Shippee",
+          "role": "Acquisition Contact"
+        }
+      ],
+      "financials": {},
+      "source": "Email",
+      "auto_detected": true,
+      "recent_updates": [
+        {
+          "date": "2026-06-10",
+          "source": "Email",
+          "note": "Occupied at acquisition. Jessica seeking occupant contact info to schedule lock changes and inspections; may post notices on doors."
+        }
+      ],
+      "action_items": [
+        "Obtain occupant contact info",
+        "Schedule lock change and inspections"
       ]
     }
   ]
