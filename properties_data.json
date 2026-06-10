@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-09T18:13:00-04:00",
+  "last_updated": "2026-06-10T09:55:00-04:00",
   "properties": [
     {
       "id": "67-willow-st",
@@ -1176,6 +1176,11 @@
         "arv": 1500000
       },
       "recent_updates": [
+        {
+          "date": "2026-06-10",
+          "note": "Work order #43076 assigned to Victor on the 6/10 work-order list from Jessica Sicard.",
+          "source": "Email"
+        },
         {
           "date": "2026-06-05",
           "note": "Work order #43042 assigned to Barry on the 6/5 work-order list from Jessica Sicard."
