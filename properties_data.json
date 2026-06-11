@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-10T18:15:00-04:00",
+  "last_updated": "2026-06-11T08:06:00-04:00",
   "properties": [
     {
       "id": "67-willow-st",
@@ -2338,6 +2338,44 @@
       "action_items": [
         "Obtain occupant contact info",
         "Schedule lock change and inspections"
+      ]
+    },
+    {
+      "id": "35-pine-rd",
+      "address": "35 Pine Rd",
+      "city": "Goshen",
+      "state": "MA",
+      "status": "active",
+      "current_milestone": "Prospecting",
+      "milestones": [
+        "Prospecting",
+        "Offer Made",
+        "Under Contract",
+        "Closing",
+        "Closed"
+      ],
+      "completed_milestones": [],
+      "contacts": [
+        {
+          "name": "Alice Kempf",
+          "role": "Realtor (KV RE Team)"
+        }
+      ],
+      "financials": {
+        "arv": 239900
+      },
+      "source": "Email",
+      "auto_detected": true,
+      "recent_updates": [
+        {
+          "date": "2026-06-11",
+          "source": "Email",
+          "note": "Alice Kempf sent CMA: suggested value $239,900. Very small home (3BR in ~700 sqft); few comps nearby, mostly 3-season cottages. Alice recommends reconfiguring as a 2BR with better living space. CMA link: cloudcma.com/pdf/32021581c642aa8ebf6be9e1501d7de5"
+        }
+      ],
+      "action_items": [
+        "Review CloudCMA report from Alice Kempf",
+        "Decide whether to reconfigure as 2BR before moving forward"
       ]
     }
   ]
