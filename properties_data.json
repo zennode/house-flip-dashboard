@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-11T18:05:00-04:00",
+  "last_updated": "2026-06-12T08:10:00-04:00",
   "properties": [
     {
       "id": "67-willow-st",
@@ -252,6 +252,10 @@
         {
           "name": "Alice Kempf",
           "role": "Listing Agent"
+        },
+        {
+          "name": "Melissa Gaboury",
+          "role": "Buyer's Attorney (Hornung & Scimone)"
         }
       ],
       "financials": {
@@ -261,6 +265,11 @@
         "arv": 259000
       },
       "recent_updates": [
+        {
+          "date": "2026-06-12",
+          "source": "Email",
+          "note": "Matt approved releasing the deposit (\"Let's just release\"). Buyer's attorney Melissa Gaboury demanded a seller-signed Release and return of the $500 deposit to buyers Sheldon & Sheri Mueller (terminated within inspection contingency); David Burstein agreed the contract should be terminated and the deposit returned."
+        },
         {
           "date": "2026-06-04",
           "note": "Powder post beetle treatment set up for next Tuesday per Jessica. Eric Kvarnstrom (413 Pest Free) coordinating."
@@ -285,6 +294,7 @@
         }
       ],
       "action_items": [
+        "Send seller-signed Release + $500 deposit check to buyers (Sheldon & Sheri Mueller, 2 Cirrus Dr #2203, Ashland MA) via Alice Kempf / KVRE",
         "Complete mold remediation and remaining inspection fixes",
         "Monitor re-listing activity at reduced price ($254K)",
         "File powder post beetle treatment report for next buyer's closing docs"
@@ -820,13 +830,23 @@
         {
           "name": "Jessica Sicard",
           "role": "Project Manager"
+        },
+        {
+          "name": "Camille Ali",
+          "role": "Commercial Loan Assistant (Freedom CU)"
         }
       ],
       "financials": {
         "borrowing_entity": "Maderose, LLC",
-        "lender": "Ruby Lending LLC"
+        "lender": "Ruby Lending LLC",
+        "loan_amount": 217000
       },
       "recent_updates": [
+        {
+          "date": "2026-06-12",
+          "source": "Email",
+          "note": "Matt directed Freedom CU (Camille Ali) to split funding 50/50: $163,500 each to 23 Schley ($255K loan) and 173 Nassau ($217K loan), using the Montgomery St check ($164,639.71; remainder to Ruby Lending acct) plus the $167K line availability."
+        },
         {
           "date": "2026-06-11",
           "source": "Email",
@@ -849,12 +869,12 @@
         }
       ],
       "action_items": [
+        "Confirm Freedom CU executes split funding: $163,500 to 173 Nassau; remainder of Montgomery check to Ruby Lending acct",
         "Reconcile 173 Nassau funding: confirm Freedom LOC reimbursement and update Lendr balance",
         "Add Ruby Lending loan to Lendr (Michelle)",
         "File executed loan documents (Ruby Lending / Maderose LLC)",
         "Set up construction draw schedule per FCU draw package",
-        "Confirm acquisition/rehab scope and timeline with Jessica",
-        "Reply to Camille Ali (FCU): how to fund the new loans (Montgomery St check $164,639.71 vs line availability $167,000)"
+        "Confirm acquisition/rehab scope and timeline with Jessica"
       ]
     },
     {
@@ -1947,6 +1967,10 @@
         {
           "name": "Alice Kempf",
           "role": "Realtor (KVRE)"
+        },
+        {
+          "name": "Camille Ali",
+          "role": "Commercial Loan Assistant (Freedom CU)"
         }
       ],
       "financials": {
@@ -1958,6 +1982,11 @@
         "closing": "2026-06-09"
       },
       "recent_updates": [
+        {
+          "date": "2026-06-12",
+          "source": "Email",
+          "note": "Matt directed Freedom CU (Camille Ali) to split funding 50/50: $163,500 each to 23 Schley ($255K loan) and 173 Nassau ($217K loan), using the Montgomery St check ($164,639.71; remainder to Ruby Lending acct) plus the $167K line availability."
+        },
         {
           "date": "2026-06-11",
           "source": "Email",
@@ -1980,6 +2009,7 @@
         }
       ],
       "action_items": [
+        "Confirm Freedom CU executes split funding: $163,500 to 23 Schley",
         "Confirm Ruby Lending draw-request package funded by FCU; file executed loan/closing docs in Lendr",
         "File executed Ruby Lending / Barose Projects loan package and add to Lendr",
         "REVIEW: property auto-created from email — verify address/details"
