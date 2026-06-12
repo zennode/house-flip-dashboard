@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-12T08:10:00-04:00",
+  "last_updated": "2026-06-12T18:08:34-04:00",
   "properties": [
     {
       "id": "67-willow-st",
@@ -89,6 +89,11 @@
       },
       "recent_updates": [
         {
+          "date": "2026-06-12",
+          "source": "Email",
+          "note": "Freedom Credit Union holds payoff check of $164,639.71 for Montgomery St; additional $200 payoff fee applies. ~$160k of proceeds directed toward funding new loans on 23 Schley St and 173 Nassau Dr (remainder to Ruby Lending acct)."
+        },
+        {
           "date": "2026-06-11",
           "source": "Email",
           "note": "Freedom CU (Camille Ali) holding the Montgomery St check for $164,639.71; proposed as funding source for the new loans (23 Schley / 173 Nassau)."
@@ -110,7 +115,8 @@
       "action_items": [
         "Confirm 330 Montgomery paydown check delivered to FCU and discharge recorded",
         "Closing June 19 (15 days) — review payoff docs",
-        "Confirm closing time with David Burstein"
+        "Confirm closing time with David Burstein",
+        "Confirm Montgomery St payoff completion with Freedom Credit Union (Camille Ali)"
       ]
     },
     {
@@ -268,6 +274,11 @@
         {
           "date": "2026-06-12",
           "source": "Email",
+          "note": "Buyer contract terminated and deposit released to buyer (agreed by Matt and attorney David Burstein). Alice Kempf is sending the termination for signature. Property back on market."
+        },
+        {
+          "date": "2026-06-12",
+          "source": "Email",
           "note": "Matt approved releasing the deposit (\"Let's just release\"). Buyer's attorney Melissa Gaboury demanded a seller-signed Release and return of the $500 deposit to buyers Sheldon & Sheri Mueller (terminated within inspection contingency); David Burstein agreed the contract should be terminated and the deposit returned."
         },
         {
@@ -297,7 +308,8 @@
         "Send seller-signed Release + $500 deposit check to buyers (Sheldon & Sheri Mueller, 2 Cirrus Dr #2203, Ashland MA) via Alice Kempf / KVRE",
         "Complete mold remediation and remaining inspection fixes",
         "Monitor re-listing activity at reduced price ($254K)",
-        "File powder post beetle treatment report for next buyer's closing docs"
+        "File powder post beetle treatment report for next buyer's closing docs",
+        "Sign contract termination sent by Alice Kempf"
       ]
     },
     {
@@ -842,6 +854,11 @@
         "loan_amount": 217000
       },
       "recent_updates": [
+        {
+          "date": "2026-06-12",
+          "source": "Email",
+          "note": "Financing: $217,000 loan funding processed today by Freedom Credit Union (Camille Ali), split between Montgomery St proceeds and line of credit. $800 advance/appraisal fees (combined for Nassau + Schley) debited from checking."
+        },
         {
           "date": "2026-06-12",
           "source": "Email",
@@ -1657,6 +1674,11 @@
       },
       "recent_updates": [
         {
+          "date": "2026-06-12",
+          "source": "Email",
+          "note": "Tree Masters estimate #1373 approved; Jessica coordinating."
+        },
+        {
           "date": "2026-05-11",
           "note": "Evaluating Springfield market conditions for this property."
         }
@@ -1693,13 +1715,19 @@
       },
       "recent_updates": [
         {
+          "date": "2026-06-12",
+          "source": "Email",
+          "note": "Insurance application received from Adina Edgett (Alera Group) for 25 Downing/3 Park — needs to be completed and returned. Flying Monkey purchase still slated for Aug 1."
+        },
+        {
           "date": "2026-05-13",
           "note": "Large-scale NY project. Peter Houser evaluating partnership structure."
         }
       ],
       "action_items": [
         "Discuss partnership structure with Peter Houser",
-        "Review project feasibility and financing"
+        "Review project feasibility and financing",
+        "Complete and return Alera Group insurance application"
       ]
     },
     {
@@ -1853,6 +1881,11 @@
       },
       "recent_updates": [
         {
+          "date": "2026-06-12",
+          "source": "Email",
+          "note": "Declined the $2.8M ask. Broker Russell Sabadosa signaled seller may take $2.5–2.6M and asked for our NOI / cap rate calculations."
+        },
+        {
           "date": "2026-06-04",
           "note": "22-unit studio apartment building listed at $2.8M. T-12 operating statements and rent roll attached. Offer deadline 6/18/26. Matt forwarded to Peter Houser."
         }
@@ -1982,6 +2015,11 @@
         "closing": "2026-06-09"
       },
       "recent_updates": [
+        {
+          "date": "2026-06-12",
+          "source": "Email",
+          "note": "Financing: $255,000 loan funding processed today by Freedom Credit Union (Camille Ali), split between Montgomery St payoff proceeds and line of credit."
+        },
         {
           "date": "2026-06-12",
           "source": "Email",
@@ -2350,6 +2388,11 @@
       "auto_detected": true,
       "recent_updates": [
         {
+          "date": "2026-06-12",
+          "source": "Email",
+          "note": "Jessica posted notice at property; occupant site visit (lock change/inspections) targeted for Friday Jun 19."
+        },
+        {
           "date": "2026-06-10",
           "source": "Email",
           "note": "Occupied at acquisition. Jessica seeking occupant contact info to schedule lock changes and inspections; may post notices on doors."
@@ -2389,6 +2432,11 @@
       "source": "Email",
       "auto_detected": true,
       "recent_updates": [
+        {
+          "date": "2026-06-12",
+          "source": "Email",
+          "note": "Jessica posted notice at property; occupant site visit (lock change/inspections) targeted for Monday Jun 15."
+        },
         {
           "date": "2026-06-10",
           "source": "Email",
@@ -2480,6 +2528,74 @@
       "action_items": [
         "Antonio awaiting callback from David Seddon re: 94 Reed St walkthrough/details"
       ]
+    },
+    {
+      "id": "50-potash-hill-rd",
+      "address": "50 Potash Hill Rd",
+      "city": "Cummington",
+      "state": "MA",
+      "status": "active",
+      "current_milestone": "Acquired",
+      "milestones": [
+        "Acquired",
+        "Demo/Rehab",
+        "Listed",
+        "Under Contract",
+        "Closing"
+      ],
+      "completed_milestones": [],
+      "contacts": [
+        {
+          "name": "David Burstein",
+          "role": "Closing Attorney"
+        },
+        {
+          "name": "Jessica Sicard",
+          "role": "Project Manager"
+        }
+      ],
+      "financials": {},
+      "source": "PDF attachment",
+      "auto_detected": true,
+      "recent_updates": [
+        {
+          "date": "2026-06-12",
+          "source": "PDF attachment",
+          "note": "Purchase recorded today under Revive & Rise LLC. HUD-1 Settlement Statement, recorded Deed, Assignment of Bid, and Mortgage Inspection Plan received from David Burstein (plan notes possible rights of way at rear). Property is vacant."
+        }
+      ],
+      "action_items": [
+        "Review Mortgage Inspection Plan re: possible rights of way at rear",
+        "File HUD-1, deed and assignment of bid"
+      ]
+    },
+    {
+      "id": "39-darien-dr",
+      "address": "39 Darien Dr",
+      "city": "Windsor Locks",
+      "state": "CT",
+      "status": "active",
+      "current_milestone": "Prospecting",
+      "milestones": [
+        "Acquired",
+        "Demo/Rehab",
+        "Listed",
+        "Under Contract",
+        "Closing"
+      ],
+      "completed_milestones": [],
+      "contacts": [],
+      "financials": {},
+      "source": "Email",
+      "auto_detected": true,
+      "recent_updates": [
+        {
+          "date": "2026-06-12",
+          "source": "Email",
+          "note": "Foreclosure sale postponed to Aug 15, 2026 per court order (Law Office of C. Miller). No inspection, no action required at this time."
+        }
+      ],
+      "action_items": []
     }
   ]
 }
