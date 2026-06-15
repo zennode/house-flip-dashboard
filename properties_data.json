@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-15T08:08:36-04:00",
+  "last_updated": "2026-06-15T18:19:58-04:00",
   "properties": [
     {
       "id": "67-willow-st",
@@ -217,6 +217,11 @@
         {
           "date": "2026-05-01",
           "note": "Rehab complete. Ready for listing photos."
+        },
+        {
+          "date": "2026-06-15",
+          "source": "Email",
+          "note": "HVAC tech Dan Emerson reports the boiler is clean and burning well, but the domestic hot-water mixing valve is corroded and seized. Matt approved sending Barry up to swap it out."
         }
       ],
       "action_items": [
@@ -366,6 +371,11 @@
           "date": "2026-06-10",
           "source": "Email",
           "note": "HHH investor update: rehab work has started; Antonio to visit end of week for progress footage."
+        },
+        {
+          "date": "2026-06-15",
+          "source": "Email",
+          "note": "Permit application submitted. Windows still not ordered — Jessica is pushing the GC to order the 11 vinyl double-hung replacements ASAP (about a 3-week lead time from Home Depot)."
         }
       ],
       "action_items": [
@@ -2352,6 +2362,11 @@
           "date": "2026-06-10",
           "source": "Email",
           "note": "Chris flagged outstanding YBM work orders to be added to total at closing; David Burstein adding to file. Matt verifying whether Bobby is paying (vs. Barry)."
+        },
+        {
+          "date": "2026-06-15",
+          "source": "Email",
+          "note": "Freedom Credit Union (David Chase) flagged the loan as matured. Refinance is in progress and expected to wrap by end of June; payoff to be funded from the Ruby Lending account."
         }
       ],
       "action_items": [
