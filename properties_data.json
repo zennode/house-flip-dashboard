@@ -1,6 +1,53 @@
 {
-  "last_updated": "2026-06-16T08:05:57-04:00",
+  "last_updated": "2026-06-16T18:05:00-04:00",
   "properties": [
+    {
+      "id": "62-maynard-st",
+      "address": "62 Maynard St",
+      "city": "Springfield",
+      "state": "MA",
+      "status": "active",
+      "current_milestone": "Closing",
+      "milestones": [
+        "Prospecting",
+        "Under Contract",
+        "Closing",
+        "Closed"
+      ],
+      "completed_milestones": [
+        "Prospecting",
+        "Under Contract"
+      ],
+      "closing_date": "2026-06-22",
+      "source": "Email",
+      "auto_detected": true,
+      "contacts": [
+        {
+          "name": "David Burstein",
+          "role": "Closing Attorney"
+        },
+        {
+          "name": "Neill & Neill Law (ej@/dj@neillandneill.com)",
+          "role": "Closing/Title Attorney"
+        },
+        {
+          "name": "Russell Cable",
+          "role": "Buyer/Borrower contact (Revive & Rise LLC)"
+        }
+      ],
+      "financials": {},
+      "recent_updates": [
+        {
+          "date": "2026-06-16",
+          "source": "Email",
+          "note": "David Burstein sent the Loan Commitment (PDF) and requested an insurance binder. Purchase by Revive & Rise LLC; closing scheduled for June 22, 2026. Matt (YellowBrick) is on the deal as lender/party."
+        }
+      ],
+      "action_items": [
+        "Provide insurance binder for 62 Maynard St ahead of the 6/22 closing",
+        "Review loan commitment terms"
+      ]
+    },
     {
       "id": "67-willow-st",
       "address": "67 Willow St",
@@ -277,6 +324,11 @@
       },
       "recent_updates": [
         {
+          "date": "2026-06-16",
+          "source": "dotloop",
+          "note": "Matt signed the contract Termination shared by Alice Kempf (KVRE) via dotloop. Termination executed; property continues toward re-listing at the reduced price ($254K)."
+        },
+        {
           "date": "2026-06-12",
           "source": "Email",
           "note": "Buyer contract terminated and deposit released to buyer (agreed by Matt and attorney David Burstein). Alice Kempf is sending the termination for signature. Property back on market."
@@ -313,8 +365,7 @@
         "Send seller-signed Release + $500 deposit check to buyers (Sheldon & Sheri Mueller, 2 Cirrus Dr #2203, Ashland MA) via Alice Kempf / KVRE",
         "Complete mold remediation and remaining inspection fixes",
         "Monitor re-listing activity at reduced price ($254K)",
-        "File powder post beetle treatment report for next buyer's closing docs",
-        "Sign contract termination sent by Alice Kempf"
+        "File powder post beetle treatment report for next buyer's closing docs"
       ]
     },
     {
@@ -753,6 +804,11 @@
       },
       "recent_updates": [
         {
+          "date": "2026-06-16",
+          "source": "Email",
+          "note": "Alice Kempf (Listing Agent) forwarded a $350,000 CASH offer with the Purchase & Sale Agreement attached. No proof of funds provided yet. Alice recommends countering higher and specifying as-is, where-is, no repairs or credits."
+        },
+        {
           "date": "2026-06-06",
           "source": "Email",
           "note": "David Burstein (6:58 PM) forwarded the mortgage inspection plan to Alice in response to her request for a boundary survey for the new interested buyer."
@@ -800,6 +856,8 @@
         }
       ],
       "action_items": [
+        "Request proof of funds from the buyer before accepting",
+        "Counter the $350K cash offer higher; state as-is, where-is, no repairs or credits",
         "Confirm Title V (septic) completion date this week and relay to Alice for the new buyer",
         "David/Matt: mortgage inspection plan forwarded — confirm it satisfies new buyer's boundary/survey request (property abuts state land/Appalachian Trail)",
         "Termination fully signed in dotloop — deal officially dead; buyer deposit released",
@@ -2354,6 +2412,11 @@
       "auto_detected": true,
       "recent_updates": [
         {
+          "date": "2026-06-16",
+          "source": "Email",
+          "note": "Jose Teo (Unlimited Home Roofing) requested a payoff to refinance ASAP. Matt and David Burstein agreed to issue a payoff good through 6/22/26; Matt to review the figures with David before it is released."
+        },
+        {
           "date": "2026-06-11",
           "source": "Email",
           "note": "Chris sent the outstanding 19 Dudley work order; Matt confirmed it is paid by Bobby. David Burstein adding it to the closing file."
@@ -2370,8 +2433,11 @@
         }
       ],
       "action_items": [
+        "Matt to review payoff figures with David before releasing to Jose",
+        "David Burstein to prepare mortgage payoff good through 6/22/26",
         "David Burstein to add the YBM work order to the closing file (work order paid by Bobby)"
-      ]
+      ],
+      "closing_date": "2026-06-22"
     },
     {
       "id": "58-church",
