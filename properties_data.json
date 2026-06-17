@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-17T08:03:55-04:00",
+  "last_updated": "2026-06-17T18:06:20-04:00",
   "properties": [
     {
       "id": "62-maynard-st",
@@ -38,13 +38,19 @@
       "financials": {},
       "recent_updates": [
         {
+          "date": "2026-06-17",
+          "source": "Email",
+          "subject": "Insurance binder being issued ahead of 6/22 closing",
+          "note": "Neill & Neill (Elly Jarry) confirmed the insurance binder is being sent following atty. David Burstein loan commitment. Purchase by Revive & Rise LLC; closing on track for June 22, 2026."
+        },
+        {
           "date": "2026-06-16",
           "source": "Email",
           "note": "David Burstein sent the Loan Commitment (PDF) and requested an insurance binder. Purchase by Revive & Rise LLC; closing scheduled for June 22, 2026. Matt (YellowBrick) is on the deal as lender/party."
         }
       ],
       "action_items": [
-        "Provide insurance binder for 62 Maynard St ahead of the 6/22 closing",
+        "Confirm receipt of insurance binder from Neill & Neill before 6/22 closing",
         "Review loan commitment terms"
       ]
     },
@@ -748,7 +754,7 @@
       "city": "Sheffield",
       "state": "MA",
       "status": "active",
-      "current_milestone": "Listed",
+      "current_milestone": "Under Contract",
       "milestones": [
         "Acquired",
         "Demo/Rehab",
@@ -804,6 +810,12 @@
       },
       "recent_updates": [
         {
+          "date": "2026-06-17",
+          "source": "dotloop",
+          "subject": "New offer accepted; Purchase & Sale Agreement signed",
+          "note": "New offer on 1874 Home Rd accepted. Buyer Purchase & Sale Agreement (v3) signed via dotloop (Gabriela Dearstyne, Kempf-Vanderburgh). Advancing from Listed to Under Contract."
+        },
+        {
           "date": "2026-06-16",
           "source": "Email",
           "note": "Alice Kempf (Listing Agent) forwarded a $350,000 CASH offer with the Purchase & Sale Agreement attached. No proof of funds provided yet. Alice recommends countering higher and specifying as-is, where-is, no repairs or credits."
@@ -856,6 +868,8 @@
         }
       ],
       "action_items": [
+        "Provide signed P&S copy to closing attorney",
+        "Confirm fully-executed P&S and set firm closing date for 1874 Home Rd",
         "Request proof of funds from the buyer before accepting",
         "Counter the $350K cash offer higher; state as-is, where-is, no repairs or credits",
         "Confirm Title V (septic) completion date this week and relay to Alice for the new buyer",
@@ -866,7 +880,7 @@
         "Obtain firm boiler & mechanical remediation quotes to pre-empt the next buyer's objections",
         "Provide buyer's-counsel contact to David Burstein once a new buyer materializes (prior buyer never named counsel)"
       ],
-      "source": "Email"
+      "source": "dotloop"
     },
     {
       "id": "173-nassau-dr",
