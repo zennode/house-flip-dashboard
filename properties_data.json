@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-18T08:08:17-04:00",
+  "last_updated": "2026-06-18T18:05:00-04:00",
   "properties": [
     {
       "id": "62-maynard-st",
@@ -462,6 +462,11 @@
         {
           "name": "Jessica Sicard",
           "role": "Project Manager"
+        },
+        {
+          "name": "Dalessio Overhead Door (Nicholas Zanetti)",
+          "role": "Overhead/Garage Door Vendor",
+          "phone": "413-525-2318"
         }
       ],
       "financials": {
@@ -471,11 +476,25 @@
       },
       "recent_updates": [
         {
+          "date": "2026-06-18",
+          "note": "DISCREPANCY: incoming emails reference '166 East St, Stafford, CT', but tracker lists Pittsfield, MA. Confirm whether these are the same property before attributing further costs."
+        },
+        {
+          "date": "2026-06-18",
+          "note": "[Email] 166 East change orders approved: siding/roofing contract progress payment $9,225 (UHS-1400) and interior change order (~$10,000 total)."
+        },
+        {
+          "date": "2026-06-18",
+          "note": "[PDF] Garage/overhead door quote received from Dalessio Overhead Door (Estimate #584); APPROVED by Matt same day."
+        },
+        {
           "date": "2026-05-20",
           "note": "Rehab in progress. On schedule."
         }
       ],
       "action_items": [
+        "Confirm 166 East St location: Stafford, CT vs Pittsfield, MA",
+        "Schedule Dalessio overhead door install (Est #584 approved)",
         "Monitor rehab progress",
         "Get timeline update from GC"
       ]
@@ -1001,6 +1020,15 @@
         {
           "name": "Jessica Sicard",
           "role": "Project Manager"
+        },
+        {
+          "name": "Alice Kempf",
+          "role": "Listing Agent (KVRE Team)",
+          "email": "alicek@kvreteam.com"
+        },
+        {
+          "name": "Style Staging",
+          "role": "Home Staging Vendor (Monson, MA)"
         }
       ],
       "financials": {
@@ -1009,6 +1037,14 @@
         "arv": 220000
       },
       "recent_updates": [
+        {
+          "date": "2026-06-18",
+          "note": "[PDF] New invoice received from Style Staging (attachment: 1-Richmond-Ln-Adams.pdf), CC'd to listing agent Alice Kempf. Staging is underway, indicating rehab is nearing completion / pre-listing prep."
+        },
+        {
+          "date": "2026-06-18",
+          "note": "[Email] Town of Adams sent a message regarding the Residential Building Permit for 1 Richmond Ln via the Permiteyes portal; forwarded to Jessica Sicard. NOTE: permit jurisdiction is the Town of Adams, but tracker lists this property in Pittsfield — confirm correct municipality."
+        },
         {
           "date": "2026-06-04",
           "note": "Premiere Home Solutions reports all scope complete: carport, chimney repoint, Antonio's items done. Cleaned and ready. Waiting building inspector green light for demo."
@@ -1032,6 +1068,9 @@
         }
       ],
       "action_items": [
+        "Confirm property municipality: Adams vs Pittsfield",
+        "Review Style Staging invoice and route for payment (do not auto-pay)",
+        "Log into Permiteyes portal to review Town of Adams permit message",
         "Schedule final walkthrough with Premiere Home Solutions for Richmond and Orchard",
         "Dig safe marked, electrician disconnected, dumpster on site",
         "Follow up with contractor on demo completion timeline"
@@ -2693,4 +2732,4 @@
       "action_items": []
     }
   ]
-}
+        }
