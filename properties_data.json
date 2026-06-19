@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-19T08:10:00-04:00",
+  "last_updated": "2026-06-19T18:05:00-04:00",
   "properties": [
     {
       "id": "62-maynard-st",
@@ -263,6 +263,12 @@
         "arv": 369000
       },
       "recent_updates": [
+        {
+          "date": "2026-06-19",
+          "source": "Email",
+          "subject": "Flooring change order agreed at $2,500",
+          "note": "David Munoz's revised flooring estimate ($2,800 incl. baseboard) negotiated to $2,500 and approved. Additional change order requested for insulation removal, spraying joists, and carpet install."
+        },
         {
           "date": "2026-05-15",
           "note": "Listed on MLS at $369,000."
@@ -1039,6 +1045,12 @@
         "note": "Agent CMA (6/19): est. sale ~$240–250K, suggested list $259,900. ~$20K below Tracey's earlier estimate."
       },
       "recent_updates": [
+        {
+          "date": "2026-06-19",
+          "source": "Email",
+          "subject": "Town of Adams permit — all set",
+          "note": "Jessica Sicard confirmed the Town of Adams building permit message was reviewed; permitting is all set."
+        },
         {
           "date": "2026-06-19",
           "source": "PDF",
@@ -2739,6 +2751,82 @@
         }
       ],
       "action_items": []
+    },
+    {
+      "id": "79-pleasant-st",
+      "address": "79 Pleasant St",
+      "city": "Ware",
+      "state": "MA",
+      "status": "active",
+      "current_milestone": "Title & Escrow",
+      "milestones": [
+        "Auction Won",
+        "Title & Escrow",
+        "Closing",
+        "Closed"
+      ],
+      "completed_milestones": [
+        "Auction Won"
+      ],
+      "closing_date": null,
+      "source": "Email/PDF",
+      "auto_detected": true,
+      "contacts": [
+        {
+          "name": "David Burstein, Esq. (Burstein Law Offices)",
+          "role": "Buyer's / Closing Attorney",
+          "email": "davidburstein1@gmail.com"
+        },
+        {
+          "name": "Kevin Shippee",
+          "role": "Winning Bidder / LLC Member-Manager",
+          "email": "kevshippee@gmail.com"
+        },
+        {
+          "name": "Harmon Law Offices",
+          "role": "Foreclosing Firm (Seller's counsel)",
+          "email": "postsale@harmonlaw.com"
+        },
+        {
+          "name": "Webber & Grinnell Insurance",
+          "role": "Insurance",
+          "email": "aedgett@webberandgrinnell.com"
+        },
+        {
+          "name": "Alera Group (Mat Geffin)",
+          "role": "Insurance",
+          "email": "Mat.Geffin@aleragroup.com"
+        },
+        {
+          "name": "Jessica Sicard",
+          "role": "Project Manager"
+        }
+      ],
+      "financials": {
+        "borrowing_entity": "Yellowbrick Property LLC",
+        "note": "Foreclosure auction win; bid assigned from Kevin Shippee. Bid/purchase amount pending in sale package. Property occupied."
+      },
+      "recent_updates": [
+        {
+          "date": "2026-06-19",
+          "source": "PDF",
+          "subject": "Assignment of Bid + closing prep",
+          "note": "Atty David Burstein notified Harmon Law he represents purchaser Yellowbrick Property LLC and sent the Assignment of Bid from Kevin Shippee. Requested the notice package (notice of default/acceleration, the Note, Notices of Sale w/ proofs of mailing); title company to review draft foreclosure sale package before closing."
+        },
+        {
+          "date": "2026-06-19",
+          "source": "Email/PDF",
+          "subject": "New foreclosure win — 79 Pleasant St, Ware",
+          "note": "Matt notified the team of a foreclosure auction win (occupied; entity Yellow Brick Property LLC), attaching property and insurance PDFs. Atty Burstein confirmed receipt."
+        }
+      ],
+      "action_items": [
+        "Send notice package to Atty Burstein: notice of default/acceleration w/ proof of mailing, the Note, and Notices of Sale w/ proofs of mailing",
+        "Title company to review draft foreclosure sale package prior to closing",
+        "Confirm insurance binder is in force for 79 Pleasant St (occupied)",
+        "Plan for existing occupancy at 79 Pleasant St post-closing"
+      ],
+      "important_dates": []
     }
   ]
-        }
+    }
