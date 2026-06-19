@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-18T18:05:00-04:00",
+  "last_updated": "2026-06-19T08:10:00-04:00",
   "properties": [
     {
       "id": "62-maynard-st",
@@ -998,7 +998,7 @@
     {
       "id": "1-richmond-ln",
       "address": "1 Richmond Ln",
-      "city": "Pittsfield",
+      "city": "Adams",
       "state": "MA",
       "status": "active",
       "current_milestone": "Demo/Rehab",
@@ -1034,9 +1034,16 @@
       "financials": {
         "purchase_price": 55000,
         "rehab_estimate_range": "60000-80000",
-        "arv": 220000
+        "arv": 250000,
+        "listing_price": 259900,
+        "note": "Agent CMA (6/19): est. sale ~$240–250K, suggested list $259,900. ~$20K below Tracey's earlier estimate."
       },
       "recent_updates": [
+        {
+          "date": "2026-06-19",
+          "source": "PDF",
+          "note": "[PDF/Email] Listing agent Alice Kempf sent a CMA (\"1 Richmond Ln Adams MA.pdf\"): estimates sale price ~$240–250K and suggests listing at $259,900 — \"more nicely renovated than the comps, private with the bigger yard.\" Matt flagged this is ~$20K below Tracey's earlier estimate. List-price decision pending; property in pre-listing prep."
+        },
         {
           "date": "2026-06-18",
           "note": "[PDF] New invoice received from Style Staging (attachment: 1-Richmond-Ln-Adams.pdf), CC'd to listing agent Alice Kempf. Staging is underway, indicating rehab is nearing completion / pre-listing prep."
@@ -1068,13 +1075,15 @@
         }
       ],
       "action_items": [
+        "Finalize list price for 1 Richmond Ln — agent suggests $259,900 (est. sale ~$240–250K) vs. Tracey's higher number; reconcile ARV before listing.",
         "Confirm property municipality: Adams vs Pittsfield",
         "Review Style Staging invoice and route for payment (do not auto-pay)",
         "Log into Permiteyes portal to review Town of Adams permit message",
         "Schedule final walkthrough with Premiere Home Solutions for Richmond and Orchard",
         "Dig safe marked, electrician disconnected, dumpster on site",
         "Follow up with contractor on demo completion timeline"
-      ]
+      ],
+      "source": "Email/PDF"
     },
     {
       "id": "54-sectar-rd",
