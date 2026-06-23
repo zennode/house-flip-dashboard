@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-19T18:05:00-04:00",
+  "last_updated": "2026-06-22T18:00:00-04:00",
   "properties": [
     {
       "id": "62-maynard-st",
@@ -37,6 +37,12 @@
       ],
       "financials": {},
       "recent_updates": [
+        {
+          "date": "2026-06-22",
+          "source": "Email",
+          "subject": "Closing day — insurance binder follow-up; funding note",
+          "note": "Atty. David Burstein followed up with Neill & Neill for the insurance binder ahead of today's closing; Elly Jarry out of office and delegating. Burstein notes funding is exhausted after 62 Maynard — may tap Pinnacle for upcoming foreclosure closings. Purchase by Revive & Rise LLC."
+        },
         {
           "date": "2026-06-17",
           "source": "Email",
@@ -824,6 +830,10 @@
         {
           "name": "David Burstein",
           "role": "Closing Attorney"
+        },
+        {
+          "name": "Adam (Title V Inspector)",
+          "role": "Title V / Septic Inspector"
         }
       ],
       "financials": {
@@ -834,6 +844,12 @@
         "prior_price_reduction": 20000
       },
       "recent_updates": [
+        {
+          "date": "2026-06-22",
+          "source": "Email",
+          "subject": "Title V (septic) report complete & inspector paid",
+          "note": "Title V inspector confirmed receipt of payment; Title V report previously delivered. W9 and proof of insurance on file."
+        },
         {
           "date": "2026-06-17",
           "source": "dotloop",
@@ -1045,6 +1061,12 @@
         "note": "Agent CMA (6/19): est. sale ~$240–250K, suggested list $259,900. ~$20K below Tracey's earlier estimate."
       },
       "recent_updates": [
+        {
+          "date": "2026-06-22",
+          "source": "Email",
+          "subject": "Investment tracking — projected sale ~$260K; loan question",
+          "note": "Projected sale price ~$260K logged in QuickBooks for investor cash-flow report (Bookkeeping With Liz). Open questions: confirm whether a loan exists on the property and confirm closing attorney name."
+        },
         {
           "date": "2026-06-19",
           "source": "Email",
@@ -2808,6 +2830,12 @@
       },
       "recent_updates": [
         {
+          "date": "2026-06-22",
+          "source": "Email",
+          "subject": "Foreclosure docs received; executed package to follow",
+          "note": "Harmon Law Offices (Andrew S. Harmon) sent requested documents to atty. David Burstein; executed foreclosure package to be emailed when available. Purchaser: Yellowbrick Property LLC."
+        },
+        {
           "date": "2026-06-19",
           "source": "PDF",
           "subject": "Assignment of Bid + closing prep",
@@ -2829,4 +2857,4 @@
       "important_dates": []
     }
   ]
-    }
+        }
