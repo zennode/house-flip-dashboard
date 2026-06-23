@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-22T18:00:00-04:00",
+  "last_updated": "2026-06-23T08:05:00-04:00",
   "properties": [
     {
       "id": "62-maynard-st",
@@ -1058,9 +1058,16 @@
         "rehab_estimate_range": "60000-80000",
         "arv": 250000,
         "listing_price": 259900,
-        "note": "Agent CMA (6/19): est. sale ~$240–250K, suggested list $259,900. ~$20K below Tracey's earlier estimate."
+        "note": "Agent CMA (6/19): est. sale ~$240–250K, suggested list $259,900. ~$20K below Tracey's earlier estimate. Loan confirmed on property (6/23) — previously omitted from investor report, now being corrected.",
+        "financing": "Loan on property (confirmed 6/23/2026)"
       },
       "recent_updates": [
+        {
+          "date": "2026-06-23",
+          "source": "Email",
+          "subject": "Investment tracking report — loan confirmed; format approved",
+          "note": "Bookkeeper (Liz) confirmed a loan DOES exist on 1 Richmond and was initially missed from the QuickBooks investor cash-flow report; she is updating it and reviewing other properties for omissions. Matt approved the report format and asked to convert it to a live-updating Google Sheet. Per Antonio, closing attorney name may be 'Bernstein' (to verify). Resolves prior open question on whether a loan exists."
+        },
         {
           "date": "2026-06-22",
           "source": "Email",
@@ -1837,6 +1844,12 @@
         "arv_estimate": 270000
       },
       "recent_updates": [
+        {
+          "date": "2026-06-23",
+          "source": "Email",
+          "subject": "Work order 6/23 — basement work continuing",
+          "note": "Daily work order from Jessica Sicard (6/23/26): crew member Victor continuing on project 43144 (31 Loring); to call Jess if he runs out of work."
+        },
         {
           "date": "2026-06-12",
           "source": "Email",
@@ -2857,4 +2870,4 @@
       "important_dates": []
     }
   ]
-        }
+}
