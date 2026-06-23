@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-23T08:05:00-04:00",
+  "last_updated": "2026-06-23T18:05:00-04:00",
   "properties": [
     {
       "id": "62-maynard-st",
@@ -1023,7 +1023,7 @@
       "city": "Adams",
       "state": "MA",
       "status": "active",
-      "current_milestone": "Demo/Rehab",
+      "current_milestone": "Listed",
       "milestones": [
         "Acquired",
         "Demo/Rehab",
@@ -1032,7 +1032,8 @@
         "Closing"
       ],
       "completed_milestones": [
-        "Acquired"
+        "Acquired",
+        "Demo/Rehab"
       ],
       "contacts": [
         {
@@ -1062,6 +1063,12 @@
         "financing": "Loan on property (confirmed 6/23/2026)"
       },
       "recent_updates": [
+        {
+          "date": "2026-06-23",
+          "source": "dotloop",
+          "subject": "Listing agreement signed; property now listed (Zillow Showcase)",
+          "note": "Alice Kempf (KVRE) shared 7 documents and the Exclusive Right to Sell Agreement plus 6 listing disclosures were signed via dotloop: MANDATORY Mass Inspection Disclosure, Property Transfer Lead Paint Notification, Seller's Consent to Dual Agency, Seller's Consent to Designated Agency, and the Mandatory Licensee-Consumer Relationship Disclosure (BCBOR forms). MLS listing published (1 richmond MLS.pdf) and live on Zillow Showcase. Milestone advanced from Demo/Rehab to Listed."
+        },
         {
           "date": "2026-06-23",
           "source": "Email",
@@ -1116,6 +1123,7 @@
         }
       ],
       "action_items": [
+        "Monitor showings/offers now that 1 Richmond Ln is listed at $259,900 on MLS/Zillow.",
         "Finalize list price for 1 Richmond Ln — agent suggests $259,900 (est. sale ~$240–250K) vs. Tracey's higher number; reconcile ARV before listing.",
         "Confirm property municipality: Adams vs Pittsfield",
         "Review Style Staging invoice and route for payment (do not auto-pay)",
@@ -1124,7 +1132,7 @@
         "Dig safe marked, electrician disconnected, dumpster on site",
         "Follow up with contractor on demo completion timeline"
       ],
-      "source": "Email/PDF"
+      "source": "dotloop"
     },
     {
       "id": "54-sectar-rd",
@@ -2278,6 +2286,12 @@
       },
       "recent_updates": [
         {
+          "date": "2026-06-23",
+          "source": "Email",
+          "subject": "1031 closing follow-up — awaiting FHA repair request",
+          "note": "QI coordinator Adryen Proctor (e1031xchange) followed up to confirm the 6/30 closing and requested the settlement statement for QI review/approval. Peter Houser advised they have not heard yet and are waiting on an FHA repair request from the buyer's side. Closing target remains Tue 6/30; sale proceeds to be wired to the QI the same day as closing."
+        },
+        {
           "date": "2026-06-11",
           "source": "DocuSign",
           "note": "e1031xchange sent the 1031 exchange agreement and signing instructions via DocuSign (includes a text box for the Flying Monkey LLC EIN). Operating Agreement received by QI same day (Adryen Proctor confirmed)."
@@ -2294,6 +2308,7 @@
         }
       ],
       "action_items": [
+        "Resolve buyer's FHA repair request and confirm the 6/30 closing date to Yusenko Law and e1031xchange; provide the settlement statement for QI review (seller listed as 'e1031X LLC, by Jerry M. Feeney, managing member, as Qualified Intermediary for Flying Monkey LLC').",
         "Forward organizational documents showing authorized signatory to e1031xchange",
         "Provide title report and settlement statement to the QI once available",
         "Confirm June 30, 2026 closing date with attorney Vitaliy Yusenko",
