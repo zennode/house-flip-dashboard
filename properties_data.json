@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-23T18:05:00-04:00",
+  "last_updated": "2026-06-24T08:05:00-04:00",
   "properties": [
     {
       "id": "62-maynard-st",
@@ -2360,6 +2360,11 @@
       "financials": {},
       "recent_updates": [
         {
+          "date": "2026-06-24",
+          "source": "Email",
+          "note": "Atty David Burstein (6/24): scheduled to close by 7/9/2026 (may be extended by foreclosure counsel). Financing decision needed — private funds fully invested; if using Pinnacle, contact Ian or Max ASAP."
+        },
+        {
           "date": "2026-06-09",
           "source": "PDF",
           "note": "Foreclosure auction WON today (Chicopee condo). Memo of Sale received from Tranzon and signed by Matthew for Yellow Brick Property LLC; full executed copy forwarded to David Burstein. Burstein representing the buyer and assessing whether an Assignment of Bid is needed. Insurance binder being set up via Webber & Grinnell / Alera. Neighbor reports current occupant is moving out."
@@ -2377,8 +2382,10 @@
       ],
       "action_items": [
         "Await closing documents from Duane Morris (Alex Angelo)",
-        "Coordinate closing logistics with David Burstein"
-      ]
+        "Coordinate closing logistics with David Burstein",
+        "Decide financing for 283 Fuller Rd before 7/9 close; contact Pinnacle (Ian/Max) if financing"
+      ],
+      "closing_date": "2026-07-09"
     },
     {
       "id": "19-draper-ave",
@@ -2401,6 +2408,10 @@
         {
           "name": "Alice Kempf",
           "role": "Realtor (KVRE)"
+        },
+        {
+          "name": "David Burstein",
+          "role": "Closing Attorney"
         }
       ],
       "financials": {
@@ -2408,14 +2419,21 @@
       },
       "recent_updates": [
         {
+          "date": "2026-06-24",
+          "source": "Email",
+          "note": "Atty David Burstein (6/24): scheduled to close by 7/2/2026 (may be extended by foreclosure counsel). Financing decision needed — private funds fully invested; if using Pinnacle, contact Ian or Max ASAP."
+        },
+        {
           "date": "2026-06-09",
           "source": "Email",
           "note": "Alice Kempf CMA: property shows as 1BR/2BA, valued ~$255K as-is; potentially ~$270K if a 2nd bedroom can be added. Forwarded to Kevin Shippee and Antonio (Investarters) for review."
         }
       ],
       "action_items": [
-        "Evaluate feasibility/cost of adding a 2nd bedroom to lift value toward ~$270K"
-      ]
+        "Evaluate feasibility/cost of adding a 2nd bedroom to lift value toward ~$270K",
+        "Decide financing for 19 Draper before 7/2 close; contact Pinnacle (Ian/Max) if financing"
+      ],
+      "closing_date": "2026-07-02"
     },
     {
       "id": "89-church-st",
@@ -2818,7 +2836,7 @@
       "completed_milestones": [
         "Auction Won"
       ],
-      "closing_date": null,
+      "closing_date": "2026-07-17",
       "source": "Email/PDF",
       "auto_detected": true,
       "contacts": [
@@ -2850,6 +2868,10 @@
         {
           "name": "Jessica Sicard",
           "role": "Project Manager"
+        },
+        {
+          "name": "David Burstein",
+          "role": "Closing Attorney"
         }
       ],
       "financials": {
@@ -2857,6 +2879,11 @@
         "note": "Foreclosure auction win; bid assigned from Kevin Shippee. Bid/purchase amount pending in sale package. Property occupied."
       },
       "recent_updates": [
+        {
+          "date": "2026-06-24",
+          "source": "Email",
+          "note": "Atty David Burstein (6/24): scheduled to close by 7/17/2026 (may be extended). Financing decision needed — private funds fully invested; if using Pinnacle, contact Ian or Max ASAP."
+        },
         {
           "date": "2026-06-22",
           "source": "Email",
@@ -2880,9 +2907,94 @@
         "Send notice package to Atty Burstein: notice of default/acceleration w/ proof of mailing, the Note, and Notices of Sale w/ proofs of mailing",
         "Title company to review draft foreclosure sale package prior to closing",
         "Confirm insurance binder is in force for 79 Pleasant St (occupied)",
-        "Plan for existing occupancy at 79 Pleasant St post-closing"
+        "Plan for existing occupancy at 79 Pleasant St post-closing",
+        "Decide financing for 79 Pleasant St before 7/17 close; contact Pinnacle (Ian/Max) if financing"
       ],
       "important_dates": []
+    },
+    {
+      "id": "412-st-james-ave",
+      "address": "412 St. James Ave",
+      "city": "Springfield",
+      "state": "MA",
+      "status": "active",
+      "current_milestone": "Under Contract",
+      "milestones": [
+        "Prospecting",
+        "Acquired",
+        "Demo/Rehab",
+        "Listed",
+        "Under Contract",
+        "Closing",
+        "Closed"
+      ],
+      "completed_milestones": [
+        "Prospecting"
+      ],
+      "closing_date": "2026-07-09",
+      "source": "Email",
+      "auto_detected": true,
+      "contacts": [
+        {
+          "name": "David Burstein",
+          "role": "Closing Attorney (representing Yellowbrick Property LLC)"
+        }
+      ],
+      "financials": {},
+      "recent_updates": [
+        {
+          "date": "2026-06-24",
+          "source": "Email",
+          "note": "New upcoming purchase flagged by Atty David Burstein (6/24): ready to close any time prior to 7/9/2026. Financing decision needed — private funds fully invested; if using Pinnacle, contact Ian or Max ASAP."
+        }
+      ],
+      "action_items": [
+        "Decide financing for 412 St. James Ave; ready to close before 7/9",
+        "Contact Pinnacle (Ian/Max) if financing this purchase"
+      ]
+    },
+    {
+      "id": "83-rolf-ave",
+      "address": "83 Rolf Ave",
+      "city": "Chicopee",
+      "state": "MA",
+      "status": "active",
+      "current_milestone": "Prospecting",
+      "milestones": [
+        "Prospecting",
+        "Acquired",
+        "Demo/Rehab",
+        "Listed",
+        "Under Contract",
+        "Closing",
+        "Closed"
+      ],
+      "completed_milestones": [],
+      "source": "Email",
+      "auto_detected": true,
+      "contacts": [
+        {
+          "name": "Alice Kempf",
+          "role": "Listing Agent / Realtor (Kempf-Vanderburgh, 413-297-5200)"
+        }
+      ],
+      "financials": {
+        "arv": 329000,
+        "repair_budget": 50000,
+        "estimated_basis": 100000
+      },
+      "recent_updates": [
+        {
+          "date": "2026-06-24",
+          "source": "Email",
+          "note": "Alice Kempf updated CMA (6/24): ARV ~$329k with just 1 bath by adding ~200 sq ft heated back 'sunroom', per most recent comps. Prior estimate $315k w/ 1 bath, up to $329,900 w/ added half-bath. Plan: flip once evicted, ~$50k rehab, structure via 1031 exchange."
+        }
+      ],
+      "action_items": [
+        "Complete eviction before flipping 83 Rolf Ave",
+        "Plan ~200 sq ft heated sunroom addition to hit $329k ARV",
+        "Structure acquisition as 1031 exchange"
+      ]
     }
   ]
-}
+        }
