@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-24T08:05:00-04:00",
+  "last_updated": "2026-06-24T18:05:00-04:00",
   "properties": [
     {
       "id": "62-maynard-st",
@@ -205,6 +205,14 @@
         {
           "name": "Jessica Sicard",
           "role": "Project Manager"
+        },
+        {
+          "name": "Peri Campoli (Campoli Law)",
+          "role": "Seller's Counsel"
+        },
+        {
+          "name": "William Burruss",
+          "role": "Building Inspector"
         }
       ],
       "financials": {
@@ -214,6 +222,11 @@
         "arv": 249000
       },
       "recent_updates": [
+        {
+          "date": "2026-06-24",
+          "source": "Email",
+          "note": "Escrow/permit dispute active. Seller's counsel Peri Campoli (Campoli Law) circled back: building inspector says the 'Application Form' Burstein sent June 9 does NOT prove the final inspection was completed (reviewed by client w/ inspector William Burruss). Matt's position: architect plans were signed off by the building inspector and the engineer's sign-off nullifies the need for a final building-dept inspection; will forward engineer documents to Burstein. Matt proposed a 3-way call tomorrow (6/25)."
+        },
         {
           "date": "2026-06-09",
           "source": "PDF",
@@ -231,7 +244,9 @@
       "action_items": [
         "Pursue $5K rehab draw release with lender's counsel using the signed building permit",
         "URGENT: At risk of forfeiting escrow — contact David Burstein immediately",
-        "Resolve buyer financing contingency"
+        "Resolve buyer financing contingency",
+        "Send engineer sign-off documents to atty. Burstein to satisfy the escrow permit requirement.",
+        "Schedule 3-way call (Matt / Burstein / Campoli) on 6/25 re: 114 Danforth escrow release."
       ]
     },
     {
@@ -266,9 +281,15 @@
         "purchase_price": 120000,
         "rehab_cost": 110000,
         "listing_price": 369000,
-        "arv": 369000
+        "arv": 369000,
+        "arv_estimate": "359000-369000"
       },
       "recent_updates": [
+        {
+          "date": "2026-06-24",
+          "source": "Email",
+          "note": "Agent Alice Kempf revised ARV opinion to $359K–$369K. Comp that sold at $410K was a larger, more urban property (1,600 sq ft, 2 full baths) vs. subject at 1,328 sq ft. Property was a wholesale (not fully renovated). Alice to walk the property and revise her numbers."
+        },
         {
           "date": "2026-06-19",
           "source": "Email",
@@ -291,7 +312,8 @@
       ],
       "action_items": [
         "Monitor showings and feedback from Alice",
-        "Review price reduction if no offers by June 15"
+        "Review price reduction if no offers by June 15",
+        "Await Alice Kempf walkthrough + revised valuation for 2140 Palmer."
       ]
     },
     {
@@ -2393,7 +2415,7 @@
       "city": "Pittsfield",
       "state": "MA",
       "status": "active",
-      "current_milestone": "Prospecting",
+      "current_milestone": "Closing",
       "milestones": [
         "Prospecting",
         "Acquired",
@@ -2403,7 +2425,10 @@
         "Closing",
         "Closed"
       ],
-      "completed_milestones": [],
+      "completed_milestones": [
+        "Prospecting",
+        "Under Contract"
+      ],
       "contacts": [
         {
           "name": "Alice Kempf",
@@ -2412,12 +2437,25 @@
         {
           "name": "David Burstein",
           "role": "Closing Attorney"
+        },
+        {
+          "name": "David Burstein, Esq. (Burstein Law Offices)",
+          "role": "Buyer's / Closing Attorney"
+        },
+        {
+          "name": "Andrew S. Harmon, Esq. (Harmon Law)",
+          "role": "Foreclosing Firm (Seller's counsel)"
         }
       ],
       "financials": {
         "arv": 270000
       },
       "recent_updates": [
+        {
+          "date": "2026-06-24",
+          "source": "Email",
+          "note": "Harmon Law Offices (Andrew S. Harmon) delivered the executed foreclosure Closing Package for 19 Draper Ave to atty. David Burstein. Closing deadline July 6, 2026 (can close any time before). Closing options: in-person w/ certified funds, certified bank check via overnight, or wire (all payable to Harmon Law Offices, P.C.)."
+        },
         {
           "date": "2026-06-24",
           "source": "Email",
@@ -2431,9 +2469,10 @@
       ],
       "action_items": [
         "Evaluate feasibility/cost of adding a 2nd bedroom to lift value toward ~$270K",
-        "Decide financing for 19 Draper before 7/2 close; contact Pinnacle (Ian/Max) if financing"
+        "Decide financing for 19 Draper before 7/2 close; contact Pinnacle (Ian/Max) if financing",
+        "Choose funding method (certified funds / bank check / wire) and schedule 19 Draper closing before July 6, 2026."
       ],
-      "closing_date": "2026-07-02"
+      "closing_date": "2026-07-06"
     },
     {
       "id": "89-church-st",
@@ -2872,6 +2911,10 @@
         {
           "name": "David Burstein",
           "role": "Closing Attorney"
+        },
+        {
+          "name": "Andrew S. Harmon, Esq. (Harmon Law)",
+          "role": "Foreclosing Firm (Seller's counsel)"
         }
       ],
       "financials": {
@@ -2879,6 +2922,11 @@
         "note": "Foreclosure auction win; bid assigned from Kevin Shippee. Bid/purchase amount pending in sale package. Property occupied."
       },
       "recent_updates": [
+        {
+          "date": "2026-06-24",
+          "source": "Email",
+          "note": "Harmon Law (Andrew Harmon) sent a 'Closing Package' w/ executed docs but corrected it was for 19 Draper Ave — 79 Pleasant docs are NOT back yet. Atty Burstein notes the real deadline is July 20, 2026 (the 18th is a Saturday) and he may not have title back by July 6. Insurance: Webber & Grinnell (A. Edgett) requested application details; Matt confirmed the application was attached to the original email."
+        },
         {
           "date": "2026-06-24",
           "source": "Email",
@@ -2908,7 +2956,9 @@
         "Title company to review draft foreclosure sale package prior to closing",
         "Confirm insurance binder is in force for 79 Pleasant St (occupied)",
         "Plan for existing occupancy at 79 Pleasant St post-closing",
-        "Decide financing for 79 Pleasant St before 7/17 close; contact Pinnacle (Ian/Max) if financing"
+        "Decide financing for 79 Pleasant St before 7/17 close; contact Pinnacle (Ian/Max) if financing",
+        "Confirm title timeline with Burstein; target close before July 20, 2026 deadline.",
+        "Finalize hazard insurance with Webber & Grinnell (A. Edgett) — application details sent."
       ],
       "important_dates": []
     },
@@ -2987,14 +3037,20 @@
         {
           "date": "2026-06-24",
           "source": "Email",
+          "note": "Agent Alice Kempf CMA: can reach ~$329K ARV with the existing 1 bath by counting the ~200 sq ft heated back sunroom, per latest comps. Matt approved ('Let's do it'). Plan: flip once tenant is evicted; est. ~$50K rehab. 1031 exchange under consideration."
+        },
+        {
+          "date": "2026-06-24",
+          "source": "Email",
           "note": "Alice Kempf updated CMA (6/24): ARV ~$329k with just 1 bath by adding ~200 sq ft heated back 'sunroom', per most recent comps. Prior estimate $315k w/ 1 bath, up to $329,900 w/ added half-bath. Plan: flip once evicted, ~$50k rehab, structure via 1031 exchange."
         }
       ],
       "action_items": [
         "Complete eviction before flipping 83 Rolf Ave",
         "Plan ~200 sq ft heated sunroom addition to hit $329k ARV",
-        "Structure acquisition as 1031 exchange"
+        "Structure acquisition as 1031 exchange",
+        "Proceed with 83 Rolf flip plan post-eviction; budget ~$50K rehab; explore 1031 exchange."
       ]
     }
   ]
-        }
+    }
