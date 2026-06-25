@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-25T08:08:01-04:00",
+  "last_updated": "2026-06-25T18:09:50-04:00",
   "properties": [
     {
       "id": "62-maynard-st",
@@ -227,6 +227,11 @@
       },
       "recent_updates": [
         {
+          "date": "2026-06-25",
+          "source": "Email",
+          "note": "Building/engineer sign-off: architect plans completed and signed off by the building inspector; per Matt, once the engineer signs off, a separate final building inspection isn't required. Coordinating a 3-way call (Matt / Burstein / Campoli). (Thread subject referenced 'Pittsfield'.)"
+        },
+        {
           "date": "2026-06-24",
           "source": "Email",
           "note": "Matt sent atty. Burstein the stamped & signed engineer review and completed signed building permit to satisfy the escrow permit condition; proposed a 3-way call with Burstein & Campoli on 6/25."
@@ -284,6 +289,10 @@
         {
           "name": "Jessica Sicard",
           "role": "Project Manager"
+        },
+        {
+          "name": "David Muno (Preferred Property Management)",
+          "role": "Contractor"
         }
       ],
       "financials": {
@@ -294,6 +303,11 @@
         "arv_estimate": "359000-369000"
       },
       "recent_updates": [
+        {
+          "date": "2026-06-25",
+          "source": "Email",
+          "note": "Contractor Dave Muno submitted a $2,800 change order: remove & haul basement insulation, vacuum/brush bays, spray anti-microbial; remove carpets/pads/staples, install new padding & carpet; materials from Home Depot."
+        },
         {
           "date": "2026-06-24",
           "source": "Email",
@@ -323,7 +337,8 @@
         "Monitor showings and feedback from Alice",
         "Review price reduction if no offers by June 15",
         "Await Alice Kempf walkthrough + revised valuation for 2140 Palmer.",
-        "Alice Kempf to walk 2140 Palmer Rd and revise ARV (current est. $359K-$369K)."
+        "Alice Kempf to walk 2140 Palmer Rd and revise ARV (current est. $359K-$369K).",
+        "Review/approve Dave Muno's $2,800 change order (new carpet + basement insulation removal) at 2140 Palmer Rd."
       ]
     },
     {
@@ -866,6 +881,14 @@
         {
           "name": "Adam (Title V Inspector)",
           "role": "Title V / Septic Inspector"
+        },
+        {
+          "name": "Courtney Lane (Downing Lane PC)",
+          "role": "Buyer's Counsel"
+        },
+        {
+          "name": "Toni Makarski (Downing Lane PC)",
+          "role": "Buyer's Counsel (paralegal)"
         }
       ],
       "financials": {
@@ -876,6 +899,16 @@
         "prior_price_reduction": 20000
       },
       "recent_updates": [
+        {
+          "date": "2026-06-25",
+          "source": "PDF",
+          "note": "Title V (septic) report '1874 home rd sheffield ma.pdf' provided to atty Burstein."
+        },
+        {
+          "date": "2026-06-25",
+          "source": "Email",
+          "note": "Buyer's atty Courtney Lane (Downing Lane PC) asked whether the well is shared with neighbors — buyers concerned, possibly from inspection. Atty Burstein requested the Title V report; Matt sent it (PDF: '1874 home rd sheffield ma.pdf')."
+        },
         {
           "date": "2026-06-22",
           "source": "Email",
@@ -951,7 +984,8 @@
         "Complete Title V / septic inspection this week (Russ) so the property is buyer-ready",
         "Relist 1874 Home Rd with Alice Kempf — set new pricing / marketing strategy",
         "Obtain firm boiler & mechanical remediation quotes to pre-empt the next buyer's objections",
-        "Provide buyer's-counsel contact to David Burstein once a new buyer materializes (prior buyer never named counsel)"
+        "Provide buyer's-counsel contact to David Burstein once a new buyer materializes (prior buyer never named counsel)",
+        "Confirm whether the well at 1874 Home Rd is shared with neighbors (buyer's counsel inquiry)."
       ],
       "source": "dotloop"
     },
@@ -2387,10 +2421,19 @@
         {
           "name": "Stephanie Williams (Duane Morris)",
           "role": "Seller's Counsel"
+        },
+        {
+          "name": "Alice Kempf",
+          "role": "Agent"
         }
       ],
       "financials": {},
       "recent_updates": [
+        {
+          "date": "2026-06-25",
+          "source": "Email",
+          "note": "Matt asked agent Alice Kempf for a CMA — 'closing on this one soon.' Email referenced the address as '238 Fuller Rd Unit K,' likely a typo for 283 Fuller Rd Unit K. Closing scheduled 2026-07-09."
+        },
         {
           "date": "2026-06-24",
           "source": "Email",
@@ -2415,7 +2458,8 @@
       "action_items": [
         "Await closing documents from Duane Morris (Alex Angelo)",
         "Coordinate closing logistics with David Burstein",
-        "Decide financing for 283 Fuller Rd before 7/9 close; contact Pinnacle (Ian/Max) if financing"
+        "Decide financing for 283 Fuller Rd before 7/9 close; contact Pinnacle (Ian/Max) if financing",
+        "Get CMA from Alice Kempf for 283 Fuller Rd Unit K ahead of the 7/9 closing."
       ],
       "closing_date": "2026-07-09"
     },
