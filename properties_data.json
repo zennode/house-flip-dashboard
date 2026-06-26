@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-26T08:05:06-04:00",
+  "last_updated": "2026-06-26T18:04:10-04:00",
   "properties": [
     {
       "id": "62-maynard-st",
@@ -44,6 +44,11 @@
         {
           "date": "2026-06-26",
           "source": "Email",
+          "note": "Financing reallocation: Matt asked atty. Burstein whether the funds earmarked for 62 Maynard could be redirected to another YellowBrick closing while the title defect is resolved. Burstein confirmed: 'Yes, that is the plan' (asked to keep quiet from Russ for now)."
+        },
+        {
+          "date": "2026-06-26",
+          "source": "Email",
           "subject": "TITLE DEFECT — MassHealth notice not sent; closing blocked",
           "note": "Atty. David Burstein reports foreclosure counsel did not send notice of sale to MassHealth, which has a Probate Court claim of ~$500K. Atty. Lavenburg will try to obtain a Waiver of Notice; if not obtained the foreclosure is invalid and the property must go to auction again. Funds earmarked for this deal have been reallocated to another closing — financing must be re-arranged if title is cleared."
         },
@@ -69,9 +74,10 @@
         "Confirm receipt of insurance binder from Neill & Neill before 6/22 closing",
         "Review loan commitment terms",
         "Obtain Waiver of Notice from MassHealth via Atty. Lavenburg to cure title defect (else re-auction)",
-        "Re-arrange financing for 62 Maynard — original funds reallocated to another closing"
+        "Re-arrange financing for 62 Maynard — original funds reallocated to another closing",
+        "Confirm whether Atty. Lavenburg obtained MassHealth Waiver of Notice; otherwise property re-goes to foreclosure auction."
       ],
-      "status_note": "AT RISK: title defect (MassHealth notice). Closing on hold."
+      "status_note": "Title defect (MassHealth notice-of-sale omission) is blocking closing; Atty. Lavenburg pursuing Waiver of Notice. Funds being reallocated to another YellowBrick closing pending resolution."
     },
     {
       "id": "67-willow-st",
@@ -239,6 +245,11 @@
         "arv": 249000
       },
       "recent_updates": [
+        {
+          "date": "2026-06-26",
+          "source": "Email",
+          "note": "Atty. Burstein replied to seller's counsel Peri Campoli (re her 6/24 email): reviewed with client and contractor, and had a detailed phone call with building inspector Bill (William Burruss) regarding the final inspection/permit dispute. Negotiation toward escrow release ongoing."
+        },
         {
           "date": "2026-06-25",
           "source": "Email",
@@ -1384,6 +1395,10 @@
         {
           "name": "Jessica Sicard",
           "role": "Project Manager"
+        },
+        {
+          "name": "Andrew Tine (Tine Law)",
+          "role": "Buyer's Counsel"
         }
       ],
       "financials": {
@@ -1392,6 +1407,11 @@
         "arv": 450000
       },
       "recent_updates": [
+        {
+          "date": "2026-06-26",
+          "source": "Email",
+          "note": "Closing push: Atty. Ryan O'Hara (Bacon Wilson) told buyer Hunter Foote & Atty. Andrew Tine that 'my client remains prepared to proceed' and is awaiting Tine's response. Buyer (Vanderburgh) asking to schedule closing ASAP. Matt followed up with O'Hara: 'Any luck?'"
+        },
         {
           "date": "2026-06-05",
           "note": "Matt confirmed to Jessica: closing targeted for end of June, awaiting buyer to sign P&S back. Pay the $100 code/painting fine for now; sale to address outstanding building/code violations."
@@ -1413,7 +1433,8 @@
         "Closing targeted end of June — awaiting buyer's countersigned P&S",
         "Confirm all lawsuits and liability dismissed per agreement",
         "Pay $100 fine now; ensure sale addresses outstanding code violations",
-        "Coordinate with Ryan O'Hara on closing timeline"
+        "Coordinate with Ryan O'Hara on closing timeline",
+        "Get Atty. Tine's response so 103 Prospect closing can be scheduled (buyer ready)."
       ]
     },
     {
@@ -3152,4 +3173,4 @@
       ]
     }
   ]
-}
+        }
