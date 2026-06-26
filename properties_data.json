@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-25T18:09:50-04:00",
+  "last_updated": "2026-06-26T08:05:06-04:00",
   "properties": [
     {
       "id": "62-maynard-st",
@@ -33,10 +33,20 @@
         {
           "name": "Russell Cable",
           "role": "Buyer/Borrower contact (Revive & Rise LLC)"
+        },
+        {
+          "name": "Atty. Lavenburg",
+          "role": "Foreclosure/Title counsel (pursuing MassHealth Waiver of Notice)"
         }
       ],
       "financials": {},
       "recent_updates": [
+        {
+          "date": "2026-06-26",
+          "source": "Email",
+          "subject": "TITLE DEFECT — MassHealth notice not sent; closing blocked",
+          "note": "Atty. David Burstein reports foreclosure counsel did not send notice of sale to MassHealth, which has a Probate Court claim of ~$500K. Atty. Lavenburg will try to obtain a Waiver of Notice; if not obtained the foreclosure is invalid and the property must go to auction again. Funds earmarked for this deal have been reallocated to another closing — financing must be re-arranged if title is cleared."
+        },
         {
           "date": "2026-06-22",
           "source": "Email",
@@ -57,8 +67,11 @@
       ],
       "action_items": [
         "Confirm receipt of insurance binder from Neill & Neill before 6/22 closing",
-        "Review loan commitment terms"
-      ]
+        "Review loan commitment terms",
+        "Obtain Waiver of Notice from MassHealth via Atty. Lavenburg to cure title defect (else re-auction)",
+        "Re-arrange financing for 62 Maynard — original funds reallocated to another closing"
+      ],
+      "status_note": "AT RISK: title defect (MassHealth notice). Closing on hold."
     },
     {
       "id": "67-willow-st",
@@ -889,6 +902,14 @@
         {
           "name": "Toni Makarski (Downing Lane PC)",
           "role": "Buyer's Counsel (paralegal)"
+        },
+        {
+          "name": "Courtney S. Lane, Esq.",
+          "role": "Buyer's Closing Attorney (Downing Lane, PC) - 413-528-8805"
+        },
+        {
+          "name": "Toni Makarski",
+          "role": "Downing Lane, PC (buyer attorney office)"
         }
       ],
       "financials": {
@@ -899,6 +920,12 @@
         "prior_price_reduction": 20000
       },
       "recent_updates": [
+        {
+          "date": "2026-06-26",
+          "source": "PDF",
+          "subject": "Buyer attorney shared-well inquiry; Title V report sent",
+          "note": "Buyer's attorney Courtney Lane (Downing Lane, PC) asked whether the well is shared with neighbors per buyer concern. Atty. Burstein requested the Title V report; Matt sent it (attachment: 1874 home rd sheffield ma.pdf)."
+        },
         {
           "date": "2026-06-25",
           "source": "PDF",
@@ -985,7 +1012,8 @@
         "Relist 1874 Home Rd with Alice Kempf — set new pricing / marketing strategy",
         "Obtain firm boiler & mechanical remediation quotes to pre-empt the next buyer's objections",
         "Provide buyer's-counsel contact to David Burstein once a new buyer materializes (prior buyer never named counsel)",
-        "Confirm whether the well at 1874 Home Rd is shared with neighbors (buyer's counsel inquiry)."
+        "Confirm whether the well at 1874 Home Rd is shared with neighbors (buyer's counsel inquiry).",
+        "Confirm whether the well at 1874 Home Rd is shared with neighbors and reply to buyer attorney Courtney Lane"
       ],
       "source": "dotloop"
     },
