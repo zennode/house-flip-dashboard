@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-28T08:07:24-04:00",
+  "last_updated": "2026-06-28T18:04:56-04:00",
   "properties": [
     {
       "id": "62-maynard-st",
@@ -2476,8 +2476,17 @@
           "role": "Agent"
         }
       ],
-      "financials": {},
+      "financials": {
+        "agent_suggested_list": 244900,
+        "assessed_value": 230000,
+        "active_comp": 259000
+      },
       "recent_updates": [
+        {
+          "date": "2026-06-28",
+          "source": "Email",
+          "note": "Alice Kempf (CMA): suggests listing ~$244,900; only 1 pending comp (dated), assessed value $230k, one active comp at 60 days at $259k. Asked if basement finished — Matt: partially finished; hoping renovation supports a higher price than the dated pending comp."
+        },
         {
           "date": "2026-06-25",
           "source": "Email",
@@ -2505,6 +2514,7 @@
         }
       ],
       "action_items": [
+        "Finalize list price for 283 Fuller (Alice suggests ~$244.9k; Matt pushing higher)",
         "Await closing documents from Duane Morris (Alex Angelo)",
         "Coordinate closing logistics with David Burstein",
         "Decide financing for 283 Fuller Rd before 7/9 close; contact Pinnacle (Ian/Max) if financing",
@@ -2552,12 +2562,33 @@
         {
           "name": "Andrew Harmon (Harmon Law)",
           "role": "Foreclosing Attorney"
+        },
+        {
+          "name": "Adina Edgett (Webber & Grinnell)",
+          "role": "Insurance Agent"
+        },
+        {
+          "name": "Claudia Hicks (Webber & Grinnell)",
+          "role": "Insurance Agent"
+        },
+        {
+          "name": "Lawrence M. Tiberio",
+          "role": "Lender (Mortgagee/Loss Payee)"
+        },
+        {
+          "name": "Maria P. Goncalves",
+          "role": "Lender (Mortgagee/Loss Payee)"
         }
       ],
       "financials": {
         "arv": 270000
       },
       "recent_updates": [
+        {
+          "date": "2026-06-28",
+          "source": "Email",
+          "note": "Atty David Burstein requested a Certificate of Insurance from Webber & Grinnell, targeting a 7/1/2026 close. Mortgagee/Loss Payee: David H. Burstein, Lawrence M. Tiberio & Maria P. Goncalves (Tenants in Common, ISAOA/ATIMA), 120 Pine Knoll Dr, Ludlow MA."
+        },
         {
           "date": "2026-06-24",
           "source": "Email",
@@ -2575,12 +2606,13 @@
         }
       ],
       "action_items": [
+        "Confirm Webber & Grinnell issues COI for 7/1 close",
         "Evaluate feasibility/cost of adding a 2nd bedroom to lift value toward ~$270K",
         "Decide financing for 19 Draper before 7/2 close; contact Pinnacle (Ian/Max) if financing",
         "Choose funding method (certified funds / bank check / wire) and schedule 19 Draper closing before July 6, 2026.",
         "Arrange certified funds or wire to Harmon Law P.C. and complete 19 Draper Ave closing (deadline Jul 6, 2026)."
       ],
-      "closing_date": "2026-07-06"
+      "closing_date": "2026-07-01"
     },
     {
       "id": "89-church-st",
@@ -3086,7 +3118,7 @@
       "city": "Springfield",
       "state": "MA",
       "status": "active",
-      "current_milestone": "Under Contract",
+      "current_milestone": "Closing",
       "milestones": [
         "Prospecting",
         "Acquired",
@@ -3097,19 +3129,42 @@
         "Closed"
       ],
       "completed_milestones": [
-        "Prospecting"
+        "Prospecting",
+        "Acquired",
+        "Demo/Rehab",
+        "Listed",
+        "Under Contract"
       ],
-      "closing_date": "2026-07-09",
+      "closing_date": "2026-07-01",
       "source": "Email",
       "auto_detected": true,
       "contacts": [
         {
           "name": "David Burstein",
           "role": "Closing Attorney (representing Yellowbrick Property LLC)"
+        },
+        {
+          "name": "Brock & Scott PLLC",
+          "role": "Closing Agent / Wire Recipient"
+        },
+        {
+          "name": "Kevin Shippee",
+          "role": "Partner/Lender"
+        },
+        {
+          "name": "Chris (Yellowbrick)",
+          "role": "Partner"
         }
       ],
-      "financials": {},
+      "financials": {
+        "closing_wire": 165054.99
+      },
       "recent_updates": [
+        {
+          "date": "2026-06-28",
+          "source": "Email",
+          "note": "Atty David Burstein plans to wire $165,054.99 to Brock & Scott PLLC on Tue 6/30 to close Wed 7/1/2026. Matt flagged a date discrepancy (expected 7/9) and is confirming with Burstein."
+        },
         {
           "date": "2026-06-24",
           "source": "Email",
@@ -3117,6 +3172,8 @@
         }
       ],
       "action_items": [
+        "Ensure $165,054.99 wire to Brock & Scott PLLC is funded by 6/30",
+        "Confirm closing date with Atty Burstein (7/1 vs 7/9)",
         "Decide financing for 412 St. James Ave; ready to close before 7/9",
         "Contact Pinnacle (Ian/Max) if financing this purchase"
       ]
@@ -3125,6 +3182,66 @@
       "id": "83-rolf-ave",
       "address": "83 Rolf Ave",
       "city": "Chicopee",
+      "state": "MA",
+      "status": "active",
+      "current_milestone": "Demo/Rehab",
+      "milestones": [
+        "Prospecting",
+        "Acquired",
+        "Demo/Rehab",
+        "Listed",
+        "Under Contract",
+        "Closing",
+        "Closed"
+      ],
+      "completed_milestones": [
+        "Prospecting",
+        "Acquired"
+      ],
+      "source": "Email",
+      "auto_detected": true,
+      "contacts": [
+        {
+          "name": "Alice Kempf",
+          "role": "Listing Agent / Realtor (Kempf-Vanderburgh, 413-297-5200)"
+        }
+      ],
+      "financials": {
+        "arv": 329000,
+        "repair_budget": 50000,
+        "estimated_basis": 100000,
+        "rehab_cost": 50000
+      },
+      "recent_updates": [
+        {
+          "date": "2026-06-28",
+          "source": "Email",
+          "note": "Jessica Sicard (PM) sent 6/25 punchlist photos for 83 Rolf (Google Photos album). Matt asked Preferred Property Management (Dave) to confirm when items are 100% so they can walk the units."
+        },
+        {
+          "date": "2026-06-24",
+          "source": "Email",
+          "note": "Agent Alice Kempf CMA: can reach ~$329K ARV with the existing 1 bath by counting the ~200 sq ft heated back sunroom, per latest comps. Matt approved ('Let's do it'). Plan: flip once tenant is evicted; est. ~$50K rehab. 1031 exchange under consideration."
+        },
+        {
+          "date": "2026-06-24",
+          "source": "Email",
+          "note": "Alice Kempf updated CMA (6/24): ARV ~$329k with just 1 bath by adding ~200 sq ft heated back 'sunroom', per most recent comps. Prior estimate $315k w/ 1 bath, up to $329,900 w/ added half-bath. Plan: flip once evicted, ~$50k rehab, structure via 1031 exchange."
+        }
+      ],
+      "action_items": [
+        "Walk 83 Rolf units once punchlist is 100% complete",
+        "Complete eviction before flipping 83 Rolf Ave",
+        "Plan ~200 sq ft heated sunroom addition to hit $329k ARV",
+        "Structure acquisition as 1031 exchange",
+        "Proceed with 83 Rolf flip plan post-eviction; budget ~$50K rehab; explore 1031 exchange.",
+        "Proceed with 83 Rolf Ave flip (ARV ~$329K, est. ~$50K rehab); complete eviction, then structure as 1031 exchange."
+      ]
+    },
+    {
+      "id": "66-third-st",
+      "address": "66 Third St",
+      "city": "Pittsfield",
       "state": "MA",
       "status": "active",
       "current_milestone": "Prospecting",
@@ -3142,35 +3259,26 @@
       "auto_detected": true,
       "contacts": [
         {
-          "name": "Alice Kempf",
-          "role": "Listing Agent / Realtor (Kempf-Vanderburgh, 413-297-5200)"
-        }
-      ],
-      "financials": {
-        "arv": 329000,
-        "repair_budget": 50000,
-        "estimated_basis": 100000,
-        "rehab_cost": 50000
-      },
-      "recent_updates": [
-        {
-          "date": "2026-06-24",
-          "source": "Email",
-          "note": "Agent Alice Kempf CMA: can reach ~$329K ARV with the existing 1 bath by counting the ~200 sq ft heated back sunroom, per latest comps. Matt approved ('Let's do it'). Plan: flip once tenant is evicted; est. ~$50K rehab. 1031 exchange under consideration."
+          "name": "Jessica Sicard",
+          "role": "Project Manager"
         },
         {
-          "date": "2026-06-24",
+          "name": "Tony Marcella (CAV Management)",
+          "role": "Contractor / Estimator"
+        }
+      ],
+      "financials": {},
+      "recent_updates": [
+        {
+          "date": "2026-06-28",
           "source": "Email",
-          "note": "Alice Kempf updated CMA (6/24): ARV ~$329k with just 1 bath by adding ~200 sq ft heated back 'sunroom', per most recent comps. Prior estimate $315k w/ 1 bath, up to $329,900 w/ added half-bath. Plan: flip once evicted, ~$50k rehab, structure via 1031 exchange."
+          "note": "Jessica Sicard followed up with Tony Marcella (CAV Management) for a repair estimate on 66 Third St. Jessica out on vacation next week; estimate to be sent to Matt to get the project moving. Matt nudged Tony for the estimate."
         }
       ],
       "action_items": [
-        "Complete eviction before flipping 83 Rolf Ave",
-        "Plan ~200 sq ft heated sunroom addition to hit $329k ARV",
-        "Structure acquisition as 1031 exchange",
-        "Proceed with 83 Rolf flip plan post-eviction; budget ~$50K rehab; explore 1031 exchange.",
-        "Proceed with 83 Rolf Ave flip (ARV ~$329K, est. ~$50K rehab); complete eviction, then structure as 1031 exchange."
-      ]
+        "Obtain repair estimate from Tony Marcella for 66 Third St"
+      ],
+      "status_note": "New prospect — awaiting repair estimate."
     }
   ]
-    }
+        }
