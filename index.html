@@ -141,7 +141,12 @@ function contacts(p){
 function dates(p){
   const items=[];
   if(p.closing_date) items.push('<li class="kv"><span class="k">Closing</span><span>'+esc(p.closing_date)+'</span></li>');
-  (p.important_dates||[]).forEach(d=>items.push('<li class="kv"><span class="k">'+esc(d.label||d.type||"Date")+'</span><span>'+esc(d.date)+'</span></li>'));
+  const idates=p.important_dates;
+  if(Array.isArray(idates)){
+    idates.forEach(d=>items.push('<li class="kv"><span class="k">'+esc(d.label||d.type||"Date")+'</span><span>'+esc(d.date)+'</span></li>'));
+  } else if(idates && typeof idates==="object"){
+    Object.entries(idates).forEach(([k,v])=>items.push('<li class="kv"><span class="k">'+esc(fmtKey(k))+'</span><span>'+esc(v)+'</span></li>'));
+  }
   if(!items.length) return section("Important Dates",'<div class="empty">None set</div>');
   return section("Important Dates",'<ul>'+items.join("")+'</ul>');
 }
