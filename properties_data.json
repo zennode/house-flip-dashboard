@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-29T08:07:09-04:00",
+  "last_updated": "2026-06-29T18:07:38-04:00",
   "properties": [
     {
       "id": "62-maynard-st",
@@ -1399,6 +1399,18 @@
         {
           "name": "Andrew Tine (Tine Law)",
           "role": "Buyer's Counsel"
+        },
+        {
+          "name": "Ryan K. O'Hara (Bacon Wilson, P.C.)",
+          "role": "Seller-side / Litigation Attorney"
+        },
+        {
+          "name": "Brian R. Rucki (Bacon Wilson, P.C.)",
+          "role": "Residential RE Counsel"
+        },
+        {
+          "name": "Northeast Asset Development LLC",
+          "role": "Buyer entity"
         }
       ],
       "financials": {
@@ -1407,6 +1419,11 @@
         "arv": 450000
       },
       "recent_updates": [
+        {
+          "date": "2026-06-29",
+          "source": "Email",
+          "note": "Settlement negotiation active on the \"Best & Final\" terms. Dispute is whether the mutual releases are unconditional or contingent on the sale closing. Atty Ryan O'Hara (Bacon Wilson) is inclined to accept buyer-side counsel Andrew Tine's proposed changes provided a transfer date of July 6 is set, and looped in residential RE colleague Brian Rucki. Buyer entity: Northeast Asset Development LLC; seller side: Vanderburgh Sober Living (Dr. Hunter Foote). Matt to attorney: \"I am fine. Just need to close very fast.\""
+        },
         {
           "date": "2026-06-26",
           "source": "Email",
@@ -1430,12 +1447,14 @@
         }
       ],
       "action_items": [
+        "Finalize settlement release language with attys O'Hara/Tine and lock a July 6, 2026 transfer/closing date.",
         "Closing targeted end of June — awaiting buyer's countersigned P&S",
         "Confirm all lawsuits and liability dismissed per agreement",
         "Pay $100 fine now; ensure sale addresses outstanding code violations",
         "Coordinate with Ryan O'Hara on closing timeline",
         "Get Atty. Tine's response so 103 Prospect closing can be scheduled (buyer ready)."
-      ]
+      ],
+      "closing_date": "2026-07-06"
     },
     {
       "id": "205-old-stage-road",
@@ -2479,9 +2498,15 @@
       "financials": {
         "agent_suggested_list": 244900,
         "assessed_value": 230000,
-        "active_comp": 259000
+        "active_comp": 259000,
+        "arv": 244900
       },
       "recent_updates": [
+        {
+          "date": "2026-06-29",
+          "source": "Email",
+          "note": "Alice Kempf pegged value around $244,900 — only 1 pending comp in recent years and one active comp at $259k sitting 60 days; assessed value $230k. Basement partially finished (adds value); kitchen/bath dated (laminate counters, blue tub)."
+        },
         {
           "date": "2026-06-28",
           "source": "Email",
@@ -2514,6 +2539,7 @@
         }
       ],
       "action_items": [
+        "Set list/ARV target for 283 Fuller Rd Unit K with Alice (~$244,900 baseline).",
         "Finalize list price for 283 Fuller (Alice suggests ~$244.9k; Matt pushing higher)",
         "Await closing documents from Duane Morris (Alex Angelo)",
         "Coordinate closing logistics with David Burstein",
@@ -2581,9 +2607,15 @@
         }
       ],
       "financials": {
-        "arv": 270000
+        "arv": 270000,
+        "closing_wire": 62972.2
       },
       "recent_updates": [
+        {
+          "date": "2026-06-29",
+          "source": "PDF",
+          "note": "Atty David Burstein sent the proposed HUD-1 (19Draper-HUD1.pdf) and requested a wire of $62,972.20 to close (includes RE taxes for H1 2027). Yellowbrick wired the funds same day; Burstein confirmed: \"Wire has been received.\" Cleared to close 7/1/2026."
+        },
         {
           "date": "2026-06-28",
           "source": "Email",
@@ -2606,6 +2638,7 @@
         }
       ],
       "action_items": [
+        "Complete 19 Draper Ave closing on 7/1/2026 (wire received by Burstein).",
         "Confirm Webber & Grinnell issues COI for 7/1 close",
         "Evaluate feasibility/cost of adding a 2nd bedroom to lift value toward ~$270K",
         "Decide financing for 19 Draper before 7/2 close; contact Pinnacle (Ian/Max) if financing",
@@ -3135,7 +3168,7 @@
         "Listed",
         "Under Contract"
       ],
-      "closing_date": "2026-07-01",
+      "closing_date": "2026-07-09",
       "source": "Email",
       "auto_detected": true,
       "contacts": [
@@ -3154,12 +3187,21 @@
         {
           "name": "Chris (Yellowbrick)",
           "role": "Partner"
+        },
+        {
+          "name": "ESB Line of Credit",
+          "role": "Funding source (balance ~$257k)"
         }
       ],
       "financials": {
         "closing_wire": 165054.99
       },
       "recent_updates": [
+        {
+          "date": "2026-06-29",
+          "source": "Email",
+          "note": "Burstein planned to wire $165,054.99 to Brock & Scott PLLC on 6/30 to close 7/1; Matt asked to move the close to 7/9 and Burstein agreed (\"Yes…I can push it back\"). Chris proposed funding the wire from the ESB Line of Credit (balance ~$257k). New target close: 7/9/2026."
+        },
         {
           "date": "2026-06-28",
           "source": "Email",
@@ -3172,6 +3214,7 @@
         }
       ],
       "action_items": [
+        "Confirm $165,054.99 wire to Brock & Scott PLLC funded from ESB LOC for 412 St James 7/9 close.",
         "Ensure $165,054.99 wire to Brock & Scott PLLC is funded by 6/30",
         "Confirm closing date with Atty Burstein (7/1 vs 7/9)",
         "Decide financing for 412 St. James Ave; ready to close before 7/9",
@@ -3308,19 +3351,72 @@
       "financials": {
         "agent_suggested_arv": 324900,
         "arv_with_added_half_bath": 335000,
-        "comp_sale": 350000
+        "comp_sale": 350000,
+        "arv": 324900
       },
       "action_items": [
+        "Decide whether to add a half-bath at 65 Avondale to lift value toward ~$335k.",
         "Evaluate acquisition of 65 Avondale Ave (West Springfield) against ~$324.9k ARV and rehab scope",
         "Confirm whether a half-bath can be added to lift ARV toward ~$335k"
       ],
       "recent_updates": [
+        {
+          "date": "2026-06-29",
+          "source": "Email",
+          "note": "Alice Kempf valued at $324,900 for 3BR/1BA; adding a half-bath could push toward $335k. A comparable at $350k sat 60 days, so true value likely below that."
+        },
         {
           "date": "2026-06-28",
           "source": "Email",
           "note": "Alice Kempf (CMA): est. ARV $324,900 for 3BR/1BA, or ~$335k if a half-bath is added. A comparable sale at $350k sat on market 60 days, so actual purchase price likely lower. CloudCMA report: https://cloudcma.com/pdf/5fd1ec6f9a4383f79e28c40668b4481b"
         }
       ]
+    },
+    {
+      "id": "257-wilbraham-road",
+      "address": "257 Wilbraham Road",
+      "city": "Springfield",
+      "state": "MA",
+      "status": "active",
+      "current_milestone": "Demo/Rehab",
+      "milestones": [
+        "Prospecting",
+        "Acquired",
+        "Demo/Rehab",
+        "Listed",
+        "Under Contract",
+        "Closing",
+        "Closed"
+      ],
+      "completed_milestones": [
+        "Prospecting",
+        "Acquired"
+      ],
+      "source": "Email",
+      "auto_detected": true,
+      "contacts": [
+        {
+          "name": "Jessica Sicard",
+          "role": "Project Manager"
+        },
+        {
+          "name": "Dave (Preferred Property Management Inc.)",
+          "role": "Contractor / Rehab Estimate"
+        }
+      ],
+      "financials": {},
+      "recent_updates": [
+        {
+          "date": "2026-06-29",
+          "source": "Email",
+          "note": "Jessica Sicard shared the basic rehab scope and lead report for the 1st floor following trashout (not yet walked post-trashout). Matt asked contractor Dave (Preferred Property Management) to walk it Wednesday 7/1 for an estimate; Dave confirmed \"Yes.\""
+        }
+      ],
+      "action_items": [
+        "Dave (Preferred Property Mgmt) to walk 257 Wilbraham Rd 1st fl on Wed 7/1 and provide rehab estimate.",
+        "Review lead report and finalize 1st-floor rehab scope with Jessica."
+      ],
+      "status_note": "New property auto-detected from email (rehab scoping)."
     }
   ]
-        }
+}
