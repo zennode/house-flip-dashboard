@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-28T18:04:56-04:00",
+  "last_updated": "2026-06-29T08:07:09-04:00",
   "properties": [
     {
       "id": "62-maynard-st",
@@ -3279,6 +3279,48 @@
         "Obtain repair estimate from Tony Marcella for 66 Third St"
       ],
       "status_note": "New prospect — awaiting repair estimate."
+    },
+    {
+      "id": "65-avondale-ave",
+      "address": "65 Avondale Ave",
+      "city": "West Springfield",
+      "state": "MA",
+      "status": "active",
+      "current_milestone": "Prospecting",
+      "milestones": [
+        "Prospecting",
+        "Acquired",
+        "Demo/Rehab",
+        "Listed",
+        "Under Contract",
+        "Closing",
+        "Closed"
+      ],
+      "completed_milestones": [],
+      "source": "Email",
+      "auto_detected": true,
+      "contacts": [
+        {
+          "name": "Alice Kempf",
+          "role": "Realtor (KVRE)"
+        }
+      ],
+      "financials": {
+        "agent_suggested_arv": 324900,
+        "arv_with_added_half_bath": 335000,
+        "comp_sale": 350000
+      },
+      "action_items": [
+        "Evaluate acquisition of 65 Avondale Ave (West Springfield) against ~$324.9k ARV and rehab scope",
+        "Confirm whether a half-bath can be added to lift ARV toward ~$335k"
+      ],
+      "recent_updates": [
+        {
+          "date": "2026-06-28",
+          "source": "Email",
+          "note": "Alice Kempf (CMA): est. ARV $324,900 for 3BR/1BA, or ~$335k if a half-bath is added. A comparable sale at $350k sat on market 60 days, so actual purchase price likely lower. CloudCMA report: https://cloudcma.com/pdf/5fd1ec6f9a4383f79e28c40668b4481b"
+        }
+      ]
     }
   ]
         }
