@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-30T08:06:58-04:00",
+  "last_updated": "2026-06-30T18:05:48-04:00",
   "properties": [
     {
       "id": "62-maynard-st",
@@ -1423,6 +1423,10 @@
         {
           "name": "Hunter Foote (Vanderburgh House)",
           "role": "Counterparty"
+        },
+        {
+          "name": "Ryan K. O'Hara (Bacon Wilson, P.C., 413.584.1287)",
+          "role": "Seller's Attorney"
         }
       ],
       "financials": {
@@ -1431,6 +1435,11 @@
         "arv": 450000
       },
       "recent_updates": [
+        {
+          "date": "2026-06-30",
+          "source": "Email",
+          "note": "Atty. Ryan O'Hara (Bacon Wilson) agreed to a July 24 closing date to finalize the Best & Final settlement. Buyer (Hunter Foote, Vanderburgh House) sought to add a title contingency; O'Hara reiterated the deal is no-contingency, time-of-the-essence. Executed agreement needs immediate signature."
+        },
         {
           "date": "2026-06-29",
           "source": "Email",
@@ -1464,6 +1473,8 @@
         }
       ],
       "action_items": [
+        "Confirm July 24, 2026 closing date with buyer (Vanderburgh House)",
+        "Execute the Best & Final settlement agreement immediately (no contingencies, time of the essence)",
         "Finalize settlement release language with attys O'Hara/Tine and lock a July 6, 2026 transfer/closing date.",
         "Closing targeted end of June — awaiting buyer's countersigned P&S",
         "Confirm all lawsuits and liability dismissed per agreement",
@@ -1472,7 +1483,10 @@
         "Get Atty. Tine's response so 103 Prospect closing can be scheduled (buyer ready).",
         "Resolve release/contingency terms on 103 Prospect (close fast)"
       ],
-      "closing_date": "2026-07-06"
+      "closing_date": "2026-07-24",
+      "important_dates": {
+        "closing_target": "2026-07-24"
+      }
     },
     {
       "id": "205-old-stage-road",
@@ -3349,10 +3363,19 @@
         {
           "name": "Tony Marcella (CAV Management)",
           "role": "Contractor / Estimator"
+        },
+        {
+          "name": "Tony Marcella (CAV Management, tmarcella@cav-mgt.com)",
+          "role": "Contractor (turnover estimate)"
         }
       ],
       "financials": {},
       "recent_updates": [
+        {
+          "date": "2026-06-30",
+          "source": "Email",
+          "note": "Matt followed up with contractor Tony Marcella (CAV Mgmt) for the turnover/rehab estimate. Unit is vacant (lockbox on rear door, code 1979); scope of work shared. Awaiting estimate to begin rehab."
+        },
         {
           "date": "2026-06-28",
           "source": "Email",
@@ -3360,6 +3383,7 @@
         }
       ],
       "action_items": [
+        "Obtain turnover/rehab estimate from Tony Marcella (CAV Mgmt) for the vacant unit",
         "Obtain repair estimate from Tony Marcella for 66 Third St"
       ],
       "status_note": "New prospect — awaiting repair estimate."
@@ -3517,6 +3541,88 @@
         "Decide on 30-day extension for 939 E Columbus"
       ],
       "status_note": ""
+    },
+    {
+      "id": "86-88-kenyon-st",
+      "address": "86-88 Kenyon St",
+      "city": "Springfield",
+      "state": "MA",
+      "status": "active",
+      "current_milestone": "Prospecting",
+      "milestones": [
+        "Prospecting",
+        "Under Contract",
+        "Closing",
+        "Closed"
+      ],
+      "completed_milestones": [],
+      "source": "Email",
+      "auto_detected": true,
+      "contacts": [
+        {
+          "name": "Alice Kempf (KVRE Team, 413-297-5200, alicek@kvreteam.com)",
+          "role": "Agent"
+        }
+      ],
+      "financials": {
+        "agent_suggested_value": "$399,900 (CloudCMA)"
+      },
+      "important_dates": {},
+      "action_items": [
+        "Review CloudCMA comps for 86-88 Kenyon St and decide whether to make an offer"
+      ],
+      "recent_updates": [
+        {
+          "date": "2026-06-30",
+          "source": "Email",
+          "note": "Agent Alice Kempf sent a CloudCMA valuation for 86-88 Kenyon St at $399,900. New acquisition prospect under evaluation."
+        }
+      ]
+    },
+    {
+      "id": "29-aspen-st-ware",
+      "address": "29 Aspen St",
+      "city": "Ware",
+      "state": "MA",
+      "status": "closed",
+      "current_milestone": "Closed",
+      "milestones": [
+        "Prospecting",
+        "Under Contract",
+        "Closing",
+        "Closed"
+      ],
+      "completed_milestones": [
+        "Prospecting",
+        "Under Contract",
+        "Closing"
+      ],
+      "source": "Email (PDF)",
+      "auto_detected": true,
+      "contacts": [
+        {
+          "name": "David Burstein",
+          "role": "Closing Attorney"
+        },
+        {
+          "name": "Chris Keniley (YellowBrick)",
+          "role": "Accounting Manager"
+        }
+      ],
+      "financials": {
+        "payoff_note": "~$50k + interest believed paid to Hurwitz (under reconciliation)"
+      },
+      "important_dates": {},
+      "action_items": [
+        "Provide copies of actual 29 Aspen payoff checks (Hurwitz ~$50k + interest) to accounting"
+      ],
+      "recent_updates": [
+        {
+          "date": "2026-06-30",
+          "source": "Email (PDF)",
+          "note": "Accounting (Chris Keniley) is reviewing 29 Aspen sale payoff checks with atty. David Burstein; ~$50k plus interest believed paid to Hurwitz. Post-closing payoff reconciliation in progress."
+        }
+      ]
     }
   ]
 }
