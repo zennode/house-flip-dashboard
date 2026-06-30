@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-29T18:07:38-04:00",
+  "last_updated": "2026-06-30T08:06:58-04:00",
   "properties": [
     {
       "id": "62-maynard-st",
@@ -1411,6 +1411,18 @@
         {
           "name": "Northeast Asset Development LLC",
           "role": "Buyer entity"
+        },
+        {
+          "name": "Ryan O'Hara / Brian Rucki (Bacon Wilson)",
+          "role": "Counsel"
+        },
+        {
+          "name": "Andrew Tine",
+          "role": "Opposing counsel"
+        },
+        {
+          "name": "Hunter Foote (Vanderburgh House)",
+          "role": "Counterparty"
         }
       ],
       "financials": {
@@ -1419,6 +1431,11 @@
         "arv": 450000
       },
       "recent_updates": [
+        {
+          "date": "2026-06-29",
+          "source": "Email",
+          "summary": "Best & Final negotiations ongoing — dispute over whether releases are unconditional vs. contingent on the sale. Matt pushing to close fast."
+        },
         {
           "date": "2026-06-29",
           "source": "Email",
@@ -1452,7 +1469,8 @@
         "Confirm all lawsuits and liability dismissed per agreement",
         "Pay $100 fine now; ensure sale addresses outstanding code violations",
         "Coordinate with Ryan O'Hara on closing timeline",
-        "Get Atty. Tine's response so 103 Prospect closing can be scheduled (buyer ready)."
+        "Get Atty. Tine's response so 103 Prospect closing can be scheduled (buyer ready).",
+        "Resolve release/contingency terms on 103 Prospect (close fast)"
       ],
       "closing_date": "2026-07-06"
     },
@@ -2566,7 +2584,10 @@
       ],
       "completed_milestones": [
         "Prospecting",
-        "Under Contract"
+        "Under Contract",
+        "Offer Made",
+        "Title & Escrow",
+        "Financing"
       ],
       "contacts": [
         {
@@ -2604,13 +2625,23 @@
         {
           "name": "Maria P. Goncalves",
           "role": "Lender (Mortgagee/Loss Payee)"
+        },
+        {
+          "name": "Webber & Grinnell (Adina Edgett)",
+          "role": "Insurance / COI"
         }
       ],
       "financials": {
         "arv": 270000,
-        "closing_wire": 62972.2
+        "closing_wire": 62972.2,
+        "purchase_wire": "$62,972.20 (incl. 1H 2027 RE taxes)"
       },
       "recent_updates": [
+        {
+          "date": "2026-06-29",
+          "source": "Email",
+          "summary": "HUD-1 received; $62,972.20 wire to Burstein Law sent & confirmed received; COI issued by Webber & Grinnell. Closing set for 7/1."
+        },
         {
           "date": "2026-06-29",
           "source": "PDF",
@@ -2643,7 +2674,8 @@
         "Evaluate feasibility/cost of adding a 2nd bedroom to lift value toward ~$270K",
         "Decide financing for 19 Draper before 7/2 close; contact Pinnacle (Ian/Max) if financing",
         "Choose funding method (certified funds / bank check / wire) and schedule 19 Draper closing before July 6, 2026.",
-        "Arrange certified funds or wire to Harmon Law P.C. and complete 19 Draper Ave closing (deadline Jul 6, 2026)."
+        "Arrange certified funds or wire to Harmon Law P.C. and complete 19 Draper Ave closing (deadline Jul 6, 2026).",
+        "Close purchase 7/1/2026"
       ],
       "closing_date": "2026-07-01"
     },
@@ -3166,7 +3198,9 @@
         "Acquired",
         "Demo/Rehab",
         "Listed",
-        "Under Contract"
+        "Under Contract",
+        "Offer Made",
+        "Title & Escrow"
       ],
       "closing_date": "2026-07-09",
       "source": "Email",
@@ -3194,9 +3228,15 @@
         }
       ],
       "financials": {
-        "closing_wire": 165054.99
+        "closing_wire": 165054.99,
+        "purchase_wire": "$165,054.99 (via ESB Line of Credit)"
       },
       "recent_updates": [
+        {
+          "date": "2026-06-29",
+          "source": "Email",
+          "summary": "Closing pushed from 7/1 to 7/9 at Matt's request (Dave confirmed). Wire of $165,054.99 to Brock & Scott PLLC to fund from ESB LOC."
+        },
         {
           "date": "2026-06-29",
           "source": "Email",
@@ -3218,7 +3258,8 @@
         "Ensure $165,054.99 wire to Brock & Scott PLLC is funded by 6/30",
         "Confirm closing date with Atty Burstein (7/1 vs 7/9)",
         "Decide financing for 412 St. James Ave; ready to close before 7/9",
-        "Contact Pinnacle (Ian/Max) if financing this purchase"
+        "Contact Pinnacle (Ian/Max) if financing this purchase",
+        "Wire $165,054.99 to Brock & Scott PLLC ahead of 7/9 closing"
       ]
     },
     {
@@ -3378,7 +3419,7 @@
       "city": "Springfield",
       "state": "MA",
       "status": "active",
-      "current_milestone": "Demo/Rehab",
+      "current_milestone": "Repairs / Rehab",
       "milestones": [
         "Prospecting",
         "Acquired",
@@ -3390,7 +3431,10 @@
       ],
       "completed_milestones": [
         "Prospecting",
-        "Acquired"
+        "Acquired",
+        "Offer Made",
+        "Under Contract",
+        "Title & Escrow"
       ],
       "source": "Email",
       "auto_detected": true,
@@ -3402,10 +3446,19 @@
         {
           "name": "Dave (Preferred Property Management Inc.)",
           "role": "Contractor / Rehab Estimate"
+        },
+        {
+          "name": "Dave (Preferred Property Management)",
+          "role": "Rehab contractor"
         }
       ],
       "financials": {},
       "recent_updates": [
+        {
+          "date": "2026-06-29",
+          "source": "Email",
+          "summary": "Trashout complete; lead report shared. Rehab walkthrough with Dave (Preferred Property Mgmt) set for Wed 7/1 to scope estimate."
+        },
         {
           "date": "2026-06-29",
           "source": "Email",
@@ -3414,9 +3467,56 @@
       ],
       "action_items": [
         "Dave (Preferred Property Mgmt) to walk 257 Wilbraham Rd 1st fl on Wed 7/1 and provide rehab estimate.",
-        "Review lead report and finalize 1st-floor rehab scope with Jessica."
+        "Review lead report and finalize 1st-floor rehab scope with Jessica.",
+        "Walk 257 Wilbraham Rd w/ Dave Wed 7/1 for rehab estimate"
       ],
       "status_note": "New property auto-detected from email (rehab scoping)."
+    },
+    {
+      "id": "939-e-columbus-ave",
+      "address": "939 E Columbus Ave",
+      "city": "Springfield",
+      "state": "MA",
+      "status": "active",
+      "current_milestone": "Under Contract",
+      "milestones": [
+        "Offer Made",
+        "Under Contract",
+        "Title & Escrow",
+        "Inspections",
+        "Appraisal",
+        "Financing",
+        "Repairs / Rehab",
+        "Final Walkthrough",
+        "Closing",
+        "Closed"
+      ],
+      "completed_milestones": [],
+      "closing_date": null,
+      "source": "Email",
+      "auto_detected": true,
+      "contacts": [
+        {
+          "name": "David Burstein",
+          "role": "Closing Attorney"
+        },
+        {
+          "name": "Jeremy (SR Commercial RE)",
+          "role": "Broker contact"
+        }
+      ],
+      "financials": {},
+      "recent_updates": [
+        {
+          "date": "2026-06-29",
+          "source": "Email",
+          "summary": "Burstein requested a 30-day extension. Matt to discuss further with broker (Jeremy / SR Commercial) before deciding."
+        }
+      ],
+      "action_items": [
+        "Decide on 30-day extension for 939 E Columbus"
+      ],
+      "status_note": ""
     }
   ]
 }
