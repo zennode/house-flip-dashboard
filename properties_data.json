@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-30T18:05:48-04:00",
+  "last_updated": "2026-07-01T08:05:49-04:00",
   "properties": [
     {
       "id": "62-maynard-st",
@@ -1432,9 +1432,15 @@
       "financials": {
         "purchase_price": 180000,
         "listing_price": 450000,
-        "arv": 450000
+        "arv": 450000,
+        "settlement_payment": 194000
       },
       "recent_updates": [
+        {
+          "date": "2026-06-30",
+          "source": "Email",
+          "note": "Seller's counsel (Bacon Wilson) confirmed acceptance of July 24, 2026 closing; 'Best & Final' settlement agreement to be executed immediately (no contingencies, time of the essence). Quitclaim deed prepared by Brian Rucki; $194,000 payment due on transfer to Northeast Asset Development LLC."
+        },
         {
           "date": "2026-06-30",
           "source": "Email",
@@ -2586,7 +2592,7 @@
       "city": "Pittsfield",
       "state": "MA",
       "status": "active",
-      "current_milestone": "Closing",
+      "current_milestone": "Closed",
       "milestones": [
         "Prospecting",
         "Acquired",
@@ -2601,7 +2607,9 @@
         "Under Contract",
         "Offer Made",
         "Title & Escrow",
-        "Financing"
+        "Financing",
+        "Closing",
+        "Closed"
       ],
       "contacts": [
         {
@@ -2652,6 +2660,11 @@
       },
       "recent_updates": [
         {
+          "date": "2026-06-30",
+          "source": "PDF",
+          "note": "CLOSED — Purchase recorded 6/30/2026. Atty. David Burstein circulated HUD-1 Settlement Statement, recorded deed (with Assignment of Bid), and Mortgage Inspection Plan. Buyer entity: Yellowbrick Property LLC; insurance via Webber & Grinnell."
+        },
+        {
           "date": "2026-06-29",
           "source": "Email",
           "summary": "HUD-1 received; $62,972.20 wire to Burstein Law sent & confirmed received; COI issued by Webber & Grinnell. Closing set for 7/1."
@@ -2683,15 +2696,10 @@
         }
       ],
       "action_items": [
-        "Complete 19 Draper Ave closing on 7/1/2026 (wire received by Burstein).",
-        "Confirm Webber & Grinnell issues COI for 7/1 close",
-        "Evaluate feasibility/cost of adding a 2nd bedroom to lift value toward ~$270K",
-        "Decide financing for 19 Draper before 7/2 close; contact Pinnacle (Ian/Max) if financing",
-        "Choose funding method (certified funds / bank check / wire) and schedule 19 Draper closing before July 6, 2026.",
-        "Arrange certified funds or wire to Harmon Law P.C. and complete 19 Draper Ave closing (deadline Jul 6, 2026).",
-        "Close purchase 7/1/2026"
+        "Closing complete (recorded 6/30/2026) — file HUD-1 & recorded deed; confirm insurance COI on record."
       ],
-      "closing_date": "2026-07-01"
+      "closing_date": "2026-07-01",
+      "source": "PDF"
     },
     {
       "id": "89-church-st",
@@ -3374,6 +3382,11 @@
         {
           "date": "2026-06-30",
           "source": "Email",
+          "note": "Matt following up with contractor Tony Marcella (CAV Management) for turnover/rehab estimate on vacant unit (lockbox on rear door). Jessica requested estimate be sent to Matt to get work going."
+        },
+        {
+          "date": "2026-06-30",
+          "source": "Email",
           "note": "Matt followed up with contractor Tony Marcella (CAV Mgmt) for the turnover/rehab estimate. Unit is vacant (lockbox on rear door, code 1979); scope of work shared. Awaiting estimate to begin rehab."
         },
         {
@@ -3565,13 +3578,20 @@
         }
       ],
       "financials": {
-        "agent_suggested_value": "$399,900 (CloudCMA)"
+        "agent_suggested_value": "$399,900 (CloudCMA)",
+        "arv": 399900
       },
       "important_dates": {},
       "action_items": [
-        "Review CloudCMA comps for 86-88 Kenyon St and decide whether to make an offer"
+        "Review CloudCMA comps for 86-88 Kenyon St and decide whether to make an offer",
+        "Review Alice Kempf CMA ($399,900) for 86-88 Kenyon St and decide on offer/list strategy."
       ],
       "recent_updates": [
+        {
+          "date": "2026-06-30",
+          "source": "Email",
+          "note": "Agent Alice Kempf sent CloudCMA comparative market analysis indicating value of $399,900."
+        },
         {
           "date": "2026-06-30",
           "source": "Email",
@@ -3625,4 +3645,4 @@
       ]
     }
   ]
-}
+    }
