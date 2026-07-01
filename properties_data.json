@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-01T08:05:49-04:00",
+  "last_updated": "2026-07-01T18:10:11-04:00",
   "properties": [
     {
       "id": "62-maynard-st",
@@ -2494,7 +2494,7 @@
       "city": "Chicopee",
       "state": "MA",
       "status": "active",
-      "current_milestone": "Under Contract",
+      "current_milestone": "Closing",
       "milestones": [
         "Prospecting",
         "Acquired",
@@ -2505,7 +2505,8 @@
         "Closed"
       ],
       "completed_milestones": [
-        "Prospecting"
+        "Prospecting",
+        "Under Contract"
       ],
       "contacts": [
         {
@@ -2531,15 +2532,37 @@
         {
           "name": "Alice Kempf",
           "role": "Agent"
+        },
+        {
+          "name": "Peter Houser",
+          "role": "Private Lender / Funder (purchase + rehab)"
+        },
+        {
+          "name": "Atty. Yusenko",
+          "role": "Lender's Counsel"
         }
       ],
       "financials": {
         "agent_suggested_list": 244900,
         "assessed_value": 230000,
         "active_comp": 259000,
-        "arv": 244900
+        "arv": 244900,
+        "funding_total_purchase_plus_rehab": 195000,
+        "funded_by": "Peter Houser"
       },
       "recent_updates": [
+        {
+          "date": "2026-07-01",
+          "source": "Email",
+          "subject": "238/283 Fuller Rd Unit K — financing arranged + entity transfer at closing",
+          "note": "Atty. David Burstein replied 'Should not be a problem' and offered to contact Peter Houser and Atty. Yusenko for the financing terms/documents. Closing target remains 7/9."
+        },
+        {
+          "date": "2026-07-01",
+          "source": "Email",
+          "subject": "238/283 Fuller Rd Unit K — Peter Houser to fund; transfer to House Hack",
+          "note": "Matt told atty. Burstein that Peter Houser will fund the purchase plus rehab (total ~$195k) and asked to transfer the property to the 'House Hack' entity at closing. (Subject line read '238 Fuller Rd Unit K' — same property as 283 Fuller Rd Unit K.)"
+        },
         {
           "date": "2026-06-29",
           "source": "Email",
@@ -2582,7 +2605,9 @@
         "Await closing documents from Duane Morris (Alex Angelo)",
         "Coordinate closing logistics with David Burstein",
         "Decide financing for 283 Fuller Rd before 7/9 close; contact Pinnacle (Ian/Max) if financing",
-        "Get CMA from Alice Kempf for 283 Fuller Rd Unit K ahead of the 7/9 closing."
+        "Get CMA from Alice Kempf for 283 Fuller Rd Unit K ahead of the 7/9 closing.",
+        "Transfer 283 Fuller Rd Unit K to 'House Hack' entity at closing (7/9).",
+        "Burstein to obtain financing terms/documents from Peter Houser & Atty. Yusenko."
       ],
       "closing_date": "2026-07-09"
     },
@@ -3645,4 +3670,4 @@
       ]
     }
   ]
-    }
+}
