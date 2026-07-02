@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-01T18:10:11-04:00",
+  "last_updated": "2026-07-02T08:08:10-04:00",
   "properties": [
     {
       "id": "62-maynard-st",
@@ -3668,6 +3668,73 @@
           "note": "Accounting (Chris Keniley) is reviewing 29 Aspen sale payoff checks with atty. David Burstein; ~$50k plus interest believed paid to Hurwitz. Post-closing payoff reconciliation in progress."
         }
       ]
+    },
+    {
+      "id": "238-fuller-rd-unit-k",
+      "address": "238 Fuller Rd Unit K",
+      "city": "Chicopee",
+      "state": "MA",
+      "status": "active",
+      "current_milestone": "Financing",
+      "milestones": [
+        "Offer Made",
+        "Under Contract",
+        "Title & Escrow",
+        "Inspections",
+        "Appraisal",
+        "Financing",
+        "Repairs / Rehab",
+        "Final Walkthrough",
+        "Closing",
+        "Closed"
+      ],
+      "completed_milestones": [
+        "Offer Made",
+        "Under Contract",
+        "Title & Escrow",
+        "Inspections",
+        "Appraisal"
+      ],
+      "closing_date": "2026-07-09",
+      "source": "Email",
+      "auto_detected": true,
+      "contacts": [
+        {
+          "name": "Peter Houser (housergroup@gmail.com)",
+          "role": "Lender"
+        },
+        {
+          "name": "Vitaliy Yusenko (vitaliy@yusenkolaw.com)",
+          "role": "Lender's Attorney"
+        },
+        {
+          "name": "David Burstein (davidburstein1@gmail.com)",
+          "role": "Closing Attorney"
+        },
+        {
+          "name": "Antonio (antonio@investarters.com)",
+          "role": "Partner / Contact"
+        }
+      ],
+      "financials": {
+        "loan_amount": 195000
+      },
+      "important_dates": {
+        "closing_target": "2026-07-09"
+      },
+      "recent_updates": [
+        {
+          "date": "2026-07-02",
+          "source": "Email",
+          "note": "House Hack Loan thread: Pete (lender) quoted a $195k loan (full purchase price plus holdback for work) at 12%, 2 points, $1,250 fee; closing July 9. Atty. David Burstein confirmed the borrower is House Hack Helpers LLC (346 Race St, Holyoke, MA 01040), signatory Matthew Tortoriello, Manager, closing on or before July 9, 2026. Lender's attorney Vitaliy Yusenko requested borrower info."
+        }
+      ],
+      "action_items": [
+        "Provide borrower info to lender's attorney (Vitaliy Yusenko) for House Hack Helpers LLC",
+        "Confirm loan terms: $195k, 12%, 2 points, $1,250 fee",
+        "Prepare closing docs for on-or-before July 9, 2026"
+      ],
+      "status_note": "New privately-financed acquisition detected via Gmail. Borrower entity: House Hack Helpers LLC (signatory Matthew Tortoriello)."
     }
   ]
-}
+      }
