@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-03T08:06:37-04:00",
+  "last_updated": "2026-07-03T18:10:00-04:00",
   "properties": [
     {
       "id": "62-maynard-st",
@@ -2558,6 +2558,10 @@
         {
           "name": "Antonio (antonio@investarters.com)",
           "role": "Partner / Investor"
+        },
+        {
+          "name": "Metro Lending LLC (109 Apremont Way, Westfield, MA 01085)",
+          "role": "Lender of record — COI as Mortgagee & Loss Payee"
         }
       ],
       "financials": {
@@ -2567,9 +2571,19 @@
         "arv": 244900,
         "funding_total_purchase_plus_rehab": 195000,
         "funded_by": "Peter Houser",
-        "loan_terms": "12% interest, 2 points, $1,250 fee"
+        "loan_terms": "12% interest, 2 points, $1,250 fee",
+        "purchase_price": 157000,
+        "outstanding_condo_fees": 2014,
+        "loan_amount": 195000,
+        "lender": "Metro Lending LLC (Peter Houser), 109 Apremont Way, Westfield, MA 01085"
       },
       "recent_updates": [
+        {
+          "date": "2026-07-03",
+          "source": "Email",
+          "subject": "283 Fuller Rd Unit K — address corrected, price confirmed, COI required",
+          "note": "Atty. Burstein confirmed the correct address is 283 Fuller Road, Unit K (not 238). Purchase price $157,000 + $2,014 outstanding condo fees + closing costs (incl. foreclosing lender's). If initial draw ≥ $175k, Buyer brings no funds. Lender agreed interest & points payable at maturity; total loan confirmed $195k. COI required for Metro Lending LLC, ISAOA, ATIMA (Mortgagee & Loss Payee). Duplicate '238 Fuller Rd Unit K' entry merged into this record."
+        },
         {
           "date": "2026-07-03",
           "source": "PDF attachment",
@@ -2635,7 +2649,9 @@
         "Decide financing for 283 Fuller Rd before 7/9 close; contact Pinnacle (Ian/Max) if financing",
         "Get CMA from Alice Kempf for 283 Fuller Rd Unit K ahead of the 7/9 closing.",
         "Transfer 283 Fuller Rd Unit K to 'House Hack' entity at closing (7/9).",
-        "Burstein to obtain financing terms/documents from Peter Houser & Atty. Yusenko."
+        "Burstein to obtain financing terms/documents from Peter Houser & Atty. Yusenko.",
+        "Obtain Certificate of Insurance in favor of 'Metro Lending LLC, ISAOA, ATIMA, 109 Apremont Way, Westfield, MA 01085' as Mortgagee & Loss Payee before 7/9 closing",
+        "Confirm initial loan draw ≥ $175,000 so Buyer brings no funds to closing"
       ],
       "closing_date": "2026-07-09"
     },
@@ -2713,6 +2729,12 @@
       },
       "recent_updates": [
         {
+          "date": "2026-07-03",
+          "source": "Email",
+          "subject": "19 Draper Ave — heat type confirmed; breaker off Monday for reconnect",
+          "note": "Matt confirmed heat is gas forced air with central AC (Jessica asked for insurance/utility setup). Breaker must be off Monday 7/6 for electric reconnect (Acct# 720039783, Meter #10210434); Jesse assigned."
+        },
+        {
           "date": "2026-06-30",
           "source": "PDF",
           "note": "CLOSED â Purchase recorded 6/30/2026. Atty. David Burstein circulated HUD-1 Settlement Statement, recorded deed (with Assignment of Bid), and Mortgage Inspection Plan. Buyer entity: Yellowbrick Property LLC; insurance via Webber & Grinnell."
@@ -2749,7 +2771,8 @@
         }
       ],
       "action_items": [
-        "Closing complete (recorded 6/30/2026) â file HUD-1 & recorded deed; confirm insurance COI on record."
+        "Closing complete (recorded 6/30/2026) â file HUD-1 & recorded deed; confirm insurance COI on record.",
+        "Ensure breaker is OFF Monday 7/6 for electric reconnect (Jesse) — Acct# 720039783"
       ],
       "closing_date": "2026-07-01",
       "source": "PDF"
@@ -3488,9 +3511,16 @@
       "action_items": [
         "Decide whether to add a half-bath at 65 Avondale to lift value toward ~$335k.",
         "Evaluate acquisition of 65 Avondale Ave (West Springfield) against ~$324.9k ARV and rehab scope",
-        "Confirm whether a half-bath can be added to lift ARV toward ~$335k"
+        "Confirm whether a half-bath can be added to lift ARV toward ~$335k",
+        "Group decision: keep vs. sell/1031 for 65 Avondale — Kevin to reopen discussion with Jess & Gabby"
       ],
       "recent_updates": [
+        {
+          "date": "2026-07-03",
+          "source": "Email",
+          "subject": "65 Avondale — Kevin Shippee weighs in on keep vs. sell / 1031",
+          "note": "Kevin: tenant is the biggest hurdle on either path. Keeping = ongoing code-complaint battles (\"just a matter of time before she beats us\"); selling likely requires vacancy but may be less adversarial. Kevin offered to reopen the topic with Jess and Gabby. Group decision needed."
+        },
         {
           "date": "2026-06-29",
           "source": "Email",
@@ -3696,73 +3726,6 @@
           "note": "Accounting (Chris Keniley) is reviewing 29 Aspen sale payoff checks with atty. David Burstein; ~$50k plus interest believed paid to Hurwitz. Post-closing payoff reconciliation in progress."
         }
       ]
-    },
-    {
-      "id": "238-fuller-rd-unit-k",
-      "address": "238 Fuller Rd Unit K",
-      "city": "Chicopee",
-      "state": "MA",
-      "status": "active",
-      "current_milestone": "Financing",
-      "milestones": [
-        "Offer Made",
-        "Under Contract",
-        "Title & Escrow",
-        "Inspections",
-        "Appraisal",
-        "Financing",
-        "Repairs / Rehab",
-        "Final Walkthrough",
-        "Closing",
-        "Closed"
-      ],
-      "completed_milestones": [
-        "Offer Made",
-        "Under Contract",
-        "Title & Escrow",
-        "Inspections",
-        "Appraisal"
-      ],
-      "closing_date": "2026-07-09",
-      "source": "Email",
-      "auto_detected": true,
-      "contacts": [
-        {
-          "name": "Peter Houser (housergroup@gmail.com)",
-          "role": "Lender"
-        },
-        {
-          "name": "Vitaliy Yusenko (vitaliy@yusenkolaw.com)",
-          "role": "Lender's Attorney"
-        },
-        {
-          "name": "David Burstein (davidburstein1@gmail.com)",
-          "role": "Closing Attorney"
-        },
-        {
-          "name": "Antonio (antonio@investarters.com)",
-          "role": "Partner / Contact"
-        }
-      ],
-      "financials": {
-        "loan_amount": 195000
-      },
-      "important_dates": {
-        "closing_target": "2026-07-09"
-      },
-      "recent_updates": [
-        {
-          "date": "2026-07-02",
-          "source": "Email",
-          "note": "House Hack Loan thread: Pete (lender) quoted a $195k loan (full purchase price plus holdback for work) at 12%, 2 points, $1,250 fee; closing July 9. Atty. David Burstein confirmed the borrower is House Hack Helpers LLC (346 Race St, Holyoke, MA 01040), signatory Matthew Tortoriello, Manager, closing on or before July 9, 2026. Lender's attorney Vitaliy Yusenko requested borrower info."
-        }
-      ],
-      "action_items": [
-        "Provide borrower info to lender's attorney (Vitaliy Yusenko) for House Hack Helpers LLC",
-        "Confirm loan terms: $195k, 12%, 2 points, $1,250 fee",
-        "Prepare closing docs for on-or-before July 9, 2026"
-      ],
-      "status_note": "New privately-financed acquisition detected via Gmail. Borrower entity: House Hack Helpers LLC (signatory Matthew Tortoriello)."
     }
   ]
-}
+        }
