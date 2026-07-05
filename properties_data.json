@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-05T08:05:00-04:00",
+  "last_updated": "2026-07-05T18:05:00-04:00",
   "properties": [
     {
       "id": "62-maynard-st",
@@ -3738,10 +3738,14 @@
       },
       "important_dates": {},
       "action_items": [
-        "Provide copies of actual 29 Aspen payoff checks (Hurwitz ~$50k + interest) to accounting",
-        "Contact Warren, Thompson Attys in Palmer (Ingrid, 413-283-2461) for closing docs / payoff check copies; Tim Haley prefers phone: 413-563-2229"
+        "Provide copies of actual 29 Aspen payoff checks (Hurwitz ~$50k + interest) to accounting — likely resolved 7/5: Chris obtained docs from closing atty"
       ],
       "recent_updates": [
+        {
+          "date": "2026-07-05",
+          "source": "Email",
+          "note": "Chris Keniley confirmed he obtained the closing documents needed for the CPA directly from the closing attorney (Warren, Thompson Attys, Palmer). Documentation request resolved."
+        },
         {
           "date": "2026-07-05",
           "source": "Email",
@@ -3804,4 +3808,4 @@
       ]
     }
   ]
-    }
+}
