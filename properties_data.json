@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-06T08:05:00-04:00",
+  "last_updated": "2026-07-06T18:10:00-04:00",
   "properties": [
     {
       "id": "62-maynard-st",
@@ -516,12 +516,18 @@
           "date": "2026-06-15",
           "source": "Email",
           "note": "Permit application submitted. Windows still not ordered â Jessica is pushing the GC to order the 11 vinyl double-hung replacements ASAP (about a 3-week lead time from Home Depot)."
+        },
+        {
+          "date": "2026-07-06",
+          "source": "Email",
+          "note": "Building permit: Jessica requested window cut sheet (U-Factor & air leakage per 2018 IECC) and fall-prevention info. Premiere Home replied: U-factor 0.29 (lowest available); full specs are in the Home Depot order email."
         }
       ],
       "action_items": [
         "Order 11 vinyl double-hung replacement windows per Premiere's measured count",
         "Slight crew delay â monitor progress",
-        "Review scope and timeline with GC"
+        "Review scope and timeline with GC",
+        "Locate Home Depot window order email and forward U-factor/air-leakage cut sheet to Jessica for building permit"
       ]
     },
     {
@@ -2636,6 +2642,11 @@
           "date": "2026-06-10",
           "source": "Email",
           "note": "Seller's counsel (Stephanie Williams, Duane Morris) confirmed no AOB needed; closing docs to be sent by Alex Angelo."
+        },
+        {
+          "date": "2026-07-06",
+          "source": "Email",
+          "note": "Occupant of Unit K emailed the YB tenants main inbox (flagged by Jessica 7/6). Kevin Shippee is working on making the unit vacant ahead of the 7/9 closing (foreclosure purchase)."
         }
       ],
       "action_items": [
@@ -2651,7 +2662,8 @@
         "Transfer 283 Fuller Rd Unit K to 'House Hack' entity at closing (7/9).",
         "Burstein to obtain financing terms/documents from Peter Houser & Atty. Yusenko.",
         "Obtain Certificate of Insurance in favor of 'Metro Lending LLC, ISAOA, ATIMA, 109 Apremont Way, Westfield, MA 01085' as Mortgagee & Loss Payee before 7/9 closing",
-        "Confirm initial loan draw ≥ $175,000 so Buyer brings no funds to closing"
+        "Confirm initial loan draw ≥ $175,000 so Buyer brings no funds to closing",
+        "Kevin: respond to occupant email in YB tenants inbox and confirm unit will be vacant before 7/9 closing"
       ],
       "closing_date": "2026-07-09"
     },
@@ -3593,12 +3605,18 @@
           "date": "2026-06-29",
           "source": "Email",
           "note": "Jessica Sicard shared the basic rehab scope and lead report for the 1st floor following trashout (not yet walked post-trashout). Matt asked contractor Dave (Preferred Property Management) to walk it Wednesday 7/1 for an estimate; Dave confirmed \"Yes.\""
+        },
+        {
+          "date": "2026-07-06",
+          "source": "Email",
+          "note": "Jessica (back from vacation) followed up with Dave Muno (Preferred Property Management): did he ever walk the 1st fl? Proposed meeting there tomorrow (7/7) to finalize rehab scope estimate. Lead report previously shared."
         }
       ],
       "action_items": [
         "Dave (Preferred Property Mgmt) to walk 257 Wilbraham Rd 1st fl on Wed 7/1 and provide rehab estimate.",
         "Review lead report and finalize 1st-floor rehab scope with Jessica.",
-        "Walk 257 Wilbraham Rd w/ Dave Wed 7/1 for rehab estimate"
+        "Walk 257 Wilbraham Rd w/ Dave Wed 7/1 for rehab estimate",
+        "Confirm 7/7 walkthrough of 1st fl with Dave Muno for rehab scope estimate"
       ],
       "status_note": "New property auto-detected from email (rehab scoping)."
     },
@@ -3806,6 +3824,161 @@
           "note": "Deal underwriting & foreclosure analysis received. Auction Mon 7/6 9AM. Rehab est $65k, ARV $360-380k, max bid $215k. Bankruptcy risk flag: verify stay relief before bidding."
         }
       ]
+    },
+    {
+      "id": "96-shore-rd",
+      "address": "96 Shore Rd",
+      "city": "Becket",
+      "state": "MA",
+      "status": "active",
+      "current_milestone": "Repairs / Rehab",
+      "milestones": [
+        "Acquired",
+        "Repairs / Rehab",
+        "Title V Inspection",
+        "Listed",
+        "Under Contract",
+        "Closing",
+        "Closed"
+      ],
+      "completed_milestones": [
+        "Acquired"
+      ],
+      "source": "Email",
+      "auto_detected": true,
+      "contacts": [
+        {
+          "name": "Jessica Sicard",
+          "role": "Project Manager"
+        },
+        {
+          "name": "Henshaw Well",
+          "role": "Well contractor"
+        }
+      ],
+      "financials": {},
+      "important_dates": {},
+      "action_items": [
+        "Await Henshaw Well assessment of cracked well pump and filter",
+        "Schedule Title V inspection once well is serviced"
+      ],
+      "recent_updates": [
+        {
+          "date": "2026-06-30",
+          "source": "Email",
+          "note": "Well pump restored but cracked; filter needs replacement. Well must be serviced before Title V inspector can proceed."
+        },
+        {
+          "date": "2026-07-06",
+          "source": "Email",
+          "note": "Jessica called Henshaw Well; they will go check out the well and report back. Matt acknowledged."
+        }
+      ]
+    },
+    {
+      "id": "55-white-ave",
+      "address": "55 White Avenue",
+      "city": "",
+      "state": "MA",
+      "status": "active",
+      "current_milestone": "Repairs / Rehab",
+      "milestones": [
+        "Acquired",
+        "Repairs / Rehab",
+        "Inspections",
+        "Pre-Operational Approval",
+        "Complete"
+      ],
+      "completed_milestones": [
+        "Acquired"
+      ],
+      "source": "Email",
+      "auto_detected": true,
+      "contacts": [
+        {
+          "name": "Rob Cicero",
+          "role": "Owner/Client contact"
+        },
+        {
+          "name": "Jeremy Casey",
+          "role": "SR Commercial RE"
+        },
+        {
+          "name": "Rich Borsari",
+          "role": "SR Commercial RE"
+        },
+        {
+          "name": "Dane",
+          "role": "Russo Equipment (RTU)"
+        }
+      ],
+      "financials": {},
+      "important_dates": {},
+      "action_items": [
+        "Schedule call with Dane (Russo Equipment) re: RTU — today after 4 PM or tomorrow",
+        "Get client approval on scope of work for interior extras",
+        "Obtain RTU status update"
+      ],
+      "recent_updates": [
+        {
+          "date": "2026-07-06",
+          "source": "Email",
+          "note": "Health inspector: pre-operational inspection will be scheduled once fire dept and building dept approve. Matt pressed for SOW approval on interior extras and RTU update; Jeremy Casey backed the ask; Rob says issues are being addressed and requested a call with Dane."
+        }
+      ]
+    },
+    {
+      "id": "1679-lapaloma-st",
+      "address": "1679 Lapaloma St",
+      "city": "Memphis",
+      "state": "TN",
+      "status": "active",
+      "current_milestone": "Offer Made",
+      "milestones": [
+        "Offer Made",
+        "Under Contract",
+        "Title & Escrow",
+        "Inspections",
+        "Appraisal",
+        "Financing",
+        "Repairs / Rehab",
+        "Final Walkthrough",
+        "Closing",
+        "Closed"
+      ],
+      "completed_milestones": [],
+      "source": "Email",
+      "auto_detected": true,
+      "contacts": [
+        {
+          "name": "Mid South Homebuyers",
+          "role": "Turnkey provider (invest@midsouthhomebuyers.com)"
+        },
+        {
+          "name": "Peter Houser",
+          "role": "Partner/Lender (deal analysis recipient)"
+        }
+      ],
+      "financials": {
+        "financing_rate": "4.99% promotional investor rate"
+      },
+      "important_dates": {},
+      "action_items": [
+        "Confirm reservation of 1679 Lapaloma St with Mid South Homebuyers at 4.99% financing",
+        "Review deal analysis with Pete Houser"
+      ],
+      "recent_updates": [
+        {
+          "date": "2026-07-03",
+          "source": "Email",
+          "note": "Matt told Mid South Homebuyers he will take 1679 Lapaloma St, Memphis TN with the 4.99% financing; provider confirmed multiple reservations allowed."
+        },
+        {
+          "date": "2026-07-06",
+          "source": "Email",
+          "note": "Deal analysis report for 1679 Lapaloma St forwarded to Pete Houser (pjhouser300g@yahoo.com)."
+        }
+      ]
     }
   ]
-}
+    }
