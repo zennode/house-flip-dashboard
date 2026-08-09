@@ -1,222 +1,32 @@
 {
-  "last_updated": "2026-07-06T18:10:00-04:00",
+  "last_updated": "2026-08-09T19:30:00-04:00",
   "properties": [
     {
-      "id": "62-maynard-st",
-      "address": "62 Maynard St",
-      "city": "Springfield",
-      "state": "MA",
-      "status": "active",
-      "current_milestone": "Closing",
-      "milestones": [
-        "Prospecting",
-        "Under Contract",
-        "Closing",
-        "Closed"
-      ],
-      "completed_milestones": [
-        "Prospecting",
-        "Under Contract"
-      ],
-      "closing_date": "2026-06-22",
-      "source": "Email",
-      "auto_detected": true,
-      "contacts": [
-        {
-          "name": "David Burstein",
-          "role": "Closing Attorney"
-        },
-        {
-          "name": "Neill & Neill Law (ej@/dj@neillandneill.com)",
-          "role": "Closing/Title Attorney"
-        },
-        {
-          "name": "Russell Cable",
-          "role": "Buyer/Borrower contact (Revive & Rise LLC)"
-        },
-        {
-          "name": "Atty. Lavenburg",
-          "role": "Foreclosure/Title counsel (pursuing MassHealth Waiver of Notice)"
-        }
-      ],
-      "financials": {},
-      "recent_updates": [
-        {
-          "date": "2026-06-26",
-          "source": "Email",
-          "note": "Financing reallocation: Matt asked atty. Burstein whether the funds earmarked for 62 Maynard could be redirected to another YellowBrick closing while the title defect is resolved. Burstein confirmed: 'Yes, that is the plan' (asked to keep quiet from Russ for now)."
-        },
-        {
-          "date": "2026-06-26",
-          "source": "Email",
-          "subject": "TITLE DEFECT â MassHealth notice not sent; closing blocked",
-          "note": "Atty. David Burstein reports foreclosure counsel did not send notice of sale to MassHealth, which has a Probate Court claim of ~$500K. Atty. Lavenburg will try to obtain a Waiver of Notice; if not obtained the foreclosure is invalid and the property must go to auction again. Funds earmarked for this deal have been reallocated to another closing â financing must be re-arranged if title is cleared."
-        },
-        {
-          "date": "2026-06-22",
-          "source": "Email",
-          "subject": "Closing day â insurance binder follow-up; funding note",
-          "note": "Atty. David Burstein followed up with Neill & Neill for the insurance binder ahead of today's closing; Elly Jarry out of office and delegating. Burstein notes funding is exhausted after 62 Maynard â may tap Pinnacle for upcoming foreclosure closings. Purchase by Revive & Rise LLC."
-        },
-        {
-          "date": "2026-06-17",
-          "source": "Email",
-          "subject": "Insurance binder being issued ahead of 6/22 closing",
-          "note": "Neill & Neill (Elly Jarry) confirmed the insurance binder is being sent following atty. David Burstein loan commitment. Purchase by Revive & Rise LLC; closing on track for June 22, 2026."
-        },
-        {
-          "date": "2026-06-16",
-          "source": "Email",
-          "note": "David Burstein sent the Loan Commitment (PDF) and requested an insurance binder. Purchase by Revive & Rise LLC; closing scheduled for June 22, 2026. Matt (YellowBrick) is on the deal as lender/party."
-        }
-      ],
-      "action_items": [
-        "Confirm receipt of insurance binder from Neill & Neill before 6/22 closing",
-        "Review loan commitment terms",
-        "Obtain Waiver of Notice from MassHealth via Atty. Lavenburg to cure title defect (else re-auction)",
-        "Re-arrange financing for 62 Maynard â original funds reallocated to another closing",
-        "Confirm whether Atty. Lavenburg obtained MassHealth Waiver of Notice; otherwise property re-goes to foreclosure auction."
-      ],
-      "status_note": "Title defect (MassHealth notice-of-sale omission) is blocking closing; Atty. Lavenburg pursuing Waiver of Notice. Funds being reallocated to another YellowBrick closing pending resolution."
-    },
-    {
-      "id": "67-willow-st",
-      "address": "67 Willow St",
-      "city": "Pittsfield",
-      "state": "MA",
-      "status": "active",
-      "current_milestone": "Closing",
-      "milestones": [
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract"
-      ],
-      "contacts": [
-        {
-          "name": "David Burstein",
-          "role": "Closing Attorney"
-        },
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        }
-      ],
-      "financials": {
-        "purchase_price": 95000,
-        "rehab_cost": 85000,
-        "listing_price": 289000,
-        "arv": 289000
-      },
-      "recent_updates": [
-        {
-          "date": "2026-06-01",
-          "note": "Closing overdue â confirm status with David Burstein. Originally scheduled late May."
-        },
-        {
-          "date": "2026-05-28",
-          "note": "Final walkthrough completed. All punch list items resolved."
-        }
-      ],
-      "action_items": [
-        "URGENT: Closing 6 days past due â confirm status with David Burstein",
-        "Get updated closing date from attorney"
-      ]
-    },
-    {
-      "id": "330-montgomery-st",
-      "address": "330 Montgomery St",
-      "city": "Chicopee",
-      "state": "MA",
-      "status": "active",
-      "current_milestone": "Under Contract",
-      "milestones": [
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [
-        "Acquired",
-        "Demo/Rehab",
-        "Listed"
-      ],
-      "contacts": [
-        {
-          "name": "David Burstein",
-          "role": "Closing Attorney"
-        },
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        }
-      ],
-      "financials": {
-        "purchase_price": 110000,
-        "rehab_cost": 95000,
-        "listing_price": 319000,
-        "arv": 319000
-      },
-      "recent_updates": [
-        {
-          "date": "2026-06-12",
-          "source": "Email",
-          "note": "Freedom Credit Union holds payoff check of $164,639.71 for Montgomery St; additional $200 payoff fee applies. ~$160k of proceeds directed toward funding new loans on 23 Schley St and 173 Nassau Dr (remainder to Ruby Lending acct)."
-        },
-        {
-          "date": "2026-06-11",
-          "source": "Email",
-          "note": "Freedom CU (Camille Ali) holding the Montgomery St check for $164,639.71; proposed as funding source for the new loans (23 Schley / 173 Nassau)."
-        },
-        {
-          "date": "2026-06-09",
-          "source": "Email",
-          "note": "Ruby Lending LLC mortgage paydown initiated â David Burstein dropping a check at Freedom Credit Union tomorrow with payoff statement and discharge (Word form). Camille Ali (FCU) confirmed she'll watch for it."
-        },
-        {
-          "date": "2026-05-30",
-          "note": "Under contract. Closing scheduled June 19, 2026."
-        },
-        {
-          "date": "2026-05-25",
-          "note": "Accepted offer. P&S signed."
-        }
-      ],
-      "action_items": [
-        "Confirm 330 Montgomery paydown check delivered to FCU and discharge recorded",
-        "Closing June 19 (15 days) â review payoff docs",
-        "Confirm closing time with David Burstein",
-        "Confirm Montgomery St payoff completion with Freedom Credit Union (Camille Ali)"
-      ]
-    },
-    {
-      "id": "114-danforth-st",
-      "address": "114 Danforth St",
+      "id": "103-prospect-st",
+      "address": "103 Prospect St",
       "city": "Springfield",
       "state": "MA",
       "status": "active",
       "current_milestone": "Under Contract",
       "milestones": [
         "Acquired",
-        "Demo/Rehab",
         "Listed",
         "Under Contract",
         "Closing"
       ],
       "completed_milestones": [
         "Acquired",
-        "Demo/Rehab",
         "Listed"
       ],
       "contacts": [
+        {
+          "name": "Ryan O'Hara",
+          "role": "Buyer's Agent"
+        },
+        {
+          "name": "Hunter Foote",
+          "role": "Buyer (Vanderburgh House)"
+        },
         {
           "name": "David Burstein",
           "role": "Closing Attorney"
@@ -226,66 +36,102 @@
           "role": "Project Manager"
         },
         {
-          "name": "Peri Campoli (Campoli Law)",
-          "role": "Seller's Counsel"
+          "name": "Andrew Tine (Tine Law)",
+          "role": "Buyer's Counsel"
         },
         {
-          "name": "William Burruss",
-          "role": "Building Inspector"
+          "name": "Ryan K. O'Hara (Bacon Wilson, P.C.)",
+          "role": "Seller-side / Litigation Attorney"
         },
         {
-          "name": "Jocelyn Moreno (Campoli Law)",
-          "role": "Seller's Counsel (paralegal)"
+          "name": "Brian R. Rucki (Bacon Wilson, P.C.)",
+          "role": "Residential RE Counsel"
+        },
+        {
+          "name": "Northeast Asset Development LLC",
+          "role": "Buyer entity"
+        },
+        {
+          "name": "Ryan O'Hara / Brian Rucki (Bacon Wilson)",
+          "role": "Counsel"
+        },
+        {
+          "name": "Andrew Tine",
+          "role": "Opposing counsel"
+        },
+        {
+          "name": "Hunter Foote (Vanderburgh House)",
+          "role": "Counterparty"
+        },
+        {
+          "name": "Ryan K. O'Hara (Bacon Wilson, P.C., 413.584.1287)",
+          "role": "Seller's Attorney"
         }
       ],
       "financials": {
-        "purchase_price": 85000,
-        "rehab_cost": 70000,
-        "listing_price": 249000,
-        "arv": 249000
+        "purchase_price": 180000,
+        "listing_price": 450000,
+        "arv": 450000,
+        "settlement_payment": 194000
       },
       "recent_updates": [
         {
+          "date": "2026-06-30",
+          "source": "Email",
+          "note": "Seller's counsel (Bacon Wilson) confirmed acceptance of July 24, 2026 closing; 'Best & Final' settlement agreement to be executed immediately (no contingencies, time of the essence). Quitclaim deed prepared by Brian Rucki; $194,000 payment due on transfer to Northeast Asset Development LLC."
+        },
+        {
+          "date": "2026-06-30",
+          "source": "Email",
+          "note": "Atty. Ryan O'Hara (Bacon Wilson) agreed to a July 24 closing date to finalize the Best & Final settlement. Buyer (Hunter Foote, Vanderburgh House) sought to add a title contingency; O'Hara reiterated the deal is no-contingency, time-of-the-essence. Executed agreement needs immediate signature."
+        },
+        {
+          "date": "2026-06-29",
+          "source": "Email",
+          "summary": "Best & Final negotiations ongoing â dispute over whether releases are unconditional vs. contingent on the sale. Matt pushing to close fast."
+        },
+        {
+          "date": "2026-06-29",
+          "source": "Email",
+          "note": "Settlement negotiation active on the \"Best & Final\" terms. Dispute is whether the mutual releases are unconditional or contingent on the sale closing. Atty Ryan O'Hara (Bacon Wilson) is inclined to accept buyer-side counsel Andrew Tine's proposed changes provided a transfer date of July 6 is set, and looped in residential RE colleague Brian Rucki. Buyer entity: Northeast Asset Development LLC; seller side: Vanderburgh Sober Living (Dr. Hunter Foote). Matt to attorney: \"I am fine. Just need to close very fast.\""
+        },
+        {
           "date": "2026-06-26",
           "source": "Email",
-          "note": "Atty. Burstein replied to seller's counsel Peri Campoli (re her 6/24 email): reviewed with client and contractor, and had a detailed phone call with building inspector Bill (William Burruss) regarding the final inspection/permit dispute. Negotiation toward escrow release ongoing."
+          "note": "Closing push: Atty. Ryan O'Hara (Bacon Wilson) told buyer Hunter Foote & Atty. Andrew Tine that 'my client remains prepared to proceed' and is awaiting Tine's response. Buyer (Vanderburgh) asking to schedule closing ASAP. Matt followed up with O'Hara: 'Any luck?'"
         },
         {
-          "date": "2026-06-25",
-          "source": "Email",
-          "note": "Building/engineer sign-off: architect plans completed and signed off by the building inspector; per Matt, once the engineer signs off, a separate final building inspection isn't required. Coordinating a 3-way call (Matt / Burstein / Campoli). (Thread subject referenced 'Pittsfield'.)"
+          "date": "2026-06-05",
+          "note": "Matt confirmed to Jessica: closing targeted for end of June, awaiting buyer to sign P&S back. Pay the $100 code/painting fine for now; sale to address outstanding building/code violations."
         },
         {
-          "date": "2026-06-24",
-          "source": "Email",
-          "note": "Matt sent atty. Burstein the stamped & signed engineer review and completed signed building permit to satisfy the escrow permit condition; proposed a 3-way call with Burstein & Campoli on 6/25."
+          "date": "2026-06-04",
+          "note": "Ryan O'Hara forwarded Hunter Foote (Vanderburgh House) Best & Final offer."
         },
         {
-          "date": "2026-06-24",
-          "source": "Email",
-          "note": "Escrow/permit dispute active. Seller's counsel Peri Campoli (Campoli Law) circled back: building inspector says the 'Application Form' Burstein sent June 9 does NOT prove the final inspection was completed (reviewed by client w/ inspector William Burruss). Matt's position: architect plans were signed off by the building inspector and the engineer's sign-off nullifies the need for a final building-dept inspection; will forward engineer documents to Burstein. Matt proposed a 3-way call tomorrow (6/25)."
-        },
-        {
-          "date": "2026-06-09",
-          "source": "PDF",
-          "note": "Signed-off building permit received from Premiere Home (final inspection checked as passed; inspector Bill Burruss). Forwarded to David Burstein to pursue a $5K rehab draw release; Burstein flagged possible pushback from buyer's counsel. (Note: permit cites a Pittsfield inspector while this entry lists Springfield â verify jurisdiction.)"
-        },
-        {
-          "date": "2026-06-01",
-          "note": "URGENT: David Burstein warned of escrow forfeiture risk if closing conditions not met soon."
+          "date": "2026-06-04",
+          "note": "Matt accepted offer on condition it removes all lawsuits and liability. O'Hara confirmed understanding and sent acceptance to Hunter."
         },
         {
           "date": "2026-05-20",
-          "note": "Under contract. Buyer financing contingency still open."
+          "note": "Property listed. Multiple interested parties including Hunter Foote/Vanderburgh House."
         }
       ],
       "action_items": [
-        "Pursue $5K rehab draw release with lender's counsel using the signed building permit",
-        "URGENT: At risk of forfeiting escrow â contact David Burstein immediately",
-        "Resolve buyer financing contingency",
-        "Send engineer sign-off documents to atty. Burstein to satisfy the escrow permit requirement.",
-        "Schedule 3-way call (Matt / Burstein / Campoli) on 6/25 re: 114 Danforth escrow release."
-      ]
+        "Confirm July 24, 2026 closing date with buyer (Vanderburgh House)",
+        "Execute the Best & Final settlement agreement immediately (no contingencies, time of the essence)",
+        "Finalize settlement release language with attys O'Hara/Tine and lock a July 6, 2026 transfer/closing date.",
+        "Closing targeted end of June â awaiting buyer's countersigned P&S",
+        "Confirm all lawsuits and liability dismissed per agreement",
+        "Pay $100 fine now; ensure sale addresses outstanding code violations",
+        "Coordinate with Ryan O'Hara on closing timeline",
+        "Get Atty. Tine's response so 103 Prospect closing can be scheduled (buyer ready).",
+        "Resolve release/contingency terms on 103 Prospect (close fast)"
+      ],
+      "closing_date": "2026-07-24",
+      "important_dates": {
+        "closing_target": "2026-07-24"
+      }
     },
     {
       "id": "2140-palmer-road",
@@ -366,9 +212,9 @@
       ]
     },
     {
-      "id": "42-washington-st",
-      "address": "42 Washington St",
-      "city": "Monson",
+      "id": "205-old-stage-road",
+      "address": "205 Old Stage Road",
+      "city": "Hampden",
       "state": "MA",
       "status": "active",
       "current_milestone": "Listed",
@@ -385,77 +231,52 @@
       ],
       "contacts": [
         {
-          "name": "David Burstein",
-          "role": "Closing Attorney"
-        },
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        },
-        {
-          "name": "Eric Kvarnstrom",
-          "role": "Pest Control (413 Pest Free)"
-        },
-        {
           "name": "Alice Kempf",
           "role": "Listing Agent"
         },
         {
-          "name": "Melissa Gaboury",
-          "role": "Buyer's Attorney (Hornung & Scimone)"
+          "name": "David Burstein",
+          "role": "Attorney"
+        },
+        {
+          "name": "Katharine Higgins-Shea",
+          "role": "Litigation Attorney (Lyon & Fitzpatrick)"
+        },
+        {
+          "name": "Kevin Shippee",
+          "role": "Partner/Owner"
+        },
+        {
+          "name": "Jessica Sicard",
+          "role": "Project Manager"
         }
       ],
       "financials": {
-        "purchase_price": 105000,
-        "rehab_cost": 60000,
-        "listing_price": 254000,
-        "arv": 259000
+        "purchase_price": 145000,
+        "rehab_cost": 88000,
+        "listing_price": 389000,
+        "arv": 389000
       },
       "recent_updates": [
         {
-          "date": "2026-06-16",
-          "source": "dotloop",
-          "note": "Matt signed the contract Termination shared by Alice Kempf (KVRE) via dotloop. Termination executed; property continues toward re-listing at the reduced price ($254K)."
+          "date": "2026-06-05",
+          "note": "Occupant's court answer received (attorney Higgins-Shea). Randy granted walkthrough access by an adult male occupant; identity unclear. Counsel advises handling in court â no further direct contact. Work order #42587 assigned to Randy on 6/5 list."
         },
         {
-          "date": "2026-06-12",
-          "source": "Email",
-          "note": "Buyer contract terminated and deposit released to buyer (agreed by Matt and attorney David Burstein). Alice Kempf is sending the termination for signature. Property back on market."
+          "date": "2026-06-01",
+          "note": "Court date was June 1 â follow up on outcome needed."
         },
         {
-          "date": "2026-06-12",
-          "source": "Email",
-          "note": "Matt approved releasing the deposit (\"Let's just release\"). Buyer's attorney Melissa Gaboury demanded a seller-signed Release and return of the $500 deposit to buyers Sheldon & Sheri Mueller (terminated within inspection contingency); David Burstein agreed the contract should be terminated and the deposit returned."
-        },
-        {
-          "date": "2026-06-04",
-          "note": "Powder post beetle treatment set up for next Tuesday per Jessica. Eric Kvarnstrom (413 Pest Free) coordinating."
-        },
-        {
-          "date": "2026-05-28",
-          "note": "Under contract. Closing scheduled June 29, 2026."
-        },
-        {
-          "date": "2026-05-20",
-          "note": "Pest inspection revealed powder post beetles. Treatment required before closing."
-        },
-        {
-          "date": "2026-06-10",
-          "source": "Email",
-          "note": "HHH investor update: buyer backed out over mold found during inspection fixes. Re-listed at $254,000 ($5K reduction). Open house held with no attendees."
-        },
-        {
-          "date": "2026-06-10",
-          "source": "PDF",
-          "note": "Jessica sent powder post beetle inspection report (PDF) to Alice Kempf; treatment completed June 9."
+          "date": "2026-05-15",
+          "note": "Listed at $389,000. Legal matter pending regarding property boundary/occupancy dispute."
         }
       ],
       "action_items": [
-        "Send seller-signed Release + $500 deposit check to buyers (Sheldon & Sheri Mueller, 2 Cirrus Dr #2203, Ashland MA) via Alice Kempf / KVRE",
-        "Complete mold remediation and remaining inspection fixes",
-        "Monitor re-listing activity at reduced price ($254K)",
-        "File powder post beetle treatment report for next buyer's closing docs"
-      ]
+        "Eviction/occupancy litigation proceeding â coordinate with Higgins-Shea (Lyon & Fitzpatrick)",
+        "Tell Russ to stop contacting occupant per counsel",
+        "Resume active marketing once legal matter resolved"
+      ],
+      "source": "Email"
     },
     {
       "id": "167-east-park-terrace",
@@ -528,7 +349,366 @@
         "Slight crew delay â monitor progress",
         "Review scope and timeline with GC",
         "Locate Home Depot window order email and forward U-factor/air-leakage cut sheet to Jessica for building permit"
+      ],
+      "entity": "House Hack Helpers"
+    },
+    {
+      "id": "67-willow-ln-wales",
+      "address": "67 Willow Lane (Mobile Home)",
+      "city": "Wales",
+      "state": "MA",
+      "status": "active",
+      "current_milestone": "Closing",
+      "milestones": [
+        "Prospecting",
+        "Under Contract",
+        "Closing",
+        "Closed"
+      ],
+      "completed_milestones": [
+        "Prospecting",
+        "Under Contract"
+      ],
+      "contacts": [
+        {
+          "name": "Alice Kempf",
+          "role": "Realtor"
+        },
+        {
+          "name": "Martha Bruso (Alera Group)",
+          "role": "Insurance Agent"
+        },
+        {
+          "name": "Roberta",
+          "role": "Buyer/Occupant (Matt is point of contact)"
+        }
+      ],
+      "financials": {},
+      "source": "PDF",
+      "auto_detected": true,
+      "recent_updates": [
+        {
+          "date": "2026-06-08",
+          "source": "Email",
+          "note": "Insurance quote in progress with Martha Bruso (Alera Group); home located in Wales Village park."
+        },
+        {
+          "date": "2026-06-10",
+          "source": "PDF",
+          "note": "Alice Kempf sent NEW Mobile Home Bill of Sale (PDF) to Matt and Chris."
+        }
+      ],
+      "action_items": [
+        "Review and execute mobile home bill of sale",
+        "Finalize insurance quote with Martha Bruso"
       ]
+    },
+    {
+      "id": "583-hawks-spur-rd",
+      "address": "583 Hawks Spur Rd",
+      "city": "Cheshire",
+      "state": "MA",
+      "status": "active",
+      "current_milestone": "Prospecting",
+      "milestones": [
+        "Prospecting",
+        "Acquired",
+        "Demo/Rehab",
+        "Listed",
+        "Under Contract",
+        "Closing"
+      ],
+      "completed_milestones": [],
+      "contacts": [
+        {
+          "name": "Alice Kempf",
+          "role": "Agent"
+        }
+      ],
+      "financials": {
+        "arv_estimate": 340000
+      },
+      "recent_updates": [
+        {
+          "date": "2026-05-06",
+          "note": "Rural property. Comps are thin â need broader search."
+        }
+      ],
+      "action_items": [
+        "Expand comp search radius",
+        "Evaluate rehab scope and rural premium"
+      ]
+    },
+    {
+      "id": "11-bryant-st",
+      "address": "11 Bryant St",
+      "city": "Pittsfield",
+      "state": "MA",
+      "status": "active",
+      "current_milestone": "Prospecting",
+      "milestones": [
+        "Prospecting",
+        "Acquired",
+        "Demo/Rehab",
+        "Listed",
+        "Under Contract",
+        "Closing"
+      ],
+      "completed_milestones": [],
+      "contacts": [
+        {
+          "name": "Alice Kempf",
+          "role": "Agent"
+        }
+      ],
+      "financials": {
+        "arv_estimate": 260000
+      },
+      "recent_updates": [
+        {
+          "date": "2026-05-01",
+          "note": "Evaluating as potential flip. Walkthrough scheduled."
+        }
+      ],
+      "action_items": [
+        "Complete walkthrough",
+        "Get rehab estimate"
+      ]
+    },
+    {
+      "id": "19-draper-ave",
+      "address": "19 Draper Ave",
+      "city": "Pittsfield",
+      "state": "MA",
+      "status": "active",
+      "current_milestone": "Closed",
+      "milestones": [
+        "Prospecting",
+        "Acquired",
+        "Demo/Rehab",
+        "Listed",
+        "Under Contract",
+        "Closing",
+        "Closed"
+      ],
+      "completed_milestones": [
+        "Prospecting",
+        "Under Contract",
+        "Offer Made",
+        "Title & Escrow",
+        "Financing",
+        "Closing",
+        "Closed"
+      ],
+      "contacts": [
+        {
+          "name": "Alice Kempf",
+          "role": "Realtor (KVRE)"
+        },
+        {
+          "name": "David Burstein",
+          "role": "Closing Attorney"
+        },
+        {
+          "name": "David Burstein, Esq. (Burstein Law Offices)",
+          "role": "Buyer's / Closing Attorney"
+        },
+        {
+          "name": "Andrew S. Harmon, Esq. (Harmon Law)",
+          "role": "Foreclosing Firm (Seller's counsel)"
+        },
+        {
+          "name": "Andrew Harmon (Harmon Law)",
+          "role": "Foreclosing Attorney"
+        },
+        {
+          "name": "Adina Edgett (Webber & Grinnell)",
+          "role": "Insurance Agent"
+        },
+        {
+          "name": "Claudia Hicks (Webber & Grinnell)",
+          "role": "Insurance Agent"
+        },
+        {
+          "name": "Lawrence M. Tiberio",
+          "role": "Lender (Mortgagee/Loss Payee)"
+        },
+        {
+          "name": "Maria P. Goncalves",
+          "role": "Lender (Mortgagee/Loss Payee)"
+        },
+        {
+          "name": "Webber & Grinnell (Adina Edgett)",
+          "role": "Insurance / COI"
+        }
+      ],
+      "financials": {
+        "arv": 270000,
+        "closing_wire": 62972.2,
+        "purchase_wire": "$62,972.20 (incl. 1H 2027 RE taxes)"
+      },
+      "recent_updates": [
+        {
+          "date": "2026-07-03",
+          "source": "Email",
+          "subject": "19 Draper Ave — heat type confirmed; breaker off Monday for reconnect",
+          "note": "Matt confirmed heat is gas forced air with central AC (Jessica asked for insurance/utility setup). Breaker must be off Monday 7/6 for electric reconnect (Acct# 720039783, Meter #10210434); Jesse assigned."
+        },
+        {
+          "date": "2026-06-30",
+          "source": "PDF",
+          "note": "CLOSED â Purchase recorded 6/30/2026. Atty. David Burstein circulated HUD-1 Settlement Statement, recorded deed (with Assignment of Bid), and Mortgage Inspection Plan. Buyer entity: Yellowbrick Property LLC; insurance via Webber & Grinnell."
+        },
+        {
+          "date": "2026-06-29",
+          "source": "Email",
+          "summary": "HUD-1 received; $62,972.20 wire to Burstein Law sent & confirmed received; COI issued by Webber & Grinnell. Closing set for 7/1."
+        },
+        {
+          "date": "2026-06-29",
+          "source": "PDF",
+          "note": "Atty David Burstein sent the proposed HUD-1 (19Draper-HUD1.pdf) and requested a wire of $62,972.20 to close (includes RE taxes for H1 2027). Yellowbrick wired the funds same day; Burstein confirmed: \"Wire has been received.\" Cleared to close 7/1/2026."
+        },
+        {
+          "date": "2026-06-28",
+          "source": "Email",
+          "note": "Atty David Burstein requested a Certificate of Insurance from Webber & Grinnell, targeting a 7/1/2026 close. Mortgagee/Loss Payee: David H. Burstein, Lawrence M. Tiberio & Maria P. Goncalves (Tenants in Common, ISAOA/ATIMA), 120 Pine Knoll Dr, Ludlow MA."
+        },
+        {
+          "date": "2026-06-24",
+          "source": "Email",
+          "note": "Harmon Law Offices (Andrew S. Harmon) delivered the executed foreclosure Closing Package for 19 Draper Ave to atty. David Burstein. Closing deadline July 6, 2026 (can close any time before). Closing options: in-person w/ certified funds, certified bank check via overnight, or wire (all payable to Harmon Law Offices, P.C.)."
+        },
+        {
+          "date": "2026-06-24",
+          "source": "Email",
+          "note": "Atty David Burstein (6/24): scheduled to close by 7/2/2026 (may be extended by foreclosure counsel). Financing decision needed â private funds fully invested; if using Pinnacle, contact Ian or Max ASAP."
+        },
+        {
+          "date": "2026-06-09",
+          "source": "Email",
+          "note": "Alice Kempf CMA: property shows as 1BR/2BA, valued ~$255K as-is; potentially ~$270K if a 2nd bedroom can be added. Forwarded to Kevin Shippee and Antonio (Investarters) for review."
+        }
+      ],
+      "action_items": [
+        "Closing complete (recorded 6/30/2026) â file HUD-1 & recorded deed; confirm insurance COI on record.",
+        "Ensure breaker is OFF Monday 7/6 for electric reconnect (Jesse) — Acct# 720039783"
+      ],
+      "closing_date": "2026-07-01",
+      "source": "PDF"
+    },
+    {
+      "id": "79-pleasant-st",
+      "address": "79 Pleasant St",
+      "city": "Ware",
+      "state": "MA",
+      "status": "active",
+      "current_milestone": "Title & Escrow",
+      "milestones": [
+        "Auction Won",
+        "Title & Escrow",
+        "Closing",
+        "Closed"
+      ],
+      "completed_milestones": [
+        "Auction Won"
+      ],
+      "closing_date": "2026-07-17",
+      "source": "Email/PDF",
+      "auto_detected": true,
+      "contacts": [
+        {
+          "name": "David Burstein, Esq. (Burstein Law Offices)",
+          "role": "Buyer's / Closing Attorney",
+          "email": "davidburstein1@gmail.com"
+        },
+        {
+          "name": "Kevin Shippee",
+          "role": "Winning Bidder / LLC Member-Manager",
+          "email": "kevshippee@gmail.com"
+        },
+        {
+          "name": "Harmon Law Offices",
+          "role": "Foreclosing Firm (Seller's counsel)",
+          "email": "postsale@harmonlaw.com"
+        },
+        {
+          "name": "Webber & Grinnell Insurance",
+          "role": "Insurance",
+          "email": "aedgett@webberandgrinnell.com"
+        },
+        {
+          "name": "Alera Group (Mat Geffin)",
+          "role": "Insurance",
+          "email": "Mat.Geffin@aleragroup.com"
+        },
+        {
+          "name": "Jessica Sicard",
+          "role": "Project Manager"
+        },
+        {
+          "name": "David Burstein",
+          "role": "Closing Attorney"
+        },
+        {
+          "name": "Andrew S. Harmon, Esq. (Harmon Law)",
+          "role": "Foreclosing Firm (Seller's counsel)"
+        },
+        {
+          "name": "Andrew Harmon (Harmon Law)",
+          "role": "Foreclosing Attorney"
+        }
+      ],
+      "financials": {
+        "borrowing_entity": "Yellowbrick Property LLC",
+        "note": "Foreclosure auction win; bid assigned from Kevin Shippee. Bid/purchase amount pending in sale package. Property occupied."
+      },
+      "recent_updates": [
+        {
+          "date": "2026-06-24",
+          "source": "Email",
+          "note": "Burstein (buyer's counsel for YellowBrick Property LLC) awaiting executed foreclosure package & title from Harmon Law. Likely deadline Jul 20, 2026 (Jul 18 is a Saturday); title may not be back by Jul 6."
+        },
+        {
+          "date": "2026-06-24",
+          "source": "Email",
+          "note": "Harmon Law (Andrew Harmon) sent a 'Closing Package' w/ executed docs but corrected it was for 19 Draper Ave â 79 Pleasant docs are NOT back yet. Atty Burstein notes the real deadline is July 20, 2026 (the 18th is a Saturday) and he may not have title back by July 6. Insurance: Webber & Grinnell (A. Edgett) requested application details; Matt confirmed the application was attached to the original email."
+        },
+        {
+          "date": "2026-06-24",
+          "source": "Email",
+          "note": "Atty David Burstein (6/24): scheduled to close by 7/17/2026 (may be extended). Financing decision needed â private funds fully invested; if using Pinnacle, contact Ian or Max ASAP."
+        },
+        {
+          "date": "2026-06-22",
+          "source": "Email",
+          "subject": "Foreclosure docs received; executed package to follow",
+          "note": "Harmon Law Offices (Andrew S. Harmon) sent requested documents to atty. David Burstein; executed foreclosure package to be emailed when available. Purchaser: Yellowbrick Property LLC."
+        },
+        {
+          "date": "2026-06-19",
+          "source": "PDF",
+          "subject": "Assignment of Bid + closing prep",
+          "note": "Atty David Burstein notified Harmon Law he represents purchaser Yellowbrick Property LLC and sent the Assignment of Bid from Kevin Shippee. Requested the notice package (notice of default/acceleration, the Note, Notices of Sale w/ proofs of mailing); title company to review draft foreclosure sale package before closing."
+        },
+        {
+          "date": "2026-06-19",
+          "source": "Email/PDF",
+          "subject": "New foreclosure win â 79 Pleasant St, Ware",
+          "note": "Matt notified the team of a foreclosure auction win (occupied; entity Yellow Brick Property LLC), attaching property and insurance PDFs. Atty Burstein confirmed receipt."
+        }
+      ],
+      "action_items": [
+        "Send notice package to Atty Burstein: notice of default/acceleration w/ proof of mailing, the Note, and Notices of Sale w/ proofs of mailing",
+        "Title company to review draft foreclosure sale package prior to closing",
+        "Confirm insurance binder is in force for 79 Pleasant St (occupied)",
+        "Plan for existing occupancy at 79 Pleasant St post-closing",
+        "Decide financing for 79 Pleasant St before 7/17 close; contact Pinnacle (Ian/Max) if financing",
+        "Confirm title timeline with Burstein; target close before July 20, 2026 deadline.",
+        "Finalize hazard insurance with Webber & Grinnell (A. Edgett) â application details sent.",
+        "Await executed foreclosure package and title for 79 Pleasant St (target close by Jul 20, 2026; statutory deadline Jul 6 noted)."
+      ],
+      "important_dates": []
     },
     {
       "id": "166-east-st",
@@ -628,48 +808,9 @@
       ]
     },
     {
-      "id": "29-chestnut",
-      "address": "29 Chestnut St",
-      "city": "Pittsfield",
-      "state": "MA",
-      "status": "active",
-      "current_milestone": "Demo/Rehab",
-      "milestones": [
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [
-        "Acquired"
-      ],
-      "contacts": [
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        }
-      ],
-      "financials": {
-        "purchase_price": 70000,
-        "rehab_estimate_range": "65000-80000",
-        "arv": 235000
-      },
-      "recent_updates": [
-        {
-          "date": "2026-05-25",
-          "note": "Oil boiler recently replaced (~$7K). Rehab progressing."
-        }
-      ],
-      "action_items": [
-        "Monitor rehab timeline",
-        "Confirm all permits pulled"
-      ]
-    },
-    {
-      "id": "4-school-st",
-      "address": "4 School St",
-      "city": "Westfield",
+      "id": "42-washington-st",
+      "address": "42 Washington St",
+      "city": "Monson",
       "state": "MA",
       "status": "active",
       "current_milestone": "Listed",
@@ -686,38 +827,86 @@
       ],
       "contacts": [
         {
-          "name": "Alice Kempf",
-          "role": "Listing Agent"
+          "name": "David Burstein",
+          "role": "Closing Attorney"
         },
         {
           "name": "Jessica Sicard",
           "role": "Project Manager"
+        },
+        {
+          "name": "Eric Kvarnstrom",
+          "role": "Pest Control (413 Pest Free)"
+        },
+        {
+          "name": "Alice Kempf",
+          "role": "Listing Agent"
+        },
+        {
+          "name": "Melissa Gaboury",
+          "role": "Buyer's Attorney (Hornung & Scimone)"
         }
       ],
       "financials": {
-        "purchase_price": 90000,
-        "rehab_cost": 75000,
-        "listing_price": 279000,
-        "arv": 279000
+        "purchase_price": 105000,
+        "rehab_cost": 60000,
+        "listing_price": 254000,
+        "arv": 259000
       },
       "recent_updates": [
         {
-          "date": "2026-05-10",
-          "note": "Listed at $279,000. Showings scheduled."
+          "date": "2026-06-16",
+          "source": "dotloop",
+          "note": "Matt signed the contract Termination shared by Alice Kempf (KVRE) via dotloop. Termination executed; property continues toward re-listing at the reduced price ($254K)."
+        },
+        {
+          "date": "2026-06-12",
+          "source": "Email",
+          "note": "Buyer contract terminated and deposit released to buyer (agreed by Matt and attorney David Burstein). Alice Kempf is sending the termination for signature. Property back on market."
+        },
+        {
+          "date": "2026-06-12",
+          "source": "Email",
+          "note": "Matt approved releasing the deposit (\"Let's just release\"). Buyer's attorney Melissa Gaboury demanded a seller-signed Release and return of the $500 deposit to buyers Sheldon & Sheri Mueller (terminated within inspection contingency); David Burstein agreed the contract should be terminated and the deposit returned."
+        },
+        {
+          "date": "2026-06-04",
+          "note": "Powder post beetle treatment set up for next Tuesday per Jessica. Eric Kvarnstrom (413 Pest Free) coordinating."
+        },
+        {
+          "date": "2026-05-28",
+          "note": "Under contract. Closing scheduled June 29, 2026."
+        },
+        {
+          "date": "2026-05-20",
+          "note": "Pest inspection revealed powder post beetles. Treatment required before closing."
+        },
+        {
+          "date": "2026-06-10",
+          "source": "Email",
+          "note": "HHH investor update: buyer backed out over mold found during inspection fixes. Re-listed at $254,000 ($5K reduction). Open house held with no attendees."
+        },
+        {
+          "date": "2026-06-10",
+          "source": "PDF",
+          "note": "Jessica sent powder post beetle inspection report (PDF) to Alice Kempf; treatment completed June 9."
         }
       ],
       "action_items": [
-        "Follow up with Alice on showing activity",
-        "Review offers as they come in"
-      ]
+        "Send seller-signed Release + $500 deposit check to buyers (Sheldon & Sheri Mueller, 2 Cirrus Dr #2203, Ashland MA) via Alice Kempf / KVRE",
+        "Complete mold remediation and remaining inspection fixes",
+        "Monitor re-listing activity at reduced price ($254K)",
+        "File powder post beetle treatment report for next buyer's closing docs"
+      ],
+      "entity": "House Hack Helpers"
     },
     {
-      "id": "70-town-hill-road",
-      "address": "70 Town Hill Road",
-      "city": "Dalton",
+      "id": "1-richmond-ln",
+      "address": "1 Richmond Ln",
+      "city": "Adams",
       "state": "MA",
       "status": "active",
-      "current_milestone": "Demo/Rehab",
+      "current_milestone": "Listed",
       "milestones": [
         "Acquired",
         "Demo/Rehab",
@@ -726,36 +915,115 @@
         "Closing"
       ],
       "completed_milestones": [
-        "Acquired"
+        "Acquired",
+        "Demo/Rehab"
       ],
       "contacts": [
         {
+          "name": "Premiere Home Solutions",
+          "role": "General Contractor"
+        },
+        {
           "name": "Jessica Sicard",
           "role": "Project Manager"
+        },
+        {
+          "name": "Alice Kempf",
+          "role": "Listing Agent (KVRE Team)",
+          "email": "alicek@kvreteam.com"
+        },
+        {
+          "name": "Style Staging",
+          "role": "Home Staging Vendor (Monson, MA)"
         }
       ],
       "financials": {
-        "purchase_price": 115000,
-        "rehab_estimate_range": "90000-115000",
-        "arv": 350000
+        "purchase_price": 55000,
+        "rehab_estimate_range": "60000-80000",
+        "arv": 250000,
+        "listing_price": 259900,
+        "note": "Agent CMA (6/19): est. sale ~$240â250K, suggested list $259,900. ~$20K below Tracey's earlier estimate. Loan confirmed on property (6/23) â previously omitted from investor report, now being corrected.",
+        "financing": "Loan on property (confirmed 6/23/2026)"
       },
       "recent_updates": [
         {
-          "date": "2026-05-22",
-          "note": "Rehab underway. Siding and roof work in progress."
+          "date": "2026-06-23",
+          "source": "dotloop",
+          "subject": "Listing agreement signed; property now listed (Zillow Showcase)",
+          "note": "Alice Kempf (KVRE) shared 7 documents and the Exclusive Right to Sell Agreement plus 6 listing disclosures were signed via dotloop: MANDATORY Mass Inspection Disclosure, Property Transfer Lead Paint Notification, Seller's Consent to Dual Agency, Seller's Consent to Designated Agency, and the Mandatory Licensee-Consumer Relationship Disclosure (BCBOR forms). MLS listing published (1 richmond MLS.pdf) and live on Zillow Showcase. Milestone advanced from Demo/Rehab to Listed."
+        },
+        {
+          "date": "2026-06-23",
+          "source": "Email",
+          "subject": "Investment tracking report â loan confirmed; format approved",
+          "note": "Bookkeeper (Liz) confirmed a loan DOES exist on 1 Richmond and was initially missed from the QuickBooks investor cash-flow report; she is updating it and reviewing other properties for omissions. Matt approved the report format and asked to convert it to a live-updating Google Sheet. Per Antonio, closing attorney name may be 'Bernstein' (to verify). Resolves prior open question on whether a loan exists."
+        },
+        {
+          "date": "2026-06-22",
+          "source": "Email",
+          "subject": "Investment tracking â projected sale ~$260K; loan question",
+          "note": "Projected sale price ~$260K logged in QuickBooks for investor cash-flow report (Bookkeeping With Liz). Open questions: confirm whether a loan exists on the property and confirm closing attorney name."
+        },
+        {
+          "date": "2026-06-19",
+          "source": "Email",
+          "subject": "Town of Adams permit â all set",
+          "note": "Jessica Sicard confirmed the Town of Adams building permit message was reviewed; permitting is all set."
+        },
+        {
+          "date": "2026-06-19",
+          "source": "PDF",
+          "note": "[PDF/Email] Listing agent Alice Kempf sent a CMA (\"1 Richmond Ln Adams MA.pdf\"): estimates sale price ~$240â250K and suggests listing at $259,900 â \"more nicely renovated than the comps, private with the bigger yard.\" Matt flagged this is ~$20K below Tracey's earlier estimate. List-price decision pending; property in pre-listing prep."
+        },
+        {
+          "date": "2026-06-18",
+          "note": "[PDF] New invoice received from Style Staging (attachment: 1-Richmond-Ln-Adams.pdf), CC'd to listing agent Alice Kempf. Staging is underway, indicating rehab is nearing completion / pre-listing prep."
+        },
+        {
+          "date": "2026-06-18",
+          "note": "[Email] Town of Adams sent a message regarding the Residential Building Permit for 1 Richmond Ln via the Permiteyes portal; forwarded to Jessica Sicard. NOTE: permit jurisdiction is the Town of Adams, but tracker lists this property in Pittsfield â confirm correct municipality."
+        },
+        {
+          "date": "2026-06-04",
+          "note": "Premiere Home Solutions reports all scope complete: carport, chimney repoint, Antonio's items done. Cleaned and ready. Waiting building inspector green light for demo."
+        },
+        {
+          "date": "2026-06-04",
+          "note": "Jessica processed $2,000 payment to Premiere Home Solutions, leaving small portion for final inspections."
+        },
+        {
+          "date": "2026-06-04",
+          "note": "Premiere Home Solutions ready for final walkthrough whenever available."
+        },
+        {
+          "date": "2026-05-28",
+          "note": "Dig safe marked. Electrician disconnected. Dumpster on site."
+        },
+        {
+          "date": "2026-06-10",
+          "source": "Email",
+          "note": "HHH investor update: exterior painting complete; demo pending, awaiting contractor confirmation. (HHH lists property as Adams, MA.)"
         }
       ],
       "action_items": [
-        "Monitor exterior work completion",
-        "Schedule interior work crews"
-      ]
+        "Monitor showings/offers now that 1 Richmond Ln is listed at $259,900 on MLS/Zillow.",
+        "Finalize list price for 1 Richmond Ln â agent suggests $259,900 (est. sale ~$240â250K) vs. Tracey's higher number; reconcile ARV before listing.",
+        "Confirm property municipality: Adams vs Pittsfield",
+        "Review Style Staging invoice and route for payment (do not auto-pay)",
+        "Log into Permiteyes portal to review Town of Adams permit message",
+        "Schedule final walkthrough with Premiere Home Solutions for Richmond and Orchard",
+        "Dig safe marked, electrician disconnected, dumpster on site",
+        "Follow up with contractor on demo completion timeline"
+      ],
+      "source": "dotloop",
+      "entity": "House Hack Helpers"
     },
     {
       "id": "40-roland-st",
       "address": "40 Roland St",
       "city": "Pittsfield",
       "state": "MA",
-      "status": "closed",
+      "status": "active",
       "current_milestone": "Closed",
       "milestones": [
         "Acquired",
@@ -815,15 +1083,16 @@
         "Complete final reconciliation with Liz Duarte",
         "Confirm insurance costs for closing statement",
         "Will McGuire to finalize all outstanding bills"
-      ]
+      ],
+      "entity": "House Hack Helpers"
     },
     {
-      "id": "21-holly-st",
-      "address": "21 Holly St",
-      "city": "Springfield",
+      "id": "9-florence-rd",
+      "address": "9 Florence Road",
+      "city": "",
       "state": "MA",
       "status": "active",
-      "current_milestone": "Demo/Rehab",
+      "current_milestone": "Acquired",
       "milestones": [
         "Acquired",
         "Demo/Rehab",
@@ -831,37 +1100,171 @@
         "Under Contract",
         "Closing"
       ],
-      "completed_milestones": [
-        "Acquired"
-      ],
+      "completed_milestones": [],
       "contacts": [
         {
           "name": "Jessica Sicard",
           "role": "Project Manager"
+        },
+        {
+          "name": "Kevin Shippee",
+          "role": "Acquisition Contact"
         }
       ],
-      "financials": {
-        "purchase_price": 60000,
-        "rehab_estimate_range": "65000-85000",
-        "arv": 230000
-      },
+      "financials": {},
+      "source": "Email",
+      "auto_detected": true,
       "recent_updates": [
         {
-          "date": "2026-05-19",
-          "note": "Demo complete. Starting mechanical rough-ins."
+          "date": "2026-06-12",
+          "source": "Email",
+          "note": "Jessica posted notice at property; occupant site visit (lock change/inspections) targeted for Monday Jun 15."
+        },
+        {
+          "date": "2026-06-10",
+          "source": "Email",
+          "note": "Occupied at acquisition. Jessica seeking occupant contact info to schedule lock changes and inspections; may post notices on doors."
         }
       ],
       "action_items": [
-        "Schedule plumbing and electrical rough inspections",
-        "Order kitchen and bath fixtures"
+        "Obtain occupant contact info",
+        "Schedule lock change and inspections"
       ]
     },
+    {
+      "id": "1634-center-st",
+      "address": "1634 Center St",
+      "city": "Ludlow",
+      "state": "MA",
+      "status": "active",
+      "current_milestone": "Prospecting",
+      "milestones": [
+        "Prospecting",
+        "Under Contract",
+        "Closing",
+        "Closed"
+      ],
+      "completed_milestones": [],
+      "source": "Email",
+      "auto_detected": true,
+      "contacts": [],
+      "financials": {},
+      "recent_updates": [],
+      "action_items": []
+    },
+    {
+      "id": "54-ward-st",
+      "address": "54 Ward St",
+      "city": "Pittsfield",
+      "state": "MA",
+      "status": "active",
+      "current_milestone": "Prospecting",
+      "milestones": [
+        "Prospecting",
+        "Under Contract",
+        "Closing",
+        "Closed"
+      ],
+      "completed_milestones": [],
+      "source": "Email",
+      "auto_detected": true,
+      "contacts": [],
+      "financials": {},
+      "recent_updates": [],
+      "action_items": []
+    },
+    {
+      "id": "26-high-st",
+      "address": "26 High St",
+      "city": "Pittsfield",
+      "state": "MA",
+      "status": "active",
+      "current_milestone": "Prospecting",
+      "milestones": [
+        "Prospecting",
+        "Under Contract",
+        "Closing",
+        "Closed"
+      ],
+      "completed_milestones": [],
+      "source": "Email",
+      "auto_detected": true,
+      "contacts": [],
+      "financials": {},
+      "recent_updates": [],
+      "action_items": []
+    },
+    {
+      "id": "16-maple-st",
+      "address": "16 Maple St",
+      "city": "Adams",
+      "state": "MA",
+      "status": "active",
+      "current_milestone": "Prospecting",
+      "milestones": [
+        "Prospecting",
+        "Under Contract",
+        "Closing",
+        "Closed"
+      ],
+      "completed_milestones": [],
+      "source": "Email",
+      "auto_detected": true,
+      "contacts": [],
+      "financials": {},
+      "recent_updates": [],
+      "action_items": []
+    },
+    {
+      "id": "16-willow-st",
+      "address": "16 Willow St",
+      "city": "Pittsfield",
+      "state": "MA",
+      "status": "active",
+      "current_milestone": "Prospecting",
+      "milestones": [
+        "Prospecting",
+        "Under Contract",
+        "Closing",
+        "Closed"
+      ],
+      "completed_milestones": [],
+      "source": "Email",
+      "auto_detected": true,
+      "contacts": [],
+      "financials": {},
+      "recent_updates": [],
+      "action_items": []
+    },
+    {
+      "id": "11-nathaniel-st",
+      "address": "11 Nathaniel St",
+      "city": "Springfield",
+      "state": "MA",
+      "status": "active",
+      "current_milestone": "Prospecting",
+      "milestones": [
+        "Prospecting",
+        "Under Contract",
+        "Closing",
+        "Closed"
+      ],
+      "completed_milestones": [],
+      "source": "Email",
+      "auto_detected": true,
+      "contacts": [],
+      "financials": {},
+      "recent_updates": [],
+      "action_items": []
+    }
+  ],
+  "sold": [
     {
       "id": "1874-home-rd",
       "address": "1874 Home Rd",
       "city": "Sheffield",
       "state": "MA",
-      "status": "active",
+      "status": "sold",
       "current_milestone": "Under Contract",
       "milestones": [
         "Acquired",
@@ -1049,2788 +1452,11 @@
       "source": "dotloop"
     },
     {
-      "id": "173-nassau-dr",
-      "address": "173 Nassau Dr",
-      "city": "Springfield",
-      "state": "MA",
-      "status": "active",
-      "current_milestone": "Acquired",
-      "milestones": [
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [
-        "Acquired"
-      ],
-      "source": "PDF attachment",
-      "contacts": [
-        {
-          "name": "David Burstein",
-          "role": "Closing Attorney"
-        },
-        {
-          "name": "Ruby Lending LLC",
-          "role": "Lender"
-        },
-        {
-          "name": "Chris Keniley",
-          "role": "YellowBrick Partner"
-        },
-        {
-          "name": "Kevin (YellowBrick)",
-          "role": "Partner"
-        },
-        {
-          "name": "Michelle (YellowBrick)",
-          "role": "Loan Tracking / Lendr"
-        },
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        },
-        {
-          "name": "Camille Ali",
-          "role": "Commercial Loan Assistant (Freedom CU)"
-        }
-      ],
-      "financials": {
-        "borrowing_entity": "Maderose, LLC",
-        "lender": "Ruby Lending LLC",
-        "loan_amount": 217000
-      },
-      "recent_updates": [
-        {
-          "date": "2026-06-12",
-          "source": "Email",
-          "note": "Financing: $217,000 loan funding processed today by Freedom Credit Union (Camille Ali), split between Montgomery St proceeds and line of credit. $800 advance/appraisal fees (combined for Nassau + Schley) debited from checking."
-        },
-        {
-          "date": "2026-06-12",
-          "source": "Email",
-          "note": "Matt directed Freedom CU (Camille Ali) to split funding 50/50: $163,500 each to 23 Schley ($255K loan) and 173 Nassau ($217K loan), using the Montgomery St check ($164,639.71; remainder to Ruby Lending acct) plus the $167K line availability."
-        },
-        {
-          "date": "2026-06-11",
-          "source": "Email",
-          "note": "Camille Ali (Freedom CU) has the Montgomery St check for $164,639.71; line availability is $167,000. Awaiting direction on how to fund the new loans (23 Schley and 173 Nassau)."
-        },
-        {
-          "date": "2026-06-09",
-          "source": "Email",
-          "note": "Ruby Lending LLC draw-request package (Maderose LLC financing) under review â approved by Greg Schmidt (DWPM); FCU (Camille Ali / David Chase) confirming requirements and HUD re-sent. Michelle (Yellowbrick) flagged a Lendr funding gap; deal funded in-house for now, with partial reimbursement from the Freedom LOC expected next week."
-        },
-        {
-          "date": "2026-06-07",
-          "source": "Email",
-          "note": "Matt forwarded the Ruby Lending loan package to Michelle to add to Lendr (loan tracking)."
-        },
-        {
-          "date": "2026-06-06",
-          "source": "PDF attachment",
-          "note": "David Burstein sent the executed loan documents for 173 Nassau Dr financing via Ruby Lending LLC (borrowing entity Maderose, LLC). Attachments: Ruby Lending docs + FCU construction draw package."
-        }
-      ],
-      "action_items": [
-        "Confirm Freedom CU executes split funding: $163,500 to 173 Nassau; remainder of Montgomery check to Ruby Lending acct",
-        "Reconcile 173 Nassau funding: confirm Freedom LOC reimbursement and update Lendr balance",
-        "Add Ruby Lending loan to Lendr (Michelle)",
-        "File executed loan documents (Ruby Lending / Maderose LLC)",
-        "Set up construction draw schedule per FCU draw package",
-        "Confirm acquisition/rehab scope and timeline with Jessica"
-      ]
-    },
-    {
-      "id": "1-richmond-ln",
-      "address": "1 Richmond Ln",
-      "city": "Adams",
-      "state": "MA",
-      "status": "active",
-      "current_milestone": "Listed",
-      "milestones": [
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [
-        "Acquired",
-        "Demo/Rehab"
-      ],
-      "contacts": [
-        {
-          "name": "Premiere Home Solutions",
-          "role": "General Contractor"
-        },
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        },
-        {
-          "name": "Alice Kempf",
-          "role": "Listing Agent (KVRE Team)",
-          "email": "alicek@kvreteam.com"
-        },
-        {
-          "name": "Style Staging",
-          "role": "Home Staging Vendor (Monson, MA)"
-        }
-      ],
-      "financials": {
-        "purchase_price": 55000,
-        "rehab_estimate_range": "60000-80000",
-        "arv": 250000,
-        "listing_price": 259900,
-        "note": "Agent CMA (6/19): est. sale ~$240â250K, suggested list $259,900. ~$20K below Tracey's earlier estimate. Loan confirmed on property (6/23) â previously omitted from investor report, now being corrected.",
-        "financing": "Loan on property (confirmed 6/23/2026)"
-      },
-      "recent_updates": [
-        {
-          "date": "2026-06-23",
-          "source": "dotloop",
-          "subject": "Listing agreement signed; property now listed (Zillow Showcase)",
-          "note": "Alice Kempf (KVRE) shared 7 documents and the Exclusive Right to Sell Agreement plus 6 listing disclosures were signed via dotloop: MANDATORY Mass Inspection Disclosure, Property Transfer Lead Paint Notification, Seller's Consent to Dual Agency, Seller's Consent to Designated Agency, and the Mandatory Licensee-Consumer Relationship Disclosure (BCBOR forms). MLS listing published (1 richmond MLS.pdf) and live on Zillow Showcase. Milestone advanced from Demo/Rehab to Listed."
-        },
-        {
-          "date": "2026-06-23",
-          "source": "Email",
-          "subject": "Investment tracking report â loan confirmed; format approved",
-          "note": "Bookkeeper (Liz) confirmed a loan DOES exist on 1 Richmond and was initially missed from the QuickBooks investor cash-flow report; she is updating it and reviewing other properties for omissions. Matt approved the report format and asked to convert it to a live-updating Google Sheet. Per Antonio, closing attorney name may be 'Bernstein' (to verify). Resolves prior open question on whether a loan exists."
-        },
-        {
-          "date": "2026-06-22",
-          "source": "Email",
-          "subject": "Investment tracking â projected sale ~$260K; loan question",
-          "note": "Projected sale price ~$260K logged in QuickBooks for investor cash-flow report (Bookkeeping With Liz). Open questions: confirm whether a loan exists on the property and confirm closing attorney name."
-        },
-        {
-          "date": "2026-06-19",
-          "source": "Email",
-          "subject": "Town of Adams permit â all set",
-          "note": "Jessica Sicard confirmed the Town of Adams building permit message was reviewed; permitting is all set."
-        },
-        {
-          "date": "2026-06-19",
-          "source": "PDF",
-          "note": "[PDF/Email] Listing agent Alice Kempf sent a CMA (\"1 Richmond Ln Adams MA.pdf\"): estimates sale price ~$240â250K and suggests listing at $259,900 â \"more nicely renovated than the comps, private with the bigger yard.\" Matt flagged this is ~$20K below Tracey's earlier estimate. List-price decision pending; property in pre-listing prep."
-        },
-        {
-          "date": "2026-06-18",
-          "note": "[PDF] New invoice received from Style Staging (attachment: 1-Richmond-Ln-Adams.pdf), CC'd to listing agent Alice Kempf. Staging is underway, indicating rehab is nearing completion / pre-listing prep."
-        },
-        {
-          "date": "2026-06-18",
-          "note": "[Email] Town of Adams sent a message regarding the Residential Building Permit for 1 Richmond Ln via the Permiteyes portal; forwarded to Jessica Sicard. NOTE: permit jurisdiction is the Town of Adams, but tracker lists this property in Pittsfield â confirm correct municipality."
-        },
-        {
-          "date": "2026-06-04",
-          "note": "Premiere Home Solutions reports all scope complete: carport, chimney repoint, Antonio's items done. Cleaned and ready. Waiting building inspector green light for demo."
-        },
-        {
-          "date": "2026-06-04",
-          "note": "Jessica processed $2,000 payment to Premiere Home Solutions, leaving small portion for final inspections."
-        },
-        {
-          "date": "2026-06-04",
-          "note": "Premiere Home Solutions ready for final walkthrough whenever available."
-        },
-        {
-          "date": "2026-05-28",
-          "note": "Dig safe marked. Electrician disconnected. Dumpster on site."
-        },
-        {
-          "date": "2026-06-10",
-          "source": "Email",
-          "note": "HHH investor update: exterior painting complete; demo pending, awaiting contractor confirmation. (HHH lists property as Adams, MA.)"
-        }
-      ],
-      "action_items": [
-        "Monitor showings/offers now that 1 Richmond Ln is listed at $259,900 on MLS/Zillow.",
-        "Finalize list price for 1 Richmond Ln â agent suggests $259,900 (est. sale ~$240â250K) vs. Tracey's higher number; reconcile ARV before listing.",
-        "Confirm property municipality: Adams vs Pittsfield",
-        "Review Style Staging invoice and route for payment (do not auto-pay)",
-        "Log into Permiteyes portal to review Town of Adams permit message",
-        "Schedule final walkthrough with Premiere Home Solutions for Richmond and Orchard",
-        "Dig safe marked, electrician disconnected, dumpster on site",
-        "Follow up with contractor on demo completion timeline"
-      ],
-      "source": "dotloop"
-    },
-    {
-      "id": "54-sectar-rd",
-      "address": "54 Sectar Rd",
-      "city": "Cheshire",
-      "state": "MA",
-      "status": "active",
-      "current_milestone": "Demo/Rehab",
-      "milestones": [
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [
-        "Acquired"
-      ],
-      "contacts": [
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        }
-      ],
-      "financials": {
-        "purchase_price": 95000,
-        "rehab_estimate_range": "85000-110000",
-        "arv": 320000
-      },
-      "recent_updates": [
-        {
-          "date": "2026-05-21",
-          "note": "Rehab scope finalized. Work beginning."
-        }
-      ],
-      "action_items": [
-        "Monitor rehab start and progress",
-        "Confirm GC mobilization"
-      ]
-    },
-    {
-      "id": "412-saint-james-ave",
-      "address": "412 Saint James Ave",
-      "city": "Springfield",
-      "state": "MA",
-      "status": "active",
-      "current_milestone": "Listed",
-      "milestones": [
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [
-        "Acquired",
-        "Demo/Rehab"
-      ],
-      "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Listing Agent"
-        },
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        }
-      ],
-      "financials": {
-        "purchase_price": 78000,
-        "rehab_cost": 68000,
-        "listing_price": 249000,
-        "arv": 249000
-      },
-      "recent_updates": [
-        {
-          "date": "2026-05-12",
-          "note": "Listed at $249,000. First showing weekend scheduled."
-        }
-      ],
-      "action_items": [
-        "Follow up with Alice on showing feedback",
-        "Review any offers received"
-      ]
-    },
-    {
-      "id": "300-tyler-st",
-      "address": "300 Tyler St",
-      "city": "Pittsfield",
-      "state": "MA",
-      "status": "active",
-      "current_milestone": "Demo/Rehab",
-      "milestones": [
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [
-        "Acquired"
-      ],
-      "contacts": [
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        }
-      ],
-      "financials": {
-        "purchase_price": 72000,
-        "rehab_estimate_range": "70000-90000",
-        "arv": 250000
-      },
-      "recent_updates": [
-        {
-          "date": "2026-05-23",
-          "note": "Demo underway. Structural assessment in progress."
-        }
-      ],
-      "action_items": [
-        "Get structural assessment results",
-        "Finalize rehab scope based on assessment"
-      ]
-    },
-    {
-      "id": "103-prospect-st",
-      "address": "103 Prospect St",
-      "city": "Springfield",
-      "state": "MA",
-      "status": "active",
-      "current_milestone": "Under Contract",
-      "milestones": [
-        "Acquired",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [
-        "Acquired",
-        "Listed"
-      ],
-      "contacts": [
-        {
-          "name": "Ryan O'Hara",
-          "role": "Buyer's Agent"
-        },
-        {
-          "name": "Hunter Foote",
-          "role": "Buyer (Vanderburgh House)"
-        },
-        {
-          "name": "David Burstein",
-          "role": "Closing Attorney"
-        },
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        },
-        {
-          "name": "Andrew Tine (Tine Law)",
-          "role": "Buyer's Counsel"
-        },
-        {
-          "name": "Ryan K. O'Hara (Bacon Wilson, P.C.)",
-          "role": "Seller-side / Litigation Attorney"
-        },
-        {
-          "name": "Brian R. Rucki (Bacon Wilson, P.C.)",
-          "role": "Residential RE Counsel"
-        },
-        {
-          "name": "Northeast Asset Development LLC",
-          "role": "Buyer entity"
-        },
-        {
-          "name": "Ryan O'Hara / Brian Rucki (Bacon Wilson)",
-          "role": "Counsel"
-        },
-        {
-          "name": "Andrew Tine",
-          "role": "Opposing counsel"
-        },
-        {
-          "name": "Hunter Foote (Vanderburgh House)",
-          "role": "Counterparty"
-        },
-        {
-          "name": "Ryan K. O'Hara (Bacon Wilson, P.C., 413.584.1287)",
-          "role": "Seller's Attorney"
-        }
-      ],
-      "financials": {
-        "purchase_price": 180000,
-        "listing_price": 450000,
-        "arv": 450000,
-        "settlement_payment": 194000
-      },
-      "recent_updates": [
-        {
-          "date": "2026-06-30",
-          "source": "Email",
-          "note": "Seller's counsel (Bacon Wilson) confirmed acceptance of July 24, 2026 closing; 'Best & Final' settlement agreement to be executed immediately (no contingencies, time of the essence). Quitclaim deed prepared by Brian Rucki; $194,000 payment due on transfer to Northeast Asset Development LLC."
-        },
-        {
-          "date": "2026-06-30",
-          "source": "Email",
-          "note": "Atty. Ryan O'Hara (Bacon Wilson) agreed to a July 24 closing date to finalize the Best & Final settlement. Buyer (Hunter Foote, Vanderburgh House) sought to add a title contingency; O'Hara reiterated the deal is no-contingency, time-of-the-essence. Executed agreement needs immediate signature."
-        },
-        {
-          "date": "2026-06-29",
-          "source": "Email",
-          "summary": "Best & Final negotiations ongoing â dispute over whether releases are unconditional vs. contingent on the sale. Matt pushing to close fast."
-        },
-        {
-          "date": "2026-06-29",
-          "source": "Email",
-          "note": "Settlement negotiation active on the \"Best & Final\" terms. Dispute is whether the mutual releases are unconditional or contingent on the sale closing. Atty Ryan O'Hara (Bacon Wilson) is inclined to accept buyer-side counsel Andrew Tine's proposed changes provided a transfer date of July 6 is set, and looped in residential RE colleague Brian Rucki. Buyer entity: Northeast Asset Development LLC; seller side: Vanderburgh Sober Living (Dr. Hunter Foote). Matt to attorney: \"I am fine. Just need to close very fast.\""
-        },
-        {
-          "date": "2026-06-26",
-          "source": "Email",
-          "note": "Closing push: Atty. Ryan O'Hara (Bacon Wilson) told buyer Hunter Foote & Atty. Andrew Tine that 'my client remains prepared to proceed' and is awaiting Tine's response. Buyer (Vanderburgh) asking to schedule closing ASAP. Matt followed up with O'Hara: 'Any luck?'"
-        },
-        {
-          "date": "2026-06-05",
-          "note": "Matt confirmed to Jessica: closing targeted for end of June, awaiting buyer to sign P&S back. Pay the $100 code/painting fine for now; sale to address outstanding building/code violations."
-        },
-        {
-          "date": "2026-06-04",
-          "note": "Ryan O'Hara forwarded Hunter Foote (Vanderburgh House) Best & Final offer."
-        },
-        {
-          "date": "2026-06-04",
-          "note": "Matt accepted offer on condition it removes all lawsuits and liability. O'Hara confirmed understanding and sent acceptance to Hunter."
-        },
-        {
-          "date": "2026-05-20",
-          "note": "Property listed. Multiple interested parties including Hunter Foote/Vanderburgh House."
-        }
-      ],
-      "action_items": [
-        "Confirm July 24, 2026 closing date with buyer (Vanderburgh House)",
-        "Execute the Best & Final settlement agreement immediately (no contingencies, time of the essence)",
-        "Finalize settlement release language with attys O'Hara/Tine and lock a July 6, 2026 transfer/closing date.",
-        "Closing targeted end of June â awaiting buyer's countersigned P&S",
-        "Confirm all lawsuits and liability dismissed per agreement",
-        "Pay $100 fine now; ensure sale addresses outstanding code violations",
-        "Coordinate with Ryan O'Hara on closing timeline",
-        "Get Atty. Tine's response so 103 Prospect closing can be scheduled (buyer ready).",
-        "Resolve release/contingency terms on 103 Prospect (close fast)"
-      ],
-      "closing_date": "2026-07-24",
-      "important_dates": {
-        "closing_target": "2026-07-24"
-      }
-    },
-    {
-      "id": "205-old-stage-road",
-      "address": "205 Old Stage Road",
-      "city": "Hampden",
-      "state": "MA",
-      "status": "active",
-      "current_milestone": "Listed",
-      "milestones": [
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [
-        "Acquired",
-        "Demo/Rehab"
-      ],
-      "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Listing Agent"
-        },
-        {
-          "name": "David Burstein",
-          "role": "Attorney"
-        },
-        {
-          "name": "Katharine Higgins-Shea",
-          "role": "Litigation Attorney (Lyon & Fitzpatrick)"
-        },
-        {
-          "name": "Kevin Shippee",
-          "role": "Partner/Owner"
-        },
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        }
-      ],
-      "financials": {
-        "purchase_price": 145000,
-        "rehab_cost": 88000,
-        "listing_price": 389000,
-        "arv": 389000
-      },
-      "recent_updates": [
-        {
-          "date": "2026-06-05",
-          "note": "Occupant's court answer received (attorney Higgins-Shea). Randy granted walkthrough access by an adult male occupant; identity unclear. Counsel advises handling in court â no further direct contact. Work order #42587 assigned to Randy on 6/5 list."
-        },
-        {
-          "date": "2026-06-01",
-          "note": "Court date was June 1 â follow up on outcome needed."
-        },
-        {
-          "date": "2026-05-15",
-          "note": "Listed at $389,000. Legal matter pending regarding property boundary/occupancy dispute."
-        }
-      ],
-      "action_items": [
-        "Eviction/occupancy litigation proceeding â coordinate with Higgins-Shea (Lyon & Fitzpatrick)",
-        "Tell Russ to stop contacting occupant per counsel",
-        "Resume active marketing once legal matter resolved"
-      ],
-      "source": "Email"
-    },
-    {
-      "id": "60-shaker-rd",
-      "address": "60 Shaker Rd",
-      "city": "E Longmeadow",
-      "state": "MA",
-      "status": "active",
-      "current_milestone": "Demo/Rehab",
-      "milestones": [
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [
-        "Acquired"
-      ],
-      "contacts": [
-        {
-          "name": "Derek Boggi",
-          "role": "Insurance Inspector (The Hartford)"
-        },
-        {
-          "name": "Sharon Gates",
-          "role": "Property Contact"
-        },
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        }
-      ],
-      "financials": {
-        "purchase_price": 850000,
-        "rehab_estimate_range": "200000-300000",
-        "arv": 1500000
-      },
-      "recent_updates": [
-        {
-          "date": "2026-06-10",
-          "note": "Work order #43076 assigned to Victor on the 6/10 work-order list from Jessica Sicard.",
-          "source": "Email"
-        },
-        {
-          "date": "2026-06-05",
-          "note": "Work order #43042 assigned to Barry on the 6/5 work-order list from Jessica Sicard."
-        },
-        {
-          "date": "2026-06-04",
-          "note": "Insurance inspection completed successfully. Affected suites: 5, 6, 15, plus public bathroom near elevator, hallway areas."
-        },
-        {
-          "date": "2026-06-04",
-          "note": "Sharon Gates confirmed inspection went well. Jessica confirmed to Sharon."
-        },
-        {
-          "date": "2026-05-28",
-          "note": "Insurance inspection scheduled June 4 at 9:30 AM with Derek Boggi (The Hartford)."
-        }
-      ],
-      "action_items": [
-        "Insurance inspection completed 6/4 - await Hartford report",
-        "Follow up on roof repair recommendations from inspector"
-      ],
-      "source": "Email"
-    },
-    {
-      "id": "141-st-jerome-ave",
-      "address": "141 St. Jerome Ave",
-      "city": "Pittsfield",
-      "state": "MA",
-      "status": "active",
-      "current_milestone": "Demo/Rehab",
-      "milestones": [
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [
-        "Acquired"
-      ],
-      "contacts": [
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        }
-      ],
-      "financials": {
-        "purchase_price": 68000,
-        "rehab_estimate_range": "65000-85000",
-        "arv": 235000
-      },
-      "recent_updates": [
-        {
-          "date": "2026-05-16",
-          "note": "Permits pulled. Rehab starting."
-        }
-      ],
-      "action_items": [
-        "Monitor rehab progress",
-        "Schedule inspections as milestones are hit"
-      ]
-    },
-    {
-      "id": "15-olympic-ave",
-      "address": "15 Olympic Ave",
-      "city": "Pittsfield",
-      "state": "MA",
-      "status": "active",
-      "current_milestone": "Listed",
-      "milestones": [
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [
-        "Acquired",
-        "Demo/Rehab"
-      ],
-      "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Listing Agent"
-        },
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        }
-      ],
-      "financials": {
-        "purchase_price": 82000,
-        "rehab_cost": 71000,
-        "listing_price": 269000,
-        "arv": 269000
-      },
-      "recent_updates": [
-        {
-          "date": "2026-05-08",
-          "note": "Listed at $269,000. Open house scheduled."
-        }
-      ],
-      "action_items": [
-        "Review open house results with Alice",
-        "Assess price adjustment if needed"
-      ]
-    },
-    {
-      "id": "140-egremont-plain-rd",
-      "address": "140 Egremont Plain Rd",
-      "city": "Egremont",
-      "state": "MA",
-      "status": "active",
-      "current_milestone": "Prospecting",
-      "milestones": [
-        "Prospecting",
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [],
-      "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Agent"
-        }
-      ],
-      "financials": {
-        "arv_estimate": 450000
-      },
-      "recent_updates": [
-        {
-          "date": "2026-05-05",
-          "note": "Identified as potential acquisition. CMA requested from Alice."
-        }
-      ],
-      "action_items": [
-        "Review CMA from Alice",
-        "Evaluate acquisition opportunity"
-      ]
-    },
-    {
-      "id": "213-brodie-mountain-rd",
-      "address": "213 Brodie Mountain Rd",
-      "city": "Lanesborough",
-      "state": "MA",
-      "status": "active",
-      "current_milestone": "Prospecting",
-      "milestones": [
-        "Prospecting",
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [],
-      "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Agent"
-        }
-      ],
-      "financials": {
-        "arv_estimate": 380000
-      },
-      "recent_updates": [
-        {
-          "date": "2026-05-03",
-          "note": "Potential deal. Analyzing comps."
-        }
-      ],
-      "action_items": [
-        "Complete comp analysis",
-        "Decide on offer strategy"
-      ]
-    },
-    {
-      "id": "11-bryant-st",
-      "address": "11 Bryant St",
-      "city": "Pittsfield",
-      "state": "MA",
-      "status": "active",
-      "current_milestone": "Prospecting",
-      "milestones": [
-        "Prospecting",
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [],
-      "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Agent"
-        }
-      ],
-      "financials": {
-        "arv_estimate": 260000
-      },
-      "recent_updates": [
-        {
-          "date": "2026-05-01",
-          "note": "Evaluating as potential flip. Walkthrough scheduled."
-        }
-      ],
-      "action_items": [
-        "Complete walkthrough",
-        "Get rehab estimate"
-      ]
-    },
-    {
-      "id": "100-central-st",
-      "address": "100 Central St",
-      "city": "Springfield",
-      "state": "MA",
-      "status": "active",
-      "current_milestone": "Prospecting",
-      "milestones": [
-        "Prospecting",
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [],
-      "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Agent"
-        }
-      ],
-      "financials": {
-        "arv_estimate": 310000
-      },
-      "recent_updates": [
-        {
-          "date": "2026-05-02",
-          "note": "Off-market lead. Owner contacted."
-        }
-      ],
-      "action_items": [
-        "Follow up with owner on sale interest",
-        "Run comps and submit offer if viable"
-      ]
-    },
-    {
-      "id": "282-284-suffolk-street",
-      "address": "282-284 Suffolk Street",
-      "city": "Holyoke",
-      "state": "MA",
-      "status": "active",
-      "current_milestone": "Prospecting",
-      "milestones": [
-        "Prospecting",
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [],
-      "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Agent"
-        }
-      ],
-      "financials": {
-        "arv_estimate": 290000
-      },
-      "recent_updates": [
-        {
-          "date": "2026-05-04",
-          "note": "Multi-family property. Evaluating for buy-and-hold or flip."
-        }
-      ],
-      "action_items": [
-        "Determine strategy: flip vs hold",
-        "Get inspection and rehab estimate"
-      ]
-    },
-    {
-      "id": "583-hawks-spur-rd",
-      "address": "583 Hawks Spur Rd",
-      "city": "Cheshire",
-      "state": "MA",
-      "status": "active",
-      "current_milestone": "Prospecting",
-      "milestones": [
-        "Prospecting",
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [],
-      "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Agent"
-        }
-      ],
-      "financials": {
-        "arv_estimate": 340000
-      },
-      "recent_updates": [
-        {
-          "date": "2026-05-06",
-          "note": "Rural property. Comps are thin â need broader search."
-        }
-      ],
-      "action_items": [
-        "Expand comp search radius",
-        "Evaluate rehab scope and rural premium"
-      ]
-    },
-    {
-      "id": "172-fiske-st",
-      "address": "172 Fiske St",
-      "city": "Pittsfield",
-      "state": "MA",
-      "status": "active",
-      "current_milestone": "Prospecting",
-      "milestones": [
-        "Prospecting",
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [],
-      "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Agent"
-        }
-      ],
-      "financials": {
-        "arv_estimate": 255000
-      },
-      "recent_updates": [
-        {
-          "date": "2026-05-07",
-          "note": "Evaluating acquisition. Owner considering selling."
-        }
-      ],
-      "action_items": [
-        "Follow up with owner",
-        "Submit LOI if owner ready"
-      ]
-    },
-    {
-      "id": "26-old-putnam-rd",
-      "address": "26 Old Putnam Rd",
-      "city": "Bethel",
-      "state": "CT",
-      "status": "active",
-      "current_milestone": "Prospecting",
-      "milestones": [
-        "Prospecting",
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [],
-      "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Agent"
-        }
-      ],
-      "financials": {
-        "arv_estimate": 420000
-      },
-      "recent_updates": [
-        {
-          "date": "2026-05-09",
-          "note": "Connecticut deal. Evaluating out-of-state expansion viability."
-        }
-      ],
-      "action_items": [
-        "Evaluate CT deal viability and logistics",
-        "Connect with local CT contractor"
-      ]
-    },
-    {
-      "id": "31-loring-street",
-      "address": "31 Loring Street",
-      "city": "Springfield",
-      "state": "MA",
-      "status": "active",
-      "current_milestone": "Prospecting",
-      "milestones": [
-        "Prospecting",
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [],
-      "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Agent"
-        }
-      ],
-      "financials": {
-        "arv_estimate": 270000
-      },
-      "recent_updates": [
-        {
-          "date": "2026-06-23",
-          "source": "Email",
-          "subject": "Work order 6/23 â basement work continuing",
-          "note": "Daily work order from Jessica Sicard (6/23/26): crew member Victor continuing on project 43144 (31 Loring); to call Jess if he runs out of work."
-        },
-        {
-          "date": "2026-06-12",
-          "source": "Email",
-          "note": "Tree Masters estimate #1373 approved; Jessica coordinating."
-        },
-        {
-          "date": "2026-05-11",
-          "note": "Evaluating Springfield market conditions for this property."
-        }
-      ],
-      "action_items": [
-        "Review comps",
-        "Determine offer price"
-      ]
-    },
-    {
-      "id": "downing-park",
-      "address": "Downing Park",
-      "city": "Newburgh",
-      "state": "NY",
-      "status": "active",
-      "current_milestone": "Prospecting",
-      "milestones": [
-        "Prospecting",
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [],
-      "contacts": [
-        {
-          "name": "Peter Houser",
-          "role": "Investment Partner"
-        }
-      ],
-      "financials": {
-        "arv_estimate": 2500000
-      },
-      "recent_updates": [
-        {
-          "date": "2026-06-12",
-          "source": "Email",
-          "note": "Insurance application received from Adina Edgett (Alera Group) for 25 Downing/3 Park â needs to be completed and returned. Flying Monkey purchase still slated for Aug 1."
-        },
-        {
-          "date": "2026-05-13",
-          "note": "Large-scale NY project. Peter Houser evaluating partnership structure."
-        }
-      ],
-      "action_items": [
-        "Discuss partnership structure with Peter Houser",
-        "Review project feasibility and financing",
-        "Complete and return Alera Group insurance application"
-      ]
-    },
-    {
-      "id": "105-n-main-st",
-      "address": "105 N Main St",
-      "city": "Orange",
-      "state": "MA",
-      "status": "active",
-      "current_milestone": "Prospecting",
-      "milestones": [
-        "Prospecting",
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [],
-      "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Agent"
-        },
-        {
-          "name": "Joe Homebuyer NE",
-          "role": "Contract Assignor"
-        }
-      ],
-      "financials": {
-        "asking_price": 130000,
-        "arv_estimate": 230000,
-        "rehab_estimate": 25000
-      },
-      "recent_updates": [
-        {
-          "date": "2026-06-03",
-          "note": "Alice Kempf forwarded contract assignment from Joe Homebuyer NE. 3BR/2BA townhouse at $130K ask, $230K ARV, ~$25K repairs. Target close by June 30."
-        }
-      ],
-      "action_items": [
-        "Review contract assignment terms",
-        "Evaluate deal at $130K ask with $25K repairs and $230K ARV",
-        "Respond to Alice on interest by June 20 if pursuing June 30 close"
-      ]
-    },
-    {
-      "id": "5-carpenter-rd",
-      "address": "5 Carpenter Rd",
-      "city": "Greenfield",
-      "state": "MA",
-      "status": "active",
-      "current_milestone": "Prospecting",
-      "milestones": [
-        "Prospecting",
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [],
-      "source": "Email",
-      "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Agent"
-        }
-      ],
-      "financials": {
-        "arv_estimate": 389900
-      },
-      "recent_updates": [
-        {
-          "date": "2026-06-04",
-          "note": "Alice Kempf sent CMA. ARV ~$389,900, could be more with half bath or 2nd full bath."
-        }
-      ],
-      "action_items": [
-        "Review CMA from Alice",
-        "Evaluate bath addition potential"
-      ]
-    },
-    {
-      "id": "30-e-cleveland-st",
-      "address": "30 E Cleveland St",
-      "city": "Greenfield",
-      "state": "MA",
-      "status": "active",
-      "current_milestone": "Prospecting",
-      "milestones": [
-        "Prospecting",
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [],
-      "source": "Email",
-      "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Agent"
-        }
-      ],
-      "financials": {
-        "arv_estimate": "379000-389000"
-      },
-      "recent_updates": [
-        {
-          "date": "2026-06-04",
-          "note": "Alice Kempf sent CMA. Has garage. ARV $379K, up to $389K with extra bath. Matt confirmed garage exists."
-        }
-      ],
-      "action_items": [
-        "Review CMA from Alice",
-        "Evaluate bath addition potential"
-      ]
-    },
-    {
-      "id": "21-dwight-st",
-      "address": "21 Dwight St",
-      "city": "Agawam",
-      "state": "MA",
-      "status": "active",
-      "current_milestone": "Prospecting",
-      "milestones": [
-        "Prospecting",
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [],
-      "source": "Email",
-      "contacts": [
-        {
-          "name": "Russell Sabadosa",
-          "role": "Listing Agent (PC Realty)"
-        },
-        {
-          "name": "Peter Houser",
-          "role": "Forwarded To"
-        }
-      ],
-      "financials": {
-        "asking_price": 2800000,
-        "units": 22,
-        "unit_type": "studio apartments"
-      },
-      "recent_updates": [
-        {
-          "date": "2026-06-12",
-          "source": "Email",
-          "note": "Declined the $2.8M ask. Broker Russell Sabadosa signaled seller may take $2.5â2.6M and asked for our NOI / cap rate calculations."
-        },
-        {
-          "date": "2026-06-04",
-          "note": "22-unit studio apartment building listed at $2.8M. T-12 operating statements and rent roll attached. Offer deadline 6/18/26. Matt forwarded to Peter Houser."
-        }
-      ],
-      "action_items": [
-        "Review financials and T-12",
-        "Offer deadline June 18, 2026"
-      ]
-    },
-    {
-      "id": "342-wilbraham",
-      "address": "342 Wilbraham",
-      "city": "Wilbraham",
-      "state": "MA",
-      "status": "closed",
-      "current_milestone": "Closed",
-      "milestones": [
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing",
-        "Closed"
-      ],
-      "completed_milestones": [
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing",
-        "Closed"
-      ],
-      "auto_detected": true,
-      "source": "Email",
-      "contacts": [
-        {
-          "name": "Will McGuire",
-          "role": "Investors & Team Ops (HouseHack Helpers)"
-        },
-        {
-          "name": "Chris Keniley",
-          "role": "Accounting Manager (Yellowbrick)"
-        },
-        {
-          "name": "Liz Duarte",
-          "role": "Bookkeeper"
-        },
-        {
-          "name": "Antonio",
-          "role": "HouseHack Helpers"
-        }
-      ],
-      "financials": {
-        "note": "HHH covered ~$8K of seller (Miguel Suarez) costs as part of purchase: security deposit, last month's rent, and a 6-month rent credit ($1,350/mo), treated as closing costs."
-      },
-      "recent_updates": [
-        {
-          "date": "2026-06-08",
-          "source": "Email",
-          "note": "Matt confirmed the Suarez deposit/rent arrangement was agreed as part of the purchase (Yellowbrick took on removing the former owner). Documentation still needs to be formalized; suggested Antonio capture it in his weekly update."
-        },
-        {
-          "date": "2026-06-05",
-          "source": "Email",
-          "note": "Will McGuire (HHH) flagged a ~$8K charge (Suarez SD/LMR/rents) that was not considered when investor returns were paid out on Wilbraham profitability; requested a call Mon/Tue to document the rationale for records."
-        }
-      ],
-      "action_items": [
-        "Document rationale for the ~$8K Suarez deposit/rent charge to HHH (Will/Matt call Mon/Tue)",
-        "Confirm whether the ~$8K charge affects the already-distributed investor return reconciliation",
-        "REVIEW: property auto-created from email â verify address/details are correct"
-      ]
-    },
-    {
-      "id": "23-schley-st",
-      "address": "23 Schley St",
-      "city": "Springfield",
-      "state": "MA",
-      "status": "closed",
-      "current_milestone": "Closed",
-      "milestones": [
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing",
-        "Closed"
-      ],
-      "completed_milestones": [
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "source": "Email",
-      "auto_detected": true,
-      "closing_date": "2026-06-09",
-      "contacts": [
-        {
-          "name": "David Burstein",
-          "role": "Closing Attorney"
-        },
-        {
-          "name": "Chris Keniley",
-          "role": "Accounting Manager (Yellowbrick)"
-        },
-        {
-          "name": "Kevin (YellowBrick)",
-          "role": "Partner"
-        },
-        {
-          "name": "Alice Kempf",
-          "role": "Realtor (KVRE)"
-        },
-        {
-          "name": "Camille Ali",
-          "role": "Commercial Loan Assistant (Freedom CU)"
-        }
-      ],
-      "financials": {
-        "loan_amount": 255000,
-        "lender": "Ruby Lending LLC",
-        "borrowing_entity": "Barose Projects LLC"
-      },
-      "important_dates": {
-        "closing": "2026-06-09"
-      },
-      "recent_updates": [
-        {
-          "date": "2026-06-12",
-          "source": "Email",
-          "note": "Financing: $255,000 loan funding processed today by Freedom Credit Union (Camille Ali), split between Montgomery St payoff proceeds and line of credit."
-        },
-        {
-          "date": "2026-06-12",
-          "source": "Email",
-          "note": "Matt directed Freedom CU (Camille Ali) to split funding 50/50: $163,500 each to 23 Schley ($255K loan) and 173 Nassau ($217K loan), using the Montgomery St check ($164,639.71; remainder to Ruby Lending acct) plus the $167K line availability."
-        },
-        {
-          "date": "2026-06-11",
-          "source": "Email",
-          "note": "Freedom CU (Camille Ali) asking how to fund the new loans (23 Schley and 173 Nassau): Montgomery St check $164,639.71 in hand, line availability $167,000. Michelle (Yellowbrick) confirmed contact list updated."
-        },
-        {
-          "date": "2026-06-09",
-          "source": "Email",
-          "note": "David Burstein confirmed the purchase CLOSED today (June 9, 2026); closing documents distributed for records. Ruby Lending LLC â Barose Projects LLC. Alice Kempf acknowledged. Separately, a Ruby Lending draw-request package was prepared and is being dropped at Freedom Credit Union (FCU)."
-        },
-        {
-          "date": "2026-06-08",
-          "source": "Email",
-          "note": "David Burstein confirmed the $255,000 wire was received for tomorrow's closing. Chris Keniley sent the wire; the Ruby Lending LLC loan to Barose Projects LLC closes June 9, 2026."
-        },
-        {
-          "date": "2026-06-08",
-          "source": "Email",
-          "note": "David Burstein requested a $255,000 wire for the closing scheduled June 9; funds disbursed by Yellowbrick accounting (Chris Keniley)."
-        }
-      ],
-      "action_items": [
-        "Confirm Freedom CU executes split funding: $163,500 to 23 Schley",
-        "Confirm Ruby Lending draw-request package funded by FCU; file executed loan/closing docs in Lendr",
-        "File executed Ruby Lending / Barose Projects loan package and add to Lendr",
-        "REVIEW: property auto-created from email â verify address/details"
-      ]
-    },
-    {
-      "id": "53-5-orchard-st",
-      "address": "53 1/2 Orchard St",
-      "city": "Pittsfield",
-      "state": "MA",
-      "status": "active",
-      "current_milestone": "Under Contract",
-      "milestones": [
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [
-        "Acquired",
-        "Demo/Rehab",
-        "Listed"
-      ],
-      "source": "DocuSign",
-      "auto_detected": true,
-      "closing_date": "2026-06-30",
-      "contacts": [
-        {
-          "name": "Peter Houser",
-          "role": "Seller / Investment Partner"
-        },
-        {
-          "name": "Vitaliy Yusenko",
-          "role": "Closing Attorney (Yusenko Law)"
-        },
-        {
-          "name": "Daniel Mendoza",
-          "role": "Qualified Intermediary (e1031xchange)"
-        },
-        {
-          "name": "Adryen Proctor",
-          "role": "1031 Exchange Coordinator (e1031xchange)"
-        }
-      ],
-      "financials": {
-        "note": "Sale structured as a 1031 exchange (QI: e1031xchange). Accepted offer contract on file (Accepted offer Orchard.pdf)."
-      },
-      "important_dates": {
-        "estimated_closing": "2026-06-30"
-      },
-      "recent_updates": [
-        {
-          "date": "2026-06-23",
-          "source": "Email",
-          "subject": "1031 closing follow-up â awaiting FHA repair request",
-          "note": "QI coordinator Adryen Proctor (e1031xchange) followed up to confirm the 6/30 closing and requested the settlement statement for QI review/approval. Peter Houser advised they have not heard yet and are waiting on an FHA repair request from the buyer's side. Closing target remains Tue 6/30; sale proceeds to be wired to the QI the same day as closing."
-        },
-        {
-          "date": "2026-06-11",
-          "source": "DocuSign",
-          "note": "e1031xchange sent the 1031 exchange agreement and signing instructions via DocuSign (includes a text box for the Flying Monkey LLC EIN). Operating Agreement received by QI same day (Adryen Proctor confirmed)."
-        },
-        {
-          "date": "2026-06-08",
-          "source": "Email",
-          "note": "e1031xchange (Daniel Mendoza) confirmed receipt of the contract, is generating exchange forms, and asked for the title report and settlement statement plus confirmation of the 6/30 closing date; requested organizational docs showing the authorized signatory."
-        },
-        {
-          "date": "2026-06-08",
-          "source": "PDF attachment",
-          "note": "Peter Houser sent the accepted offer / contract (Accepted offer Orchard.pdf) for the sale of 53 1/2 Orchard St, Pittsfield, set up as a 1031 exchange. Estimated closing June 30, 2026."
-        }
-      ],
-      "action_items": [
-        "Resolve buyer's FHA repair request and confirm the 6/30 closing date to Yusenko Law and e1031xchange; provide the settlement statement for QI review (seller listed as 'e1031X LLC, by Jerry M. Feeney, managing member, as Qualified Intermediary for Flying Monkey LLC').",
-        "Forward organizational documents showing authorized signatory to e1031xchange",
-        "Provide title report and settlement statement to the QI once available",
-        "Confirm June 30, 2026 closing date with attorney Vitaliy Yusenko",
-        "REVIEW: property auto-created from email â verify address/details",
-        "Peter to sign the DocuSign exchange agreement and provide Flying Monkey LLC EIN"
-      ]
-    },
-    {
-      "id": "283-fuller-rd",
-      "address": "283 Fuller Road, Unit K",
-      "city": "Chicopee",
-      "state": "MA",
-      "status": "active",
-      "current_milestone": "Closing",
-      "milestones": [
-        "Prospecting",
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing",
-        "Closed"
-      ],
-      "completed_milestones": [
-        "Prospecting",
-        "Under Contract"
-      ],
-      "contacts": [
-        {
-          "name": "David Burstein",
-          "role": "Closing Attorney (representing Yellowbrick Property LLC)"
-        },
-        {
-          "name": "May Gannon (Tranzon)",
-          "role": "Auctioneer"
-        },
-        {
-          "name": "A. Edgett (Webber & Grinnell)",
-          "role": "Insurance"
-        },
-        {
-          "name": "Mat Geffin (Alera Group)",
-          "role": "Insurance"
-        },
-        {
-          "name": "Stephanie Williams (Duane Morris)",
-          "role": "Seller's Counsel"
-        },
-        {
-          "name": "Alice Kempf",
-          "role": "Agent"
-        },
-        {
-          "name": "Peter Houser",
-          "role": "Private Lender / Funder (purchase + rehab)"
-        },
-        {
-          "name": "Atty. Yusenko",
-          "role": "Lender's Counsel"
-        },
-        {
-          "name": "Antonio (antonio@investarters.com)",
-          "role": "Partner / Investor"
-        },
-        {
-          "name": "Metro Lending LLC (109 Apremont Way, Westfield, MA 01085)",
-          "role": "Lender of record — COI as Mortgagee & Loss Payee"
-        }
-      ],
-      "financials": {
-        "agent_suggested_list": 244900,
-        "assessed_value": 230000,
-        "active_comp": 259000,
-        "arv": 244900,
-        "funding_total_purchase_plus_rehab": 195000,
-        "funded_by": "Peter Houser",
-        "loan_terms": "12% interest, 2 points, $1,250 fee",
-        "purchase_price": 157000,
-        "outstanding_condo_fees": 2014,
-        "loan_amount": 195000,
-        "lender": "Metro Lending LLC (Peter Houser), 109 Apremont Way, Westfield, MA 01085"
-      },
-      "recent_updates": [
-        {
-          "date": "2026-07-03",
-          "source": "Email",
-          "subject": "283 Fuller Rd Unit K — address corrected, price confirmed, COI required",
-          "note": "Atty. Burstein confirmed the correct address is 283 Fuller Road, Unit K (not 238). Purchase price $157,000 + $2,014 outstanding condo fees + closing costs (incl. foreclosing lender's). If initial draw ≥ $175k, Buyer brings no funds. Lender agreed interest & points payable at maturity; total loan confirmed $195k. COI required for Metro Lending LLC, ISAOA, ATIMA (Mortgagee & Loss Payee). Duplicate '238 Fuller Rd Unit K' entry merged into this record."
-        },
-        {
-          "date": "2026-07-03",
-          "source": "PDF attachment",
-          "subject": "238/283 Fuller Rd Unit K — draft closing docs circulated",
-          "note": "Closing atty. Vitaliy Yusenko circulated draft loan docs (Note, Mortgage, Personal Guaranty, Closing Agenda) and requested agenda items + wiring instructions. Loan terms confirmed: $195k total (purchase + rehab holdback), 12%, 2 points, $1,250 fee; interest monthly-or-at-end, points up-front-or-at-end. Borrower entity: House Hack Helpers LLC (346 Race St, Holyoke; signatory Matthew Tortoriello). Closing on/before 7/9."
-        },
-        {
-          "date": "2026-07-01",
-          "source": "Email",
-          "subject": "238/283 Fuller Rd Unit K â financing arranged + entity transfer at closing",
-          "note": "Atty. David Burstein replied 'Should not be a problem' and offered to contact Peter Houser and Atty. Yusenko for the financing terms/documents. Closing target remains 7/9."
-        },
-        {
-          "date": "2026-07-01",
-          "source": "Email",
-          "subject": "238/283 Fuller Rd Unit K â Peter Houser to fund; transfer to House Hack",
-          "note": "Matt told atty. Burstein that Peter Houser will fund the purchase plus rehab (total ~$195k) and asked to transfer the property to the 'House Hack' entity at closing. (Subject line read '238 Fuller Rd Unit K' â same property as 283 Fuller Rd Unit K.)"
-        },
-        {
-          "date": "2026-06-29",
-          "source": "Email",
-          "note": "Alice Kempf pegged value around $244,900 â only 1 pending comp in recent years and one active comp at $259k sitting 60 days; assessed value $230k. Basement partially finished (adds value); kitchen/bath dated (laminate counters, blue tub)."
-        },
-        {
-          "date": "2026-06-28",
-          "source": "Email",
-          "note": "Alice Kempf (CMA): suggests listing ~$244,900; only 1 pending comp (dated), assessed value $230k, one active comp at 60 days at $259k. Asked if basement finished â Matt: partially finished; hoping renovation supports a higher price than the dated pending comp."
-        },
-        {
-          "date": "2026-06-25",
-          "source": "Email",
-          "note": "Matt asked agent Alice Kempf for a CMA â 'closing on this one soon.' Email referenced the address as '238 Fuller Rd Unit K,' likely a typo for 283 Fuller Rd Unit K. Closing scheduled 2026-07-09."
-        },
-        {
-          "date": "2026-06-24",
-          "source": "Email",
-          "note": "Atty David Burstein (6/24): scheduled to close by 7/9/2026 (may be extended by foreclosure counsel). Financing decision needed â private funds fully invested; if using Pinnacle, contact Ian or Max ASAP."
-        },
-        {
-          "date": "2026-06-09",
-          "source": "PDF",
-          "note": "Foreclosure auction WON today (Chicopee condo). Memo of Sale received from Tranzon and signed by Matthew for Yellow Brick Property LLC; full executed copy forwarded to David Burstein. Burstein representing the buyer and assessing whether an Assignment of Bid is needed. Insurance binder being set up via Webber & Grinnell / Alera. Neighbor reports current occupant is moving out."
-        },
-        {
-          "date": "2026-06-09",
-          "source": "Email",
-          "note": "Memo of Sale fully executed for foreclosure purchase; buyer entity Yellowbrick Property LLC; David Burstein representing."
-        },
-        {
-          "date": "2026-06-10",
-          "source": "Email",
-          "note": "Seller's counsel (Stephanie Williams, Duane Morris) confirmed no AOB needed; closing docs to be sent by Alex Angelo."
-        },
-        {
-          "date": "2026-07-06",
-          "source": "Email",
-          "note": "Occupant of Unit K emailed the YB tenants main inbox (flagged by Jessica 7/6). Kevin Shippee is working on making the unit vacant ahead of the 7/9 closing (foreclosure purchase)."
-        }
-      ],
-      "action_items": [
-        "Review draft loan docs: Note, Mortgage, Personal Guaranty, Closing Agenda",
-        "Provide full purchase price to atty. Yusenko (requested)",
-        "Send closing agenda items + wiring instructions to atty. Yusenko",
-        "Set list/ARV target for 283 Fuller Rd Unit K with Alice (~$244,900 baseline).",
-        "Finalize list price for 283 Fuller (Alice suggests ~$244.9k; Matt pushing higher)",
-        "Await closing documents from Duane Morris (Alex Angelo)",
-        "Coordinate closing logistics with David Burstein",
-        "Decide financing for 283 Fuller Rd before 7/9 close; contact Pinnacle (Ian/Max) if financing",
-        "Get CMA from Alice Kempf for 283 Fuller Rd Unit K ahead of the 7/9 closing.",
-        "Transfer 283 Fuller Rd Unit K to 'House Hack' entity at closing (7/9).",
-        "Burstein to obtain financing terms/documents from Peter Houser & Atty. Yusenko.",
-        "Obtain Certificate of Insurance in favor of 'Metro Lending LLC, ISAOA, ATIMA, 109 Apremont Way, Westfield, MA 01085' as Mortgagee & Loss Payee before 7/9 closing",
-        "Confirm initial loan draw ≥ $175,000 so Buyer brings no funds to closing",
-        "Kevin: respond to occupant email in YB tenants inbox and confirm unit will be vacant before 7/9 closing"
-      ],
-      "closing_date": "2026-07-09"
-    },
-    {
-      "id": "19-draper-ave",
-      "address": "19 Draper Ave",
-      "city": "Pittsfield",
-      "state": "MA",
-      "status": "active",
-      "current_milestone": "Closed",
-      "milestones": [
-        "Prospecting",
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing",
-        "Closed"
-      ],
-      "completed_milestones": [
-        "Prospecting",
-        "Under Contract",
-        "Offer Made",
-        "Title & Escrow",
-        "Financing",
-        "Closing",
-        "Closed"
-      ],
-      "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Realtor (KVRE)"
-        },
-        {
-          "name": "David Burstein",
-          "role": "Closing Attorney"
-        },
-        {
-          "name": "David Burstein, Esq. (Burstein Law Offices)",
-          "role": "Buyer's / Closing Attorney"
-        },
-        {
-          "name": "Andrew S. Harmon, Esq. (Harmon Law)",
-          "role": "Foreclosing Firm (Seller's counsel)"
-        },
-        {
-          "name": "Andrew Harmon (Harmon Law)",
-          "role": "Foreclosing Attorney"
-        },
-        {
-          "name": "Adina Edgett (Webber & Grinnell)",
-          "role": "Insurance Agent"
-        },
-        {
-          "name": "Claudia Hicks (Webber & Grinnell)",
-          "role": "Insurance Agent"
-        },
-        {
-          "name": "Lawrence M. Tiberio",
-          "role": "Lender (Mortgagee/Loss Payee)"
-        },
-        {
-          "name": "Maria P. Goncalves",
-          "role": "Lender (Mortgagee/Loss Payee)"
-        },
-        {
-          "name": "Webber & Grinnell (Adina Edgett)",
-          "role": "Insurance / COI"
-        }
-      ],
-      "financials": {
-        "arv": 270000,
-        "closing_wire": 62972.2,
-        "purchase_wire": "$62,972.20 (incl. 1H 2027 RE taxes)"
-      },
-      "recent_updates": [
-        {
-          "date": "2026-07-03",
-          "source": "Email",
-          "subject": "19 Draper Ave — heat type confirmed; breaker off Monday for reconnect",
-          "note": "Matt confirmed heat is gas forced air with central AC (Jessica asked for insurance/utility setup). Breaker must be off Monday 7/6 for electric reconnect (Acct# 720039783, Meter #10210434); Jesse assigned."
-        },
-        {
-          "date": "2026-06-30",
-          "source": "PDF",
-          "note": "CLOSED â Purchase recorded 6/30/2026. Atty. David Burstein circulated HUD-1 Settlement Statement, recorded deed (with Assignment of Bid), and Mortgage Inspection Plan. Buyer entity: Yellowbrick Property LLC; insurance via Webber & Grinnell."
-        },
-        {
-          "date": "2026-06-29",
-          "source": "Email",
-          "summary": "HUD-1 received; $62,972.20 wire to Burstein Law sent & confirmed received; COI issued by Webber & Grinnell. Closing set for 7/1."
-        },
-        {
-          "date": "2026-06-29",
-          "source": "PDF",
-          "note": "Atty David Burstein sent the proposed HUD-1 (19Draper-HUD1.pdf) and requested a wire of $62,972.20 to close (includes RE taxes for H1 2027). Yellowbrick wired the funds same day; Burstein confirmed: \"Wire has been received.\" Cleared to close 7/1/2026."
-        },
-        {
-          "date": "2026-06-28",
-          "source": "Email",
-          "note": "Atty David Burstein requested a Certificate of Insurance from Webber & Grinnell, targeting a 7/1/2026 close. Mortgagee/Loss Payee: David H. Burstein, Lawrence M. Tiberio & Maria P. Goncalves (Tenants in Common, ISAOA/ATIMA), 120 Pine Knoll Dr, Ludlow MA."
-        },
-        {
-          "date": "2026-06-24",
-          "source": "Email",
-          "note": "Harmon Law Offices (Andrew S. Harmon) delivered the executed foreclosure Closing Package for 19 Draper Ave to atty. David Burstein. Closing deadline July 6, 2026 (can close any time before). Closing options: in-person w/ certified funds, certified bank check via overnight, or wire (all payable to Harmon Law Offices, P.C.)."
-        },
-        {
-          "date": "2026-06-24",
-          "source": "Email",
-          "note": "Atty David Burstein (6/24): scheduled to close by 7/2/2026 (may be extended by foreclosure counsel). Financing decision needed â private funds fully invested; if using Pinnacle, contact Ian or Max ASAP."
-        },
-        {
-          "date": "2026-06-09",
-          "source": "Email",
-          "note": "Alice Kempf CMA: property shows as 1BR/2BA, valued ~$255K as-is; potentially ~$270K if a 2nd bedroom can be added. Forwarded to Kevin Shippee and Antonio (Investarters) for review."
-        }
-      ],
-      "action_items": [
-        "Closing complete (recorded 6/30/2026) â file HUD-1 & recorded deed; confirm insurance COI on record.",
-        "Ensure breaker is OFF Monday 7/6 for electric reconnect (Jesse) — Acct# 720039783"
-      ],
-      "closing_date": "2026-07-01",
-      "source": "PDF"
-    },
-    {
-      "id": "89-church-st",
-      "address": "89 Church St",
-      "city": "Ware",
-      "state": "MA",
-      "status": "active",
-      "current_milestone": "Prospecting",
-      "milestones": [
-        "Prospecting",
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing",
-        "Closed"
-      ],
-      "completed_milestones": [],
-      "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Realtor (KVRE)"
-        }
-      ],
-      "financials": {
-        "arv": 419000
-      },
-      "recent_updates": [
-        {
-          "date": "2026-06-09",
-          "source": "Email",
-          "note": "Alice Kempf CMA: ~$419K potential if a half-bath can be squeezed in. CloudCMA report shared. Forwarded to Antonio (Investarters) for review."
-        }
-      ],
-      "action_items": [
-        "Assess feasibility of adding a half-bath to reach ~$419K ARV"
-      ]
-    },
-    {
-      "id": "67-willow-ln-wales",
-      "address": "67 Willow Lane (Mobile Home)",
-      "city": "Wales",
-      "state": "MA",
-      "status": "active",
-      "current_milestone": "Closing",
-      "milestones": [
-        "Prospecting",
-        "Under Contract",
-        "Closing",
-        "Closed"
-      ],
-      "completed_milestones": [
-        "Prospecting",
-        "Under Contract"
-      ],
-      "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Realtor"
-        },
-        {
-          "name": "Martha Bruso (Alera Group)",
-          "role": "Insurance Agent"
-        },
-        {
-          "name": "Roberta",
-          "role": "Buyer/Occupant (Matt is point of contact)"
-        }
-      ],
-      "financials": {},
-      "source": "PDF",
-      "auto_detected": true,
-      "recent_updates": [
-        {
-          "date": "2026-06-08",
-          "source": "Email",
-          "note": "Insurance quote in progress with Martha Bruso (Alera Group); home located in Wales Village park."
-        },
-        {
-          "date": "2026-06-10",
-          "source": "PDF",
-          "note": "Alice Kempf sent NEW Mobile Home Bill of Sale (PDF) to Matt and Chris."
-        }
-      ],
-      "action_items": [
-        "Review and execute mobile home bill of sale",
-        "Finalize insurance quote with Martha Bruso"
-      ]
-    },
-    {
-      "id": "19-dudley",
-      "address": "19 Dudley",
-      "city": "",
-      "state": "MA",
-      "status": "active",
-      "current_milestone": "Under Contract",
-      "milestones": [
-        "Prospecting",
-        "Under Contract",
-        "Closing",
-        "Closed"
-      ],
-      "completed_milestones": [
-        "Prospecting"
-      ],
-      "contacts": [
-        {
-          "name": "David Burstein",
-          "role": "Closing Attorney"
-        },
-        {
-          "name": "Chris Keniley",
-          "role": "Accounting (YBM)"
-        }
-      ],
-      "financials": {},
-      "source": "Email",
-      "auto_detected": true,
-      "recent_updates": [
-        {
-          "date": "2026-06-16",
-          "source": "Email",
-          "note": "Jose Teo (Unlimited Home Roofing) requested a payoff to refinance ASAP. Matt and David Burstein agreed to issue a payoff good through 6/22/26; Matt to review the figures with David before it is released."
-        },
-        {
-          "date": "2026-06-11",
-          "source": "Email",
-          "note": "Chris sent the outstanding 19 Dudley work order; Matt confirmed it is paid by Bobby. David Burstein adding it to the closing file."
-        },
-        {
-          "date": "2026-06-10",
-          "source": "Email",
-          "note": "Chris flagged outstanding YBM work orders to be added to total at closing; David Burstein adding to file. Matt verifying whether Bobby is paying (vs. Barry)."
-        },
-        {
-          "date": "2026-06-15",
-          "source": "Email",
-          "note": "Freedom Credit Union (David Chase) flagged the loan as matured. Refinance is in progress and expected to wrap by end of June; payoff to be funded from the Ruby Lending account."
-        }
-      ],
-      "action_items": [
-        "Matt to review payoff figures with David before releasing to Jose",
-        "David Burstein to prepare mortgage payoff good through 6/22/26",
-        "David Burstein to add the YBM work order to the closing file (work order paid by Bobby)"
-      ],
-      "closing_date": "2026-06-22"
-    },
-    {
-      "id": "58-church",
-      "address": "58 Church",
-      "city": "",
-      "state": "MA",
-      "status": "active",
-      "current_milestone": "Acquired",
-      "milestones": [
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [],
-      "contacts": [
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        },
-        {
-          "name": "Kevin Shippee",
-          "role": "Acquisition Contact"
-        }
-      ],
-      "financials": {},
-      "source": "Email",
-      "auto_detected": true,
-      "recent_updates": [
-        {
-          "date": "2026-06-12",
-          "source": "Email",
-          "note": "Jessica posted notice at property; occupant site visit (lock change/inspections) targeted for Friday Jun 19."
-        },
-        {
-          "date": "2026-06-10",
-          "source": "Email",
-          "note": "Occupied at acquisition. Jessica seeking occupant contact info to schedule lock changes and inspections; may post notices on doors."
-        }
-      ],
-      "action_items": [
-        "Obtain occupant contact info",
-        "Schedule lock change and inspections"
-      ]
-    },
-    {
-      "id": "9-florence-rd",
-      "address": "9 Florence Road",
-      "city": "",
-      "state": "MA",
-      "status": "active",
-      "current_milestone": "Acquired",
-      "milestones": [
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [],
-      "contacts": [
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        },
-        {
-          "name": "Kevin Shippee",
-          "role": "Acquisition Contact"
-        }
-      ],
-      "financials": {},
-      "source": "Email",
-      "auto_detected": true,
-      "recent_updates": [
-        {
-          "date": "2026-06-12",
-          "source": "Email",
-          "note": "Jessica posted notice at property; occupant site visit (lock change/inspections) targeted for Monday Jun 15."
-        },
-        {
-          "date": "2026-06-10",
-          "source": "Email",
-          "note": "Occupied at acquisition. Jessica seeking occupant contact info to schedule lock changes and inspections; may post notices on doors."
-        }
-      ],
-      "action_items": [
-        "Obtain occupant contact info",
-        "Schedule lock change and inspections"
-      ]
-    },
-    {
-      "id": "35-pine-rd",
-      "address": "35 Pine Rd",
-      "city": "Goshen",
-      "state": "MA",
-      "status": "active",
-      "current_milestone": "Prospecting",
-      "milestones": [
-        "Prospecting",
-        "Offer Made",
-        "Under Contract",
-        "Closing",
-        "Closed"
-      ],
-      "completed_milestones": [],
-      "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Realtor (KV RE Team)"
-        }
-      ],
-      "financials": {
-        "arv": 239900
-      },
-      "source": "Email",
-      "auto_detected": true,
-      "recent_updates": [
-        {
-          "date": "2026-06-11",
-          "source": "Email",
-          "note": "Alice Kempf sent CMA: suggested value $239,900. Very small home (3BR in ~700 sqft); few comps nearby, mostly 3-season cottages. Alice recommends reconfiguring as a 2BR with better living space. CMA link: cloudcma.com/pdf/32021581c642aa8ebf6be9e1501d7de5"
-        }
-      ],
-      "action_items": [
-        "Review CloudCMA report from Alice Kempf",
-        "Decide whether to reconfigure as 2BR before moving forward"
-      ]
-    },
-    {
-      "id": "94-reed-st",
-      "address": "94 Reed St",
-      "city": "North Adams",
-      "state": "MA",
-      "status": "active",
-      "current_milestone": "Prospecting",
-      "milestones": [
-        "Prospecting",
-        "Under Contract",
-        "Closing",
-        "Closed"
-      ],
-      "completed_milestones": [],
-      "source": "Email",
-      "auto_detected": true,
-      "contacts": [
-        {
-          "name": "David Seddon",
-          "role": "Wholesaler (Silver Homes) 781-737-7876"
-        },
-        {
-          "name": "Antonio",
-          "role": "Investarters, following up"
-        }
-      ],
-      "financials": {
-        "asking_price": 98000
-      },
-      "important_dates": {
-        "target_closing": "2026-06-30"
-      },
-      "recent_updates": [
-        {
-          "date": "2026-06-11",
-          "source": "Email",
-          "note": "Off-market single-family fix and flip lead in North Adams at $98K asking (seller targets June 30 closing). Matt forwarded to Antonio, who called and left a message."
-        }
-      ],
-      "action_items": [
-        "Antonio awaiting callback from David Seddon re: 94 Reed St walkthrough/details"
-      ]
-    },
-    {
-      "id": "50-potash-hill-rd",
-      "address": "50 Potash Hill Rd",
-      "city": "Cummington",
-      "state": "MA",
-      "status": "active",
-      "current_milestone": "Acquired",
-      "milestones": [
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [],
-      "contacts": [
-        {
-          "name": "David Burstein",
-          "role": "Closing Attorney"
-        },
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        },
-        {
-          "name": "Marissa (PVAmarissa@gmail.com)",
-          "role": "Appraiser (drive-by)"
-        }
-      ],
-      "financials": {},
-      "source": "PDF attachment",
-      "auto_detected": true,
-      "recent_updates": [
-        {
-          "date": "2026-07-04",
-          "source": "PDF",
-          "note": "Drive-by appraisal request sent to Marissa (PVAmarissa) with property PDF and photos link; would make it a 3/2. Flagged as test run."
-        },
-        {
-          "date": "2026-06-12",
-          "source": "PDF attachment",
-          "note": "Purchase recorded today under Revive & Rise LLC. HUD-1 Settlement Statement, recorded Deed, Assignment of Bid, and Mortgage Inspection Plan received from David Burstein (plan notes possible rights of way at rear). Property is vacant."
-        }
-      ],
-      "action_items": [
-        "Review Mortgage Inspection Plan re: possible rights of way at rear",
-        "File HUD-1, deed and assignment of bid",
-        "Await drive-by appraisal results from Marissa (PVAmarissa@gmail.com); plan is 3/2 conversion"
-      ]
-    },
-    {
-      "id": "39-darien-dr",
-      "address": "39 Darien Dr",
-      "city": "Windsor Locks",
-      "state": "CT",
-      "status": "active",
-      "current_milestone": "Prospecting",
-      "milestones": [
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing"
-      ],
-      "completed_milestones": [],
-      "contacts": [],
-      "financials": {},
-      "source": "Email",
-      "auto_detected": true,
-      "recent_updates": [
-        {
-          "date": "2026-06-12",
-          "source": "Email",
-          "note": "Foreclosure sale postponed to Aug 15, 2026 per court order (Law Office of C. Miller). No inspection, no action required at this time."
-        }
-      ],
-      "action_items": []
-    },
-    {
-      "id": "79-pleasant-st",
-      "address": "79 Pleasant St",
-      "city": "Ware",
-      "state": "MA",
-      "status": "active",
-      "current_milestone": "Title & Escrow",
-      "milestones": [
-        "Auction Won",
-        "Title & Escrow",
-        "Closing",
-        "Closed"
-      ],
-      "completed_milestones": [
-        "Auction Won"
-      ],
-      "closing_date": "2026-07-17",
-      "source": "Email/PDF",
-      "auto_detected": true,
-      "contacts": [
-        {
-          "name": "David Burstein, Esq. (Burstein Law Offices)",
-          "role": "Buyer's / Closing Attorney",
-          "email": "davidburstein1@gmail.com"
-        },
-        {
-          "name": "Kevin Shippee",
-          "role": "Winning Bidder / LLC Member-Manager",
-          "email": "kevshippee@gmail.com"
-        },
-        {
-          "name": "Harmon Law Offices",
-          "role": "Foreclosing Firm (Seller's counsel)",
-          "email": "postsale@harmonlaw.com"
-        },
-        {
-          "name": "Webber & Grinnell Insurance",
-          "role": "Insurance",
-          "email": "aedgett@webberandgrinnell.com"
-        },
-        {
-          "name": "Alera Group (Mat Geffin)",
-          "role": "Insurance",
-          "email": "Mat.Geffin@aleragroup.com"
-        },
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        },
-        {
-          "name": "David Burstein",
-          "role": "Closing Attorney"
-        },
-        {
-          "name": "Andrew S. Harmon, Esq. (Harmon Law)",
-          "role": "Foreclosing Firm (Seller's counsel)"
-        },
-        {
-          "name": "Andrew Harmon (Harmon Law)",
-          "role": "Foreclosing Attorney"
-        }
-      ],
-      "financials": {
-        "borrowing_entity": "Yellowbrick Property LLC",
-        "note": "Foreclosure auction win; bid assigned from Kevin Shippee. Bid/purchase amount pending in sale package. Property occupied."
-      },
-      "recent_updates": [
-        {
-          "date": "2026-06-24",
-          "source": "Email",
-          "note": "Burstein (buyer's counsel for YellowBrick Property LLC) awaiting executed foreclosure package & title from Harmon Law. Likely deadline Jul 20, 2026 (Jul 18 is a Saturday); title may not be back by Jul 6."
-        },
-        {
-          "date": "2026-06-24",
-          "source": "Email",
-          "note": "Harmon Law (Andrew Harmon) sent a 'Closing Package' w/ executed docs but corrected it was for 19 Draper Ave â 79 Pleasant docs are NOT back yet. Atty Burstein notes the real deadline is July 20, 2026 (the 18th is a Saturday) and he may not have title back by July 6. Insurance: Webber & Grinnell (A. Edgett) requested application details; Matt confirmed the application was attached to the original email."
-        },
-        {
-          "date": "2026-06-24",
-          "source": "Email",
-          "note": "Atty David Burstein (6/24): scheduled to close by 7/17/2026 (may be extended). Financing decision needed â private funds fully invested; if using Pinnacle, contact Ian or Max ASAP."
-        },
-        {
-          "date": "2026-06-22",
-          "source": "Email",
-          "subject": "Foreclosure docs received; executed package to follow",
-          "note": "Harmon Law Offices (Andrew S. Harmon) sent requested documents to atty. David Burstein; executed foreclosure package to be emailed when available. Purchaser: Yellowbrick Property LLC."
-        },
-        {
-          "date": "2026-06-19",
-          "source": "PDF",
-          "subject": "Assignment of Bid + closing prep",
-          "note": "Atty David Burstein notified Harmon Law he represents purchaser Yellowbrick Property LLC and sent the Assignment of Bid from Kevin Shippee. Requested the notice package (notice of default/acceleration, the Note, Notices of Sale w/ proofs of mailing); title company to review draft foreclosure sale package before closing."
-        },
-        {
-          "date": "2026-06-19",
-          "source": "Email/PDF",
-          "subject": "New foreclosure win â 79 Pleasant St, Ware",
-          "note": "Matt notified the team of a foreclosure auction win (occupied; entity Yellow Brick Property LLC), attaching property and insurance PDFs. Atty Burstein confirmed receipt."
-        }
-      ],
-      "action_items": [
-        "Send notice package to Atty Burstein: notice of default/acceleration w/ proof of mailing, the Note, and Notices of Sale w/ proofs of mailing",
-        "Title company to review draft foreclosure sale package prior to closing",
-        "Confirm insurance binder is in force for 79 Pleasant St (occupied)",
-        "Plan for existing occupancy at 79 Pleasant St post-closing",
-        "Decide financing for 79 Pleasant St before 7/17 close; contact Pinnacle (Ian/Max) if financing",
-        "Confirm title timeline with Burstein; target close before July 20, 2026 deadline.",
-        "Finalize hazard insurance with Webber & Grinnell (A. Edgett) â application details sent.",
-        "Await executed foreclosure package and title for 79 Pleasant St (target close by Jul 20, 2026; statutory deadline Jul 6 noted)."
-      ],
-      "important_dates": []
-    },
-    {
-      "id": "412-st-james-ave",
-      "address": "412 St. James Ave",
-      "city": "Springfield",
-      "state": "MA",
-      "status": "active",
-      "current_milestone": "Closing",
-      "milestones": [
-        "Prospecting",
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing",
-        "Closed"
-      ],
-      "completed_milestones": [
-        "Prospecting",
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Offer Made",
-        "Title & Escrow"
-      ],
-      "closing_date": "2026-07-09",
-      "source": "Email",
-      "auto_detected": true,
-      "contacts": [
-        {
-          "name": "David Burstein",
-          "role": "Closing Attorney (representing Yellowbrick Property LLC)"
-        },
-        {
-          "name": "Brock & Scott PLLC",
-          "role": "Closing Agent / Wire Recipient"
-        },
-        {
-          "name": "Kevin Shippee",
-          "role": "Partner/Lender"
-        },
-        {
-          "name": "Chris (Yellowbrick)",
-          "role": "Partner"
-        },
-        {
-          "name": "ESB Line of Credit",
-          "role": "Funding source (balance ~$257k)"
-        }
-      ],
-      "financials": {
-        "closing_wire": 165054.99,
-        "purchase_wire": "$165,054.99 (via ESB Line of Credit)"
-      },
-      "recent_updates": [
-        {
-          "date": "2026-06-29",
-          "source": "Email",
-          "summary": "Closing pushed from 7/1 to 7/9 at Matt's request (Dave confirmed). Wire of $165,054.99 to Brock & Scott PLLC to fund from ESB LOC."
-        },
-        {
-          "date": "2026-06-29",
-          "source": "Email",
-          "note": "Burstein planned to wire $165,054.99 to Brock & Scott PLLC on 6/30 to close 7/1; Matt asked to move the close to 7/9 and Burstein agreed (\"Yesâ¦I can push it back\"). Chris proposed funding the wire from the ESB Line of Credit (balance ~$257k). New target close: 7/9/2026."
-        },
-        {
-          "date": "2026-06-28",
-          "source": "Email",
-          "note": "Atty David Burstein plans to wire $165,054.99 to Brock & Scott PLLC on Tue 6/30 to close Wed 7/1/2026. Matt flagged a date discrepancy (expected 7/9) and is confirming with Burstein."
-        },
-        {
-          "date": "2026-06-24",
-          "source": "Email",
-          "note": "New upcoming purchase flagged by Atty David Burstein (6/24): ready to close any time prior to 7/9/2026. Financing decision needed â private funds fully invested; if using Pinnacle, contact Ian or Max ASAP."
-        }
-      ],
-      "action_items": [
-        "Confirm $165,054.99 wire to Brock & Scott PLLC funded from ESB LOC for 412 St James 7/9 close.",
-        "Ensure $165,054.99 wire to Brock & Scott PLLC is funded by 6/30",
-        "Confirm closing date with Atty Burstein (7/1 vs 7/9)",
-        "Decide financing for 412 St. James Ave; ready to close before 7/9",
-        "Contact Pinnacle (Ian/Max) if financing this purchase",
-        "Wire $165,054.99 to Brock & Scott PLLC ahead of 7/9 closing"
-      ]
-    },
-    {
-      "id": "83-rolf-ave",
-      "address": "83 Rolf Ave",
-      "city": "Chicopee",
-      "state": "MA",
-      "status": "active",
-      "current_milestone": "Demo/Rehab",
-      "milestones": [
-        "Prospecting",
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing",
-        "Closed"
-      ],
-      "completed_milestones": [
-        "Prospecting",
-        "Acquired"
-      ],
-      "source": "Email",
-      "auto_detected": true,
-      "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Listing Agent / Realtor (Kempf-Vanderburgh, 413-297-5200)"
-        }
-      ],
-      "financials": {
-        "arv": 329000,
-        "repair_budget": 50000,
-        "estimated_basis": 100000,
-        "rehab_cost": 50000
-      },
-      "recent_updates": [
-        {
-          "date": "2026-06-28",
-          "source": "Email",
-          "note": "Jessica Sicard (PM) sent 6/25 punchlist photos for 83 Rolf (Google Photos album). Matt asked Preferred Property Management (Dave) to confirm when items are 100% so they can walk the units."
-        },
-        {
-          "date": "2026-06-24",
-          "source": "Email",
-          "note": "Agent Alice Kempf CMA: can reach ~$329K ARV with the existing 1 bath by counting the ~200 sq ft heated back sunroom, per latest comps. Matt approved ('Let's do it'). Plan: flip once tenant is evicted; est. ~$50K rehab. 1031 exchange under consideration."
-        },
-        {
-          "date": "2026-06-24",
-          "source": "Email",
-          "note": "Alice Kempf updated CMA (6/24): ARV ~$329k with just 1 bath by adding ~200 sq ft heated back 'sunroom', per most recent comps. Prior estimate $315k w/ 1 bath, up to $329,900 w/ added half-bath. Plan: flip once evicted, ~$50k rehab, structure via 1031 exchange."
-        }
-      ],
-      "action_items": [
-        "Walk 83 Rolf units once punchlist is 100% complete",
-        "Complete eviction before flipping 83 Rolf Ave",
-        "Plan ~200 sq ft heated sunroom addition to hit $329k ARV",
-        "Structure acquisition as 1031 exchange",
-        "Proceed with 83 Rolf flip plan post-eviction; budget ~$50K rehab; explore 1031 exchange.",
-        "Proceed with 83 Rolf Ave flip (ARV ~$329K, est. ~$50K rehab); complete eviction, then structure as 1031 exchange."
-      ]
-    },
-    {
-      "id": "66-third-st",
-      "address": "66 Third St",
-      "city": "Pittsfield",
-      "state": "MA",
-      "status": "active",
-      "current_milestone": "Prospecting",
-      "milestones": [
-        "Prospecting",
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing",
-        "Closed"
-      ],
-      "completed_milestones": [],
-      "source": "Email",
-      "auto_detected": true,
-      "contacts": [
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        },
-        {
-          "name": "Tony Marcella (CAV Management)",
-          "role": "Contractor / Estimator"
-        },
-        {
-          "name": "Tony Marcella (CAV Management, tmarcella@cav-mgt.com)",
-          "role": "Contractor (turnover estimate)"
-        }
-      ],
-      "financials": {},
-      "recent_updates": [
-        {
-          "date": "2026-06-30",
-          "source": "Email",
-          "note": "Matt following up with contractor Tony Marcella (CAV Management) for turnover/rehab estimate on vacant unit (lockbox on rear door). Jessica requested estimate be sent to Matt to get work going."
-        },
-        {
-          "date": "2026-06-30",
-          "source": "Email",
-          "note": "Matt followed up with contractor Tony Marcella (CAV Mgmt) for the turnover/rehab estimate. Unit is vacant (lockbox on rear door, code 1979); scope of work shared. Awaiting estimate to begin rehab."
-        },
-        {
-          "date": "2026-06-28",
-          "source": "Email",
-          "note": "Jessica Sicard followed up with Tony Marcella (CAV Management) for a repair estimate on 66 Third St. Jessica out on vacation next week; estimate to be sent to Matt to get the project moving. Matt nudged Tony for the estimate."
-        }
-      ],
-      "action_items": [
-        "Obtain turnover/rehab estimate from Tony Marcella (CAV Mgmt) for the vacant unit",
-        "Obtain repair estimate from Tony Marcella for 66 Third St"
-      ],
-      "status_note": "New prospect â awaiting repair estimate."
-    },
-    {
-      "id": "65-avondale-ave",
-      "address": "65 Avondale Ave",
-      "city": "West Springfield",
-      "state": "MA",
-      "status": "active",
-      "current_milestone": "Prospecting",
-      "milestones": [
-        "Prospecting",
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing",
-        "Closed"
-      ],
-      "completed_milestones": [],
-      "source": "Email",
-      "auto_detected": true,
-      "contacts": [
-        {
-          "name": "Alice Kempf",
-          "role": "Realtor (KVRE)"
-        }
-      ],
-      "financials": {
-        "agent_suggested_arv": 324900,
-        "arv_with_added_half_bath": 335000,
-        "comp_sale": 350000,
-        "arv": 324900
-      },
-      "action_items": [
-        "Decide whether to add a half-bath at 65 Avondale to lift value toward ~$335k.",
-        "Evaluate acquisition of 65 Avondale Ave (West Springfield) against ~$324.9k ARV and rehab scope",
-        "Confirm whether a half-bath can be added to lift ARV toward ~$335k",
-        "Group decision: keep vs. sell/1031 for 65 Avondale — Kevin to reopen discussion with Jess & Gabby"
-      ],
-      "recent_updates": [
-        {
-          "date": "2026-07-03",
-          "source": "Email",
-          "subject": "65 Avondale — Kevin Shippee weighs in on keep vs. sell / 1031",
-          "note": "Kevin: tenant is the biggest hurdle on either path. Keeping = ongoing code-complaint battles (\"just a matter of time before she beats us\"); selling likely requires vacancy but may be less adversarial. Kevin offered to reopen the topic with Jess and Gabby. Group decision needed."
-        },
-        {
-          "date": "2026-06-29",
-          "source": "Email",
-          "note": "Alice Kempf valued at $324,900 for 3BR/1BA; adding a half-bath could push toward $335k. A comparable at $350k sat 60 days, so true value likely below that."
-        },
-        {
-          "date": "2026-06-28",
-          "source": "Email",
-          "note": "Alice Kempf (CMA): est. ARV $324,900 for 3BR/1BA, or ~$335k if a half-bath is added. A comparable sale at $350k sat on market 60 days, so actual purchase price likely lower. CloudCMA report: https://cloudcma.com/pdf/5fd1ec6f9a4383f79e28c40668b4481b"
-        }
-      ]
-    },
-    {
-      "id": "257-wilbraham-road",
-      "address": "257 Wilbraham Road",
-      "city": "Springfield",
-      "state": "MA",
-      "status": "active",
-      "current_milestone": "Repairs / Rehab",
-      "milestones": [
-        "Prospecting",
-        "Acquired",
-        "Demo/Rehab",
-        "Listed",
-        "Under Contract",
-        "Closing",
-        "Closed"
-      ],
-      "completed_milestones": [
-        "Prospecting",
-        "Acquired",
-        "Offer Made",
-        "Under Contract",
-        "Title & Escrow"
-      ],
-      "source": "Email",
-      "auto_detected": true,
-      "contacts": [
-        {
-          "name": "Jessica Sicard",
-          "role": "Project Manager"
-        },
-        {
-          "name": "Dave (Preferred Property Management Inc.)",
-          "role": "Contractor / Rehab Estimate"
-        },
-        {
-          "name": "Dave (Preferred Property Management)",
-          "role": "Rehab contractor"
-        }
-      ],
-      "financials": {},
-      "recent_updates": [
-        {
-          "date": "2026-06-29",
-          "source": "Email",
-          "summary": "Trashout complete; lead report shared. Rehab walkthrough with Dave (Preferred Property Mgmt) set for Wed 7/1 to scope estimate."
-        },
-        {
-          "date": "2026-06-29",
-          "source": "Email",
-          "note": "Jessica Sicard shared the basic rehab scope and lead report for the 1st floor following trashout (not yet walked post-trashout). Matt asked contractor Dave (Preferred Property Management) to walk it Wednesday 7/1 for an estimate; Dave confirmed \"Yes.\""
-        },
-        {
-          "date": "2026-07-06",
-          "source": "Email",
-          "note": "Jessica (back from vacation) followed up with Dave Muno (Preferred Property Management): did he ever walk the 1st fl? Proposed meeting there tomorrow (7/7) to finalize rehab scope estimate. Lead report previously shared."
-        }
-      ],
-      "action_items": [
-        "Dave (Preferred Property Mgmt) to walk 257 Wilbraham Rd 1st fl on Wed 7/1 and provide rehab estimate.",
-        "Review lead report and finalize 1st-floor rehab scope with Jessica.",
-        "Walk 257 Wilbraham Rd w/ Dave Wed 7/1 for rehab estimate",
-        "Confirm 7/7 walkthrough of 1st fl with Dave Muno for rehab scope estimate"
-      ],
-      "status_note": "New property auto-detected from email (rehab scoping)."
-    },
-    {
-      "id": "939-e-columbus-ave",
-      "address": "939 E Columbus Ave",
-      "city": "Springfield",
-      "state": "MA",
-      "status": "active",
-      "current_milestone": "Under Contract",
-      "milestones": [
-        "Offer Made",
-        "Under Contract",
-        "Title & Escrow",
-        "Inspections",
-        "Appraisal",
-        "Financing",
-        "Repairs / Rehab",
-        "Final Walkthrough",
-        "Closing",
-        "Closed"
-      ],
-      "completed_milestones": [],
-      "closing_date": null,
-      "source": "Email",
-      "auto_detected": true,
-      "contacts": [
-        {
-          "name": "David Burstein",
-          "role": "Closing Attorney"
-        },
-        {
-          "name": "Jeremy (SR Commercial RE)",
-          "role": "Broker contact"
-        }
-      ],
-      "financials": {},
-      "recent_updates": [
-        {
-          "date": "2026-06-29",
-          "source": "Email",
-          "summary": "Burstein requested a 30-day extension. Matt to discuss further with broker (Jeremy / SR Commercial) before deciding."
-        }
-      ],
-      "action_items": [
-        "Decide on 30-day extension for 939 E Columbus"
-      ],
-      "status_note": ""
-    },
-    {
-      "id": "86-88-kenyon-st",
-      "address": "86-88 Kenyon St",
-      "city": "Springfield",
-      "state": "MA",
-      "status": "active",
-      "current_milestone": "Prospecting",
-      "milestones": [
-        "Prospecting",
-        "Under Contract",
-        "Closing",
-        "Closed"
-      ],
-      "completed_milestones": [],
-      "source": "Email",
-      "auto_detected": true,
-      "contacts": [
-        {
-          "name": "Alice Kempf (KVRE Team, 413-297-5200, alicek@kvreteam.com)",
-          "role": "Agent"
-        }
-      ],
-      "financials": {
-        "agent_suggested_value": "$399,900 (CloudCMA)",
-        "arv": 399900
-      },
-      "important_dates": {},
-      "action_items": [
-        "Review CloudCMA comps for 86-88 Kenyon St and decide whether to make an offer",
-        "Review Alice Kempf CMA ($399,900) for 86-88 Kenyon St and decide on offer/list strategy."
-      ],
-      "recent_updates": [
-        {
-          "date": "2026-06-30",
-          "source": "Email",
-          "note": "Agent Alice Kempf sent CloudCMA comparative market analysis indicating value of $399,900."
-        },
-        {
-          "date": "2026-06-30",
-          "source": "Email",
-          "note": "Agent Alice Kempf sent a CloudCMA valuation for 86-88 Kenyon St at $399,900. New acquisition prospect under evaluation."
-        }
-      ]
-    },
-    {
-      "id": "29-aspen-st-ware",
-      "address": "29 Aspen St",
-      "city": "Ware",
-      "state": "MA",
-      "status": "closed",
-      "current_milestone": "Closed",
-      "milestones": [
-        "Prospecting",
-        "Under Contract",
-        "Closing",
-        "Closed"
-      ],
-      "completed_milestones": [
-        "Prospecting",
-        "Under Contract",
-        "Closing"
-      ],
-      "source": "Email (PDF)",
-      "auto_detected": true,
-      "contacts": [
-        {
-          "name": "David Burstein",
-          "role": "Closing Attorney"
-        },
-        {
-          "name": "Chris Keniley (YellowBrick)",
-          "role": "Accounting Manager"
-        },
-        {
-          "name": "Warren, Thompson Attorneys (Palmer) — ask for Ingrid",
-          "role": "Seller's closing firm (handled payoff checks)",
-          "phone": "413-283-2461"
-        },
-        {
-          "name": "Tim Haley",
-          "role": "Seller (prior owner)",
-          "email": "hrts1966@live.com",
-          "phone": "413-563-2229"
-        }
-      ],
-      "financials": {
-        "payoff_note": "~$50k + interest believed paid to Hurwitz (under reconciliation)"
-      },
-      "important_dates": {},
-      "action_items": [
-        "Provide copies of actual 29 Aspen payoff checks (Hurwitz ~$50k + interest) to accounting — likely resolved 7/5: Chris obtained docs from closing atty"
-      ],
-      "recent_updates": [
-        {
-          "date": "2026-07-05",
-          "source": "Email",
-          "note": "Chris Keniley confirmed he obtained the closing documents needed for the CPA directly from the closing attorney (Warren, Thompson Attys, Palmer). Documentation request resolved."
-        },
-        {
-          "date": "2026-07-05",
-          "source": "Email",
-          "note": "Tim Haley replied: closing was handled by Warren, Thompson Attys, Palmer (413-283-2461, ask for Ingrid). Tim reachable at 413-563-2229. Docs being gathered for CPA."
-        },
-        {
-          "date": "2026-06-30",
-          "source": "Email (PDF)",
-          "note": "Accounting (Chris Keniley) is reviewing 29 Aspen sale payoff checks with atty. David Burstein; ~$50k plus interest believed paid to Hurwitz. Post-closing payoff reconciliation in progress."
-        }
-      ]
-    },
-    {
-      "id": "62-64-howes-st",
-      "address": "62-64 Howes St",
-      "city": "Springfield",
-      "state": "MA",
-      "status": "active",
-      "current_milestone": "Prospecting",
-      "milestones": [
-        "Prospecting",
-        "Under Contract",
-        "Closing",
-        "Closed"
-      ],
-      "completed_milestones": [],
-      "source": "Email",
-      "auto_detected": true,
-      "contacts": [
-        {
-          "name": "Commonwealth Auctions",
-          "role": "Auctioneer"
-        },
-        {
-          "name": "Stephen K. Zepke",
-          "role": "Owner of record (Ch. 13 bankruptcy filed 2/27/26)"
-        }
-      ],
-      "financials": {
-        "rehab_cost": 65000,
-        "arv": 380000,
-        "arv_conservative": 360000,
-        "max_bid": 215000,
-        "auction_deposit": 10000
-      },
-      "important_dates": {
-        "foreclosure_auction": "2026-07-06"
-      },
-      "action_items": [
-        "Verify relief from automatic stay granted (owner Ch. 13 bankruptcy) BEFORE bidding Monday 7/6",
-        "Bring $10,000 deposit to auction (Mon 7/6, 9:00 AM, Commonwealth Auctions)",
-        "Cap bid at $215,000 (BRRRR refi target on $380k ARV)"
-      ],
-      "recent_updates": [
-        {
-          "date": "2026-07-04",
-          "source": "Email",
-          "note": "Deal underwriting & foreclosure analysis received. Auction Mon 7/6 9AM. Rehab est $65k, ARV $360-380k, max bid $215k. Bankruptcy risk flag: verify stay relief before bidding."
-        }
-      ]
-    },
-    {
       "id": "96-shore-rd",
       "address": "96 Shore Rd",
       "city": "Becket",
       "state": "MA",
-      "status": "active",
+      "status": "sold",
       "current_milestone": "Repairs / Rehab",
       "milestones": [
         "Acquired",
@@ -3876,109 +1502,57 @@
       ]
     },
     {
-      "id": "55-white-ave",
-      "address": "55 White Avenue",
-      "city": "",
+      "id": "7-dugan-rd",
+      "address": "7 Dugan Road",
+      "city": "Ware",
       "state": "MA",
-      "status": "active",
-      "current_milestone": "Repairs / Rehab",
+      "status": "sold",
+      "current_milestone": "Closed",
       "milestones": [
-        "Acquired",
-        "Repairs / Rehab",
-        "Inspections",
-        "Pre-Operational Approval",
-        "Complete"
-      ],
-      "completed_milestones": [
-        "Acquired"
-      ],
-      "source": "Email",
-      "auto_detected": true,
-      "contacts": [
-        {
-          "name": "Rob Cicero",
-          "role": "Owner/Client contact"
-        },
-        {
-          "name": "Jeremy Casey",
-          "role": "SR Commercial RE"
-        },
-        {
-          "name": "Rich Borsari",
-          "role": "SR Commercial RE"
-        },
-        {
-          "name": "Dane",
-          "role": "Russo Equipment (RTU)"
-        }
-      ],
-      "financials": {},
-      "important_dates": {},
-      "action_items": [
-        "Schedule call with Dane (Russo Equipment) re: RTU — today after 4 PM or tomorrow",
-        "Get client approval on scope of work for interior extras",
-        "Obtain RTU status update"
-      ],
-      "recent_updates": [
-        {
-          "date": "2026-07-06",
-          "source": "Email",
-          "note": "Health inspector: pre-operational inspection will be scheduled once fire dept and building dept approve. Matt pressed for SOW approval on interior extras and RTU update; Jeremy Casey backed the ask; Rob says issues are being addressed and requested a call with Dane."
-        }
-      ]
-    },
-    {
-      "id": "1679-lapaloma-st",
-      "address": "1679 Lapaloma St",
-      "city": "Memphis",
-      "state": "TN",
-      "status": "active",
-      "current_milestone": "Offer Made",
-      "milestones": [
-        "Offer Made",
+        "Prospecting",
         "Under Contract",
-        "Title & Escrow",
-        "Inspections",
-        "Appraisal",
-        "Financing",
-        "Repairs / Rehab",
-        "Final Walkthrough",
         "Closing",
         "Closed"
       ],
-      "completed_milestones": [],
+      "completed_milestones": [
+        "Prospecting",
+        "Under Contract",
+        "Closing",
+        "Closed"
+      ],
       "source": "Email",
       "auto_detected": true,
-      "contacts": [
-        {
-          "name": "Mid South Homebuyers",
-          "role": "Turnkey provider (invest@midsouthhomebuyers.com)"
-        },
-        {
-          "name": "Peter Houser",
-          "role": "Partner/Lender (deal analysis recipient)"
-        }
+      "contacts": [],
+      "financials": {},
+      "recent_updates": [],
+      "action_items": []
+    },
+    {
+      "id": "52-bossidy-st",
+      "address": "52 Bossidy St",
+      "city": "Pittsfield",
+      "state": "MA",
+      "status": "sold",
+      "current_milestone": "Closed",
+      "milestones": [
+        "Prospecting",
+        "Under Contract",
+        "Closing",
+        "Closed"
       ],
-      "financials": {
-        "financing_rate": "4.99% promotional investor rate"
-      },
-      "important_dates": {},
-      "action_items": [
-        "Confirm reservation of 1679 Lapaloma St with Mid South Homebuyers at 4.99% financing",
-        "Review deal analysis with Pete Houser"
+      "completed_milestones": [
+        "Prospecting",
+        "Under Contract",
+        "Closing",
+        "Closed"
       ],
-      "recent_updates": [
-        {
-          "date": "2026-07-03",
-          "source": "Email",
-          "note": "Matt told Mid South Homebuyers he will take 1679 Lapaloma St, Memphis TN with the 4.99% financing; provider confirmed multiple reservations allowed."
-        },
-        {
-          "date": "2026-07-06",
-          "source": "Email",
-          "note": "Deal analysis report for 1679 Lapaloma St forwarded to Pete Houser (pjhouser300g@yahoo.com)."
-        }
-      ]
+      "source": "Email",
+      "auto_detected": true,
+      "contacts": [],
+      "financials": {},
+      "recent_updates": [],
+      "action_items": [],
+      "entity": "House Hack Helpers"
     }
   ]
-    }
+        }
